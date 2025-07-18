@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Python Interactiva - Aprende Python desde Cero</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body class="light theme-bg-primary theme-text-primary transition-all duration-300">
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 z-50 flex items-center justify-center theme-bg-primary">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500 mx-auto mb-4"></div>
+            <h2 class="text-2xl font-bold theme-text-primary mb-2">Cargando Academia Python</h2>
+            <p class="theme-text-secondary">Preparando tu experiencia de aprendizaje...</p>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuBtn" class="fixed top-4 left-4 z-40 md:hidden p-2 rounded-lg theme-bg-secondary theme-text-primary shadow-lg">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed left-0 top-0 h-full w-80 theme-bg-secondary theme-border border-r z-30 sidebar-scroll overflow-y-auto sidebar-mobile">
+        <div class="p-6">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fab fa-python text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold theme-text-primary">Academia Python</h1>
+                        <p class="text-sm theme-text-secondary">Aprende desde cero</p>
+                    </div>
+                </div>
+                <button id="themeToggle" class="p-2 rounded-lg theme-bg-tertiary theme-text-primary hover:opacity-80 transition-opacity">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Progress Overview -->
+            <div class="mb-8 p-4 rounded-xl theme-bg-tertiary">
+                <h3 class="text-lg font-semibold theme-text-primary mb-4">Tu Progreso</h3>
+                <div class="flex items-center justify-center mb-4">
+                    <div class="relative w-20 h-20">
+                        <svg class="w-20 h-20">
+                            <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="4" fill="none" class="theme-text-secondary opacity-25"></circle>
+                            <circle id="progressCircle" cx="40" cy="40" r="36" stroke="#3b82f6" stroke-width="4" fill="none" class="progress-ring" stroke-dasharray="226.19" stroke-dashoffset="226.19"></circle>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span id="progressText" class="text-sm font-bold theme-text-primary">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="theme-text-secondary">Completado</span>
+                    <span id="modulesCompleted" class="theme-text-primary font-semibold">0/16</span>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Buscar módulos..." class="w-full px-4 py-2 pl-10 rounded-lg theme-bg-tertiary theme-text-primary theme-border border focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 theme-text-secondary"></i>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="space-y-2">
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="intro">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-play text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">1. Introducción a Python</h3>
+                            <p class="text-sm theme-text-secondary">Abriendo el apetito</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="interpreter">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-terminal text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">2. Usando el Intérprete</h3>
+                            <p class="text-sm theme-text-secondary">Instalación y configuración</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="basics">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-calculator text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">3. Introducción Informal</h3>
+                            <p class="text-sm theme-text-secondary">Números, texto y listas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="control-flow">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-code-branch text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">4. Control de Flujo</h3>
+                            <p class="text-sm theme-text-secondary">if, for, while, funciones</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="data-structures">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-database text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">5. Estructuras de Datos</h3>
+                            <p class="text-sm theme-text-secondary">Listas, tuplas, diccionarios</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="modules">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-cubes text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">6. Módulos</h3>
+                            <p class="text-sm theme-text-secondary">Importar y crear módulos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="io">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-file-alt text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">7. Entrada y Salida</h3>
+                            <p class="text-sm theme-text-secondary">Archivos y formateo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="errors">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-exclamation-triangle text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">8. Errores y Excepciones</h3>
+                            <p class="text-sm theme-text-secondary">Manejo de errores</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="classes">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-object-group text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">9. Clases</h3>
+                            <p class="text-sm theme-text-secondary">Programación orientada a objetos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="stdlib">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-book text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">10. Biblioteca Estándar</h3>
+                            <p class="text-sm theme-text-secondary">Módulos más importantes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="stdlib2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-book-open text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">11. Biblioteca Estándar II</h3>
+                            <p class="text-sm theme-text-secondary">Temas avanzados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="venv">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-box text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">12. Entornos Virtuales</h3>
+                            <p class="text-sm theme-text-secondary">Gestión de paquetes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="deepseek">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-robot text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">13. DeepSeek IA</h3>
+                            <p class="text-sm theme-text-secondary">Asistente IA gratuito</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="google-colab">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fab fa-google text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">14. Google Colab</h3>
+                            <p class="text-sm theme-text-secondary">Notebook en la nube</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="cursor">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-terminal text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">15. Cursor IDE</h3>
+                            <p class="text-sm theme-text-secondary">Editor con IA integrada</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-0 md:ml-80 transition-all duration-300">
+        <!-- Top Bar -->
+        <div class="sticky top-0 z-20 theme-bg-primary theme-border border-b p-4 glass-effect">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <h2 id="currentModuleTitle" class="text-2xl font-bold theme-text-primary">Bienvenido a Academia Python</h2>
+                    <div class="flex items-center space-x-2">
+                        <button id="markCompleteBtn" class="hidden px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                            <i class="fas fa-check mr-2"></i>Marcar como Completado
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="notesBtn" class="p-2 rounded-lg theme-bg-secondary theme-text-primary hover:opacity-80 transition-opacity">
+                        <i class="fas fa-sticky-note text-lg"></i>
+                    </button>
+                    <button id="fullscreenBtn" class="p-2 rounded-lg theme-bg-secondary theme-text-primary hover:opacity-80 transition-opacity">
+                        <i class="fas fa-expand text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="p-6">
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="text-center max-w-4xl mx-auto fade-in">
+                <div class="mb-8">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fab fa-python text-white text-4xl"></i>
+                    </div>
+                    <h1 class="text-4xl font-bold theme-text-primary mb-4">Bienvenido a Academia Python</h1>
+                    <p class="text-xl theme-text-secondary mb-8">La plataforma interactiva más completa para aprender Python desde cero</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="p-6 rounded-2xl theme-bg-secondary">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-video text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold theme-text-primary mb-2">Videos Interactivos</h3>
+                        <p class="theme-text-secondary">Aprende con los mejores tutoriales de YouTube integrados</p>
+                    </div>
+                    <div class="p-6 rounded-2xl theme-bg-secondary">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold theme-text-primary mb-2">Editor de Código</h3>
+                        <p class="theme-text-secondary">Practica Python directamente en tu navegador</p>
+                    </div>
+                    <div class="p-6 rounded-2xl theme-bg-secondary">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold theme-text-primary mb-2">Seguimiento de Progreso</h3>
+                        <p class="theme-text-secondary">Rastrea tu avance con estadísticas detalladas</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <button onclick="loadModule('intro')" class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-rocket mr-2"></i>Comenzar Ahora
+                    </button>
+                    <div class="flex justify-center space-x-4 text-sm theme-text-secondary">
+                        <span><i class="fas fa-clock mr-1"></i>Aprende a tu ritmo</span>
+                        <span><i class="fas fa-certificate mr-1"></i>Certificado incluido</span>
+                        <span><i class="fas fa-mobile-alt mr-1"></i>Acceso móvil</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module Content -->
+            <div id="moduleContent" class="hidden max-w-6xl mx-auto">
+                <!-- Video Section -->
+                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                    <div class="lg:col-span-2">
+                        <div class="theme-bg-secondary rounded-2xl p-6 mb-6">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-4">Video Principal</h3>
+                            <div id="videoContainer" class="video-container rounded-lg overflow-hidden">
+                                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-1">
+                        <div class="theme-bg-secondary rounded-2xl p-6">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-4">Videos Adicionales</h3>
+                            <div id="additionalVideos" class="space-y-4">
+                                <!-- Additional videos will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Tabs -->
+                <div class="mb-8">
+                    <div class="flex space-x-1 theme-bg-secondary rounded-lg p-1">
+                        <button class="tab-btn active px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="content">
+                            <i class="fas fa-book mr-2"></i>Contenido
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="practice">
+                            <i class="fas fa-code mr-2"></i>Práctica
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="exercises">
+                            <i class="fas fa-puzzle-piece mr-2"></i>Ejercicios
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="quiz">
+                            <i class="fas fa-question-circle mr-2"></i>Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Content Tab -->
+                    <div id="contentTab" class="tab-pane active">
+                        <div class="theme-bg-secondary rounded-2xl p-8">
+                            <div id="moduleTextContent">
+                                <!-- Module text content will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Practice Tab -->
+                    <div id="practiceTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-6">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-4">Editor de Código Python</h3>
+                            <div class="grid lg:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-lg font-medium theme-text-primary mb-3">Código</h4>
+                                    <textarea id="codeEditor" class="w-full h-64 p-4 theme-bg-tertiary theme-text-primary rounded-lg border theme-border code-editor resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="# Escribe tu código Python aquí...
+print('¡Hola, mundo!')"></textarea>
+                                    <div class="flex space-x-2 mt-4">
+                                        <button id="runCodeBtn" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                                            <i class="fas fa-play mr-2"></i>Ejecutar
+                                        </button>
+                                        <button id="clearCodeBtn" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                                            <i class="fas fa-trash mr-2"></i>Limpiar
+                                        </button>
+                                        <button id="saveCodeBtn" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                                            <i class="fas fa-save mr-2"></i>Guardar
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium theme-text-primary mb-3">Salida</h4>
+                                    <div id="codeOutput" class="w-full h-64 p-4 theme-bg-tertiary theme-text-primary rounded-lg border theme-border code-editor overflow-auto">
+                                        <div class="text-gray-500 italic">La salida aparecerá aquí...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercises Tab -->
+                    <div id="exercisesTab" class="tab-pane hidden">
+                        <div class="space-y-6">
+                            <div id="exercisesList">
+                                <!-- Exercises will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Tab -->
+                    <div id="quizTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-8">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-6">Quiz del Módulo</h3>
+                            <div id="quizContainer">
+                                <!-- Quiz will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes Modal -->
+    <div id="notesModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50" onclick="closeNotesModal()"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 theme-bg-primary rounded-2xl shadow-2xl">
+            <div class="p-6 h-full flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold theme-text-primary">Mis Notas</h3>
+                    <button onclick="closeNotesModal()" class="p-2 hover:bg-gray-200 rounded-lg transition-colors">
+                        <i class="fas fa-times theme-text-primary"></i>
+                    </button>
+                </div>
+                <textarea id="notesTextarea" class="flex-1 w-full p-4 theme-bg-secondary theme-text-primary rounded-lg border theme-border resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Escribe tus notas aquí..."></textarea>
+                <div class="flex justify-end space-x-2 mt-4">
+                    <button onclick="saveNotes()" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                        <i class="fas fa-save mr-2"></i>Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="fixed top-4 right-4 z-50 hidden">
+        <div class="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
+            <i class="fas fa-check-circle"></i>
+            <span id="notificationText">Notificación</span>
+        </div>
+    </div>
+
+    <!-- External JavaScript Files -->
+    <script src="js/modules-data.js"></script>
+    <script src="js/intro.js"></script>
+    <script src="js/interpreter.js"></script>
+    <script src="js/basics.js"></script>
+    <script src="js/modules.js"></script>
+    <script src="js/io.js"></script>
+    <script src="js/errors.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="js/stdlib.js"></script>
+    <script src="js/stdlib2.js"></script>
+    <script src="js/venv.js"></script>
+    <script src="js/app-core.js"></script>
+</body>
+</html>
