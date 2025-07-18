@@ -82,7 +82,15 @@ function bindEventListeners() {
 }
 
 function loadModule(moduleId) {
-    if (!modules[moduleId]) return;
+    if (typeof modules === 'undefined') {
+        console.error('modules object not loaded');
+        return;
+    }
+    
+    if (!modules[moduleId]) {
+        console.error(`Module ${moduleId} not found`);
+        return;
+    }
     
     currentModule = moduleId;
     const module = modules[moduleId];
@@ -107,6 +115,9 @@ function loadModule(moduleId) {
     
     // Load content
     document.getElementById('moduleTextContent').innerHTML = module.content;
+    
+    // Load Google Colab content
+    loadColabContent(module.colabContent);
     
     // Load exercises
     loadExercises(module.exercises);
@@ -153,6 +164,31 @@ function loadAdditionalVideos(videos) {
         
         container.appendChild(videoEl);
     });
+}
+
+function loadColabContent(colabContent) {
+    const container = document.getElementById('colabContent');
+    if (container) {
+        if (colabContent) {
+            container.innerHTML = colabContent;
+        } else {
+            // Contenido por defecto si no existe colabContent
+            container.innerHTML = `
+                <div class="text-center py-8">
+                    <h4 class="text-lg font-semibold theme-text-primary mb-4">🚀 Práctica en Google Colab</h4>
+                    <p class="theme-text-secondary mb-6">Experimenta con Python en Google Colab para este módulo.</p>
+                    <button onclick="window.open('https://colab.research.google.com/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fab fa-google mr-2"></i>Abrir Google Colab
+                    </button>
+                    <div class="mt-4 p-4 theme-bg-tertiary rounded-lg">
+                        <p class="text-sm theme-text-secondary">
+                            💡 Crea un nuevo notebook y practica los conceptos de este módulo
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+    }
 }
 
 function loadExercises(exercises) {
@@ -346,7 +382,12 @@ function markModuleComplete() {
 }
 
 function updateProgress() {
-    // This would need to be adapted to work with the modules object
+    // Check if modules object exists
+    if (typeof modules === 'undefined') {
+        console.log('modules object not yet loaded');
+        return;
+    }
+    
     const totalModules = Object.keys(modules || {}).length;
     const completedModules = Object.values(progress).filter(status => status === 'completed').length;
     const percentage = Math.round((completedModules / totalModules) * 100);
@@ -371,23 +412,27 @@ function updateProgress() {
     }
     
     // Update module status icons
-    Object.keys(modules || {}).forEach(moduleId => {
-        const moduleElement = document.querySelector(`[data-module="${moduleId}"]`);
-        if (moduleElement) {
-            const statusIcon = moduleElement.querySelector('.w-8.h-8');
-            const status = progress[moduleId] || 'not-started';
-            
-            statusIcon.className = `w-8 h-8 rounded-full ${status} flex items-center justify-center`;
-            
-            if (status === 'completed') {
-                statusIcon.innerHTML = '<i class="fas fa-check text-sm"></i>';
-            } else if (status === 'in-progress') {
-                statusIcon.innerHTML = '<i class="fas fa-play text-sm"></i>';
-            } else {
-                statusIcon.innerHTML = '<i class="fas fa-play text-sm"></i>';
+    if (typeof modules !== 'undefined') {
+        Object.keys(modules || {}).forEach(moduleId => {
+            const moduleElement = document.querySelector(`[data-module="${moduleId}"]`);
+            if (moduleElement) {
+                const statusIcon = moduleElement.querySelector('.w-8.h-8');
+                if (statusIcon) {
+                    const status = progress[moduleId] || 'not-started';
+                    
+                    statusIcon.className = `w-8 h-8 rounded-full ${status} flex items-center justify-center`;
+                    
+                    if (status === 'completed') {
+                        statusIcon.innerHTML = '<i class="fas fa-check text-sm"></i>';
+                    } else if (status === 'in-progress') {
+                        statusIcon.innerHTML = '<i class="fas fa-play text-sm"></i>';
+                    } else {
+                        statusIcon.innerHTML = '<i class="fas fa-play text-sm"></i>';
+                    }
+                }
             }
-        }
-    });
+        });
+    }
 }
 
 function searchModules() {

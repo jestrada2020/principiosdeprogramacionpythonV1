@@ -41,6 +41,63 @@ const modules = {
                 </div>
             </div>
         `,
+        colabContent: `
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold theme-text-primary mb-3">🚀 Práctica en Google Colab</h4>
+                <p class="theme-text-secondary mb-4">Experimenta con estos ejercicios prácticos en Google Colab. Cada bloque de código está diseñado para ayudarte a entender mejor Python.</p>
+                
+                <div class="mb-6">
+                    <button onclick="window.open('https://colab.research.google.com/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fab fa-google mr-2"></i>Abrir Google Colab
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">📝 Ejercicio 1: Tu primer programa</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Copia y pega este código en Google Colab:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Mi primer programa en Python<br>
+print("¡Hola, mundo desde Google Colab!")<br>
+print("Python es increíble")<br>
+print("¡Estoy aprendiendo a programar!")</code>
+                        </div>
+                        <p class="text-sm theme-text-secondary">Presiona <kbd>Shift + Enter</kbd> para ejecutar</p>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">🎯 Ejercicio 2: Variables y personalización</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Personaliza este código con tu información:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Personaliza tu información<br>
+nombre = "Tu nombre aquí"<br>
+edad = 20<br>
+ciudad = "Tu ciudad"<br>
+lenguaje_favorito = "Python"<br><br>
+print(f"Hola, soy {nombre}")<br>
+print(f"Tengo {edad} años")<br>
+print(f"Vivo en {ciudad}")<br>
+print(f"Mi lenguaje favorito es {lenguaje_favorito}")</code>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">🎨 Ejercicio 3: Python como calculadora</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Explora las operaciones matemáticas básicas:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Python como calculadora<br>
+print("=== Operaciones Básicas ===")<br>
+print(f"2 + 3 = {2 + 3}")<br>
+print(f"10 - 4 = {10 - 4}")<br>
+print(f"6 * 7 = {6 * 7}")<br>
+print(f"15 / 3 = {15 / 3}")<br>
+print(f"2 ** 8 = {2 ** 8}")<br>
+print(f"17 % 5 = {17 % 5}")</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `,
         exercises: [
             {
                 title: "Tu primer programa",
@@ -113,6 +170,72 @@ const modules = {
                 <code class="text-sm">
                     $ python mi_script.py
                 </code>
+            </div>
+        `,
+        colabContent: `
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold theme-text-primary mb-3">🐍 Intérprete de Python en Google Colab</h4>
+                <p class="theme-text-secondary mb-4">Explora las características del intérprete de Python directamente en Colab.</p>
+                
+                <div class="mb-6">
+                    <button onclick="window.open('https://colab.research.google.com/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fab fa-google mr-2"></i>Abrir Google Colab
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">🔍 Ejercicio 1: Información del intérprete</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Descubre detalles sobre el intérprete de Python:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code>import sys<br>
+import platform<br>
+<br>
+print("🐍 INFORMACIÓN DEL INTÉRPRETE DE PYTHON")<br>
+print("=" * 45)<br>
+print(f"Versión de Python: {sys.version}")<br>
+print(f"Versión corta: {sys.version_info}")<br>
+print(f"Plataforma: {platform.platform()}")<br>
+print(f"Arquitectura: {platform.architecture()}")<br>
+print(f"Directorio ejecutable: {sys.executable}")<br>
+print(f"Path de Python: {sys.path[:3]}...")  # Primeros 3 elementos<br>
+<br>
+# Información del sistema<br>
+print(f"\\nSistema operativo: {platform.system()}")<br>
+print(f"Nombre del equipo: {platform.node()}")<br>
+print(f"Procesador: {platform.processor()}")</code>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">⚙️ Ejercicio 2: Configuración del intérprete</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Explora la configuración y módulos disponibles:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Módulos incorporados<br>
+import sys<br>
+<br>
+print("📦 MÓDULOS INCORPORADOS")<br>
+print("=" * 30)<br>
+builtin_modules = sorted(sys.builtin_module_names)<br>
+print(f"Total de módulos incorporados: {len(builtin_modules)}")<br>
+print("\\nPrimeros 10 módulos:")<br>
+for i, module in enumerate(builtin_modules[:10]):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"{i+1:2d}. {module}")<br>
+<br>
+# Configuración de codificación<br>
+print(f"\\n🔤 CODIFICACIÓN")<br>
+print("=" * 20)<br>
+print(f"Codificación por defecto: {sys.getdefaultencoding()}")<br>
+print(f"Codificación del sistema: {sys.getfilesystemencoding()}")<br>
+<br>
+# Límites del sistema<br>
+print(f"\\n📊 LÍMITES DEL SISTEMA")<br>
+print("=" * 25)<br>
+print(f"Recursión máxima: {sys.getrecursionlimit()}")<br>
+print(f"Tamaño máximo de int: {sys.maxsize}")</code>
+                        </div>
+                    </div>
+                </div>
             </div>
         `,
         exercises: [
@@ -198,6 +321,133 @@ const modules = {
                     # Llamando la función<br>
                     fibonacci(100)
                 </code>
+            </div>
+        `,
+        colabContent: `
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold theme-text-primary mb-3">🔀 Control de Flujo en Google Colab</h4>
+                <p class="theme-text-secondary mb-4">Domina if, for, while y funciones con ejemplos prácticos y ejercicios interactivos.</p>
+                
+                <div class="mb-6">
+                    <button onclick="window.open('https://colab.research.google.com/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fab fa-google mr-2"></i>Abrir Google Colab
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">🤔 Ejercicio 1: Condicionales avanzadas</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Practica con if, elif y else:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Clasificador de edades<br>
+def clasificar_edad(edad):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if edad < 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Edad inválida"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elif edad < 13:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Niño"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elif edad < 18:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Adolescente"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elif edad < 65:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Adulto"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Adulto mayor"<br>
+<br>
+# Probar diferentes edades<br>
+edades = [5, 15, 25, 70, -5]<br>
+for edad in edades:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Edad {edad}: {clasificar_edad(edad)}")<br>
+<br>
+# Calculadora de notas<br>
+def calcular_nota(puntos):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if puntos >= 90:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "A"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elif puntos >= 80:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "B"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elif puntos >= 70:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "C"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elif puntos >= 60:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "D"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "F"<br>
+<br>
+puntuaciones = [95, 87, 73, 65, 45]<br>
+for puntos in puntuaciones:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"{puntos} puntos = Nota {calcular_nota(puntos)}")</code>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">🔄 Ejercicio 2: Bucles y patrones</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Crea patrones y secuencias con bucles:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Patrones con bucles<br>
+print("=== Patrón de estrellas ===")<br>
+for i in range(1, 6):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("*" * i)<br>
+<br>
+print("\\n=== Tabla de multiplicar ===")<br>
+numero = 7<br>
+for i in range(1, 11):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"{numero} x {i} = {numero * i}")<br>
+<br>
+print("\\n=== Números pares del 1 al 20 ===")<br>
+pares = []<br>
+for i in range(1, 21):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if i % 2 == 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pares.append(i)<br>
+print(f"Números pares: {pares}")<br>
+<br>
+print("\\n=== Countdown ===")<br>
+for i in range(10, 0, -1):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Faltan {i} segundos")<br>
+print("¡Tiempo!")</code>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">🎯 Ejercicio 3: Funciones prácticas</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Crea funciones útiles para resolver problemas:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Funciones útiles<br>
+def es_primo(n):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"""Verifica si un número es primo"""<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if n < 2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for i in range(2, int(n**0.5) + 1):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if n % i == 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return True<br>
+<br>
+def factorial(n):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"""Calcula el factorial de un número"""<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if n <= 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return n * factorial(n - 1)<br>
+<br>
+def fibonacci(n):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"""Genera los primeros n números de Fibonacci"""<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if n <= 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elif n == 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elif n == 2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [0, 1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fib = [0, 1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for i in range(2, n):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fib.append(fib[i-1] + fib[i-2])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return fib<br>
+<br>
+# Probar las funciones<br>
+print("Números primos del 1 al 20:")<br>
+primos = [i for i in range(1, 21) if es_primo(i)]<br>
+print(primos)<br>
+<br>
+print(f"\\nFactorial de 5: {factorial(5)}")<br>
+print(f"Primeros 10 números de Fibonacci: {fibonacci(10)}")</code>
+                        </div>
+                    </div>
+                </div>
             </div>
         `,
         exercises: [
@@ -309,6 +559,167 @@ const modules = {
                 </code>
             </div>
         `,
+        colabContent: `
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold theme-text-primary mb-3">📊 Estructuras de Datos en Google Colab</h4>
+                <p class="theme-text-secondary mb-4">Domina listas, tuplas, diccionarios y conjuntos con ejercicios prácticos inspirados en casos reales.</p>
+                
+                <div class="mb-6">
+                    <button onclick="window.open('https://colab.research.google.com/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fab fa-google mr-2"></i>Abrir Google Colab
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">📝 Ejercicio 1: Sistema de gestión de estudiantes</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Crea un sistema para gestionar información de estudiantes:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Sistema de gestión de estudiantes<br>
+estudiantes = []<br>
+<br>
+# Agregar estudiantes<br>
+estudiantes.append({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"nombre": "Ana García",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"edad": 20,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"carrera": "Ingeniería",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"calificaciones": [85, 92, 78, 88, 90]<br>
+})<br>
+<br>
+estudiantes.append({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"nombre": "Carlos López",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"edad": 19,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"carrera": "Medicina",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"calificaciones": [92, 87, 95, 89, 91]<br>
+})<br>
+<br>
+# Funciones de análisis<br>
+def calcular_promedio(calificaciones):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return sum(calificaciones) / len(calificaciones)<br>
+<br>
+def obtener_mejor_estudiante(estudiantes):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mejor = None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mejor_promedio = 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for estudiante in estudiantes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;promedio = calcular_promedio(estudiante["calificaciones"])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if promedio > mejor_promedio:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mejor_promedio = promedio<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mejor = estudiante<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return mejor, mejor_promedio<br>
+<br>
+# Mostrar resultados<br>
+for estudiante in estudiantes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;promedio = calcular_promedio(estudiante["calificaciones"])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Estudiante: {estudiante['nombre']}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Promedio: {promedio:.2f}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("-" * 30)<br>
+<br>
+mejor, promedio = obtener_mejor_estudiante(estudiantes)<br>
+print(f"\\nMejor estudiante: {mejor['nombre']} ({promedio:.2f})")</code>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">🛒 Ejercicio 2: Carrito de compras</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Simula un carrito de compras con productos:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Carrito de compras<br>
+productos = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"laptop": {"precio": 1200, "stock": 5},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"mouse": {"precio": 25, "stock": 20},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"teclado": {"precio": 80, "stock": 15},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"monitor": {"precio": 300, "stock": 8},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"auriculares": {"precio": 150, "stock": 12}<br>
+}<br>
+<br>
+carrito = []<br>
+<br>
+def agregar_al_carrito(producto, cantidad):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if producto in productos:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if productos[producto]["stock"] >= cantidad:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;carrito.append({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"producto": producto,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"cantidad": cantidad,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"precio_unitario": productos[producto]["precio"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;productos[producto]["stock"] -= cantidad<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"✅ {cantidad} {producto}(s) agregado(s) al carrito")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"❌ Stock insuficiente para {producto}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"❌ Producto {producto} no encontrado")<br>
+<br>
+def calcular_total():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = sum(item["cantidad"] * item["precio_unitario"] for item in carrito)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return total<br>
+<br>
+def mostrar_carrito():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\\n🛒 CARRITO DE COMPRAS")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("=" * 40)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for item in carrito:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subtotal = item["cantidad"] * item["precio_unitario"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"{item['producto']} x{item['cantidad']} = \${subtotal}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"\\nTOTAL: \${calcular_total()}")<br>
+<br>
+# Simular compras<br>
+agregar_al_carrito("laptop", 1)<br>
+agregar_al_carrito("mouse", 2)<br>
+agregar_al_carrito("teclado", 1)<br>
+agregar_al_carrito("laptop", 10)  # Debe fallar por stock<br>
+<br>
+mostrar_carrito()</code>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">📈 Ejercicio 3: Análisis de datos con conjuntos</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Analiza datos usando conjuntos y operaciones:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Análisis de preferencias de usuarios<br>
+usuarios_python = {"Ana", "Carlos", "Luis", "María", "Pedro", "Sofia"}<br>
+usuarios_javascript = {"Carlos", "Elena", "Luis", "Roberto", "Sofia", "Diego"}<br>
+usuarios_java = {"Ana", "Elena", "Miguel", "Pedro", "Roberto", "Carlos"}<br>
+<br>
+print("👥 ANÁLISIS DE PREFERENCIAS DE LENGUAJES")<br>
+print("=" * 50)<br>
+<br>
+# Usuarios que programan en Python<br>
+print(f"Python: {len(usuarios_python)} usuarios")<br>
+print(f"Lista: {sorted(usuarios_python)}")<br>
+<br>
+# Usuarios que programan en JavaScript<br>
+print(f"\\nJavaScript: {len(usuarios_javascript)} usuarios")<br>
+print(f"Lista: {sorted(usuarios_javascript)}")<br>
+<br>
+# Usuarios que programan en Java<br>
+print(f"\\nJava: {len(usuarios_java)} usuarios")<br>
+print(f"Lista: {sorted(usuarios_java)}")<br>
+<br>
+# Operaciones con conjuntos<br>
+print("\\n🔍 ANÁLISIS CRUZADO")<br>
+print("=" * 30)<br>
+<br>
+# Usuarios que programan en Python Y JavaScript<br>
+python_js = usuarios_python & usuarios_javascript<br>
+print(f"Python ∩ JavaScript: {sorted(python_js)}")<br>
+<br>
+# Usuarios que programan en los 3 lenguajes<br>
+todos_lenguajes = usuarios_python & usuarios_javascript & usuarios_java<br>
+print(f"Los 3 lenguajes: {sorted(todos_lenguajes)}")<br>
+<br>
+# Usuarios que solo programan en Python<br>
+solo_python = usuarios_python - usuarios_javascript - usuarios_java<br>
+print(f"Solo Python: {sorted(solo_python)}")<br>
+<br>
+# Total de usuarios únicos<br>
+todos_usuarios = usuarios_python | usuarios_javascript | usuarios_java<br>
+print(f"\\nTotal usuarios únicos: {len(todos_usuarios)}")<br>
+print(f"Lista completa: {sorted(todos_usuarios)}")</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `,
         exercises: [
             {
                 title: "Operaciones con listas",
@@ -404,6 +815,94 @@ const modules = {
                     >>> cuadrados[-1]<br>
                     25
                 </code>
+            </div>
+        `,
+        colabContent: `
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold theme-text-primary mb-3">🧮 Práctica de Fundamentos en Google Colab</h4>
+                <p class="theme-text-secondary mb-4">Domina los conceptos básicos de Python: números, strings y listas con ejercicios prácticos.</p>
+                
+                <div class="mb-6">
+                    <button onclick="window.open('https://colab.research.google.com/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fab fa-google mr-2"></i>Abrir Google Colab
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">🔢 Ejercicio 1: Operaciones matemáticas</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Explora todos los operadores matemáticos:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Operadores matemáticos en Python<br>
+print("=== Operadores Básicos ===")<br>
+print(f"Suma: 25 + 15 = {25 + 15}")<br>
+print(f"Resta: 50 - 30 = {50 - 30}")<br>
+print(f"Multiplicación: 7 * 8 = {7 * 8}")<br>
+print(f"División: 84 / 4 = {84 / 4}")<br>
+print(f"División entera: 17 // 5 = {17 // 5}")<br>
+print(f"Módulo: 17 % 5 = {17 % 5}")<br>
+print(f"Potencia: 3 ** 4 = {3 ** 4}")<br><br>
+# Orden de operaciones<br>
+resultado = 2 + 3 * 4<br>
+print(f"2 + 3 * 4 = {resultado}")<br>
+resultado_con_parentesis = (2 + 3) * 4<br>
+print(f"(2 + 3) * 4 = {resultado_con_parentesis}")</code>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">📝 Ejercicio 2: Manipulación de strings</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Aprende a trabajar con cadenas de texto:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Trabajando con strings<br>
+nombre = "Python"<br>
+apellido = "Programming"<br>
+<br>
+# Concatenación<br>
+nombre_completo = nombre + " " + apellido<br>
+print(f"Nombre completo: {nombre_completo}")<br>
+<br>
+# Repetición<br>
+print("¡" * 5)<br>
+<br>
+# Métodos de string<br>
+texto = "Hola mundo python"<br>
+print(f"Mayúsculas: {texto.upper()}")<br>
+print(f"Minúsculas: {texto.lower()}")<br>
+print(f"Título: {texto.title()}")<br>
+print(f"Longitud: {len(texto)}")<br>
+print(f"Reemplazar: {texto.replace('mundo', 'universo')}")</code>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">📋 Ejercicio 3: Listas básicas</h5>
+                        <p class="text-sm theme-text-secondary mb-3">Descubre el poder de las listas:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Trabajando con listas<br>
+# Crear listas<br>
+numeros = [1, 2, 3, 4, 5]<br>
+frutas = ["manzana", "banana", "naranja"]<br>
+mixta = [1, "Python", 3.14, True]<br>
+<br>
+print(f"Números: {numeros}")<br>
+print(f"Frutas: {frutas}")<br>
+print(f"Lista mixta: {mixta}")<br>
+<br>
+# Acceder a elementos<br>
+print(f"Primer número: {numeros[0]}")<br>
+print(f"Última fruta: {frutas[-1]}")<br>
+<br>
+# Slicing<br>
+print(f"Primeros 3 números: {numeros[:3]}")<br>
+print(f"Últimos 2 números: {numeros[-2:]}")<br>
+<br>
+# Agregar elementos<br>
+frutas.append("uva")<br>
+print(f"Frutas después de agregar: {frutas}")</code>
+                        </div>
+                    </div>
+                </div>
             </div>
         `,
         exercises: [
