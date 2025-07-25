@@ -91,6 +91,46 @@ const basics = {
             question: "¿Cómo se accede al primer elemento de una lista?",
             options: ["lista[1]", "lista[0]", "lista.first()", "lista.get(0)"],
             correct: 1
+        },
+        {
+            question: "¿Cuál es el operador para la división entera en Python?",
+            options: ["/", "//", "%", "div"],
+            correct: 1
+        },
+        {
+            question: "¿Qué resultado devuelve el operador % en Python?",
+            options: ["División", "Multiplicación", "Módulo (resto)", "Potencia"],
+            correct: 2
+        },
+        {
+            question: "¿Cómo se define una cadena de texto multilínea en Python?",
+            options: ["'texto'", "\"texto\"", "'''texto'''", "Todas las anteriores son correctas para multilínea"],
+            correct: 2
+        },
+        {
+            question: "¿Cuál es el método correcto para agregar un elemento al final de una lista?",
+            options: ["lista.add()", "lista.append()", "lista.insert()", "lista.push()"],
+            correct: 1
+        },
+        {
+            question: "¿Qué devuelve len([1, 2, 3, 4])?",
+            options: ["3", "4", "5", "Error"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se verifica el tipo de una variable en Python?",
+            options: ["typeof(variable)", "type(variable)", "variable.type()", "gettype(variable)"],
+            correct: 1
+        },
+        {
+            question: "¿Cuál es la forma correcta de crear una lista vacía?",
+            options: ["lista = []", "lista = list()", "lista = new List()", "Opciones A y B son correctas"],
+            correct: 3
+        },
+        {
+            question: "¿Qué operador se usa para verificar si un elemento está en una lista?",
+            options: ["is", "in", "contains", "has"],
+            correct: 1
         }
     ]
 };

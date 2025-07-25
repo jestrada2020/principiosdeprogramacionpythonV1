@@ -68,6 +68,51 @@ const venv = {
             question: "¿Cuál es la ventaja principal de usar entornos virtuales?",
             options: ["Son más rápidos", "Aíslan las dependencias", "Ocupan menos espacio", "Son más seguros"],
             correct: 1
+        },
+        {
+            question: "¿Cómo se crea un entorno virtual con venv?",
+            options: ["python -m venv nombre", "venv create nombre", "python venv nombre", "create venv nombre"],
+            correct: 0
+        },
+        {
+            question: "¿Cómo se activa un entorno virtual en Linux/Mac?",
+            options: ["activate nombre", "source nombre/bin/activate", "nombre/activate", "./nombre/activate"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se desactiva un entorno virtual?",
+            options: ["exit", "deactivate", "stop", "quit"],
+            correct: 1
+        },
+        {
+            question: "¿Qué archivo contiene las dependencias de un proyecto?",
+            options: ["dependencies.txt", "packages.txt", "requirements.txt", "libs.txt"],
+            correct: 2
+        },
+        {
+            question: "¿Cómo se instalan las dependencias desde requirements.txt?",
+            options: ["pip install requirements.txt", "pip install -r requirements.txt", "pip -r requirements.txt", "pip requirements.txt"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se genera el archivo requirements.txt?",
+            options: ["pip freeze > requirements.txt", "pip list > requirements.txt", "pip save requirements.txt", "pip export requirements.txt"],
+            correct: 0
+        },
+        {
+            question: "¿Dónde se almacenan los paquetes en un entorno virtual?",
+            options: ["En /usr/local/lib", "En el directorio del entorno virtual", "En ~/.python", "En el directorio del proyecto"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se actualiza pip en un entorno virtual?",
+            options: ["pip update", "pip upgrade", "pip install --upgrade pip", "update pip"],
+            correct: 2
+        },
+        {
+            question: "¿Cuál es la diferencia entre virtualenv y venv?",
+            options: ["No hay diferencia", "venv está incluido en Python 3.3+", "virtualenv es más rápido", "venv solo funciona en Linux"],
+            correct: 1
         }
     ]
 };

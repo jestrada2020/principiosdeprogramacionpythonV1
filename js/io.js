@@ -83,6 +83,51 @@ const io = {
             question: "¿Cuál es la ventaja de usar 'with' al abrir archivos?",
             options: ["Es más rápido", "Se cierra automáticamente", "Usa menos memoria", "Es más moderno"],
             correct: 1
+        },
+        {
+            question: "¿Cuál es el modo correcto para abrir un archivo solo para lectura?",
+            options: ["'r'", "'read'", "'rb'", "'open'"],
+            correct: 0
+        },
+        {
+            question: "¿Qué método se usa para leer todo el contenido de un archivo?",
+            options: ["read()", "readall()", "getall()", "content()"],
+            correct: 0
+        },
+        {
+            question: "¿Cómo se lee un archivo línea por línea?",
+            options: ["for line in file:", "file.readlines()", "file.readline()", "Todas las anteriores"],
+            correct: 3
+        },
+        {
+            question: "¿Qué modo se usa para escribir en un archivo (sobrescribir)?",
+            options: ["'w'", "'write'", "'a'", "'overwrite'"],
+            correct: 0
+        },
+        {
+            question: "¿Cuál es la diferencia entre 'w' y 'a' al abrir archivos?",
+            options: ["No hay diferencia", "'w' sobrescribe, 'a' añade al final", "'a' es más rápido", "'w' es para texto, 'a' para binario"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se verifica si un archivo existe antes de abrirlo?",
+            options: ["os.path.exists()", "file.exists()", "os.file.check()", "path.isfile()"],
+            correct: 0
+        },
+        {
+            question: "¿Qué codificación se recomienda especificar al abrir archivos de texto?",
+            options: ["ascii", "utf-8", "latin-1", "unicode"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se formatea una cadena usando f-strings?",
+            options: ["f'Hola {nombre}'", "format('Hola {nombre}')", "'Hola %s' % nombre", "Todas las anteriores"],
+            correct: 0
+        },
+        {
+            question: "¿Qué método se usa para dividir una cadena en líneas?",
+            options: ["split()", "splitlines()", "split('\\n')", "Opciones B y C son correctas"],
+            correct: 3
         }
     ]
 };

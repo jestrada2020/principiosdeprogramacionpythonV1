@@ -80,6 +80,51 @@ const modules_data = {
             question: "¿Cuál es la forma correcta de importar solo la función sqrt del módulo math?",
             options: ["import math.sqrt", "from math import sqrt", "import sqrt from math", "math.import(sqrt)"],
             correct: 1
+        },
+        {
+            question: "¿Cómo se importa un módulo con un alias?",
+            options: ["import math as m", "import math alias m", "from math import as m", "import m from math"],
+            correct: 0
+        },
+        {
+            question: "¿Qué variable contiene el nombre del módulo actual?",
+            options: ["__module__", "__name__", "__file__", "__self__"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se importan todas las funciones de un módulo?",
+            options: ["import *", "from módulo import *", "import módulo.*", "from * import módulo"],
+            correct: 1
+        },
+        {
+            question: "¿Dónde busca Python los módulos para importar?",
+            options: ["En sys.path", "En os.path", "En PYTHONPATH solamente", "Solo en el directorio actual"],
+            correct: 0
+        },
+        {
+            question: "¿Cuál es la diferencia entre un módulo y un paquete?",
+            options: ["No hay diferencia", "Un paquete contiene múltiples módulos", "Un módulo es más grande", "Un paquete es solo para librerías"],
+            correct: 1
+        },
+        {
+            question: "¿Qué archivo indica que un directorio es un paquete Python?",
+            options: ["__init__.py", "__package__.py", "package.py", "__main__.py"],
+            correct: 0
+        },
+        {
+            question: "¿Cómo se ejecuta un módulo como script?",
+            options: ["python -m módulo", "python módulo.py", "run módulo", "Opciones A y B son correctas"],
+            correct: 3
+        },
+        {
+            question: "¿Qué sucede cuando Python importa un módulo por primera vez?",
+            options: ["Solo se lee", "Se ejecuta todo el código del módulo", "Solo se cargan las funciones", "Se compila únicamente"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se evita que cierto código se ejecute al importar un módulo?",
+            options: ["Usando if __main__:", "Usando if __name__ == '__main__':", "Usando if import:", "No es posible"],
+            correct: 1
         }
     ]
 };

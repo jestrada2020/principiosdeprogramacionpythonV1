@@ -89,6 +89,51 @@ const stdlib = {
             question: "¿Qué módulo usarías para trabajar con fechas?",
             options: ["time", "datetime", "date", "calendar"],
             correct: 1
+        },
+        {
+            question: "¿Qué función del módulo os usarías para listar archivos?",
+            options: ["os.list()", "os.listdir()", "os.files()", "os.dir()"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se obtiene el directorio actual de trabajo?",
+            options: ["os.getcwd()", "os.pwd()", "os.currentdir()", "sys.path[0]"],
+            correct: 0
+        },
+        {
+            question: "¿Qué clase de collections es útil para contar elementos?",
+            options: ["Counter", "OrderedDict", "defaultdict", "deque"],
+            correct: 0
+        },
+        {
+            question: "¿Cómo se genera un número aleatorio entre 0 y 1?",
+            options: ["random.random()", "random.uniform(0,1)", "random.float()", "Opciones A y B son correctas"],
+            correct: 3
+        },
+        {
+            question: "¿Qué módulo se usa para expresiones regulares?",
+            options: ["regex", "re", "regexp", "pattern"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se crea una fecha de hoy con datetime?",
+            options: ["datetime.now()", "datetime.today()", "datetime.date.today()", "Todas las anteriores"],
+            correct: 2
+        },
+        {
+            question: "¿Qué función de sys contiene los argumentos de línea de comandos?",
+            options: ["sys.args", "sys.argv", "sys.arguments", "sys.params"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se formatea un número decimal con 2 decimales usando format?",
+            options: ["'{:.2f}'.format(num)", "'{:2f}'.format(num)", "'{:f2}'.format(num)", "'{f:.2}'.format(num)"],
+            correct: 0
+        },
+        {
+            question: "¿Qué módulo permite crear números complejos y trabajar con matemática avanzada?",
+            options: ["math", "cmath", "numbers", "complex"],
+            correct: 1
         }
     ]
 };

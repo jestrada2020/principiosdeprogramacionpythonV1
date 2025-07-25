@@ -93,6 +93,51 @@ const errors = {
             question: "¿Cuál es la diferencia entre try-except y try-finally?",
             options: ["No hay diferencia", "finally siempre se ejecuta", "except es opcional", "finally maneja errores"],
             correct: 1
+        },
+        {
+            question: "¿Cuál es la excepción más común al acceder a un índice que no existe?",
+            options: ["ValueError", "IndexError", "KeyError", "AttributeError"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se capturan múltiples tipos de excepciones?",
+            options: ["except ValueError, TypeError:", "except (ValueError, TypeError):", "except ValueError or TypeError:", "except ValueError and TypeError:"],
+            correct: 1
+        },
+        {
+            question: "¿Qué palabra clave se usa para lanzar una excepción manualmente?",
+            options: ["throw", "raise", "error", "exception"],
+            correct: 1
+        },
+        {
+            question: "¿Cuál es la excepción que se lanza al dividir por cero?",
+            options: ["ValueError", "ArithmeticError", "ZeroDivisionError", "MathError"],
+            correct: 2
+        },
+        {
+            question: "¿Qué hace la cláusula else en un bloque try-except?",
+            options: ["Se ejecuta si hay error", "Se ejecuta si no hay error", "Se ejecuta siempre", "No existe else en try-except"],
+            correct: 1
+        },
+        {
+            question: "¿Cuál es la excepción base de todas las excepciones en Python?",
+            options: ["Error", "Exception", "BaseException", "RuntimeError"],
+            correct: 2
+        },
+        {
+            question: "¿Cómo se accede al mensaje de error de una excepción?",
+            options: ["error.message", "str(error)", "error.text", "error.details"],
+            correct: 1
+        },
+        {
+            question: "¿Cuál es la excepción que se lanza al intentar acceder a una clave inexistente en un diccionario?",
+            options: ["ValueError", "IndexError", "KeyError", "AttributeError"],
+            correct: 2
+        },
+        {
+            question: "¿Cómo se crea una excepción personalizada en Python?",
+            options: ["Heredando de Error", "Heredando de Exception", "Heredando de BaseException", "Usando def exception"],
+            correct: 1
         }
     ]
 };

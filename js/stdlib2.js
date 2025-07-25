@@ -66,6 +66,51 @@ const stdlib2 = {
             question: "¿Cuál es la ventaja de usar Decimal sobre float?",
             options: ["Es más rápido", "Más preciso para decimales", "Ocupa menos memoria", "Es más fácil de usar"],
             correct: 1
+        },
+        {
+            question: "¿Qué niveles de logging existen en Python (de menor a mayor severidad)?",
+            options: ["DEBUG, INFO, WARNING, ERROR, CRITICAL", "LOW, MEDIUM, HIGH, CRITICAL", "TRACE, DEBUG, INFO, WARN, ERROR", "ALL, INFO, WARNING, ERROR, NONE"],
+            correct: 0
+        },
+        {
+            question: "¿Cómo se configura el formato de los mensajes de logging?",
+            options: ["logging.format()", "logging.basicConfig(format=...)", "logging.setFormat()", "logging.config()"],
+            correct: 1
+        },
+        {
+            question: "¿Qué módulo se usa para trabajar con datos JSON en Python?",
+            options: ["json", "simplejson", "jsonlib", "data"],
+            correct: 0
+        },
+        {
+            question: "¿Cómo se convierte un diccionario Python a JSON?",
+            options: ["json.dumps()", "json.loads()", "json.encode()", "json.parse()"],
+            correct: 0
+        },
+        {
+            question: "¿Qué módulo permite hacer peticiones HTTP en Python?",
+            options: ["http", "requests (externa)", "urllib", "Opciones B y C son correctas"],
+            correct: 3
+        },
+        {
+            question: "¿Para qué sirve el módulo itertools?",
+            options: ["Trabajar con archivos", "Crear iteradores eficientes", "Manejar fechas", "Procesar JSON"],
+            correct: 1
+        },
+        {
+            question: "¿Qué función de itertools combina múltiples iterables?",
+            options: ["itertools.combine()", "itertools.chain()", "itertools.merge()", "itertools.join()"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se convierte una cadena JSON a un objeto Python?",
+            options: ["json.loads()", "json.dumps()", "json.parse()", "json.decode()"],
+            correct: 0
+        },
+        {
+            question: "¿Qué módulo se usa para trabajar con archivos CSV?",
+            options: ["csv", "file", "data", "table"],
+            correct: 0
         }
     ]
 };

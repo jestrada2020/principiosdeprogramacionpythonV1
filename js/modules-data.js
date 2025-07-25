@@ -122,6 +122,46 @@ print(f"17 % 5 = {17 % 5}")</code>
                 question: "¿Python es un lenguaje interpretado?",
                 options: ["Sí", "No", "A veces", "Depende del sistema"],
                 correct: 0
+            },
+            {
+                question: "¿Quién creó el lenguaje Python?",
+                options: ["James Gosling", "Guido van Rossum", "Brendan Eich", "Dennis Ritchie"],
+                correct: 1
+            },
+            {
+                question: "¿En qué año fue lanzado por primera vez Python?",
+                options: ["1989", "1991", "1995", "2000"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la extensión de archivo para scripts de Python?",
+                options: [".py", ".python", ".pt", ".pyt"],
+                correct: 0
+            },
+            {
+                question: "¿Python es sensible a mayúsculas y minúsculas?",
+                options: ["Sí", "No", "Solo en funciones", "Solo en variables"],
+                correct: 0
+            },
+            {
+                question: "¿Cuál de estos NO es un tipo de dato básico en Python?",
+                options: ["int", "float", "string", "char"],
+                correct: 3
+            },
+            {
+                question: "¿Qué significa que Python sea multiplataforma?",
+                options: ["Solo funciona en Windows", "Funciona en diferentes sistemas operativos", "Solo funciona en Linux", "Necesita compilación específica"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el paradigma principal de programación que soporta Python?",
+                options: ["Solo orientado a objetos", "Solo funcional", "Multiparadigma", "Solo procedural"],
+                correct: 2
+            },
+            {
+                question: "¿Python utiliza llaves {} para delimitar bloques de código?",
+                options: ["Sí, siempre", "No, usa indentación", "Solo en funciones", "Solo en clases"],
+                correct: 1
             }
         ]
     },
@@ -251,6 +291,51 @@ print(f"Tamaño máximo de int: {sys.maxsize}")</code>
                 question: "¿Cómo se inicia el intérprete interactivo de Python?",
                 options: ["python", "py", "python3", "Todas las anteriores"],
                 correct: 3
+            },
+            {
+                question: "¿Qué comando se usa para salir del intérprete de Python?",
+                options: ["exit", "quit()", "exit()", "Todas las anteriores"],
+                correct: 3
+            },
+            {
+                question: "¿Cómo se ejecuta un archivo Python desde la línea de comandos?",
+                options: ["python archivo.py", "run archivo.py", "exec archivo.py", "start archivo.py"],
+                correct: 0
+            },
+            {
+                question: "¿Qué son los prompts >>> y ... en el intérprete?",
+                options: ["Errores de sintaxis", "Indicadores de entrada primaria y secundaria", "Comandos especiales", "Decoradores"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se verifica la versión de Python instalada?",
+                options: ["python --version", "python -V", "python --v", "Opciones A y B son correctas"],
+                correct: 3
+            },
+            {
+                question: "¿Qué variable contiene la ruta donde está instalado Python?",
+                options: ["sys.path", "sys.executable", "os.path", "python.path"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se accede al historial de comandos en el intérprete?",
+                options: ["Flechas arriba/abajo", "history()", "Ctrl+H", "No es posible"],
+                correct: 0
+            },
+            {
+                question: "¿Qué hace el comando help() en el intérprete?",
+                options: ["Cierra Python", "Muestra ayuda interactiva", "Lista archivos", "Limpia pantalla"],
+                correct: 1
+            },
+            {
+                question: "¿Qué variable especial contiene el resultado de la última expresión en el intérprete?",
+                options: ["_last", "_", "__result__", "result"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se ejecuta código Python de forma interactiva desde un archivo?",
+                options: ["python -i archivo.py", "python -interactive archivo.py", "python archivo.py -i", "interactive archivo.py"],
+                correct: 0
             }
         ]
     },
@@ -473,6 +558,46 @@ print(f"Primeros 10 números de Fibonacci: {fibonacci(10)}")</code>
             {
                 question: "¿Qué función usas para generar una secuencia de números?",
                 options: ["sequence()", "range()", "numbers()", "generate()"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se define una función en Python?",
+                options: ["function nombre():", "def nombre():", "func nombre():", "define nombre():"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la diferencia entre while y for en Python?",
+                options: ["No hay diferencia", "while es para condiciones, for para iteraciones", "for es más rápido", "while solo acepta números"],
+                correct: 1
+            },
+            {
+                question: "¿Qué hace la palabra clave 'break' en un bucle?",
+                options: ["Pausa el bucle", "Termina el bucle completamente", "Salta a la siguiente iteración", "Imprime un mensaje"],
+                correct: 1
+            },
+            {
+                question: "¿Qué hace la palabra clave 'continue' en un bucle?",
+                options: ["Termina el bucle", "Salta a la siguiente iteración", "Pausa por un segundo", "Reinicia el bucle"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se define un parámetro por defecto en una función?",
+                options: ["def func(param default value):", "def func(param = value):", "def func(param: value):", "def func(param -> value):"],
+                correct: 1
+            },
+            {
+                question: "¿Qué devuelve una función que no tiene return explícito?",
+                options: ["0", "''", "None", "Error"],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es la sintaxis correcta para un if anidado?",
+                options: ["if-then-else", "if: elif: else:", "if-elseif-else", "Todas son correctas"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se itera sobre los índices y valores de una lista?",
+                options: ["for i, v in list:", "for i, v in enumerate(list):", "for i, v in index(list):", "for i, v in range(list):"],
                 correct: 1
             }
         ]
@@ -744,6 +869,46 @@ print(f"Lista completa: {sorted(todos_usuarios)}")</code>
                 question: "¿Cómo accedes al valor de una clave en un diccionario?",
                 options: ["dict.get(key)", "dict[key]", "dict(key)", "Todas son correctas"],
                 correct: 3
+            },
+            {
+                question: "¿Cuál es la sintaxis correcta para crear un conjunto (set)?",
+                options: ["set = []", "set = {}", "set = {1, 2, 3}", "set = (1, 2, 3)"],
+                correct: 2
+            },
+            {
+                question: "¿Qué método se usa para eliminar un elemento de una lista por valor?",
+                options: ["delete()", "remove()", "erase()", "pop()"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se agrega un elemento a un conjunto?",
+                options: ["set.append()", "set.add()", "set.insert()", "set.push()"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la principal característica de los conjuntos (sets)?",
+                options: ["Permiten duplicados", "No permiten duplicados", "Son ordenados", "Son inmutables"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se accede al último elemento de una lista?",
+                options: ["lista[last]", "lista[-1]", "lista[end]", "lista.last()"],
+                correct: 1
+            },
+            {
+                question: "¿Qué devuelve dict.keys()?",
+                options: ["Una lista", "Un conjunto", "Una vista de las claves", "Un string"],
+                correct: 2
+            },
+            {
+                question: "¿Cómo se concatenan dos listas?",
+                options: ["lista1 + lista2", "lista1.concat(lista2)", "lista1.join(lista2)", "lista1.merge(lista2)"],
+                correct: 0
+            },
+            {
+                question: "¿Cuál es la forma correcta de crear un diccionario vacío?",
+                options: ["dict = []", "dict = {}", "dict = ()", "dict = set()"],
+                correct: 1
             }
         ]
     },
@@ -929,6 +1094,46 @@ print(f"Frutas después de agregar: {frutas}")</code>
                 question: "¿Cómo se accede al primer elemento de una lista?",
                 options: ["lista[1]", "lista[0]", "lista.first()", "lista.get(0)"],
                 correct: 1
+            },
+            {
+                question: "¿Cuál es el operador para la división entera en Python?",
+                options: ["/", "//", "%", "div"],
+                correct: 1
+            },
+            {
+                question: "¿Qué resultado devuelve el operador % en Python?",
+                options: ["División", "Multiplicación", "Módulo (resto)", "Potencia"],
+                correct: 2
+            },
+            {
+                question: "¿Cómo se define una cadena de texto multilínea en Python?",
+                options: ["'texto'", "\"texto\"", "'''texto'''", "Todas las anteriores son correctas para multilínea"],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es el método correcto para agregar un elemento al final de una lista?",
+                options: ["lista.add()", "lista.append()", "lista.insert()", "lista.push()"],
+                correct: 1
+            },
+            {
+                question: "¿Qué devuelve len([1, 2, 3, 4])?",
+                options: ["3", "4", "5", "Error"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se verifica el tipo de una variable en Python?",
+                options: ["typeof(variable)", "type(variable)", "variable.type()", "gettype(variable)"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la forma correcta de crear una lista vacía?",
+                options: ["lista = []", "lista = list()", "lista = new List()", "Opciones A y B son correctas"],
+                correct: 3
+            },
+            {
+                question: "¿Qué operador se usa para verificar si un elemento está en una lista?",
+                options: ["is", "in", "contains", "has"],
+                correct: 1
             }
         ]
     },
@@ -1014,6 +1219,51 @@ print(f"Frutas después de agregar: {frutas}")</code>
             {
                 question: "¿Cuál es la forma correcta de importar solo la función sqrt del módulo math?",
                 options: ["import math.sqrt", "from math import sqrt", "import sqrt from math", "math.import(sqrt)"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se importa un módulo con un alias?",
+                options: ["import math as m", "import math alias m", "from math import as m", "import m from math"],
+                correct: 0
+            },
+            {
+                question: "¿Qué variable contiene el nombre del módulo actual?",
+                options: ["__module__", "__name__", "__file__", "__self__"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se importan todas las funciones de un módulo?",
+                options: ["import *", "from módulo import *", "import módulo.*", "from * import módulo"],
+                correct: 1
+            },
+            {
+                question: "¿Dónde busca Python los módulos para importar?",
+                options: ["En sys.path", "En os.path", "En PYTHONPATH solamente", "Solo en el directorio actual"],
+                correct: 0
+            },
+            {
+                question: "¿Cuál es la diferencia entre un módulo y un paquete?",
+                options: ["No hay diferencia", "Un paquete contiene múltiples módulos", "Un módulo es más grande", "Un paquete es solo para librerías"],
+                correct: 1
+            },
+            {
+                question: "¿Qué archivo indica que un directorio es un paquete Python?",
+                options: ["__init__.py", "__package__.py", "package.py", "__main__.py"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se ejecuta un módulo como script?",
+                options: ["python -m módulo", "python módulo.py", "run módulo", "Opciones A y B son correctas"],
+                correct: 3
+            },
+            {
+                question: "¿Qué sucede cuando Python importa un módulo por primera vez?",
+                options: ["Solo se lee", "Se ejecuta todo el código del módulo", "Solo se cargan las funciones", "Se compila únicamente"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se evita que cierto código se ejecute al importar un módulo?",
+                options: ["Usando if __main__:", "Usando if __name__ == '__main__':", "Usando if import:", "No es posible"],
                 correct: 1
             }
         ]
@@ -1104,6 +1354,51 @@ print(f"Frutas después de agregar: {frutas}")</code>
                 question: "¿Cuál es la ventaja de usar 'with' al abrir archivos?",
                 options: ["Es más rápido", "Se cierra automáticamente", "Usa menos memoria", "Es más moderno"],
                 correct: 1
+            },
+            {
+                question: "¿Cuál es el modo correcto para abrir un archivo solo para lectura?",
+                options: ["'r'", "'read'", "'rb'", "'open'"],
+                correct: 0
+            },
+            {
+                question: "¿Qué método se usa para leer todo el contenido de un archivo?",
+                options: ["read()", "readall()", "getall()", "content()"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se lee un archivo línea por línea?",
+                options: ["for line in file:", "file.readlines()", "file.readline()", "Todas las anteriores"],
+                correct: 3
+            },
+            {
+                question: "¿Qué modo se usa para escribir en un archivo (sobrescribir)?",
+                options: ["'w'", "'write'", "'a'", "'overwrite'"],
+                correct: 0
+            },
+            {
+                question: "¿Cuál es la diferencia entre 'w' y 'a' al abrir archivos?",
+                options: ["No hay diferencia", "'w' sobrescribe, 'a' añade al final", "'a' es más rápido", "'w' es para texto, 'a' para binario"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se verifica si un archivo existe antes de abrirlo?",
+                options: ["os.path.exists()", "file.exists()", "os.file.check()", "path.isfile()"],
+                correct: 0
+            },
+            {
+                question: "¿Qué codificación se recomienda especificar al abrir archivos de texto?",
+                options: ["ascii", "utf-8", "latin-1", "unicode"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se formatea una cadena usando f-strings?",
+                options: ["f'Hola {nombre}'", "format('Hola {nombre}')", "'Hola %s' % nombre", "Todas las anteriores"],
+                correct: 0
+            },
+            {
+                question: "¿Qué método se usa para dividir una cadena en líneas?",
+                options: ["split()", "splitlines()", "split('\\n')", "Opciones B y C son correctas"],
+                correct: 3
             }
         ]
     },
@@ -1202,6 +1497,51 @@ print(f"Frutas después de agregar: {frutas}")</code>
             {
                 question: "¿Cuál es la diferencia entre try-except y try-finally?",
                 options: ["No hay diferencia", "finally siempre se ejecuta", "except es opcional", "finally maneja errores"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la excepción más común al acceder a un índice que no existe?",
+                options: ["ValueError", "IndexError", "KeyError", "AttributeError"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se capturan múltiples tipos de excepciones?",
+                options: ["except ValueError, TypeError:", "except (ValueError, TypeError):", "except ValueError or TypeError:", "except ValueError and TypeError:"],
+                correct: 1
+            },
+            {
+                question: "¿Qué palabra clave se usa para lanzar una excepción manualmente?",
+                options: ["throw", "raise", "error", "exception"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la excepción que se lanza al dividir por cero?",
+                options: ["ValueError", "ArithmeticError", "ZeroDivisionError", "MathError"],
+                correct: 2
+            },
+            {
+                question: "¿Qué hace la cláusula else en un bloque try-except?",
+                options: ["Se ejecuta si hay error", "Se ejecuta si no hay error", "Se ejecuta siempre", "No existe else en try-except"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la excepción base de todas las excepciones en Python?",
+                options: ["Error", "Exception", "BaseException", "RuntimeError"],
+                correct: 2
+            },
+            {
+                question: "¿Cómo se accede al mensaje de error de una excepción?",
+                options: ["error.message", "str(error)", "error.text", "error.details"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la excepción que se lanza al intentar acceder a una clave inexistente en un diccionario?",
+                options: ["ValueError", "IndexError", "KeyError", "AttributeError"],
+                correct: 2
+            },
+            {
+                question: "¿Cómo se crea una excepción personalizada en Python?",
+                options: ["Heredando de Error", "Heredando de Exception", "Heredando de BaseException", "Usando def exception"],
                 correct: 1
             }
         ]
@@ -1305,6 +1645,51 @@ print(f"Frutas después de agregar: {frutas}")</code>
                 question: "¿Qué es self en Python?",
                 options: ["Una palabra reservada", "Referencia al objeto actual", "Un tipo de dato", "Una función especial"],
                 correct: 1
+            },
+            {
+                question: "¿Cuál es el método especial que se ejecuta al crear un objeto?",
+                options: ["__init__", "__new__", "__create__", "__start__"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se define herencia en Python?",
+                options: ["class Hijo extends Padre:", "class Hijo(Padre):", "class Hijo inherits Padre:", "class Hijo -> Padre:"],
+                correct: 1
+            },
+            {
+                question: "¿Qué es el encapsulamiento en programación orientada a objetos?",
+                options: ["Ocultar detalles internos", "Crear múltiples objetos", "Heredar de otras clases", "Usar métodos estáticos"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se define un atributo privado en Python?",
+                options: ["private atributo", "_atributo", "__atributo", "private __atributo"],
+                correct: 2
+            },
+            {
+                question: "¿Qué método se llama cuando se usa print() en un objeto?",
+                options: ["__print__", "__str__", "__display__", "__show__"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la diferencia entre método de clase y método de instancia?",
+                options: ["No hay diferencia", "Los métodos de clase usan @classmethod", "Los métodos de instancia son más rápidos", "Los métodos de clase no pueden acceder a self"],
+                correct: 1
+            },
+            {
+                question: "¿Qué permite el polimorfismo en Python?",
+                options: ["Crear objetos múltiples", "Usar el mismo método en diferentes clases", "Heredar de múltiples clases", "Encapsular datos"],
+                correct: 1
+            },
+            {
+                question: "¿Qué método se usa para comparar si dos objetos son iguales?",
+                options: ["__equal__", "__eq__", "__compare__", "__same__"],
+                correct: 1
+            },
+            {
+                question: "¿Python soporta herencia múltiple?",
+                options: ["No", "Sí", "Solo con interfaces", "Solo en Python 3"],
+                correct: 1
             }
         ]
     },
@@ -1400,6 +1785,51 @@ print(f"Frutas después de agregar: {frutas}")</code>
                 question: "¿Qué módulo usarías para trabajar con fechas?",
                 options: ["time", "datetime", "date", "calendar"],
                 correct: 1
+            },
+            {
+                question: "¿Qué función del módulo os usarías para listar archivos?",
+                options: ["os.list()", "os.listdir()", "os.files()", "os.dir()"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se obtiene el directorio actual de trabajo?",
+                options: ["os.getcwd()", "os.pwd()", "os.currentdir()", "sys.path[0]"],
+                correct: 0
+            },
+            {
+                question: "¿Qué clase de collections es útil para contar elementos?",
+                options: ["Counter", "OrderedDict", "defaultdict", "deque"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se genera un número aleatorio entre 0 y 1?",
+                options: ["random.random()", "random.uniform(0,1)", "random.float()", "Opciones A y B son correctas"],
+                correct: 3
+            },
+            {
+                question: "¿Qué módulo se usa para expresiones regulares?",
+                options: ["regex", "re", "regexp", "pattern"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se crea una fecha de hoy con datetime?",
+                options: ["datetime.now()", "datetime.today()", "datetime.date.today()", "Todas las anteriores"],
+                correct: 2
+            },
+            {
+                question: "¿Qué función de sys contiene los argumentos de línea de comandos?",
+                options: ["sys.args", "sys.argv", "sys.arguments", "sys.params"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se formatea un número decimal con 2 decimales usando format?",
+                options: ["'{:.2f}'.format(num)", "'{:2f}'.format(num)", "'{:f2}'.format(num)", "'{f:.2}'.format(num)"],
+                correct: 0
+            },
+            {
+                question: "¿Qué módulo permite crear números complejos y trabajar con matemática avanzada?",
+                options: ["math", "cmath", "numbers", "complex"],
+                correct: 1
             }
         ]
     },
@@ -1472,6 +1902,51 @@ print(f"Frutas después de agregar: {frutas}")</code>
                 question: "¿Cuál es la ventaja de usar Decimal sobre float?",
                 options: ["Es más rápido", "Más preciso para decimales", "Ocupa menos memoria", "Es más fácil de usar"],
                 correct: 1
+            },
+            {
+                question: "¿Qué niveles de logging existen en Python (de menor a mayor severidad)?",
+                options: ["DEBUG, INFO, WARNING, ERROR, CRITICAL", "LOW, MEDIUM, HIGH, CRITICAL", "TRACE, DEBUG, INFO, WARN, ERROR", "ALL, INFO, WARNING, ERROR, NONE"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se configura el formato de los mensajes de logging?",
+                options: ["logging.format()", "logging.basicConfig(format=...)", "logging.setFormat()", "logging.config()"],
+                correct: 1
+            },
+            {
+                question: "¿Qué módulo se usa para trabajar con datos JSON en Python?",
+                options: ["json", "simplejson", "jsonlib", "data"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se convierte un diccionario Python a JSON?",
+                options: ["json.dumps()", "json.loads()", "json.encode()", "json.parse()"],
+                correct: 0
+            },
+            {
+                question: "¿Qué módulo permite hacer peticiones HTTP en Python?",
+                options: ["http", "requests (externa)", "urllib", "Opciones B y C son correctas"],
+                correct: 3
+            },
+            {
+                question: "¿Para qué sirve el módulo itertools?",
+                options: ["Trabajar con archivos", "Crear iteradores eficientes", "Manejar fechas", "Procesar JSON"],
+                correct: 1
+            },
+            {
+                question: "¿Qué función de itertools combina múltiples iterables?",
+                options: ["itertools.combine()", "itertools.chain()", "itertools.merge()", "itertools.join()"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se convierte una cadena JSON a un objeto Python?",
+                options: ["json.loads()", "json.dumps()", "json.parse()", "json.decode()"],
+                correct: 0
+            },
+            {
+                question: "¿Qué módulo se usa para trabajar con archivos CSV?",
+                options: ["csv", "file", "data", "table"],
+                correct: 0
             }
         ]
     },
@@ -1545,6 +2020,51 @@ print(f"Frutas después de agregar: {frutas}")</code>
             {
                 question: "¿Cuál es la ventaja principal de usar entornos virtuales?",
                 options: ["Son más rápidos", "Aíslan las dependencias", "Ocupan menos espacio", "Son más seguros"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se crea un entorno virtual con venv?",
+                options: ["python -m venv nombre", "venv create nombre", "python venv nombre", "create venv nombre"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se activa un entorno virtual en Linux/Mac?",
+                options: ["activate nombre", "source nombre/bin/activate", "nombre/activate", "./nombre/activate"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se desactiva un entorno virtual?",
+                options: ["exit", "deactivate", "stop", "quit"],
+                correct: 1
+            },
+            {
+                question: "¿Qué archivo contiene las dependencias de un proyecto?",
+                options: ["dependencies.txt", "packages.txt", "requirements.txt", "libs.txt"],
+                correct: 2
+            },
+            {
+                question: "¿Cómo se instalan las dependencias desde requirements.txt?",
+                options: ["pip install requirements.txt", "pip install -r requirements.txt", "pip -r requirements.txt", "pip requirements.txt"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se genera el archivo requirements.txt?",
+                options: ["pip freeze > requirements.txt", "pip list > requirements.txt", "pip save requirements.txt", "pip export requirements.txt"],
+                correct: 0
+            },
+            {
+                question: "¿Dónde se almacenan los paquetes en un entorno virtual?",
+                options: ["En /usr/local/lib", "En el directorio del entorno virtual", "En ~/.python", "En el directorio del proyecto"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se actualiza pip en un entorno virtual?",
+                options: ["pip update", "pip upgrade", "pip install --upgrade pip", "update pip"],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es la diferencia entre virtualenv y venv?",
+                options: ["No hay diferencia", "venv está incluido en Python 3.3+", "virtualenv es más rápido", "venv solo funciona en Linux"],
                 correct: 1
             }
         ]
@@ -1630,6 +2150,51 @@ print(f"Frutas después de agregar: {frutas}")</code>
                 question: "¿Para qué puedes usar DeepSeek IA en tu aprendizaje de Python?",
                 options: ["Solo para escribir código", "Solo para explicaciones", "Para código, explicaciones, depuración y proyectos", "Solo para proyectos"],
                 correct: 2
+            },
+            {
+                question: "¿Cuál es la principal ventaja de DeepSeek IA para estudiantes?",
+                options: ["Es muy caro", "Es completamente gratuito", "Solo funciona en inglés", "Requiere instalación"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de asistencia puede proporcionar DeepSeek con el código Python?",
+                options: ["Solo sintaxis básica", "Explicaciones, correcciones y optimizaciones", "Solo errores simples", "Solo comentarios"],
+                correct: 1
+            },
+            {
+                question: "¿DeepSeek puede ayudar con proyectos completos de Python?",
+                options: ["No, solo líneas individuales", "Sí, puede asistir en proyectos completos", "Solo con funciones simples", "Solo con variables"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo puede DeepSeek ayudar en la depuración de código?",
+                options: ["No puede ayudar con errores", "Identifica errores y sugiere soluciones", "Solo muestra errores de sintaxis", "Solo funciona con print()"],
+                correct: 1
+            },
+            {
+                question: "¿Qué ventaja tiene usar IA para aprender Python?",
+                options: ["Reemplaza completamente a los profesores", "Proporciona asistencia personalizada 24/7", "Solo funciona para expertos", "Es más lento que los libros"],
+                correct: 1
+            },
+            {
+                question: "¿DeepSeek puede explicar conceptos complejos de Python?",
+                options: ["Solo conceptos básicos", "Sí, desde básicos hasta avanzados", "Solo sintaxis", "Solo errores"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo puede DeepSeek ayudar con las mejores prácticas de Python?",
+                options: ["No conoce mejores prácticas", "Sugiere mejoras y optimizaciones", "Solo corrige errores", "Solo da ejemplos básicos"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de preguntas puedes hacer a DeepSeek sobre Python?",
+                options: ["Solo preguntas muy básicas", "Cualquier pregunta relacionada con Python", "Solo sobre errores", "Solo sobre sintaxis"],
+                correct: 1
+            },
+            {
+                question: "¿DeepSeek puede ayudar a generar código Python desde descripciones?",
+                options: ["No puede generar código", "Sí, puede convertir descripciones en código", "Solo copia código existente", "Solo modifica código existente"],
+                correct: 1
             }
         ]
     },
@@ -1761,6 +2326,46 @@ print(f"Frutas después de agregar: {frutas}")</code>
             {
                 question: "¿Cómo ejecutas una celda de código en Google Colab?",
                 options: ["Ctrl+Enter", "Shift+Enter", "Alt+Enter", "F5"],
+                correct: 1
+            },
+            {
+                question: "¿Qué bibliotecas vienen preinstaladas en Google Colab?",
+                options: ["Solo NumPy", "NumPy, Pandas, Matplotlib y muchas más", "Solo bibliotecas básicas", "Ninguna"],
+                correct: 1
+            },
+            {
+                question: "¿Dónde se ejecuta el código en Google Colab?",
+                options: ["En tu computadora local", "En los servidores de Google", "En tu navegador", "En tu teléfono"],
+                correct: 1
+            },
+            {
+                question: "¿Necesitas una cuenta de Google para usar Colab?",
+                options: ["No", "Sí", "Solo para proyectos grandes", "Solo para guardar archivos"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de archivos puedes crear en Google Colab?",
+                options: ["Solo .py", "Solo .txt", "Notebooks .ipynb", "Solo .html"],
+                correct: 2
+            },
+            {
+                question: "¿Cómo compartes un notebook de Colab con otros?",
+                options: ["No se puede compartir", "Mediante un enlace compartible", "Solo por email", "Solo descargando el archivo"],
+                correct: 1
+            },
+            {
+                question: "¿Google Colab ofrece GPU gratuita?",
+                options: ["No", "Sí, con limitaciones", "Solo para universidades", "Solo para empresas"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo instalas nuevas bibliotecas en Colab?",
+                options: ["pip install en una celda", "No se pueden instalar", "Solo desde configuración", "Descargando manualmente"],
+                correct: 0
+            },
+            {
+                question: "¿Los archivos en Colab se guardan permanentemente?",
+                options: ["Sí, siempre", "No, se eliminan después de inactividad", "Solo los importantes", "Solo si los descargas"],
                 correct: 1
             }
         ]
@@ -1914,6 +2519,46 @@ print(f"Frutas después de agregar: {frutas}")</code>
                 question: "¿Qué comando usas para abrir el directorio actual en Cursor?",
                 options: ["cursor .", "cursor open", "cursor start", "cursor run"],
                 correct: 0
+            },
+            {
+                question: "¿Qué tecla usas para activar el autocompletado IA en Cursor?",
+                options: ["Enter", "Tab", "Space", "Ctrl"],
+                correct: 1
+            },
+            {
+                question: "¿Qué combinación de teclas abre el chat IA en Cursor?",
+                options: ["Ctrl+C", "Cmd+L (Ctrl+L)", "Alt+A", "Shift+I"],
+                correct: 1
+            },
+            {
+                question: "¿Cursor está basado en qué editor?",
+                options: ["Atom", "VS Code", "Sublime Text", "IntelliJ"],
+                correct: 1
+            },
+            {
+                question: "¿Qué comando usas para editar código con IA en Cursor?",
+                options: ["Cmd+E", "Cmd+K (Ctrl+K)", "Cmd+I", "Cmd+A"],
+                correct: 1
+            },
+            {
+                question: "¿Cursor requiere una suscripción para usar todas sus funciones?",
+                options: ["Sí, siempre", "No, es completamente gratis", "Tiene versión gratuita con limitaciones", "Solo para estudiantes"],
+                correct: 2
+            },
+            {
+                question: "¿Qué tipo de archivos puede manejar Cursor?",
+                options: ["Solo Python", "Solo JavaScript", "Cualquier lenguaje de programación", "Solo archivos de texto"],
+                correct: 2
+            },
+            {
+                question: "¿Cómo instalas Cursor en tu sistema?",
+                options: ["npm install cursor", "Desde cursor.com", "pip install cursor", "apt install cursor"],
+                correct: 1
+            },
+            {
+                question: "¿La IA de Cursor puede entender el contexto de todo tu proyecto?",
+                options: ["No, solo líneas individuales", "Sí, puede analizar todo el proyecto", "Solo archivos abiertos", "Solo comentarios"],
+                correct: 1
             }
         ]
     }

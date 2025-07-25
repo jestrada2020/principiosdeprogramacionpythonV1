@@ -58,6 +58,51 @@ const interpreterModule = {
             question: "¿Cómo se inicia el intérprete interactivo de Python?",
             options: ["python", "py", "python3", "Todas las anteriores"],
             correct: 3
+        },
+        {
+            question: "¿Qué comando se usa para salir del intérprete de Python?",
+            options: ["exit", "quit()", "exit()", "Todas las anteriores"],
+            correct: 3
+        },
+        {
+            question: "¿Cómo se ejecuta un archivo Python desde la línea de comandos?",
+            options: ["python archivo.py", "run archivo.py", "exec archivo.py", "start archivo.py"],
+            correct: 0
+        },
+        {
+            question: "¿Qué son los prompts >>> y ... en el intérprete?",
+            options: ["Errores de sintaxis", "Indicadores de entrada primaria y secundaria", "Comandos especiales", "Decoradores"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se verifica la versión de Python instalada?",
+            options: ["python --version", "python -V", "python --v", "Opciones A y B son correctas"],
+            correct: 3
+        },
+        {
+            question: "¿Qué variable contiene la ruta donde está instalado Python?",
+            options: ["sys.path", "sys.executable", "os.path", "python.path"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se accede al historial de comandos en el intérprete?",
+            options: ["Flechas arriba/abajo", "history()", "Ctrl+H", "No es posible"],
+            correct: 0
+        },
+        {
+            question: "¿Qué hace el comando help() en el intérprete?",
+            options: ["Cierra Python", "Muestra ayuda interactiva", "Lista archivos", "Limpia pantalla"],
+            correct: 1
+        },
+        {
+            question: "¿Qué variable especial contiene el resultado de la última expresión en el intérprete?",
+            options: ["_last", "_", "__result__", "result"],
+            correct: 1
+        },
+        {
+            question: "¿Cómo se ejecuta código Python de forma interactiva desde un archivo?",
+            options: ["python -i archivo.py", "python -interactive archivo.py", "python archivo.py -i", "interactive archivo.py"],
+            correct: 0
         }
     ]
 };

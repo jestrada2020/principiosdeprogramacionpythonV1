@@ -96,6 +96,51 @@ const classes = {
             question: "¿Qué es self en Python?",
             options: ["Una palabra reservada", "Referencia al objeto actual", "Un tipo de dato", "Una función especial"],
             correct: 1
+        },
+        {
+            question: "¿Cuál es el método especial que se ejecuta al crear un objeto?",
+            options: ["__init__", "__new__", "__create__", "__start__"],
+            correct: 0
+        },
+        {
+            question: "¿Cómo se define herencia en Python?",
+            options: ["class Hijo extends Padre:", "class Hijo(Padre):", "class Hijo inherits Padre:", "class Hijo -> Padre:"],
+            correct: 1
+        },
+        {
+            question: "¿Qué es el encapsulamiento en programación orientada a objetos?",
+            options: ["Ocultar detalles internos", "Crear múltiples objetos", "Heredar de otras clases", "Usar métodos estáticos"],
+            correct: 0
+        },
+        {
+            question: "¿Cómo se define un atributo privado en Python?",
+            options: ["private atributo", "_atributo", "__atributo", "private __atributo"],
+            correct: 2
+        },
+        {
+            question: "¿Qué método se llama cuando se usa print() en un objeto?",
+            options: ["__print__", "__str__", "__display__", "__show__"],
+            correct: 1
+        },
+        {
+            question: "¿Cuál es la diferencia entre método de clase y método de instancia?",
+            options: ["No hay diferencia", "Los métodos de clase usan @classmethod", "Los métodos de instancia son más rápidos", "Los métodos de clase no pueden acceder a self"],
+            correct: 1
+        },
+        {
+            question: "¿Qué permite el polimorfismo en Python?",
+            options: ["Crear objetos múltiples", "Usar el mismo método en diferentes clases", "Heredar de múltiples clases", "Encapsular datos"],
+            correct: 1
+        },
+        {
+            question: "¿Qué método se usa para comparar si dos objetos son iguales?",
+            options: ["__equal__", "__eq__", "__compare__", "__same__"],
+            correct: 1
+        },
+        {
+            question: "¿Python soporta herencia múltiple?",
+            options: ["No", "Sí", "Solo con interfaces", "Solo en Python 3"],
+            correct: 1
         }
     ]
 };

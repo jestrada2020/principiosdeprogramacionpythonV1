@@ -64,6 +64,46 @@ const introModule = {
             question: "¿Python es un lenguaje interpretado?",
             options: ["Sí", "No", "A veces", "Depende del sistema"],
             correct: 0
+        },
+        {
+            question: "¿Quién creó el lenguaje Python?",
+            options: ["James Gosling", "Guido van Rossum", "Brendan Eich", "Dennis Ritchie"],
+            correct: 1
+        },
+        {
+            question: "¿En qué año fue lanzado por primera vez Python?",
+            options: ["1989", "1991", "1995", "2000"],
+            correct: 1
+        },
+        {
+            question: "¿Cuál es la extensión de archivo para scripts de Python?",
+            options: [".py", ".python", ".pt", ".pyt"],
+            correct: 0
+        },
+        {
+            question: "¿Python es sensible a mayúsculas y minúsculas?",
+            options: ["Sí", "No", "Solo en funciones", "Solo en variables"],
+            correct: 0
+        },
+        {
+            question: "¿Cuál de estos NO es un tipo de dato básico en Python?",
+            options: ["int", "float", "string", "char"],
+            correct: 3
+        },
+        {
+            question: "¿Qué significa que Python sea multiplataforma?",
+            options: ["Solo funciona en Windows", "Funciona en diferentes sistemas operativos", "Solo funciona en Linux", "Necesita compilación específica"],
+            correct: 1
+        },
+        {
+            question: "¿Cuál es el paradigma principal de programación que soporta Python?",
+            options: ["Solo orientado a objetos", "Solo funcional", "Multiparadigma", "Solo procedural"],
+            correct: 2
+        },
+        {
+            question: "¿Python utiliza llaves {} para delimitar bloques de código?",
+            options: ["Sí, siempre", "No, usa indentación", "Solo en funciones", "Solo en clases"],
+            correct: 1
         }
     ]
 };
