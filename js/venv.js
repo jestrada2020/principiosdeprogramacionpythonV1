@@ -1,7 +1,7 @@
 const venv = {
     title: "12. Entornos Virtuales",
     description: "Gestión de paquetes",
-    video: "https://www.youtube.com/embed/Kp4Mvapo5kc",
+    video: "https://www.youtube.com/embed/nKPbfIU442g",
     additionalVideos: [],
     content: `
         <h2 class="text-2xl font-bold theme-text-primary mb-4">Entornos Virtuales y Paquetes</h2>

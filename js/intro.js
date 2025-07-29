@@ -2,10 +2,11 @@
 const introModule = {
     title: "1. Introducción a Python",
     description: "Abriendo el apetito",
-    video: "https://www.youtube.com/embed/Kp4Mvapo5kc",
+    video: "https://www.youtube.com/embed/nKPbfIU442g",
     additionalVideos: [
-        { title: "Python en 10 minutos", url: "https://www.youtube.com/embed/_6N18g3ewnw" },
-        { title: "Python desde cero", url: "https://www.youtube.com/embed/IimBRwHhW54" }
+        { title: "Python curso completo", url: "https://www.youtube.com/embed/0ftxmhe323g" },
+        { title: "Python desde cero", url: "https://www.youtube.com/embed/IimBRwHhW54" },
+        { title: "Introducción a Python", url: "https://www.youtube.com/embed/Kp4Mvapo5kc" }
     ],
     content: `
         <h2 class="text-2xl font-bold theme-text-primary mb-4">¿Qué es Python?</h2>
@@ -52,6 +53,12 @@ const introModule = {
             description: "Crea una variable con tu nombre y muéstrala",
             template: "# Crea una variable llamada 'nombre' con tu nombre\n# Luego imprímela\n",
             solution: "nombre = 'Tu nombre'\nprint(nombre)"
+        },
+        {
+            title: "Separadores en print()",
+            description: "Practica con diferentes separadores en la función print().",
+            template: "print(\"=== SEPARADORES EN PRINT() ===\")\n    \n    nombre = \"Juan\"\n    \n    # Separador por defecto (espacio)\n    print(\"Separador por defecto:\")\n    print(\"Hola\", nombre, \"!\")\n    print(\"Por defecto, print() usa un espacio como separador\")\n    \n    print(\"\\n\" + \"-\" * 40)\n    \n    # Sin separador (cadena vacía)\n    print(\"Sin separador (sep=''):\")\n    print(\"Hola\", nombre, \"!\", sep=\"\")\n    print(\"Al usar sep='', las palabras se pegan sin espacio\")\n    \n    print(\"\\n\" + \"-\" * 40)\n    \n    # Separador personalizado con asteriscos\n    print(\"Separador personalizado (sep='***'):\")\n    print(\"Hola\", nombre, \"!\", sep=\"***\")\n    print(\"Podemos usar cualquier cadena como separador\")\n    \n    print(\"\\n\" + \"-\" * 40)\n    \n    # Más ejemplos de separadores creativos\n    print(\"Otros separadores creativos:\")\n    print(\"Python\", \"es\", \"genial\", sep=\" -> \")\n    print(\"A\", \"B\", \"C\", sep=\" | \")\n    print(\"1\", \"2\", \"3\", sep=\"-\")\n    print(\"Palabra1\", \"Palabra2\", \"Palabra3\", sep=\"___")",
+            solution: "print(\"=== SEPARADORES EN PRINT() ===\")\n    \n    nombre = \"Juan\"\n    \n    # Separador por defecto (espacio)\n    print(\"Separador por defecto:\")\n    print(\"Hola\", nombre, \"!\")\n    print(\"Por defecto, print() usa un espacio como separador\")\n    \n    print(\"\\n\" + \"-\" * 40)\n    \n    # Sin separador (cadena vacía)\n    print(\"Sin separador (sep=''):\")\n    print(\"Hola\", nombre, \"!\", sep=\"\")\n    print(\"Al usar sep='', las palabras se pegan sin espacio\")\n    \n    print(\"\\n\" + \"-\" * 40)\n    \n    # Separador personalizado con asteriscos\n    print(\"Separador personalizado (sep='***'):\")\n    print(\"Hola\", nombre, \"!\", sep=\"***\")\n    print(\"Podemos usar cualquier cadena como separador\")\n    \n    print(\"\\n\" + \"-\" * 40)\n    \n    # Más ejemplos de separadores creativos\n    print(\"Otros separadores creativos:\")\n    print(\"Python\", \"es\", \"genial\", sep=\" -> \")\n    print(\"A\", \"B\", \"C\", sep=\" | \")\n    print(\"1\", \"2\", \"3\", sep=\"-\")\n    print(\"Palabra1\", \"Palabra2\", \"Palabra3\", sep=\"___")"
         }
     ],
     quiz: [
