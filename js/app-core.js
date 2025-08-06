@@ -79,6 +79,13 @@ function bindEventListeners() {
             launchCursorIDE();
         }
     });
+    
+    // Generate QR code when EvaluacionPrimerQuiz tab is loaded
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.dataset.tab === 'evaluacionPrimerQuiz') {
+            generateQRCode();
+        }
+    });
 }
 
 function loadModule(moduleId) {
@@ -902,4 +909,59 @@ function closeCursorModal() {
     if (modal) {
         modal.remove();
     }
+}
+
+// Function to generate QR code for EvaluacionPrimerQuiz
+function generateQRCode() {
+    const url = 'https://jestrada2020.github.io/PrimerQuizBioPythonV1/';
+    const qrContainer = document.getElementById('qrCodeContainer');
+    
+    if (!qrContainer || qrContainer.innerHTML !== '') {
+        return; // Already generated or container not found
+    }
+    
+    // Generate QR code using QR Server API
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+    
+    const qrImg = document.createElement('img');
+    qrImg.src = qrCodeUrl;
+    qrImg.alt = 'QR Code para EvaluacionPrimerQuiz';
+    qrImg.className = 'mx-auto';
+    qrImg.style.width = '200px';
+    qrImg.style.height = '200px';
+    
+    qrContainer.appendChild(qrImg);
+    
+    // Add loading message while QR loads
+    qrImg.onload = function() {
+        showNotification('Código QR generado exitosamente');
+    };
+    
+    qrImg.onerror = function() {
+        qrContainer.innerHTML = `
+            <div class="p-4 text-center">
+                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
+                <p class="text-sm text-gray-600">No se pudo generar el código QR</p>
+                <p class="text-xs text-gray-500 mt-1">Usa el enlace directo</p>
+            </div>
+        `;
+    };
+}
+
+// Function to copy EvaluacionPrimerQuiz link to clipboard
+function copyEvaluacionLink() {
+    const url = 'https://jestrada2020.github.io/PrimerQuizBioPythonV1/';
+    
+    navigator.clipboard.writeText(url).then(() => {
+        showNotification('¡Enlace copiado al portapapeles!');
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification('¡Enlace copiado al portapapeles!');
+    });
 }
