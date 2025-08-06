@@ -1,751 +1,530 @@
 <!DOCTYPE html>
-  <html lang="es">
-    <head>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Quiz de Programación Python - 30 Preguntas Esenciales</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-          <link rel="stylesheet" href="css/styles.css">
-          </head>
-          <body class="bg-gray-50">
-          <div class="container mx-auto px-4 py-8">
-          <h1 class="text-3xl font-bold text-center text-blue-700 border-b-2 border-blue-500 pb-4 mb-6">Quiz Esencial de Programación Python</h1>
-          <h2 class="text-xl font-semibold text-center text-blue-600 mb-8">Fundamentos de Programación con Python (50 puntos - 30 preguntas)</h2>
-          
-          <!-- Información del estudiante -->
-          <div class="bg-blue-50 p-5 rounded-lg shadow-sm mb-6">
-          <h3 class="text-lg font-semibold text-blue-800 mb-4">Información del Estudiante</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-          <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo:</label>
-          <input type="text" id="nombre" placeholder="Ingrese su nombre completo" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div>
-          <label for="apellidos" class="block text-sm font-medium text-gray-700 mb-1">Apellidos Completos:</label>
-          <input type="text" id="apellidos" placeholder="Ingrese sus apellidos" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div>
-          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico:</label>
-          <input type="email" id="email" placeholder="Ingrese su correo electrónico" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          </div>
-          </div>
-          
-          <!-- Instrucciones -->
-          <div class="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-400 mb-6">
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">Instrucciones Generales</h3>
-          <ul class="list-disc pl-5 space-y-1">
-          <li>Completa los <strong>espacios en blanco</strong> en cada fragmento de código Python.</li>
-          <li>Los espacios están marcados con <span class="code-placeholder">[...]</span>.</li>
-          <li>Haz clic en <strong>"Verificar Respuesta"</strong> en cada pregunta para obtener retroalimentación.</li>
-          <li>Cuando completes todas las preguntas, haz clic en <strong>"Calcular Nota Final"</strong>.</li>
-          <li>El resultado de tu evaluación se enviará automáticamente por correo electrónico.</li>
-          </ul>
-          </div>
-          
-          <!-- Barra de progreso -->
-          <div class="w-full bg-gray-200 rounded-full h-6 mb-8">
-          <div id="progress-bar" class="bg-green-500 h-6 rounded-full text-center text-white text-sm leading-6" style="width: 0%">0%</div>
-          </div>
-          
-          <h2 class="text-xl font-semibold text-gray-800 mb-6">Sección de Preguntas (Total: 50 Puntos - 30 Preguntas)</h2>
-          
-          <!-- Contenedor de Preguntas -->
-          <div id="questions-container" class="space-y-8">
-          
-          <!-- CATEGORÍA 1: FUNDAMENTOS Y OPERACIONES BÁSICAS -->
-          <h3 class="text-lg font-semibold text-blue-600 border-b border-blue-300 pb-2">Fundamentos y Operaciones Básicas (12 puntos)</h3>
-          
-          <!-- Pregunta 1 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q1">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">1. Personalización con F-strings</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Completa el código para mostrar información personal usando f-strings.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Incluye las variables dentro de las llaves en la f-string.</p>
-          </div>
-          <div class="code-container">
-          <pre>nombre = "Ana"
-edad = 25
-ciudad = "Bogotá"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Bio-Python Interactiva - Aprende Python desde Cero</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body class="light theme-bg-primary theme-text-primary transition-all duration-300">
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 z-50 flex items-center justify-center theme-bg-primary">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500 mx-auto mb-4"></div>
+            <h2 class="text-2xl font-bold theme-text-primary mb-2">Cargando Academia Bio-Python</h2>
+            <p class="theme-text-secondary">Preparando tu experiencia de aprendizaje...</p>
+        </div>
+    </div>
 
-mensaje = f"Hola, soy <span class="code-placeholder" id="q1-part1" contenteditable="true">[...]</span> y tengo <span class="code-placeholder" id="q1-part2" contenteditable="true">[...]</span> años"
-print(mensaje)</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(1)">Verificar Respuesta</button>
-          <div id="q1-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 2 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q2">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">2. Print con Variables y F-strings</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Completa el código para mostrar variables usando f-strings con print.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Incluye las variables dentro de las llaves en cada f-string.</p>
-          </div>
-          <div class="code-container">
-          <pre>lenguaje_favorito = "Python"
-resultado_operacion = 2 + 3
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuBtn" class="fixed top-4 left-4 z-40 md:hidden p-2 rounded-lg theme-bg-secondary theme-text-primary shadow-lg">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
 
-print(f"Mi lenguaje favorito es <span class="code-placeholder" id="q2-part1" contenteditable="true">[...]</span>")
-print(f"2 + 3 = <span class="code-placeholder" id="q2-part2" contenteditable="true">[...]</span>")</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(2)">Verificar Respuesta</button>
-          <div id="q2-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 3 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q3">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">3. Métodos de String Básicos</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Completa el código para usar métodos básicos de string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Usa el método para mayúsculas y la función para longitud.</p>
-          </div>
-          <div class="code-container">
-          <pre>texto = "hola mundo python"
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed left-0 top-0 h-full w-80 theme-bg-secondary theme-border border-r z-30 sidebar-scroll overflow-y-auto sidebar-mobile">
+        <div class="p-6">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fab fa-python text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold theme-text-primary">Academia Bio-Python</h1>
+                        <p class="text-sm theme-text-secondary">Aprende desde cero</p>
+                    </div>
+                </div>
+                <button id="themeToggle" class="p-2 rounded-lg theme-bg-tertiary theme-text-primary hover:opacity-80 transition-opacity">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+            </div>
 
-texto_mayusculas = texto.<span class="code-placeholder" id="q3-part1" contenteditable="true">[...]</span>()
-longitud_texto = <span class="code-placeholder" id="q3-part2" contenteditable="true">[...]</span>(texto)
+            <!-- Progress Overview -->
+            <div class="mb-8 p-4 rounded-xl theme-bg-tertiary">
+                <h3 class="text-lg font-semibold theme-text-primary mb-4">Tu Progreso</h3>
+                <div class="flex items-center justify-center mb-4">
+                    <div class="relative w-20 h-20">
+                        <svg class="w-20 h-20">
+                            <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="4" fill="none" class="theme-text-secondary opacity-25"></circle>
+                            <circle id="progressCircle" cx="40" cy="40" r="36" stroke="#3b82f6" stroke-width="4" fill="none" class="progress-ring" stroke-dasharray="226.19" stroke-dashoffset="226.19"></circle>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span id="progressText" class="text-sm font-bold theme-text-primary">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="theme-text-secondary">Completado</span>
+                    <span id="modulesCompleted" class="theme-text-primary font-semibold">0/16</span>
+                </div>
+            </div>
 
-print(f"Mayúsculas: {texto_mayusculas}")
-print(f"Longitud: {longitud_texto}")</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(3)">Verificar Respuesta</button>
-          <div id="q3-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 4 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q4">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">4. Concatenación y Repetición de Strings</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Completa el código para concatenar strings y repetir caracteres.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Usa + para concatenar y * para repetir.</p>
-          </div>
-          <div class="code-container">
-          <pre>nombre = "Python"
-apellido = "Programming"
+            <!-- Search -->
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Buscar módulos..." class="w-full px-4 py-2 pl-10 rounded-lg theme-bg-tertiary theme-text-primary theme-border border focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 theme-text-secondary"></i>
+                </div>
+            </div>
 
-# Concatenación
-nombre_completo = nombre <span class="code-placeholder" id="q4-part1" contenteditable="true">[...]</span> " " + apellido
-print(f"Nombre completo: {nombre_completo}")
+            <!-- Navigation -->
+            <nav class="space-y-2">
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="intro">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-play text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">1. Introducción a Python</h3>
+                            <p class="text-sm theme-text-secondary">Abriendo el apetito</p>
+                        </div>
+                    </div>
+                </div>
 
-# Repetición
-print("¡" <span class="code-placeholder" id="q4-part2" contenteditable="true">[...]</span> 5)</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(4)">Verificar Respuesta</button>
-          <div id="q4-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 5 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q5">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">5. División Entera (Floor Division)</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Completa el código para realizar una división entera (floor division).</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Este operador descarta la parte fraccionaria del resultado.</p>
-          </div>
-          <div class="code-container">
-          <pre>num_x = 17
-num_y = 5
-resultado_entero = num_x <span class="code-placeholder" id="q5-part1" contenteditable="true">[...]</span> num_y</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(5)">Verificar Respuesta</button>
-          <div id="q5-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 6 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q6">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">6. Módulo (Resto de la División)</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Completa el código para obtener el resto de una división.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: El operador es el símbolo de porcentaje.</p>
-          </div>
-          <div class="code-container">
-          <pre>dividendo = 25
-divisor = 4
-resto = dividendo <span class="code-placeholder" id="q6-part1" contenteditable="true">[...]</span> divisor</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(6)">Verificar Respuesta</button>
-          <div id="q6-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 7 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q7">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">7. Potencia</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Calcula la potencia de un número.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Utiliza el operador de doble asterisco.</p>
-          </div>
-          <div class="code-container">
-          <pre>base = 3
-exponente = 4
-potencia = base <span class="code-placeholder" id="q7-part1" contenteditable="true">[...]</span> exponente</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(7)">Verificar Respuesta</button>
-          <div id="q7-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 10 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q10">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">8. Operador Lógico AND</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Completa la expresión booleana para que sea verdadera si ambas condiciones son verdaderas.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Utiliza el operador lógico para la conjunción.</p>
-          </div>
-          <div class="code-container">
-          <pre>condicion1 = True
-condicion2 = False
-resultado_logico = condicion1 <span class="code-placeholder" id="q10-part1" contenteditable="true">[...]</span> condicion2</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(10)">Verificar Respuesta</button>
-          <div id="q10-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- CATEGORÍA 2: FUNCIONES Y F-STRINGS BÁSICAS -->
-          <h3 class="text-lg font-semibold text-blue-600 border-b border-blue-300 pb-2">Funciones y F-Strings Básicas (14 puntos)</h3>
-          
-          <!-- Pregunta 11 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q11">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">9. Área de un Rectángulo</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular el área de un rectángulo y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: El área es base por altura.</p>
-          </div>
-          <div class="code-container">
-          <pre>def calcular_area_rectangulo(base, altura):
-            return base * altura
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="interpreter">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-terminal text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">2. Usando el Intérprete</h3>
+                            <p class="text-sm theme-text-secondary">Instalación y configuración</p>
+                        </div>
+                    </div>
+                </div>
 
-longitud = 10
-ancho = 5
-area = calcular_area_rectangulo(longitud, ancho)
-mensaje = f"El área del rectángulo es: <span class="code-placeholder" id="q11-part1" contenteditable="true">[...]</span> metros cuadrados."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(11)">Verificar Respuesta</button>
-          <div id="q11-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 12 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q12">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">10. Volumen de un Cubo</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular el volumen de un cubo y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: El volumen es lado al cubo.</p>
-          </div>
-          <div class="code-container">
-          <pre>def calcular_volumen_cubo(lado):
-            return lado <span class="code-placeholder" id="q12-part1" contenteditable="true">[...]</span> 3
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="basics">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-calculator text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">3. Introducción Informal</h3>
+                            <p class="text-sm theme-text-secondary">Números, texto y listas</p>
+                        </div>
+                    </div>
+                </div>
 
-lado_cubo = 4
-volumen = calcular_volumen_cubo(lado_cubo)
-mensaje = f"El volumen del cubo es: <span class="code-placeholder" id="q12-part2" contenteditable="true">[...]</span> unidades cúbicas."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(12)">Verificar Respuesta</button>
-          <div id="q12-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 13 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q13">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">11. Circunferencia de un Círculo</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular la circunferencia de un círculo y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: La circunferencia es 2 * pi * radio. Importa 'math' para pi.</p>
-          </div>
-          <div class="code-container">
-          <pre>import math
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="control-flow">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-code-branch text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">4. Control de Flujo</h3>
+                            <p class="text-sm theme-text-secondary">if, for, while, funciones</p>
+                        </div>
+                    </div>
+                </div>
 
-def calcular_circunferencia(radio):
-            return 2 * math.<span class="code-placeholder" id="q13-part1" contenteditable="true">[...]</span> * radio
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="data-structures">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-database text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">5. Estructuras de Datos</h3>
+                            <p class="text-sm theme-text-secondary">Listas, tuplas, diccionarios</p>
+                        </div>
+                    </div>
+                </div>
 
-radio_circulo = 7
-circunferencia = calcular_circunferencia(radio_circulo)
-mensaje = f"La circunferencia del círculo es: <span class="code-placeholder" id="q13-part2" contenteditable="true">[...]</span> unidades."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(13)">Verificar Respuesta</button>
-          <div id="q13-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 14 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q14">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">12. Área de un Triángulo</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular el área de un triángulo y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: El área es (base * altura) / 2.</p>
-          </div>
-          <div class="code-container">
-          <pre>def calcular_area_triangulo(base, altura):
-            return (base * altura) <span class="code-placeholder" id="q14-part1" contenteditable="true">[...]</span> 2
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="modules">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-cubes text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">6. Módulos</h3>
+                            <p class="text-sm theme-text-secondary">Importar y crear módulos</p>
+                        </div>
+                    </div>
+                </div>
 
-base_triangulo = 12
-altura_triangulo = 6
-area_triangulo = calcular_area_triangulo(base_triangulo, altura_triangulo)
-mensaje = f"El área del triángulo es: <span class="code-placeholder" id="q14-part2" contenteditable="true">[...]</span> unidades cuadradas."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(14)">Verificar Respuesta</button>
-          <div id="q14-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 16 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q16">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">13. Conversión de Celsius a Fahrenheit</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para convertir grados Celsius a Fahrenheit y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Fahrenheit = (Celsius * 9/5) + 32.</p>
-          </div>
-          <div class="code-container">
-          <pre>def celsius_a_fahrenheit(celsius):
-            return (celsius * 9/5) <span class="code-placeholder" id="q16-part1" contenteditable="true">[...]</span> 32
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="io">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-file-alt text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">7. Entrada y Salida</h3>
+                            <p class="text-sm theme-text-secondary">Archivos y formateo</p>
+                        </div>
+                    </div>
+                </div>
 
-temp_celsius = 25
-temp_fahrenheit = celsius_a_fahrenheit(temp_celsius)
-mensaje = f"{temp_celsius}°C son <span class="code-placeholder" id="q16-part2" contenteditable="true">[...]</span>°F."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(16)">Verificar Respuesta</button>
-          <div id="q16-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 18 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q18">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">14. Verificar Par o Impar</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función que verifique si un número es par o impar y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Un número es par si su módulo con 2 es 0.</p>
-          </div>
-          <div class="code-container">
-          <pre>def es_par(numero):
-            return numero <span class="code-placeholder" id="q18-part1" contenteditable="true">[...]</span> 2 == 0
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="errors">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-exclamation-triangle text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">8. Errores y Excepciones</h3>
+                            <p class="text-sm theme-text-secondary">Manejo de errores</p>
+                        </div>
+                    </div>
+                </div>
 
-num_test = 10
-resultado_par = es_par(num_test)
-mensaje = f"El número {num_test} es par: <span class="code-placeholder" id="q18-part2" contenteditable="true">[...]</span>."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(18)">Verificar Respuesta</button>
-          <div id="q18-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 20 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q20">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">15. Operación Lógica OR</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función que combine dos condiciones con un operador OR y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: El operador lógico para la disyunción es 'or'.</p>
-          </div>
-          <div class="code-container">
-          <pre>def verificar_or(cond1, cond2):
-            return cond1 <span class="code-placeholder" id="q20-part1" contenteditable="true">[...]</span> cond2
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="classes">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-object-group text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">9. Clases</h3>
+                            <p class="text-sm theme-text-secondary">Programación orientada a objetos</p>
+                        </div>
+                    </div>
+                </div>
 
-condicion_a = True
-condicion_b = False
-resultado_or = verificar_or(condicion_a, condicion_b)
-mensaje = f"El resultado de la operación OR es: <span class="code-placeholder" id="q20-part2" contenteditable="true">[...]</span>."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(20)">Verificar Respuesta</button>
-          <div id="q20-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- CATEGORÍA 3: F-STRINGS Y FORMATEO -->
-          <h3 class="text-lg font-semibold text-blue-600 border-b border-blue-300 pb-2">F-Strings y Formateo (12 puntos)</h3>
-          
-          <!-- Pregunta 21 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q21">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">16. Cálculo de IMC (Índice de Masa Corporal)</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular el IMC y muestra el resultado formateado a dos decimales.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: IMC = peso (kg) / (altura (m) ** 2).</p>
-          </div>
-          <div class="code-container">
-          <pre>def calcular_imc(peso, altura):
-            return peso / (altura <span class="code-placeholder" id="q21-part1" contenteditable="true">[...]</span> 2)
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="stdlib">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-book text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">10. Biblioteca Estándar</h3>
+                            <p class="text-sm theme-text-secondary">Módulos más importantes</p>
+                        </div>
+                    </div>
+                </div>
 
-peso_kg = 70
-altura_m = 1.75
-imc = calcular_imc(peso_kg, altura_m)
-mensaje = f"Tu IMC es: {imc:<span class="code-placeholder" id="q21-part2" contenteditable="true">[...]</span>.2f}"</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(21)">Verificar Respuesta</button>
-          <div id="q21-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 22 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q22">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">17. Conversión de Moneda</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para convertir USD a EUR y muestra el resultado con el símbolo de euro.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Usa un tipo de cambio fijo y el formato de moneda.</p>
-          </div>
-          <div class="code-container">
-          <pre>def usd_a_eur(cantidad_usd, tipo_cambio=0.85):
-            return cantidad_usd * tipo_cambio
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="stdlib2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-book-open text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">11. Biblioteca Estándar II</h3>
+                            <p class="text-sm theme-text-secondary">Temas avanzados</p>
+                        </div>
+                    </div>
+                </div>
 
-dolares = 100
-euros = usd_a_eur(dolares)
-mensaje = f"{dolares}$ USD son {euros:<span class="code-placeholder" id="q22-part1" contenteditable="true">[...]</span>.2f}€."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(22)">Verificar Respuesta</button>
-          <div id="q22-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 24 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q24">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">18. Formato de Número Grande</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Formatea un número grande con separadores de miles.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Utiliza el especificador de formato de coma.</p>
-          </div>
-          <div class="code-container">
-          <pre>poblacion = 78912345
-mensaje = f"La población mundial es aproximadamente: {poblacion:<span class="code-placeholder" id="q24-part1" contenteditable="true">[...]</span>}"</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(24)">Verificar Respuesta</button>
-          <div id="q24-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 25 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q25">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">19. Cálculo de Velocidad Media</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular la velocidad media y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Velocidad = Distancia / Tiempo.</p>
-          </div>
-          <div class="code-container">
-          <pre>def calcular_velocidad(distancia, tiempo):
-            return distancia <span class="code-placeholder" id="q25-part1" contenteditable="true">[...]</span> tiempo
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="venv">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-box text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">12. Entornos Virtuales</h3>
+                            <p class="text-sm theme-text-secondary">Gestión de paquetes</p>
+                        </div>
+                    </div>
+                </div>
 
-distancia_km = 150
-tiempo_horas = 2.5
-velocidad = calcular_velocidad(distancia_km, tiempo_horas)
-mensaje = f"La velocidad media es: {velocidad:<span class="code-placeholder" id="q25-part2" contenteditable="true">[...]</span>.1f} km/h."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(25)">Verificar Respuesta</button>
-          <div id="q25-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 29 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q29">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">20. Formato de Porcentaje con Decimales</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Formatea un número flotante como porcentaje con un decimal.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Combina el especificador de precisión y el de porcentaje.</p>
-          </div>
-          <div class="code-container">
-          <pre>progreso = 0.8765
-mensaje = f"Progreso: {progreso:<span class="code-placeholder" id="q29-part1" contenteditable="true">[...]</span>.1%}"</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(29)">Verificar Respuesta</button>
-          <div id="q29-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 30 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q30">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">21. Concatenación de Cadenas con F-string</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Combina múltiples variables de cadena en un solo mensaje usando una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Puedes incluir variables directamente en la f-string.</p>
-          </div>
-          <div class="code-container">
-          <pre>nombre = "Ana"
-apellido = "García"
-mensaje_completo = f"Bienvenida, <span class="code-placeholder" id="q30-part1" contenteditable="true">[...]</span> <span class="code-placeholder" id="q30-part2" contenteditable="true">[...]</span>!"</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(30)">Verificar Respuesta</button>
-          <div id="q30-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- CATEGORÍA 4: FUNCIONES AVANZADAS -->
-          <h3 class="text-lg font-semibold text-blue-600 border-b border-blue-300 pb-2">Funciones Avanzadas (8 puntos)</h3>
-          
-          <!-- Pregunta 32 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q32">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">22. Cálculo de Área de un Círculo</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular el área de un círculo y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Área = pi * radio al cuadrado. Importa 'math' para pi.</p>
-          </div>
-          <div class="code-container">
-          <pre>import math
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="deepseek">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-robot text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">13. DeepSeek IA</h3>
+                            <p class="text-sm theme-text-secondary">Asistente IA gratuito</p>
+                        </div>
+                    </div>
+                </div>
 
-def area_circulo(radio):
-            return math.<span class="code-placeholder" id="q32-part1" contenteditable="true">[...]</span> * (radio <span class="code-placeholder" id="q32-part2" contenteditable="true">[...]</span> 2)
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="google-colab">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fab fa-google text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">14. Google Colab</h3>
+                            <p class="text-sm theme-text-secondary">Notebook en la nube</p>
+                        </div>
+                    </div>
+                </div>
 
-radio_circulo = 5
-area = area_circulo(radio_circulo)
-mensaje = f"El área del círculo es: {area:<span class="code-placeholder" id="q32-part3" contenteditable="true">[...]</span>.2f} unidades cuadradas."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(32)">Verificar Respuesta</button>
-          <div id="q32-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 35 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q35">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">23. Cálculo de Hipotenusa</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular la hipotenusa de un triángulo rectángulo y muestra el resultado.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Hipotenusa = sqrt(cateto1^2 + cateto2^2).</p>
-          </div>
-          <div class="code-container">
-          <pre>import math
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="cursor">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-terminal text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">15. Cursor IDE</h3>
+                            <p class="text-sm theme-text-secondary">Editor con IA integrada</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
 
-def calcular_hipotenusa(cateto1, cateto2):
-            return math.<span class="code-placeholder" id="q35-part1" contenteditable="true">[...]</span>(cateto1<span class="code-placeholder" id="q35-part2" contenteditable="true">[...]</span>2 + cateto2<span class="code-placeholder" id="q35-part3" contenteditable="true">[...]</span>2)
+    <!-- Main Content -->
+    <div class="ml-0 md:ml-80 transition-all duration-300">
+        <!-- Top Bar -->
+        <div class="sticky top-0 z-20 theme-bg-primary theme-border border-b p-4 glass-effect">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <h2 id="currentModuleTitle" class="text-2xl font-bold theme-text-primary">Bienvenido a Academia Bio-Python</h2>
+                    <div class="flex items-center space-x-2">
+                        <button id="markCompleteBtn" class="hidden px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                            <i class="fas fa-check mr-2"></i>Marcar como Completado
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="notesBtn" class="p-2 rounded-lg theme-bg-secondary theme-text-primary hover:opacity-80 transition-opacity">
+                        <i class="fas fa-sticky-note text-lg"></i>
+                    </button>
+                    <button id="fullscreenBtn" class="p-2 rounded-lg theme-bg-secondary theme-text-primary hover:opacity-80 transition-opacity">
+                        <i class="fas fa-expand text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-cateto_a = 3
-cateto_b = 4
-hipotenusa = calcular_hipotenusa(cateto_a, cateto_b)
-mensaje = f"La hipotenusa es: {hipotenusa:<span class="code-placeholder" id="q35-part4" contenteditable="true">[...]</span>.2f}."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(35)">Verificar Respuesta</button>
-          <div id="q35-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 37 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q37">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">24. Cálculo de Promedio Ponderado</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular el promedio ponderado de dos notas.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Promedio = (nota1*peso1 + nota2*peso2) / (peso1 + peso2).</p>
-          </div>
-          <div class="code-container">
-          <pre>def promedio_ponderado(nota1, peso1, nota2, peso2):
-            return (nota1 * peso1 + nota2 * peso2) <span class="code-placeholder" id="q37-part1" contenteditable="true">[...]</span> (peso1 + peso2)
+        <!-- Content Area -->
+        <div class="p-6">
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="text-center max-w-4xl mx-auto fade-in">
+                <div class="mb-8">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fab fa-python text-white text-4xl"></i>
+                    </div>
+                    <h1 class="text-4xl font-bold theme-text-primary mb-4">Bienvenido a Academia Bio-Python</h1>
+                    <p class="text-xl theme-text-secondary mb-8">La plataforma interactiva más completa para aprender Python desde cero</p>
+                </div>
 
-examen1 = 80
-peso_examen1 = 0.4
-examen2 = 95
-peso_examen2 = 0.6
-promedio = promedio_ponderado(examen1, peso_examen1, examen2, peso_examen2)
-mensaje = f"El promedio ponderado es: {promedio:<span class="code-placeholder" id="q37-part2" contenteditable="true">[...]</span>.1f}."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(37)">Verificar Respuesta</button>
-          <div id="q37-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 38 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q38">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">25. Formato de Número con Relleno de Ceros</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Formatea un número entero para que tenga un ancho fijo, rellenando con ceros a la izquierda.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Utiliza el especificador de relleno y ancho.</p>
-          </div>
-          <div class="code-container">
-          <pre>id_producto = 7
-mensaje = f"ID del producto: {id_producto:<span class="code-placeholder" id="q38-part1" contenteditable="true">[...]</span>05}"</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(38)">Verificar Respuesta</button>
-          <div id="q38-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 39 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q39">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">26. Conversión de Minutos a Horas y Minutos</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">2 Puntos</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función que convierta minutos totales a horas y minutos.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Usa división entera y módulo para obtener horas y minutos.</p>
-          </div>
-          <div class="code-container">
-          <pre>def convertir_minutos(minutos_totales):
-            horas = minutos_totales <span class="code-placeholder" id="q39-part1" contenteditable="true">[...]</span> 60
-            minutos = minutos_totales <span class="code-placeholder" id="q39-part2" contenteditable="true">[...]</span> 60
-            return horas, minutos
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="p-6 rounded-2xl theme-bg-secondary">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-video text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold theme-text-primary mb-2">Videos Interactivos</h3>
+                        <p class="theme-text-secondary">Aprende con los mejores tutoriales de YouTube integrados</p>
+                    </div>
+                    <div class="p-6 rounded-2xl theme-bg-secondary">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold theme-text-primary mb-2">Editor de Código</h3>
+                        <p class="theme-text-secondary">Practica Python directamente en tu navegador</p>
+                    </div>
+                    <div class="p-6 rounded-2xl theme-bg-secondary">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold theme-text-primary mb-2">Seguimiento de Progreso</h3>
+                        <p class="theme-text-secondary">Rastrea tu avance con estadísticas detalladas</p>
+                    </div>
+                </div>
 
-tiempo_en_minutos = 150
-h, m = convertir_minutos(tiempo_en_minutos)
-mensaje = f"Tiempo: {h} horas y {m} minutos."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(39)">Verificar Respuesta</button>
-          <div id="q39-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- CATEGORÍA 5: APLICACIONES CIENTÍFICAS -->
-          <h3 class="text-lg font-semibold text-blue-600 border-b border-blue-300 pb-2">Aplicaciones Científicas (2 puntos)</h3>
-          
-          <!-- Pregunta 42 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q42">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">27. Conversión de Grados a Radianes</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para convertir grados a radianes y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Radianes = Grados * (pi / 180).</p>
-          </div>
-          <div class="code-container">
-          <pre>import math
+                <div class="space-y-4">
+                    <button onclick="loadModule('intro')" class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-rocket mr-2"></i>Comenzar Ahora
+                    </button>
+                    <div class="flex justify-center space-x-4 text-sm theme-text-secondary">
+                        <span><i class="fas fa-clock mr-1"></i>Aprende a tu ritmo</span>
+                        <span><i class="fas fa-certificate mr-1"></i>Certificado incluido</span>
+                        <span><i class="fas fa-mobile-alt mr-1"></i>Acceso móvil</span>
+                    </div>
+                </div>
+            </div>
 
-def grados_a_radianes(grados):
-            return grados <span class="code-placeholder" id="q42-part1" contenteditable="true">[...]</span> (math.<span class="code-placeholder" id="q42-part2" contenteditable="true">[...]</span> / 180)
+            <!-- Module Content -->
+            <div id="moduleContent" class="hidden max-w-6xl mx-auto">
+                <!-- Video Section -->
+                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                    <div class="lg:col-span-2">
+                        <div class="theme-bg-secondary rounded-2xl p-6 mb-6">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-4">Video Principal</h3>
+                            <div id="videoContainer" class="video-container rounded-lg overflow-hidden">
+                                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-1">
+                        <div class="theme-bg-secondary rounded-2xl p-6">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-4">Videos Adicionales</h3>
+                            <div id="additionalVideos" class="space-y-4">
+                                <!-- Additional videos will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-ang_grados = 90
-ang_radianes = grados_a_radianes(ang_grados)
-mensaje = f"{ang_grados}° son {ang_radianes:<span class="code-placeholder" id="q42-part3" contenteditable="true">[...]</span>.3f} radianes."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(42)">Verificar Respuesta</button>
-          <div id="q42-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 43 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q43">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">28. Cálculo de Energía Cinética</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función para calcular la energía cinética y muestra el resultado con una f-string.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Energía Cinética = 0.5 * masa * velocidad^2.</p>
-          </div>
-          <div class="code-container">
-          <pre>def energia_cinetica(masa, velocidad):
-            return 0.5 <span class="code-placeholder" id="q43-part1" contenteditable="true">[...]</span> masa <span class="code-placeholder" id="q43-part2" contenteditable="true">[...]</span> (velocidad <span class="code-placeholder" id="q43-part3" contenteditable="true">[...]</span> 2)
+                <!-- Content Tabs -->
+                <div class="mb-8">
+                    <div class="flex space-x-1 theme-bg-secondary rounded-lg p-1">
+                        <button class="tab-btn active px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="content">
+                            <i class="fas fa-book mr-2"></i>Contenido
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="practice">
+                            <i class="fas fa-code mr-2"></i>Práctica
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="colab">
+                            <i class="fab fa-google mr-2"></i>Google Colab
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="exercises">
+                            <i class="fas fa-puzzle-piece mr-2"></i>Ejercicios
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="quiz">
+                            <i class="fas fa-question-circle mr-2"></i>Quiz
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="evaluacionPrimerQuiz">
+                            <i class="fas fa-graduation-cap mr-2"></i>EvaluacionPrimerQuiz
+                        </button>
+                    </div>
+                </div>
 
-masa_kg = 10
-velocidad_ms = 5
-energia = energia_cinetica(masa_kg, velocidad_ms)
-mensaje = f"La energía cinética es: {energia:<span class="code-placeholder" id="q43-part4" contenteditable="true">[...]</span>.2f} Joules."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(43)">Verificar Respuesta</button>
-          <div id="q43-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- CATEGORÍA 6: MANIPULACIÓN DE CADENAS Y LÓGICA -->
-          <h3 class="text-lg font-semibold text-blue-600 border-b border-blue-300 pb-2">Manipulación de Cadenas y Lógica (2 puntos)</h3>
-          
-          <!-- Pregunta 47 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q47">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">29. Contar Vocales en una Cadena</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Define una función que cuente el número de vocales (a, e, i, o, u) en una cadena.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: Itera sobre la cadena y verifica si cada carácter es una vocal.</p>
-          </div>
-          <div class="code-container">
-          <pre>def contar_vocales(cadena):
-            contador = 0
-            vocales = "aeiouAEIOU"
-            for char in cadena:
-                if char <span class="code-placeholder" id="q47-part1" contenteditable="true">[...]</span> vocales:
-                    contador <span class="code-placeholder" id="q47-part2" contenteditable="true">[...]</span> 1
-            return contador
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Content Tab -->
+                    <div id="contentTab" class="tab-pane active">
+                        <div class="theme-bg-secondary rounded-2xl p-8">
+                            <div id="moduleTextContent">
+                                <!-- Module text content will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
 
-texto_analizar = "Murcielago"
-num_vocales = contar_vocales(texto_analizar)
-mensaje = f"La cadena \"{texto_analizar}\" tiene {num_vocales} vocales."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(47)">Verificar Respuesta</button>
-          <div id="q47-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          <!-- Pregunta 49 -->
-          <div class="question bg-white rounded-lg shadow-sm p-5 border border-gray-200" id="q49">
-          <div class="flex justify-between items-center mb-3">
-          <h4 class="text-lg font-semibold text-gray-800">30. Operador Lógico NOT</h4>
-          <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">1 Punto</span>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-md mb-3">
-          <p>Completa la expresión booleana para negar una condición.</p>
-          <p class="text-sm text-gray-600 mt-2">Sugerencia: El operador lógico para la negación es 'not'.</p>
-          </div>
-          <div class="code-container">
-          <pre>es_activo = False
-resultado_not = <span class="code-placeholder" id="q49-part1" contenteditable="true">[...]</span> es_activo
+                    <!-- Practice Tab -->
+                    <div id="practiceTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-6">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-4">Editor de Código Python</h3>
+                            <div class="grid lg:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-lg font-medium theme-text-primary mb-3">Código</h4>
+                                    <textarea id="codeEditor" class="w-full h-64 p-4 theme-bg-tertiary theme-text-primary rounded-lg border theme-border code-editor resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="# Escribe tu código Python aquí...
+print('¡Hola, mundo!')"></textarea>
+                                    <div class="flex space-x-2 mt-4">
+                                        <button id="runCodeBtn" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                                            <i class="fas fa-play mr-2"></i>Ejecutar
+                                        </button>
+                                        <button id="clearCodeBtn" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                                            <i class="fas fa-trash mr-2"></i>Limpiar
+                                        </button>
+                                        <button id="saveCodeBtn" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                                            <i class="fas fa-save mr-2"></i>Guardar
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium theme-text-primary mb-3">Salida</h4>
+                                    <div id="codeOutput" class="w-full h-64 p-4 theme-bg-tertiary theme-text-primary rounded-lg border theme-border code-editor overflow-auto">
+                                        <div class="text-gray-500 italic">La salida aparecerá aquí...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-mensaje = f"El resultado de NOT es: {resultado_not}."</pre>
-          </div>
-          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-sm mt-2" onclick="checkAnswer(49)">Verificar Respuesta</button>
-          <div id="q49-feedback" class="mt-2 p-3 rounded-md"></div>
-          </div>
-          
-          </div>
-          </div>
-          
-          <div class="text-center mt-10">
-          <button id="calculate-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg text-lg" onclick="calculateFinalGrade()">Calcular Nota Final</button>
-          </div>
-          
-          <div id="results" class="results mt-8 bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
-          <h2 class="text-xl font-semibold text-green-800 mb-4">Resultados de la Evaluación</h2>
-          <div id="results-details" class="space-y-2"></div>
-          <div id="email-notification" class="mt-4 text-center"></div>
-          <div id="score-display" class="mt-6 text-2xl font-bold text-center p-4 bg-green-600 text-white rounded-lg"></div>
-          </div>
-          </div>
-          
-          <script src="js/questions.js"></script>
-          <script src="js/scripts.js"></script>
+                    <!-- Google Colab Tab -->
+                    <div id="colabTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-6">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-4">Práctica en Google Colab</h3>
+                            <div id="colabContent">
+                                <!-- Google Colab content will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercises Tab -->
+                    <div id="exercisesTab" class="tab-pane hidden">
+                        <div class="space-y-6">
+                            <div id="exercisesList">
+                                <!-- Exercises will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Tab -->
+                    <div id="quizTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-8">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-6">Quiz del Módulo</h3>
+                            <div id="quizContainer">
+                                <!-- Quiz will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EvaluacionPrimerQuiz Tab -->
+                    <div id="evaluacionPrimerQuizTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-8">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-6">Evaluación Primer Quiz Bio-Python</h3>
+                            <div id="evaluacionContainer" class="text-center">
+                                <div class="mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-clipboard-check text-white text-2xl"></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold theme-text-primary mb-3">Quiz Interactivo Bio-Python</h4>
+                                    <p class="theme-text-secondary mb-6">Completa la evaluación en línea y pon a prueba tus conocimientos de Python aplicado a biología.</p>
+                                </div>
+                                
+                                <!-- Enlace directo -->
+                                <div class="mb-6">
+                                    <a href="https://jestrada2020.github.io/PrimerQuizBioPythonV1/" target="_blank" class="inline-block px-8 py-4 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                                        <i class="fas fa-external-link-alt mr-2"></i>Iniciar Evaluación
+                                    </a>
+                                    <p class="text-sm theme-text-secondary mt-2">Se abrirá en una nueva ventana</p>
+                                </div>
+                                
+                                <!-- Código QR -->
+                                <div class="mb-6">
+                                    <h5 class="text-md font-medium theme-text-primary mb-3">O escanea el código QR desde tu móvil:</h5>
+                                    <div class="bg-white p-4 rounded-lg inline-block shadow-md">
+                                        <div id="qrCodeContainer"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Enlace de texto -->
+                                <div class="mt-6 p-4 theme-bg-tertiary rounded-lg">
+                                    <h5 class="text-sm font-medium theme-text-primary mb-2">Enlace directo:</h5>
+                                    <div class="bg-black text-green-400 p-3 rounded font-mono text-xs cursor-pointer" onclick="copyEvaluacionLink()">
+                                        https://jestrada2020.github.io/PrimerQuizBioPythonV1/
+                                        <i class="fas fa-copy float-right text-gray-500"></i>
+                                    </div>
+                                    <p class="text-xs theme-text-secondary mt-2 italic">Haz clic en el enlace para copiarlo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes Modal -->
+    <div id="notesModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50" onclick="closeNotesModal()"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 theme-bg-primary rounded-2xl shadow-2xl">
+            <div class="p-6 h-full flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold theme-text-primary">Mis Notas</h3>
+                    <button onclick="closeNotesModal()" class="p-2 hover:bg-gray-200 rounded-lg transition-colors">
+                        <i class="fas fa-times theme-text-primary"></i>
+                    </button>
+                </div>
+                <textarea id="notesTextarea" class="flex-1 w-full p-4 theme-bg-secondary theme-text-primary rounded-lg border theme-border resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Escribe tus notas aquí..."></textarea>
+                <div class="flex justify-end space-x-2 mt-4">
+                    <button onclick="saveNotes()" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                        <i class="fas fa-save mr-2"></i>Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="fixed top-4 right-4 z-50 hidden">
+        <div class="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
+            <i class="fas fa-check-circle"></i>
+            <span id="notificationText">Notificación</span>
+        </div>
+    </div>
+
+    <!-- External JavaScript Files -->
+    <script src="js/modules-data.js"></script>
+    <script src="js/app-core.js"></script>
 </body>
 </html>
