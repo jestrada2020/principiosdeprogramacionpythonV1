@@ -21,6 +21,9 @@ function initializeApp() {
     // Bind event listeners
     bindEventListeners();
     
+    // Initialize tab visibility (hide PrimerParcialPython by default)
+    updateTabVisibility('default');
+    
     // Initialize Pyodide
     initializePyodide();
     
@@ -85,6 +88,9 @@ function bindEventListeners() {
         if (e.target && e.target.dataset.tab === 'evaluacionPrimerQuiz') {
             generateQRCode();
         }
+        if (e.target && e.target.dataset.tab === 'primerParcialPython') {
+            generateParcialQRCode();
+        }
     });
 }
 
@@ -126,6 +132,9 @@ function loadModule(moduleId) {
     // Load Google Colab content
     loadColabContent(module.colabContent);
     
+    // Load Shiny content
+    loadShinyContent(module.shinyContent);
+    
     // Load exercises
     loadExercises(module.exercises);
     
@@ -137,6 +146,9 @@ function loadModule(moduleId) {
     
     // Close mobile menu
     closeMobileMenu();
+    
+    // Show/hide tabs based on module
+    updateTabVisibility(moduleId);
     
     // Switch to content tab
     switchTab('content');
@@ -196,6 +208,15 @@ function loadColabContent(colabContent) {
             `;
         }
     }
+}
+
+function loadShinyContent(shinyContent) {
+    const container = document.getElementById('shinyTab').querySelector('.text-center');
+    if (container && shinyContent) {
+        // Si hay contenido específico de Shiny, reemplaza el contenido por defecto
+        container.innerHTML = shinyContent;
+    }
+    // Si no hay contenido específico, mantiene el contenido por defecto ya definido en HTML
 }
 
 function loadExercises(exercises) {
@@ -315,6 +336,28 @@ function checkQuizAnswers(questions) {
     }
 }
 
+function updateTabVisibility(moduleId) {
+    // Define which tabs should be visible for each module
+    const moduleTabConfig = {
+        'intro': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython'],
+        // All other modules only have the standard tabs (without primerParcialPython)
+        'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz']
+    };
+    
+    // Get the tabs that should be visible for this module
+    const visibleTabs = moduleTabConfig[moduleId] || moduleTabConfig['default'];
+    
+    // Show/hide tabs based on configuration
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        const tabId = btn.dataset.tab;
+        if (visibleTabs.includes(tabId)) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    });
+}
+
 function switchTab(tabId) {
     // Update tab buttons
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -322,8 +365,11 @@ function switchTab(tabId) {
         btn.classList.add('theme-text-secondary');
     });
     
-    document.querySelector(`[data-tab="${tabId}"]`).classList.add('active', 'bg-blue-500', 'text-white');
-    document.querySelector(`[data-tab="${tabId}"]`).classList.remove('theme-text-secondary');
+    const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
+    if (targetTab && targetTab.style.display !== 'none') {
+        targetTab.classList.add('active', 'bg-blue-500', 'text-white');
+        targetTab.classList.remove('theme-text-secondary');
+    }
     
     // Update tab content
     document.querySelectorAll('.tab-pane').forEach(pane => {
@@ -331,8 +377,11 @@ function switchTab(tabId) {
         pane.classList.remove('active');
     });
     
-    document.getElementById(`${tabId}Tab`).classList.remove('hidden');
-    document.getElementById(`${tabId}Tab`).classList.add('active');
+    const targetPane = document.getElementById(`${tabId}Tab`);
+    if (targetPane) {
+        targetPane.classList.remove('hidden');
+        targetPane.classList.add('active');
+    }
 }
 
 function updateActiveModule(moduleId) {
@@ -963,5 +1012,60 @@ function copyEvaluacionLink() {
         document.execCommand('copy');
         document.body.removeChild(textArea);
         showNotification('¡Enlace copiado al portapapeles!');
+    });
+}
+
+// Function to generate QR code for PrimerParcialPython
+function generateParcialQRCode() {
+    const url = 'https://jestrada2020.github.io/PrimerParcialBioPythonV1/';
+    const qrContainer = document.getElementById('qrCodeParcialContainer');
+    
+    if (!qrContainer || qrContainer.innerHTML !== '') {
+        return; // Already generated or container not found
+    }
+    
+    // Generate QR code using QR Server API
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+    
+    const qrImg = document.createElement('img');
+    qrImg.src = qrCodeUrl;
+    qrImg.alt = 'QR Code para PrimerParcialPython';
+    qrImg.className = 'mx-auto';
+    qrImg.style.width = '200px';
+    qrImg.style.height = '200px';
+    
+    qrContainer.appendChild(qrImg);
+    
+    // Add loading message while QR loads
+    qrImg.onload = function() {
+        showNotification('Código QR del parcial generado exitosamente');
+    };
+    
+    qrImg.onerror = function() {
+        qrContainer.innerHTML = `
+            <div class="p-4 text-center">
+                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
+                <p class="text-sm text-gray-600">No se pudo generar el código QR</p>
+                <p class="text-xs text-gray-500 mt-1">Usa el enlace directo</p>
+            </div>
+        `;
+    };
+}
+
+// Function to copy PrimerParcialPython link to clipboard
+function copyParcialLink() {
+    const url = 'https://jestrada2020.github.io/PrimerParcialBioPythonV1/';
+    
+    navigator.clipboard.writeText(url).then(() => {
+        showNotification('¡Enlace del parcial copiado al portapapeles!');
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification('¡Enlace del parcial copiado al portapapeles!');
     });
 }

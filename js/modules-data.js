@@ -99,6 +99,80 @@ print(f"17 % 5 = {17 % 5}")</code>
                 </div>
             </div>
         `,
+        shinyContent: `
+            <div class="mb-8">
+                <div class="grid lg:grid-cols-3 gap-6 mb-6">
+                    <div class="lg:col-span-2">
+                        <h4 class="text-lg font-semibold theme-text-primary mb-4">¿Qué es Shiny for Python?</h4>
+                        <p class="theme-text-secondary mb-4">
+                            Shiny for Python es un framework de desarrollo de aplicaciones web reactivas que permite crear dashboards, 
+                            aplicaciones de datos y soluciones de inteligencia artificial utilizando únicamente Python.
+                        </p>
+                        
+                        <h5 class="text-md font-semibold theme-text-primary mb-3">Características Principales:</h5>
+                        <ul class="list-disc list-inside theme-text-secondary space-y-2 mb-4">
+                            <li><strong>Reactivo:</strong> Gestiona automáticamente el estado sin callbacks complejos</li>
+                            <li><strong>Eficiente:</strong> Renderiza outputs solo cuando los componentes cambian</li>
+                            <li><strong>Robusto:</strong> Construido sobre Starlette y asyncio</li>
+                            <li><strong>Simple:</strong> Código Python limpio y directo</li>
+                        </ul>
+                        
+                        <h5 class="text-md font-semibold theme-text-primary mb-3">Casos de Uso:</h5>
+                        <div class="grid md:grid-cols-2 gap-3 mb-4">
+                            <div class="p-3 theme-bg-tertiary rounded-lg">
+                                <span class="text-sm theme-text-secondary">• Dashboards interactivos</span>
+                            </div>
+                            <div class="p-3 theme-bg-tertiary rounded-lg">
+                                <span class="text-sm theme-text-secondary">• Visualizaciones de datos</span>
+                            </div>
+                            <div class="p-3 theme-bg-tertiary rounded-lg">
+                                <span class="text-sm theme-text-secondary">• Simulaciones científicas</span>
+                            </div>
+                            <div class="p-3 theme-bg-tertiary rounded-lg">
+                                <span class="text-sm theme-text-secondary">• Apps con IA</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-1">
+                        <div class="theme-bg-tertiary rounded-lg p-4 mb-4">
+                            <h5 class="text-md font-semibold theme-text-primary mb-3">Instalación</h5>
+                            <div class="bg-black text-green-400 p-3 rounded font-mono text-sm">
+                                pip install shiny
+                            </div>
+                        </div>
+                        
+                        <div class="theme-bg-tertiary rounded-lg p-4">
+                            <h5 class="text-md font-semibold theme-text-primary mb-3">Ventajas</h5>
+                            <ul class="text-sm theme-text-secondary space-y-1">
+                                <li>✓ Sin JavaScript necesario</li>
+                                <li>✓ Integración con pandas/plotly</li>
+                                <li>✓ CSS personalizable</li>
+                                <li>✓ Despliegue fácil</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de ejemplos -->
+            <div class="text-center border-t theme-border pt-6">
+                <div class="mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold theme-text-primary mb-3">Explorar Ejemplos Interactivos</h4>
+                    <p class="theme-text-secondary mb-6">Descubre aplicaciones web completas creadas con Shiny for Python.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <button onclick="window.open('https://shinylive.io/py/examples/', '_blank')" class="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-external-link-alt mr-2"></i>Abrir Shiny Examples
+                    </button>
+                    <p class="text-sm theme-text-secondary mt-2">Se abrirá en una nueva ventana</p>
+                </div>
+            </div>
+        `,
         exercises: [
             {
                 title: "Tu primer programa",
@@ -852,6 +926,59 @@ print(f"Lista completa: {sorted(todos_usuarios)}")</code>
                 </div>
             </div>
         `,
+        shinyContent: `
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold theme-text-primary mb-4">📊 Estructuras de Datos en Shiny for Python</h4>
+                <p class="theme-text-secondary mb-4">
+                    Las estructuras de datos de Python son fundamentales para crear aplicaciones interactivas con Shiny. 
+                    Aprende cómo usar listas, diccionarios y DataFrames para construir dashboards dinámicos.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-3">🗃️ Datos para Shiny</h5>
+                        <ul class="text-sm theme-text-secondary space-y-2">
+                            <li><strong>Listas:</strong> Para widgets de selección múltiple</li>
+                            <li><strong>Diccionarios:</strong> Para mapeo de datos</li>
+                            <li><strong>DataFrames:</strong> Para tablas y gráficos</li>
+                            <li><strong>Sets:</strong> Para filtros únicos</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-3">⚡ Casos Prácticos</h5>
+                        <ul class="text-sm theme-text-secondary space-y-2">
+                            <li>Dashboard de ventas con diccionarios</li>
+                            <li>Filtros dinámicos con listas</li>
+                            <li>Tablas interactivas con DataFrames</li>
+                            <li>Visualizaciones con datos estructurados</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="p-4 theme-bg-tertiary rounded-lg mb-6">
+                    <h5 class="font-semibold theme-text-primary mb-3">🚀 Ejemplo: Dashboard con Datos</h5>
+                    <div class="bg-black text-green-400 p-3 rounded font-mono text-xs mb-3">
+                        <code>
+# Ejemplo de datos para Shiny<br>
+datos_ventas = {<br>
+&nbsp;&nbsp;"productos": ["Laptop", "Mouse", "Teclado"],<br>
+&nbsp;&nbsp;"ventas": [1200, 25, 75],<br>
+&nbsp;&nbsp;"regiones": ["Norte", "Sur", "Centro"]<br>
+}<br><br>
+# En Shiny, estos datos se convierten en<br>
+# gráficos y tablas interactivas
+                        </code>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button onclick="window.open('https://shinylive.io/py/examples/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-external-link-alt mr-2"></i>Ver Ejemplos con Datos
+                    </button>
+                    <p class="text-sm theme-text-secondary mt-2">Explora dashboards con estructuras de datos</p>
+                </div>
+            </div>
+        `,
         exercises: [
             {
                 title: "Operaciones con listas",
@@ -1074,6 +1201,58 @@ frutas.append("uva")<br>
 print(f"Frutas después de agregar: {frutas}")</code>
                         </div>
                     </div>
+                </div>
+            </div>
+        `,
+        shinyContent: `
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold theme-text-primary mb-4">🧮 Fundamentos Python en Shiny</h4>
+                <p class="theme-text-secondary mb-4">
+                    Los conceptos básicos de Python (números, strings y listas) son la base para crear aplicaciones 
+                    web interactivas con Shiny. Aprende cómo estos elementos se transforman en interfaces de usuario dinámicas.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-3">🔢 De Variables a Widgets</h5>
+                        <ul class="text-sm theme-text-secondary space-y-2">
+                            <li><strong>Números:</strong> Sliders y inputs numéricos</li>
+                            <li><strong>Strings:</strong> Inputs de texto y etiquetas</li>
+                            <li><strong>Listas:</strong> Selectores y checkboxes</li>
+                            <li><strong>Booleanos:</strong> Switches y botones</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-3">🎯 Ejemplos Prácticos</h5>
+                        <ul class="text-sm theme-text-secondary space-y-2">
+                            <li>Calculadora interactiva</li>
+                            <li>Generador de texto dinámico</li>
+                            <li>Selector de opciones múltiples</li>
+                            <li>Contador de elementos</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="p-4 theme-bg-tertiary rounded-lg mb-6">
+                    <h5 class="font-semibold theme-text-primary mb-3">💡 Ejemplo: Calculadora Shiny</h5>
+                    <div class="bg-black text-green-400 p-3 rounded font-mono text-xs mb-3">
+                        <code>
+# Variables Python básicas en Shiny<br>
+numero1 = 15  # → Input numérico<br>
+numero2 = 30  # → Slider<br>
+operacion = "+"  # → Selector dropdown<br><br>
+# Resultado interactivo<br>
+resultado = numero1 + numero2<br>
+# Se actualiza automáticamente en la interfaz
+                        </code>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button onclick="window.open('https://shinylive.io/py/examples/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-external-link-alt mr-2"></i>Ver Apps Básicas
+                    </button>
+                    <p class="text-sm theme-text-secondary mt-2">Descubre aplicaciones simples pero poderosas</p>
                 </div>
             </div>
         `,
