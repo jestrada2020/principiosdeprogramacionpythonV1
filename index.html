@@ -440,63 +440,613 @@ print('¡Hola, mundo!')"></textarea>
                         <div class="theme-bg-secondary rounded-2xl p-6">
                             <h3 class="text-xl font-semibold theme-text-primary mb-4">Shiny for Python</h3>
                             
-                            <!-- Información sobre Shiny for Python -->
+                            <!-- Sección de Ejemplos Básicos -->
                             <div class="mb-8">
-                                <div class="grid lg:grid-cols-3 gap-6 mb-6">
-                                    <div class="lg:col-span-2">
-                                        <h4 class="text-lg font-semibold theme-text-primary mb-4">¿Qué es Shiny for Python?</h4>
-                                        <p class="theme-text-secondary mb-4">
-                                            Shiny for Python es un framework de desarrollo de aplicaciones web reactivas que permite crear dashboards, 
-                                            aplicaciones de datos y soluciones de inteligencia artificial utilizando únicamente Python.
-                                        </p>
-                                        
-                                        <h5 class="text-md font-semibold theme-text-primary mb-3">Características Principales:</h5>
-                                        <ul class="list-disc list-inside theme-text-secondary space-y-2 mb-4">
-                                            <li><strong>Reactivo:</strong> Gestiona automáticamente el estado sin callbacks complejos</li>
-                                            <li><strong>Eficiente:</strong> Renderiza outputs solo cuando los componentes cambian</li>
-                                            <li><strong>Robusto:</strong> Construido sobre Starlette y asyncio</li>
-                                            <li><strong>Simple:</strong> Código Python limpio y directo</li>
-                                        </ul>
-                                        
-                                        <h5 class="text-md font-semibold theme-text-primary mb-3">Casos de Uso:</h5>
-                                        <div class="grid md:grid-cols-2 gap-3 mb-4">
-                                            <div class="p-3 theme-bg-tertiary rounded-lg">
-                                                <span class="text-sm theme-text-secondary">• Dashboards interactivos</span>
-                                            </div>
-                                            <div class="p-3 theme-bg-tertiary rounded-lg">
-                                                <span class="text-sm theme-text-secondary">• Visualizaciones de datos</span>
-                                            </div>
-                                            <div class="p-3 theme-bg-tertiary rounded-lg">
-                                                <span class="text-sm theme-text-secondary">• Simulaciones científicas</span>
-                                            </div>
-                                            <div class="p-3 theme-bg-tertiary rounded-lg">
-                                                <span class="text-sm theme-text-secondary">• Apps con IA</span>
-                                            </div>
-                                        </div>
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">Ejemplos Básicos para Definir Funciones</h4>
+                                <p class="theme-text-secondary mb-6">
+                                    Aprende cómo crear aplicaciones web reactivas con Shiny for Python a través de este ejemplo práctico que demuestra funciones definidas por el usuario.
+                                </p>
+                                
+                                <!-- Ejemplo de código -->
+                                <div class="theme-bg-tertiary rounded-lg p-6 mb-6">
+                                    <h5 class="text-md font-semibold theme-text-primary mb-4">Ejemplo: Evaluador de Funciones Matemáticas</h5>
+                                    <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto mb-4">
+                                        <pre><code>import numpy as np
+import math
+from shiny import App, render, reactive, ui
+
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.input_slider("n", "N", 0, 100, 20),
+        ui.input_text("formula1", "Formula del usuario ", "3*x**2 - 3*x + 2"),
+        ui.input_numeric("eval_x_f", "Evaluar f(x) en:", 0)),
+    ui.output_text_verbatim("result_f"),
+)
+
+# Definir la función de servidor
+def server(input, output, session):
+    @output
+    @render.code
+    def txt():
+        return f"n*2 is {input.n() * 2}"
+
+    @output
+    @render.text
+    def result_f():
+        x_value = input.eval_x_f()*input.n()
+        result = eval(input.formula1(), {"x": x_value, "np": np, "math": math})
+        return f"f({x_value}) = {result}"
+        
+app = App(app_ui, server)</code></pre>
                                     </div>
                                     
-                                    <div class="lg:col-span-1">
-                                        <div class="theme-bg-tertiary rounded-lg p-4 mb-4">
-                                            <h5 class="text-md font-semibold theme-text-primary mb-3">Instalación</h5>
-                                            <div class="bg-black text-green-400 p-3 rounded font-mono text-sm">
-                                                pip install shiny
+                                    <!-- Explicación del código -->
+                                    <div class="space-y-4">
+                                        <h6 class="text-md font-semibold theme-text-primary">Explicación del Código:</h6>
+                                        
+                                        <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-4">
+                                            <div class="theme-bg-primary rounded-lg p-4">
+                                                <h7 class="font-semibold theme-text-primary text-sm mb-2">🎛️ Interfaz de Usuario (UI)</h7>
+                                                <ul class="text-xs theme-text-secondary space-y-1">
+                                                    <li><strong>ui.page_sidebar():</strong> Crea una estructura con barra lateral</li>
+                                                    <li><strong>ui.input_slider():</strong> Control deslizante para el valor N (0-100)</li>
+                                                    <li><strong>ui.input_text():</strong> Campo de texto para introducir fórmulas matemáticas</li>
+                                                    <li><strong>ui.input_numeric():</strong> Campo numérico para el punto de evaluación</li>
+                                                    <li><strong>ui.output_text_verbatim():</strong> Área de salida para mostrar resultados</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="theme-bg-primary rounded-lg p-4">
+                                                <h7 class="font-semibold theme-text-primary text-sm mb-2">⚙️ Lógica del Servidor</h7>
+                                                <ul class="text-xs theme-text-secondary space-y-1">
+                                                    <li><strong>@output y @render.text:</strong> Decoradores que definen funciones reactivas</li>
+                                                    <li><strong>input.n():</strong> Obtiene el valor del slider</li>
+                                                    <li><strong>input.formula1():</strong> Recupera la fórmula introducida por el usuario</li>
+                                                    <li><strong>eval():</strong> Evalúa la expresión matemática de forma segura</li>
+                                                    <li><strong>x_value:</strong> Calcula el punto donde evaluar la función</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         
-                                        <div class="theme-bg-tertiary rounded-lg p-4">
-                                            <h5 class="text-md font-semibold theme-text-primary mb-3">Ventajas</h5>
-                                            <ul class="text-sm theme-text-secondary space-y-1">
-                                                <li>✓ Sin JavaScript necesario</li>
-                                                <li>✓ Integración con pandas/plotly</li>
-                                                <li>✓ CSS personalizable</li>
-                                                <li>✓ Despliegue fácil</li>
-                                            </ul>
+                                        <div class="theme-bg-primary rounded-lg p-4">
+                                            <h7 class="font-semibold theme-text-primary text-sm mb-2">🔍 Características Destacadas</h7>
+                                            <div class="grid md:grid-cols-3 gap-2">
+                                                <div class="text-xs theme-text-secondary">
+                                                    <strong>Reactividad:</strong> Los resultados se actualizan automáticamente cuando cambias los valores de entrada
+                                                </div>
+                                                <div class="text-xs theme-text-secondary">
+                                                    <strong>Flexibilidad:</strong> Permite introducir cualquier fórmula matemática válida en Python
+                                                </div>
+                                                <div class="text-xs theme-text-secondary">
+                                                    <strong>Integración:</strong> Usa numpy y math para cálculos avanzados
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- Sección de ejemplos -->
+                            <!-- Segundo ejemplo de código -->
+                            <div class="theme-bg-tertiary rounded-lg p-6 mb-6">
+                                <h5 class="text-md font-semibold theme-text-primary mb-4">Ejemplo 2: Recorrido de Arreglo Interactivo</h5>
+                                <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto mb-4">
+                                    <pre><code>import numpy as np
+import time
+from shiny import App, render, reactive, ui
+
+# Datos del arreglo
+datos = [15, 23, 8, 42, 91, 37, 66, 14, 73, 29]
+
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.input_action_button("iniciar", "Iniciar Recorrido", class_="btn btn-primary mb-3"),
+        ui.input_action_button("siguiente", "Siguiente Elemento", class_="btn btn-success mb-3"),
+        ui.input_action_button("reiniciar", "Reiniciar", class_="btn btn-warning mb-3"),
+        ui.input_slider("velocidad", "Velocidad (ms)", 500, 3000, 1000, step=100),
+    ),
+    ui.div(
+        ui.h4("Recorrido del Arreglo", class_="mb-3"),
+        ui.output_ui("mostrar_arreglo"),
+        ui.output_text("elemento_actual"),
+        ui.output_text("estadisticas"),
+        class_="p-4"
+    )
+)
+
+def server(input, output, session):
+    valores = reactive.Value({'indice': -1, 'terminado': False, 'suma': 0})
+    
+    @reactive.Effect
+    @reactive.event(input.iniciar)
+    def iniciar_recorrido():
+        valores.set({'indice': 0, 'terminado': False, 'suma': datos[0]})
+    
+    @reactive.Effect
+    @reactive.event(input.siguiente)
+    def siguiente_elemento():
+        estado = valores.get()
+        if not estado['terminado'] and estado['indice'] < len(datos) - 1:
+            nuevo_indice = estado['indice'] + 1
+            nueva_suma = estado['suma'] + datos[nuevo_indice]
+            valores.set({
+                'indice': nuevo_indice, 
+                'terminado': nuevo_indice >= len(datos) - 1,
+                'suma': nueva_suma
+            })
+    
+    @reactive.Effect
+    @reactive.event(input.reiniciar)
+    def reiniciar():
+        valores.set({'indice': -1, 'terminado': False, 'suma': 0})
+    
+    @output
+    @render.ui
+    def mostrar_arreglo():
+        estado = valores.get()
+        elementos = []
+        
+        for i, valor in enumerate(datos):
+            if i < estado['indice']:
+                # Elementos ya procesados (verde)
+                elementos.append(ui.span(f"{valor}", class_="badge bg-success me-2 p-2"))
+            elif i == estado['indice']:
+                # Elemento actual (azul)
+                elementos.append(ui.span(f"{valor}", class_="badge bg-primary me-2 p-2 fs-5"))
+            else:
+                # Elementos por procesar (gris)
+                elementos.append(ui.span(f"{valor}", class_="badge bg-secondary me-2 p-2"))
+        
+        return ui.div(*elementos, class_="mb-3")
+    
+    @output
+    @render.text
+    def elemento_actual():
+        estado = valores.get()
+        if estado['indice'] >= 0 and not estado['terminado']:
+            return f"Elemento actual: {datos[estado['indice']]} (Posición: {estado['indice']})"
+        elif estado['terminado']:
+            return f"¡Recorrido completado! Último elemento: {datos[estado['indice']]}"
+        else:
+            return "Presiona 'Iniciar Recorrido' para comenzar"
+    
+    @output
+    @render.text
+    def estadisticas():
+        estado = valores.get()
+        if estado['indice'] >= 0:
+            elementos_procesados = estado['indice'] + 1
+            promedio = estado['suma'] / elementos_procesados if elementos_procesados > 0 else 0
+            return f"Procesados: {elementos_procesados}/10 | Suma: {estado['suma']} | Promedio: {promedio:.2f}"
+        else:
+            return "Estadísticas aparecerán durante el recorrido"
+
+app = App(app_ui, server)</code></pre>
+                                </div>
+                                
+                                <!-- Explicación del segundo ejemplo -->
+                                <div class="space-y-4">
+                                    <h6 class="text-md font-semibold theme-text-primary">Explicación del Ejemplo de Recorrido:</h6>
+                                    
+                                    <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-4">
+                                        <div class="theme-bg-primary rounded-lg p-4">
+                                            <h7 class="font-semibold theme-text-primary text-sm mb-2">🔄 Control de Recorrido</h7>
+                                            <ul class="text-xs theme-text-secondary space-y-1">
+                                                <li><strong>input_action_button():</strong> Botones para controlar el recorrido</li>
+                                                <li><strong>reactive.Value():</strong> Estado reactivo que mantiene el índice actual</li>
+                                                <li><strong>@reactive.event():</strong> Responde a clics de botones específicos</li>
+                                                <li><strong>input_slider():</strong> Control de velocidad de recorrido</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="theme-bg-primary rounded-lg p-4">
+                                            <h7 class="font-semibold theme-text-primary text-sm mb-2">📊 Visualización Dinámica</h7>
+                                            <ul class="text-xs theme-text-secondary space-y-1">
+                                                <li><strong>render.ui():</strong> Actualiza la interfaz dinámicamente</li>
+                                                <li><strong>Badge coloreados:</strong> Verde (procesado), Azul (actual), Gris (pendiente)</li>
+                                                <li><strong>Estadísticas en tiempo real:</strong> Suma, promedio, elementos procesados</li>
+                                                <li><strong>Estado del recorrido:</strong> Índice actual y estado de finalización</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="theme-bg-primary rounded-lg p-4">
+                                        <h7 class="font-semibold theme-text-primary text-sm mb-2">🎯 Características del Ejemplo</h7>
+                                        <div class="grid md:grid-cols-3 gap-2">
+                                            <div class="text-xs theme-text-secondary">
+                                                <strong>Interactividad:</strong> Control manual del recorrido paso a paso
+                                            </div>
+                                            <div class="text-xs theme-text-secondary">
+                                                <strong>Visualización:</strong> Colores diferentes para cada estado del elemento
+                                            </div>
+                                            <div class="text-xs theme-text-secondary">
+                                                <strong>Estadísticas:</strong> Cálculos en tiempo real durante el recorrido
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tercer ejemplo: Recorrido de Listas -->
+                            <div class="theme-bg-tertiary rounded-lg p-6 mb-6">
+                                <h5 class="text-md font-semibold theme-text-primary mb-4">Ejemplo 3: Recorrido de Listas con Diferentes Tipos</h5>
+                                <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto mb-4">
+                                    <pre><code>from shiny import App, render, reactive, ui
+
+# Lista mixta con diferentes tipos de datos
+frutas = ["🍎 Manzana", "🍌 Plátano", "🍊 Naranja", "🍓 Fresa", "🥝 Kiwi"]
+numeros = [10, 25, 30, 45, 50]
+booleanos = [True, False, True, True, False]
+
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.input_select(
+            "tipo_lista", 
+            "Selecciona el tipo de lista:",
+            choices={"frutas": "🍎 Frutas", "numeros": "🔢 Números", "booleanos": "✅ Booleanos"}
+        ),
+        ui.input_action_button("recorrer", "Recorrer Lista", class_="btn btn-info mb-3"),
+        ui.input_action_button("siguiente_item", "Siguiente Item", class_="btn btn-success mb-3"),
+        ui.input_action_button("reset", "Reiniciar", class_="btn btn-warning mb-3"),
+    ),
+    ui.div(
+        ui.h4("Recorrido de Lista", class_="mb-3"),
+        ui.output_ui("mostrar_lista"),
+        ui.output_text("item_actual"),
+        ui.output_text("info_lista"),
+        class_="p-4"
+    )
+)
+
+def server(input, output, session):
+    estado = reactive.Value({'indice': -1, 'lista_actual': [], 'tipo': ''})
+    
+    def obtener_lista(tipo):
+        if tipo == "frutas":
+            return frutas
+        elif tipo == "numeros":
+            return numeros
+        else:
+            return booleanos
+    
+    @reactive.Effect
+    @reactive.event(input.recorrer)
+    def iniciar_recorrido():
+        lista = obtener_lista(input.tipo_lista())
+        estado.set({'indice': 0, 'lista_actual': lista, 'tipo': input.tipo_lista()})
+    
+    @reactive.Effect
+    @reactive.event(input.siguiente_item)
+    def siguiente_item():
+        estado_actual = estado.get()
+        if estado_actual['indice'] >= 0 and estado_actual['indice'] < len(estado_actual['lista_actual']) - 1:
+            estado.set({
+                'indice': estado_actual['indice'] + 1,
+                'lista_actual': estado_actual['lista_actual'],
+                'tipo': estado_actual['tipo']
+            })
+    
+    @reactive.Effect
+    @reactive.event(input.reset)
+    def reiniciar():
+        estado.set({'indice': -1, 'lista_actual': [], 'tipo': ''})
+    
+    @output
+    @render.ui
+    def mostrar_lista():
+        estado_actual = estado.get()
+        if not estado_actual['lista_actual']:
+            return ui.p("Selecciona una lista y presiona 'Recorrer Lista'")
+        
+        items = []
+        for i, item in enumerate(estado_actual['lista_actual']):
+            if i < estado_actual['indice']:
+                items.append(ui.span(f"{item}", class_="badge bg-success me-2 p-2 fs-6"))
+            elif i == estado_actual['indice']:
+                items.append(ui.span(f"{item}", class_="badge bg-primary me-2 p-2 fs-5"))
+            else:
+                items.append(ui.span(f"{item}", class_="badge bg-secondary me-2 p-2"))
+        
+        return ui.div(*items, class_="mb-3")
+    
+    @output
+    @render.text
+    def item_actual():
+        estado_actual = estado.get()
+        if estado_actual['indice'] >= 0 and estado_actual['lista_actual']:
+            item = estado_actual['lista_actual'][estado_actual['indice']]
+            return f"Item actual: {item} (Índice: {estado_actual['indice']}) | Tipo: {type(item).__name__}"
+        return "Ningún item seleccionado"
+    
+    @output
+    @render.text
+    def info_lista():
+        estado_actual = estado.get()
+        if estado_actual['lista_actual']:
+            total = len(estado_actual['lista_actual'])
+            procesados = estado_actual['indice'] + 1 if estado_actual['indice'] >= 0 else 0
+            return f"Lista: {estado_actual['tipo'].title()} | Total: {total} items | Procesados: {procesados}/{total}"
+        return ""
+
+app = App(app_ui, server)</code></pre>
+                                </div>
+                            </div>
+                            
+                            <!-- Cuarto ejemplo: Definición de Matriz 3x2 -->
+                            <div class="theme-bg-tertiary rounded-lg p-6 mb-6">
+                                <h5 class="text-md font-semibold theme-text-primary mb-4">Ejemplo 4: Definición de Matriz 3x2</h5>
+                                <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto mb-4">
+                                    <pre><code>import numpy as np
+from shiny import App, render, reactive, ui
+
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.input_select(
+            "tipo_matriz",
+            "Tipo de Matriz:",
+            choices={
+                "manual": "📝 Manual",
+                "zeros": "0️⃣ Ceros",
+                "ones": "1️⃣ Unos",
+                "random": "🎲 Aleatoria"
+            }
+        ),
+        ui.h5("Valores Manuales (3x2):", class_="mt-3"),
+        ui.input_numeric("m00", "Fila 0, Col 0:", value=1),
+        ui.input_numeric("m01", "Fila 0, Col 1:", value=2),
+        ui.input_numeric("m10", "Fila 1, Col 0:", value=3),
+        ui.input_numeric("m11", "Fila 1, Col 1:", value=4),
+        ui.input_numeric("m20", "Fila 2, Col 0:", value=5),
+        ui.input_numeric("m21", "Fila 2, Col 1:", value=6),
+        ui.input_action_button("crear_matriz", "Crear Matriz", class_="btn btn-primary mt-3"),
+    ),
+    ui.div(
+        ui.h4("Matriz 3x2", class_="mb-3"),
+        ui.output_ui("mostrar_matriz"),
+        ui.output_text("info_matriz"),
+        ui.output_text("propiedades_matriz"),
+        class_="p-4"
+    )
+)
+
+def server(input, output, session):
+    matriz = reactive.Value(np.array([[1, 2], [3, 4], [5, 6]]))
+    
+    @reactive.Effect
+    @reactive.event(input.crear_matriz)
+    def crear_matriz():
+        tipo = input.tipo_matriz()
+        
+        if tipo == "manual":
+            nueva_matriz = np.array([
+                [input.m00(), input.m01()],
+                [input.m10(), input.m11()],
+                [input.m20(), input.m21()]
+            ])
+        elif tipo == "zeros":
+            nueva_matriz = np.zeros((3, 2))
+        elif tipo == "ones":
+            nueva_matriz = np.ones((3, 2))
+        else:  # random
+            nueva_matriz = np.random.randint(1, 20, size=(3, 2))
+        
+        matriz.set(nueva_matriz)
+    
+    @output
+    @render.ui
+    def mostrar_matriz():
+        m = matriz.get()
+        filas = []
+        
+        for i in range(3):
+            columnas = []
+            for j in range(2):
+                valor = m[i, j]
+                columnas.append(
+                    ui.span(
+                        f"{valor:.0f}" if valor == int(valor) else f"{valor:.2f}",
+                        class_="badge bg-info me-2 p-3 fs-6",
+                        style="min-width: 60px;"
+                    )
+                )
+            filas.append(ui.div(*columnas, class_="mb-2"))
+        
+        return ui.div(*filas, class_="mb-3")
+    
+    @output
+    @render.text
+    def info_matriz():
+        m = matriz.get()
+        return f"Dimensiones: {m.shape} | Elementos totales: {m.size}"
+    
+    @output
+    @render.text
+    def propiedades_matriz():
+        m = matriz.get()
+        suma = np.sum(m)
+        promedio = np.mean(m)
+        maximo = np.max(m)
+        minimo = np.min(m)
+        return f"Suma: {suma:.2f} | Promedio: {promedio:.2f} | Máximo: {maximo:.2f} | Mínimo: {minimo:.2f}"
+
+app = App(app_ui, server)</code></pre>
+                                </div>
+                            </div>
+                            
+                            <!-- Quinto ejemplo: Recorrido de Matriz -->
+                            <div class="theme-bg-tertiary rounded-lg p-6 mb-6">
+                                <h5 class="text-md font-semibold theme-text-primary mb-4">Ejemplo 5: Recorrido de Matriz 3x2 por Filas y Columnas</h5>
+                                <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto mb-4">
+                                    <pre><code>import numpy as np
+from shiny import App, render, reactive, ui
+
+# Matriz ejemplo 3x2
+matriz_ejemplo = np.array([[10, 20], [30, 40], [50, 60]])
+
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.input_select(
+            "modo_recorrido",
+            "Modo de Recorrido:",
+            choices={
+                "filas": "📊 Por Filas",
+                "columnas": "📈 Por Columnas"
+            }
+        ),
+        ui.input_action_button("iniciar_recorrido", "Iniciar Recorrido", class_="btn btn-primary mb-3"),
+        ui.input_action_button("siguiente_paso", "Siguiente Paso", class_="btn btn-success mb-3"),
+        ui.input_action_button("reiniciar_todo", "Reiniciar", class_="btn btn-warning mb-3"),
+        ui.h6("Estado del Recorrido:", class_="mt-3"),
+        ui.output_text("posicion_actual"),
+    ),
+    ui.div(
+        ui.h4("Recorrido de Matriz 3x2", class_="mb-3"),
+        ui.output_ui("visualizar_matriz"),
+        ui.output_text("elemento_actual"),
+        ui.output_text("estadisticas_recorrido"),
+        ui.output_ui("secuencia_recorrido"),
+        class_="p-4"
+    )
+)
+
+def server(input, output, session):
+    estado_recorrido = reactive.Value({
+        'fila': -1, 'columna': -1, 'completado': False, 
+        'modo': 'filas', 'secuencia': []
+    })
+    
+    def siguiente_posicion(fila, columna, modo):
+        if modo == "filas":
+            if columna < 1:
+                return fila, columna + 1
+            elif fila < 2:
+                return fila + 1, 0
+            else:
+                return -1, -1  # Completado
+        else:  # columnas
+            if fila < 2:
+                return fila + 1, columna
+            elif columna < 1:
+                return 0, columna + 1
+            else:
+                return -1, -1  # Completado
+    
+    @reactive.Effect
+    @reactive.event(input.iniciar_recorrido)
+    def iniciar():
+        modo = input.modo_recorrido()
+        estado_recorrido.set({
+            'fila': 0, 'columna': 0, 'completado': False,
+            'modo': modo, 'secuencia': [(0, 0)]
+        })
+    
+    @reactive.Effect
+    @reactive.event(input.siguiente_paso)
+    def siguiente():
+        estado = estado_recorrido.get()
+        if not estado['completado']:
+            nueva_fila, nueva_col = siguiente_posicion(
+                estado['fila'], estado['columna'], estado['modo']
+            )
+            
+            if nueva_fila == -1:  # Completado
+                estado_recorrido.set({
+                    **estado, 'completado': True
+                })
+            else:
+                nueva_secuencia = estado['secuencia'] + [(nueva_fila, nueva_col)]
+                estado_recorrido.set({
+                    **estado, 'fila': nueva_fila, 'columna': nueva_col,
+                    'secuencia': nueva_secuencia
+                })
+    
+    @reactive.Effect
+    @reactive.event(input.reiniciar_todo)
+    def reiniciar():
+        estado_recorrido.set({
+            'fila': -1, 'columna': -1, 'completado': False,
+            'modo': 'filas', 'secuencia': []
+        })
+    
+    @output
+    @render.ui
+    def visualizar_matriz():
+        estado = estado_recorrido.get()
+        filas_ui = []
+        
+        for i in range(3):
+            columnas_ui = []
+            for j in range(2):
+                valor = matriz_ejemplo[i, j]
+                
+                # Determinar el estilo según el estado
+                if estado['fila'] == i and estado['columna'] == j and not estado['completado']:
+                    clase = "badge bg-danger p-3 fs-5"  # Actual (rojo)
+                elif (i, j) in estado['secuencia']:
+                    clase = "badge bg-success p-3 fs-6"  # Visitado (verde)
+                else:
+                    clase = "badge bg-secondary p-3 fs-6"  # No visitado (gris)
+                
+                columnas_ui.append(
+                    ui.span(
+                        f"[{i},{j}] {valor}",
+                        class_=clase,
+                        style="min-width: 80px; margin: 2px;"
+                    )
+                )
+            filas_ui.append(ui.div(*columnas_ui, class_="mb-2"))
+        
+        return ui.div(*filas_ui)
+    
+    @output
+    @render.text
+    def elemento_actual():
+        estado = estado_recorrido.get()
+        if estado['fila'] >= 0 and not estado['completado']:
+            valor = matriz_ejemplo[estado['fila'], estado['columna']]
+            return f"Elemento actual: [{estado['fila']},{estado['columna']}] = {valor}"
+        elif estado['completado']:
+            return "¡Recorrido completado!"
+        return "Presiona 'Iniciar Recorrido' para comenzar"
+    
+    @output
+    @render.text
+    def posicion_actual():
+        estado = estado_recorrido.get()
+        if estado['fila'] >= 0:
+            return f"Posición: Fila {estado['fila']}, Columna {estado['columna']}"
+        return "Sin iniciar"
+    
+    @output
+    @render.text
+    def estadisticas_recorrido():
+        estado = estado_recorrido.get()
+        total_elementos = 6
+        visitados = len(estado['secuencia'])
+        return f"Modo: {estado['modo'].title()} | Visitados: {visitados}/{total_elementos}"
+    
+    @output
+    @render.ui
+    def secuencia_recorrido():
+        estado = estado_recorrido.get()
+        if estado['secuencia']:
+            secuencia_items = []
+            for i, (f, c) in enumerate(estado['secuencia']):
+                valor = matriz_ejemplo[f, c]
+                secuencia_items.append(
+                    ui.span(f"[{f},{c}]→{valor}", class_="badge bg-info me-1 p-2 text-sm")
+                )
+            return ui.div(
+                ui.h6("Secuencia de Recorrido:", class_="mb-2"),
+                ui.div(*secuencia_items)
+            )
+        return ui.div()
+
+app = App(app_ui, server)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sección de ejemplos -->
                             <div class="text-center border-t theme-border pt-6">
                                 <div class="mb-6">
                                     <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
