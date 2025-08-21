@@ -371,6 +371,9 @@
                         <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="exercises">
                             <i class="fas fa-puzzle-piece mr-2"></i>Ejercicios
                         </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="recommended">
+                            <i class="fas fa-link mr-2"></i>Páginas Recomendadas
+                        </button>
                         <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="quiz">
                             <i class="fas fa-question-circle mr-2"></i>Quiz
                         </button>
@@ -1061,6 +1064,378 @@ app = App(app_ui, server)</code></pre>
                                         <i class="fas fa-external-link-alt mr-2"></i>Abrir Shiny Examples
                                     </button>
                                     <p class="text-sm theme-text-secondary mt-2">Se abrirá en una nueva ventana</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Pages Tab -->
+                    <div id="recommendedTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-8">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-6">Páginas Recomendadas</h3>
+                            <div class="space-y-8">
+                                <!-- Mathematics Section -->
+                                <div>
+                                    <h4 class="text-lg font-semibold theme-text-primary mb-4 border-b theme-border pb-2">
+                                        <i class="fas fa-calculator mr-2 text-blue-500"></i>Matemáticas
+                                    </h4>
+                                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        <a href="https://es.wikipedia.org/wiki/Ecuaci%C3%B3n_de_tercer_grado" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Ecuación de Tercer Grado</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Wikipedia - Ecuaciones cúbicas y métodos de resolución</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://es.wikipedia.org/wiki/Ecuaci%C3%B3n_de_segundo_grado" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Ecuación de Segundo Grado</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Wikipedia - Ecuaciones cuadráticas y fórmula general</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://www.wolframalpha.com/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Wolfram Alpha</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Motor computacional para matemáticas y cálculos</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://www.maplesoft.com/products/maple/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Maple</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Software matemático avanzado para cálculo simbólico</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://www.mathworks.com/products/matlab.html" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">MATLAB</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Plataforma de computación técnica y análisis de datos</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://www.geogebra.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">GeoGebra</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Aplicación de matemáticas dinámicas y geometría</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://octave.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">GNU Octave</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Lenguaje de programación científica gratuito</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Python Resources Section -->
+                                <div>
+                                    <h4 class="text-lg font-semibold theme-text-primary mb-4 border-b theme-border pb-2">
+                                        <i class="fab fa-python mr-2 text-green-500"></i>Recursos de Python
+                                    </h4>
+                                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        <a href="https://docs.python.org/es/3/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-green-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Documentación Oficial</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Documentación completa de Python 3</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://realpython.com/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-green-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Real Python</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Tutoriales y artículos avanzados</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://pandas.pydata.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-green-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Pandas</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Análisis y manipulación de datos en Python</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://numpy.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-green-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">NumPy</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Computación científica y arrays multidimensionales</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://tensorflow.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-green-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">TensorFlow</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Plataforma de machine learning y deep learning</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://scikit-learn.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-green-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Scikit-Learn</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Machine learning simple y eficiente en Python</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- R Programming Section -->
+                                <div>
+                                    <h4 class="text-lg font-semibold theme-text-primary mb-4 border-b theme-border pb-2">
+                                        <i class="fab fa-r-project mr-2 text-blue-600"></i>Programación en R
+                                    </h4>
+                                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        <a href="https://www.r-project.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-600 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">R Project</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Lenguaje R para computación estadística</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://posit.co/products/open-source/rstudio/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-600 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">RStudio</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">IDE integrado para desarrollo en R</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://cran.r-project.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-blue-600 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">CRAN</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Red de archivos de R - paquetes y documentación</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Online Code Practice Section -->
+                                <div>
+                                    <h4 class="text-lg font-semibold theme-text-primary mb-4 border-b theme-border pb-2">
+                                        <i class="fas fa-cloud-code mr-2 text-indigo-500"></i>Práctica de Código en la Nube
+                                    </h4>
+                                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        <a href="https://colab.research.google.com/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Google Colab</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Jupyter notebooks gratuitos con GPU y TPU</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://kaggle.com/code" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Kaggle Notebooks</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Notebooks Python/R con datasets y GPU gratuita</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://replit.com/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Replit</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">IDE en línea para Python, R y 50+ lenguajes</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://deepnote.com/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Deepnote</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Notebooks colaborativos para ciencia de datos</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://posit.cloud/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Posit Cloud</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">RStudio y Python en la nube (ex RStudio Cloud)</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://mybinder.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Binder</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Ejecuta notebooks desde repositorios GitHub</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://codepen.io/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">CodePen</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Editor en línea para desarrollo web</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://jupyter.org/try" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Try Jupyter</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Prueba Jupyter Lab en tu navegador</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://trinket.io/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-indigo-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">Trinket</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Código Python en el navegador para educación</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Bio-Python Resources Section -->
+                                <div>
+                                    <h4 class="text-lg font-semibold theme-text-primary mb-4 border-b theme-border pb-2">
+                                        <i class="fas fa-dna mr-2 text-purple-500"></i>Bioinformática y Python
+                                    </h4>
+                                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        <a href="https://biopython.org/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-purple-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">BioPython</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Librería de Python para bioinformática</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="https://www.ncbi.nlm.nih.gov/" 
+                                           target="_blank" 
+                                           class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                            <div class="flex items-start space-x-3">
+                                                <i class="fas fa-external-link-alt text-purple-500 mt-1"></i>
+                                                <div>
+                                                    <h5 class="font-semibold theme-text-primary">NCBI</h5>
+                                                    <p class="text-sm theme-text-secondary mt-1">Base de datos biotecnológica</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
