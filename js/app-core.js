@@ -339,7 +339,7 @@ function checkQuizAnswers(questions) {
 function updateTabVisibility(moduleId) {
     // Define which tabs should be visible for each module
     const moduleTabConfig = {
-        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython'],
+        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython'],
         // All other modules only have the standard tabs (without primerParcialPython)
         'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz']
     };

@@ -383,6 +383,9 @@
                         <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="primerParcialPython" style="display: none;">
                             <i class="fas fa-clipboard-list mr-2"></i>PrimerParcialPython
                         </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="shinyConceptos">
+                            <i class="fas fa-lightbulb mr-2"></i>Conceptos Clave Shiny
+                        </button>
                     </div>
                 </div>
 
@@ -1170,6 +1173,9 @@ app = App(app_ui, server)</code></pre>
                                 <div>
                                     <h4 class="text-lg font-semibold theme-text-primary mb-4 border-b theme-border pb-2">
                                         <i class="fab fa-python mr-2 text-green-500"></i>Recursos de Python
+                                        <a href="https://docs.python.org/es/3/" target="_blank" class="ml-4 text-sm bg-green-500 text-white px-3 py-1 rounded-full hover:bg-green-600 transition-colors">
+                                            <i class="fas fa-book mr-1"></i>Documentación Oficial
+                                        </a>
                                     </h4>
                                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                                         <a href="https://docs.python.org/es/3/" 
@@ -1539,6 +1545,2118 @@ app = App(app_ui, server)</code></pre>
                                         <i class="fas fa-copy float-right text-gray-500"></i>
                                     </div>
                                     <p class="text-xs theme-text-secondary mt-2 italic">Haz clic en el enlace para copiarlo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conceptos Clave Shiny for Python Tab -->
+                    <div id="shinyConceptosTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-8">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-6">Conceptos Clave de Shiny for Python</h3>
+                            
+                            <!-- Introducción -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-info-circle mr-2 text-blue-500"></i>¿Qué es Shiny for Python?
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <p class="theme-text-secondary mb-4">
+                                        Shiny for Python es un framework web que permite crear aplicaciones web interactivas usando únicamente Python. 
+                                        Originalmente desarrollado para R, Shiny ha sido adaptado para Python, permitiendo a los científicos de datos 
+                                        y desarrolladores crear dashboards y aplicaciones web reactivas sin necesidad de conocimientos profundos de HTML, CSS o JavaScript.
+                                    </p>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div class="theme-bg-primary border theme-border p-4 rounded-lg">
+                                            <h5 class="font-semibold theme-text-primary mb-2">✨ Características Principales</h5>
+                                            <ul class="text-sm theme-text-secondary space-y-1">
+                                                <li>• Reactividad automática</li>
+                                                <li>• Interfaz declarativa</li>
+                                                <li>• Sin JavaScript requerido</li>
+                                                <li>• Integración con Python científico</li>
+                                            </ul>
+                                        </div>
+                                        <div class="theme-bg-primary border theme-border p-4 rounded-lg">
+                                            <h5 class="font-semibold theme-text-primary mb-2">🎯 Casos de Uso</h5>
+                                            <ul class="text-sm theme-text-secondary space-y-1">
+                                                <li>• Dashboards interactivos</li>
+                                                <li>• Herramientas de análisis</li>
+                                                <li>• Aplicaciones científicas</li>
+                                                <li>• Prototipos rápidos</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Arquitectura de Shiny -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-sitemap mr-2 text-purple-500"></i>Arquitectura de Shiny
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-3 gap-6 mb-6">
+                                        <div class="text-center">
+                                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                                <i class="fas fa-desktop text-white text-xl"></i>
+                                            </div>
+                                            <h5 class="font-semibold theme-text-primary mb-2">UI (Interfaz)</h5>
+                                            <p class="text-sm theme-text-secondary">Define la estructura visual y los elementos de entrada</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                                <i class="fas fa-cogs text-white text-xl"></i>
+                                            </div>
+                                            <h5 class="font-semibold theme-text-primary mb-2">Server (Servidor)</h5>
+                                            <p class="text-sm theme-text-secondary">Contiene la lógica reactiva y procesamiento de datos</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                                <i class="fas fa-sync-alt text-white text-xl"></i>
+                                            </div>
+                                            <h5 class="font-semibold theme-text-primary mb-2">Reactividad</h5>
+                                            <p class="text-sm theme-text-secondary">Actualización automática basada en cambios de entrada</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm">
+                                        <pre><code># Estructura básica de una aplicación Shiny
+from shiny import App, ui, render
+
+# 1. Interfaz de Usuario (UI)
+app_ui = ui.page_fluid(
+    ui.h2("Mi Aplicación Shiny"),
+    ui.input_slider("n", "Número:", 1, 100, 50),
+    ui.output_text("resultado")
+)
+
+# 2. Función del Servidor
+def server(input, output, session):
+    @output
+    @render.text
+    def resultado():
+        return f"El número seleccionado es: {input.n()}"
+
+# 3. Crear la aplicación
+app = App(app_ui, server)</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ejemplos Prácticos de Controles de Interfaz -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-hands-on mr-2 text-emerald-500"></i>Ejemplos Prácticos: Controles de Interfaz Paso a Paso
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <p class="theme-text-secondary mb-6">
+                                        Aprende a crear diferentes tipos de controles de interfaz con ejemplos prácticos que puedes probar directamente.
+                                    </p>
+                                    
+                                    <!-- Ejemplo 1: Botón Deslizante Básico -->
+                                    <div class="mb-8">
+                                        <h5 class="text-md font-semibold theme-text-primary mb-4">
+                                            🎚️ Ejemplo 1: Creando un Botón Deslizante (Slider) Básico
+                                        </h5>
+                                        
+                                        <div class="grid md:grid-cols-2 gap-6">
+                                            <!-- Código del ejemplo -->
+                                            <div>
+                                                <h6 class="font-semibold theme-text-primary mb-3">Código Completo:</h6>
+                                                <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm mb-4">
+                                                    <pre><code>from shiny import App, render, ui
+
+# Definir la interfaz de usuario
+app_ui = ui.page_fluid(
+    # Título principal
+    ui.h2("Mi Primer Control Deslizante"),
+    
+    # Control deslizante
+    ui.input_slider(
+        id="numero",           # ID único del control
+        label="Selecciona un número:",  # Etiqueta visible
+        min=0,                 # Valor mínimo
+        max=100,               # Valor máximo
+        value=50,              # Valor inicial
+        step=1                 # Incremento por paso
+    ),
+    
+    # Espacio entre elementos
+    ui.br(),
+    
+    # Salida para mostrar el resultado
+    ui.output_text("resultado")
+)
+
+# Función del servidor
+def server(input, output, session):
+    @output
+    @render.text
+    def resultado():
+        # Obtener el valor del slider
+        valor = input.numero()
+        return f"Has seleccionado: {valor}"
+
+# Crear la aplicación
+app = App(app_ui, server)</code></pre>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Explicación -->
+                                            <div>
+                                                <h6 class="font-semibold theme-text-primary mb-3">Explicación Detallada:</h6>
+                                                <div class="space-y-4">
+                                                    <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                        <strong class="theme-text-primary text-sm">1. Estructura UI</strong>
+                                                        <ul class="text-xs theme-text-secondary mt-2 space-y-1">
+                                                            <li>• <code>ui.page_fluid()</code>: Contenedor principal responsive</li>
+                                                            <li>• <code>ui.h2()</code>: Título de nivel 2</li>
+                                                            <li>• <code>ui.input_slider()</code>: Control deslizante</li>
+                                                            <li>• <code>ui.output_text()</code>: Área para mostrar texto</li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                    <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                        <strong class="theme-text-primary text-sm">2. Parámetros del Slider</strong>
+                                                        <ul class="text-xs theme-text-secondary mt-2 space-y-1">
+                                                            <li>• <code>id</code>: Identificador único para acceder al valor</li>
+                                                            <li>• <code>label</code>: Texto que ve el usuario</li>
+                                                            <li>• <code>min/max</code>: Rango de valores permitidos</li>
+                                                            <li>• <code>value</code>: Valor inicial al cargar</li>
+                                                            <li>• <code>step</code>: Incremento entre valores</li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                    <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                        <strong class="theme-text-primary text-sm">3. Función Reactiva</strong>
+                                                        <ul class="text-xs theme-text-secondary mt-2 space-y-1">
+                                                            <li>• <code>@render.text</code>: Decorador para salida de texto</li>
+                                                            <li>• <code>input.numero()</code>: Obtiene valor del slider</li>
+                                                            <li>• Se actualiza automáticamente al mover el slider</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ejemplo 2: Múltiples Controles -->
+                                    <div class="mb-8">
+                                        <h5 class="text-md font-semibold theme-text-primary mb-4">
+                                            🎛️ Ejemplo 2: Combinando Múltiples Controles
+                                        </h5>
+                                        
+                                        <div class="mb-4">
+                                            <p class="theme-text-secondary text-sm">
+                                                Creemos una interfaz más compleja con diferentes tipos de controles trabajando juntos:
+                                            </p>
+                                        </div>
+                                        
+                                        <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm mb-4">
+                                            <pre><code>from shiny import App, render, ui
+
+app_ui = ui.page_fluid(
+    # Encabezado principal
+    ui.div(
+        {"class": "text-center mb-4"},
+        ui.h1("Calculadora Interactiva"),
+        ui.p("Combina diferentes controles para hacer cálculos")
+    ),
+    
+    # Layout de columnas
+    ui.row(
+        # Columna izquierda - Controles
+        ui.column(
+            6,  # Ancho de 6/12 (50%)
+            ui.card(
+                ui.card_header("Controles de Entrada"),
+                ui.card_body(
+                    # Primer número con slider
+                    ui.input_slider(
+                        "num1", 
+                        "Primer número:", 
+                        min=1, max=50, value=10
+                    ),
+                    
+                    # Segundo número con input numérico
+                    ui.input_numeric(
+                        "num2", 
+                        "Segundo número:", 
+                        value=5, min=1, max=100
+                    ),
+                    
+                    # Selector de operación
+                    ui.input_select(
+                        "operacion",
+                        "Operación:",
+                        choices={
+                            "suma": "➕ Suma",
+                            "resta": "➖ Resta", 
+                            "multiplicacion": "✖️ Multiplicación",
+                            "division": "➗ División"
+                        },
+                        selected="suma"
+                    ),
+                    
+                    # Botón para calcular
+                    ui.input_action_button(
+                        "calcular", 
+                        "Calcular Resultado",
+                        class_="btn btn-primary w-100 mt-3"
+                    )
+                )
+            )
+        ),
+        
+        # Columna derecha - Resultados
+        ui.column(
+            6,  # Ancho de 6/12 (50%)
+            ui.card(
+                ui.card_header("Resultados"),
+                ui.card_body(
+                    ui.output_text("operacion_actual"),
+                    ui.hr(),
+                    ui.div(
+                        {"class": "alert alert-info"},
+                        ui.output_text("resultado_final")
+                    ),
+                    ui.output_text("historial")
+                )
+            )
+        )
+    )
+)
+
+def server(input, output, session):
+    # Lista para guardar el historial
+    historial_calculos = []
+    
+    @output
+    @render.text  
+    def operacion_actual():
+        return f"{input.num1()} {obtener_simbolo()} {input.num2()}"
+    
+    @output
+    @render.text
+    def resultado_final():
+        if input.calcular() > 0:  # Solo si se ha presionado el botón
+            resultado = realizar_calculo()
+            agregar_al_historial()
+            return f"Resultado: {resultado}"
+        return "Presiona 'Calcular' para ver el resultado"
+    
+    @output
+    @render.text
+    def historial():
+        if historial_calculos:
+            return f"Último cálculo: {historial_calculos[-1]}"
+        return ""
+    
+    def obtener_simbolo():
+        simbolos = {
+            "suma": "+",
+            "resta": "-", 
+            "multiplicacion": "×",
+            "division": "÷"
+        }
+        return simbolos.get(input.operacion(), "+")
+    
+    def realizar_calculo():
+        num1, num2 = input.num1(), input.num2()
+        operacion = input.operacion()
+        
+        if operacion == "suma":
+            return num1 + num2
+        elif operacion == "resta":
+            return num1 - num2
+        elif operacion == "multiplicacion":
+            return num1 * num2
+        elif operacion == "division":
+            return round(num1 / num2, 2) if num2 != 0 else "Error: División por cero"
+    
+    def agregar_al_historial():
+        resultado = realizar_calculo()
+        calculo = f"{input.num1()} {obtener_simbolo()} {input.num2()} = {resultado}"
+        historial_calculos.append(calculo)
+
+app = App(app_ui, server)</code></pre>
+                                        </div>
+                                        
+                                        <!-- Análisis del Layout -->
+                                        <div class="mt-6">
+                                            <h6 class="font-semibold theme-text-primary mb-3">🏗️ Análisis del Layout y Componentes:</h6>
+                                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">ui.row() y ui.column()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Sistema de rejilla Bootstrap. 12 columnas por fila, responsive automático.</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">ui.card()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Contenedor visual con header y body. Agrupa elementos relacionados.</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">input_action_button()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Botón que dispara acciones. Se cuenta cuántas veces se presiona.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ejemplo 3: Botones Avanzados -->
+                                    <div class="mb-8">
+                                        <h5 class="text-md font-semibold theme-text-primary mb-4">
+                                            🚀 Ejemplo 3: Tipos de Botones y Eventos Avanzados
+                                        </h5>
+                                        
+                                        <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm mb-4">
+                                            <pre><code>from shiny import App, render, ui, reactive
+
+app_ui = ui.page_fluid(
+    ui.h2("Galería de Botones Interactivos"),
+    
+    # Sección de botones básicos
+    ui.card(
+        ui.card_header("1. Botones Básicos"),
+        ui.card_body(
+            ui.div(
+                {"class": "d-flex gap-2 flex-wrap"},
+                
+                # Botón de acción básico
+                ui.input_action_button(
+                    "btn_basico",
+                    "Botón Básico",
+                    class_="btn btn-primary"
+                ),
+                
+                # Botón con icono
+                ui.input_action_button(
+                    "btn_icono", 
+                    ui.span(ui.tags.i(class_="fas fa-heart"), " Me Gusta"),
+                    class_="btn btn-danger"
+                ),
+                
+                # Botón deshabilitado condicionalmente
+                ui.input_action_button(
+                    "btn_toggle",
+                    "Habilitar/Deshabilitar",
+                    class_="btn btn-warning"
+                )
+            )
+        )
+    ),
+    
+    ui.br(),
+    
+    # Sección de controles deslizantes avanzados
+    ui.card(
+        ui.card_header("2. Controles Deslizantes Avanzados"),
+        ui.card_body(
+            ui.row(
+                ui.column(
+                    4,
+                    # Slider con rango
+                    ui.input_slider(
+                        "rango_valores",
+                        "Selecciona un rango:",
+                        min=0, max=1000, 
+                        value=[200, 800],  # Valor inicial como lista para rango
+                        step=10
+                    )
+                ),
+                ui.column(
+                    4,
+                    # Slider con animación
+                    ui.input_slider(
+                        "slider_animado",
+                        "Slider con animación:",
+                        min=1, max=100, value=50,
+                        animate={"interval": 1000, "loop": True}
+                    )
+                ),
+                ui.column(
+                    4,
+                    # Slider personalizado con formato
+                    ui.input_slider(
+                        "precio",
+                        "Precio:",
+                        min=0, max=10000, value=5000,
+                        step=100,
+                        pre="$", post=" USD"  # Prefijo y sufijo
+                    )
+                )
+            )
+        )
+    ),
+    
+    ui.br(),
+    
+    # Sección de interruptores y checkboxes
+    ui.card(
+        ui.card_header("3. Interruptores y Opciones"),
+        ui.card_body(
+            ui.row(
+                ui.column(
+                    6,
+                    # Switch (interruptor)
+                    ui.input_switch(
+                        "modo_oscuro", 
+                        "Modo Oscuro", 
+                        value=False
+                    ),
+                    
+                    # Checkbox individual
+                    ui.input_checkbox(
+                        "terminos", 
+                        "Acepto los términos y condiciones"
+                    ),
+                    
+                    # Grupo de checkboxes
+                    ui.input_checkbox_group(
+                        "intereses",
+                        "Selecciona tus intereses:",
+                        choices={
+                            "python": "🐍 Python",
+                            "data": "📊 Data Science", 
+                            "web": "🌐 Desarrollo Web",
+                            "ai": "🤖 Inteligencia Artificial"
+                        },
+                        selected=["python"]
+                    )
+                ),
+                ui.column(
+                    6,
+                    # Radio buttons
+                    ui.input_radio_buttons(
+                        "experiencia",
+                        "Nivel de experiencia:",
+                        choices={
+                            "principiante": "🌱 Principiante",
+                            "intermedio": "📈 Intermedio",
+                            "avanzado": "🚀 Avanzado"
+                        },
+                        selected="principiante"
+                    )
+                )
+            )
+        )
+    ),
+    
+    ui.br(),
+    
+    # Área de resultados
+    ui.card(
+        ui.card_header("📊 Resultados en Tiempo Real"),
+        ui.card_body(
+            ui.output_ui("resumen_controles")
+        )
+    )
+)
+
+def server(input, output, session):
+    
+    @output
+    @render.ui
+    def resumen_controles():
+        # Contar clics de botones
+        clics_basico = input.btn_basico()
+        clics_icono = input.btn_icono() 
+        clics_toggle = input.btn_toggle()
+        
+        # Obtener valores de sliders
+        rango = input.rango_valores()
+        animado = input.slider_animado()
+        precio = input.precio()
+        
+        # Estados de switches y checkboxes
+        modo_oscuro = input.modo_oscuro()
+        terminos = input.terminos()
+        intereses = input.intereses() or []
+        experiencia = input.experiencia()
+        
+        return ui.div(
+            ui.h5("Estado Actual de los Controles:"),
+            ui.hr(),
+            
+            ui.h6("🔘 Botones:"),
+            ui.ul(
+                ui.li(f"Botón básico presionado: {clics_basico} veces"),
+                ui.li(f"Botón con icono presionado: {clics_icono} veces"), 
+                ui.li(f"Botón toggle presionado: {clics_toggle} veces")
+            ),
+            
+            ui.h6("🎚️ Sliders:"),
+            ui.ul(
+                ui.li(f"Rango seleccionado: {rango[0]} - {rango[1]}"),
+                ui.li(f"Slider animado: {animado}"),
+                ui.li(f"Precio: ${precio:,} USD")
+            ),
+            
+            ui.h6("☑️ Opciones:"),
+            ui.ul(
+                ui.li(f"Modo oscuro: {'Activado' if modo_oscuro else 'Desactivado'}"),
+                ui.li(f"Términos aceptados: {'Sí' if terminos else 'No'}"),
+                ui.li(f"Intereses: {', '.join(intereses) if intereses else 'Ninguno'}"),
+                ui.li(f"Experiencia: {experiencia.title()}")
+            )
+        )
+
+app = App(app_ui, server)</code></pre>
+                                        </div>
+                                        
+                                        <!-- Conceptos Clave -->
+                                        <div class="mt-6">
+                                            <h6 class="font-semibold theme-text-primary mb-3">🔑 Conceptos Clave Aprendidos:</h6>
+                                            <div class="grid md:grid-cols-2 gap-6">
+                                                <div>
+                                                    <h7 class="font-semibold theme-text-primary text-sm mb-2">Tipos de Botones</h7>
+                                                    <ul class="text-xs theme-text-secondary space-y-1">
+                                                        <li>• <code>input_action_button()</code>: Botón de acción básico</li>
+                                                        <li>• <code>input_switch()</code>: Interruptor on/off</li>
+                                                        <li>• <code>input_checkbox()</code>: Casilla individual</li>
+                                                        <li>• <code>input_checkbox_group()</code>: Múltiples opciones</li>
+                                                        <li>• <code>input_radio_buttons()</code>: Selección única</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <h7 class="font-semibold theme-text-primary text-sm mb-2">Tipos de Sliders</h7>
+                                                    <ul class="text-xs theme-text-secondary space-y-1">
+                                                        <li>• <strong>Básico:</strong> Un solo valor</li>
+                                                        <li>• <strong>Rango:</strong> Dos valores (value=[min, max])</li>
+                                                        <li>• <strong>Animado:</strong> Se mueve automáticamente</li>
+                                                        <li>• <strong>Con formato:</strong> Prefijos y sufijos</li>
+                                                        <li>• <strong>Personalizado:</strong> Steps, ticks, etc.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ejemplo 4: Layout Avanzado -->
+                                    <div class="mb-8">
+                                        <h5 class="text-md font-semibold theme-text-primary mb-4">
+                                            📐 Ejemplo 4: Layouts Avanzados y Responsive
+                                        </h5>
+                                        
+                                        <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm mb-4">
+                                            <pre><code>from shiny import App, render, ui
+
+app_ui = ui.page_sidebar(
+    # Barra lateral con controles
+    ui.sidebar(
+        {"width": 300},  # Ancho personalizado
+        ui.h4("Panel de Control"),
+        
+        # Acordeón para organizar controles
+        ui.accordion(
+            ui.accordion_panel(
+                "Configuración Básica",
+                ui.input_slider("tamaño", "Tamaño:", 1, 20, 10),
+                ui.input_select(
+                    "color", "Color:",
+                    choices={"red": "🔴 Rojo", "blue": "🔵 Azul", "green": "🟢 Verde"}
+                )
+            ),
+            ui.accordion_panel(
+                "Configuración Avanzada", 
+                ui.input_numeric("opacidad", "Opacidad:", 0.8, 0, 1, 0.1),
+                ui.input_checkbox("animacion", "Habilitar animación")
+            ),
+            ui.accordion_panel(
+                "Datos",
+                ui.input_file("archivo", "Subir archivo:"),
+                ui.input_text_area("notas", "Notas:", rows=3)
+            ),
+            open=["Configuración Básica"]  # Panel abierto por defecto
+        )
+    ),
+    
+    # Contenido principal
+    ui.h2("Dashboard Responsive"),
+    
+    # Pestañas para diferentes vistas
+    ui.navset_tab(
+        ui.nav(
+            "Vista Principal",
+            ui.row(
+                ui.column(
+                    8,
+                    ui.card(
+                        ui.card_header("Visualización Principal"),
+                        ui.card_body(
+                            ui.output_plot("grafico_principal")
+                        )
+                    )
+                ),
+                ui.column(
+                    4,
+                    ui.card(
+                        ui.card_header("Estadísticas"),
+                        ui.card_body(
+                            ui.value_box(
+                                "Valor Actual",
+                                ui.output_text("valor_actual"),
+                                theme="primary"
+                            ),
+                            ui.br(),
+                            ui.output_table("tabla_datos")
+                        )
+                    )
+                )
+            )
+        ),
+        ui.nav(
+            "Configuración",
+            ui.card(
+                ui.card_header("Configuración Detallada"),
+                ui.card_body(
+                    ui.output_text("config_actual")
+                )
+            )
+        ),
+        ui.nav(
+            "Ayuda",
+            ui.card(
+                ui.card_header("Guía de Uso"),
+                ui.card_body(
+                    ui.markdown("""
+                    ### Cómo usar este dashboard:
+                    
+                    1. **Panel Lateral**: Ajusta los controles en las diferentes secciones
+                    2. **Vista Principal**: Observa cómo cambian los gráficos
+                    3. **Configuración**: Revisa los valores actuales
+                    4. **Responsive**: Cambia el tamaño de la ventana para ver la adaptación
+                    """)
+                )
+            )
+        )
+    )
+)
+
+def server(input, output, session):
+    @output
+    @render.plot
+    def grafico_principal():
+        import matplotlib.pyplot as plt
+        import numpy as np
+        
+        # Generar datos basados en los controles
+        x = np.linspace(0, 10, 100)
+        y = np.sin(x * input.tamaño()) * input.opacidad()
+        
+        plt.figure(figsize=(10, 6))
+        color_map = {"red": "red", "blue": "blue", "green": "green"}
+        plt.plot(x, y, color=color_map.get(input.color(), "blue"), linewidth=2)
+        plt.title(f"Gráfico con tamaño {input.tamaño()}")
+        plt.grid(True, alpha=0.3)
+        return plt.gcf()
+    
+    @output
+    @render.text
+    def valor_actual():
+        return str(input.tamaño())
+    
+    @output
+    @render.table
+    def tabla_datos():
+        import pandas as pd
+        return pd.DataFrame({
+            "Parámetro": ["Tamaño", "Color", "Opacidad", "Animación"],
+            "Valor": [input.tamaño(), input.color(), input.opacidad(), input.animacion()]
+        })
+    
+    @output 
+    @render.text
+    def config_actual():
+        config = f"""
+        Configuración Actual:
+        - Tamaño: {input.tamaño()}
+        - Color: {input.color()}
+        - Opacidad: {input.opacidad()}
+        - Animación: {'Habilitada' if input.animacion() else 'Deshabilitada'}
+        - Archivo subido: {'Sí' if input.archivo() else 'No'}
+        - Notas: {len(input.notas() or '')} caracteres
+        """
+        return config
+
+app = App(app_ui, server)</code></pre>
+                                        </div>
+                                        
+                                        <!-- Componentes del Layout -->
+                                        <div class="mt-6">
+                                            <h6 class="font-semibold theme-text-primary mb-3">🏗️ Componentes del Layout Explicados:</h6>
+                                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">ui.page_sidebar()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Layout principal con barra lateral fija y contenido principal responsive.</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">ui.accordion()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Organiza controles en secciones expandibles/colapsables.</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">ui.navset_tab()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Sistema de pestañas para organizar contenido en vistas separadas.</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">ui.value_box()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Cuadro destacado para mostrar métricas importantes.</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">ui.row() / ui.column()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Sistema de rejilla 12-columnas, responsive automático.</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">ui.card()</strong>
+                                                    <p class="text-xs theme-text-secondary mt-2">Contenedor visual con header/body para agrupar contenido relacionado.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Tips y Mejores Prácticas -->
+                                    <div class="theme-bg-primary border theme-border p-6 rounded-lg">
+                                        <h6 class="font-semibold theme-text-primary mb-4">💡 Tips y Mejores Prácticas para Controles de Interfaz:</h6>
+                                        
+                                        <div class="grid md:grid-cols-2 gap-6">
+                                            <div>
+                                                <h7 class="font-semibold theme-text-primary text-sm mb-3">✅ Buenas Prácticas</h7>
+                                                <ul class="text-sm theme-text-secondary space-y-2">
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                                        <span><strong>IDs descriptivos:</strong> Usa nombres claros como "precio_producto" en lugar de "p1"</span>
+                                                    </li>
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                                        <span><strong>Valores por defecto sensatos:</strong> Siempre proporciona valores iniciales útiles</span>
+                                                    </li>
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                                        <span><strong>Etiquetas claras:</strong> Explica qué hace cada control y sus unidades</span>
+                                                    </li>
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                                        <span><strong>Agrupación lógica:</strong> Organiza controles relacionados juntos</span>
+                                                    </li>
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                                        <span><strong>Feedback inmediato:</strong> Muestra resultados en tiempo real cuando sea posible</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div>
+                                                <h7 class="font-semibold theme-text-primary text-sm mb-3">⚠️ Evitar</h7>
+                                                <ul class="text-sm theme-text-secondary space-y-2">
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-times text-red-500 mt-1"></i>
+                                                        <span><strong>Demasiados controles:</strong> No abrumes al usuario con opciones</span>
+                                                    </li>
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-times text-red-500 mt-1"></i>
+                                                        <span><strong>Rangos extremos:</strong> Min/max muy grandes pueden confundir</span>
+                                                    </li>
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-times text-red-500 mt-1"></i>
+                                                        <span><strong>Sin validación:</strong> Siempre valida entradas del usuario</span>
+                                                    </li>
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-times text-red-500 mt-1"></i>
+                                                        <span><strong>Controles no responsive:</strong> Prueba en diferentes tamaños de pantalla</span>
+                                                    </li>
+                                                    <li class="flex items-start space-x-2">
+                                                        <i class="fas fa-times text-red-500 mt-1"></i>
+                                                        <span><strong>Botones sin propósito:</strong> Cada botón debe tener una función clara</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Elementos de UI -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-puzzle-piece mr-2 text-red-500"></i>Elementos de Interfaz (UI)
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <!-- Inputs -->
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-3">📥 Elementos de Entrada</h5>
+                                            <div class="space-y-3">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.input_text()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Campo de texto simple</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.input_slider()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Control deslizante numérico</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.input_select()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Lista desplegable de opciones</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.input_checkbox()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Casilla de verificación</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.input_action_button()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Botón de acción</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Outputs -->
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-3">📤 Elementos de Salida</h5>
+                                            <div class="space-y-3">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.output_text()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Texto dinámico</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.output_plot()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Gráficos matplotlib/plotly</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.output_table()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Tablas de datos</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.output_ui()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">UI dinámica</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">ui.output_image()</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Imágenes dinámicas</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Reactividad -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-bolt mr-2 text-yellow-500"></i>Sistema de Reactividad
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <p class="theme-text-secondary mb-4">
+                                        La reactividad es el corazón de Shiny. Permite que las salidas se actualicen automáticamente 
+                                        cuando cambian las entradas, sin necesidad de recargar la página.
+                                    </p>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-3">🔄 Tipos de Elementos Reactivos</h5>
+                                            <div class="space-y-2">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary">Reactive Sources</strong>
+                                                    <p class="text-xs theme-text-secondary">Elementos que generan eventos (inputs)</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary">Reactive Conductors</strong>
+                                                    <p class="text-xs theme-text-secondary">Valores calculados que dependen de otros</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary">Reactive Endpoints</strong>
+                                                    <p class="text-xs theme-text-secondary">Elementos que responden (outputs)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-3">⚙️ Decoradores Principales</h5>
+                                            <div class="space-y-2">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">@render.text</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Para salidas de texto</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">@render.plot</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Para gráficos</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">@reactive.Calc</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Para cálculos reactivos</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <code class="text-sm">@reactive.Effect</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Para efectos secundarios</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ejemplo de reactividad -->
+                                    <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm">
+                                        <pre><code># Ejemplo de reactividad avanzada
+from shiny import App, ui, render, reactive
+
+def server(input, output, session):
+    # Cálculo reactivo
+    @reactive.Calc
+    def datos_procesados():
+        # Se recalcula automáticamente cuando input.n() cambia
+        return [x * input.n() for x in range(1, 11)]
+    
+    # Salida que usa el cálculo reactivo
+    @output
+    @render.text
+    def resultado():
+        datos = datos_procesados()  # Usa el cálculo reactivo
+        return f"Suma total: {sum(datos)}"</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Layouts -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-th-large mr-2 text-indigo-500"></i>Sistemas de Layout
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                                        <div class="text-center p-4 theme-bg-primary border theme-border rounded-lg">
+                                            <h5 class="font-semibold theme-text-primary mb-2">Fluid Page</h5>
+                                            <code class="text-xs">ui.page_fluid()</code>
+                                            <p class="text-xs theme-text-secondary mt-2">Layout fluido que se adapta al ancho de la pantalla</p>
+                                        </div>
+                                        <div class="text-center p-4 theme-bg-primary border theme-border rounded-lg">
+                                            <h5 class="font-semibold theme-text-primary mb-2">Sidebar</h5>
+                                            <code class="text-xs">ui.page_sidebar()</code>
+                                            <p class="text-xs theme-text-secondary mt-2">Layout con barra lateral para controles</p>
+                                        </div>
+                                        <div class="text-center p-4 theme-bg-primary border theme-border rounded-lg">
+                                            <h5 class="font-semibold theme-text-primary mb-2">Navbar</h5>
+                                            <code class="text-xs">ui.page_navbar()</code>
+                                            <p class="text-xs theme-text-secondary mt-2">Layout con barra de navegación superior</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ejemplo de layout -->
+                                    <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm">
+                                        <pre><code># Ejemplo de layout con sidebar
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.h3("Controles"),
+        ui.input_slider("obs", "Observaciones:", 10, 1000, 500),
+        ui.input_select("dist", "Distribución:", 
+                       choices=["normal", "uniform", "exponential"])
+    ),
+    ui.h2("Histograma"),
+    ui.output_plot("histogram"),
+    ui.output_text("summary")
+)</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ejemplo Práctico Completo -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-code mr-2 text-teal-500"></i>Ejemplo Práctico: Dashboard de Análisis de Datos
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <p class="theme-text-secondary mb-4">
+                                        Este ejemplo muestra cómo crear un dashboard interactivo que analiza un conjunto de datos y genera visualizaciones dinámicas:
+                                    </p>
+                                    
+                                    <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+                                        <pre><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from shiny import App, ui, render, reactive
+
+# Generar datos de ejemplo
+np.random.seed(42)
+data = pd.DataFrame({
+    'fecha': pd.date_range('2023-01-01', periods=365),
+    'ventas': np.random.normal(1000, 200, 365),
+    'categoria': np.random.choice(['A', 'B', 'C'], 365),
+    'region': np.random.choice(['Norte', 'Sur', 'Este', 'Oeste'], 365)
+})
+
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.h3("Filtros de Análisis"),
+        ui.input_date_range(
+            "fecha_rango", 
+            "Rango de fechas:",
+            start="2023-01-01", 
+            end="2023-12-31"
+        ),
+        ui.input_checkbox_group(
+            "categorias",
+            "Categorías:",
+            choices=["A", "B", "C"],
+            selected=["A", "B", "C"]
+        ),
+        ui.input_select(
+            "region",
+            "Región:",
+            choices=["Todas", "Norte", "Sur", "Este", "Oeste"],
+            selected="Todas"
+        ),
+        ui.input_radio_buttons(
+            "tipo_grafico",
+            "Tipo de gráfico:",
+            choices={"linea": "Línea", "barras": "Barras", "hist": "Histograma"}
+        ),
+        width=300
+    ),
+    
+    # Contenido principal
+    ui.h2("Dashboard de Ventas", class_="mb-4"),
+    
+    # Métricas principales
+    ui.row(
+        ui.column(3, ui.value_box("Total Ventas", ui.output_text("total_ventas"), theme="primary")),
+        ui.column(3, ui.value_box("Promedio Diario", ui.output_text("promedio_diario"), theme="success")),
+        ui.column(3, ui.value_box("Máximo", ui.output_text("maximo"), theme="warning")),
+        ui.column(3, ui.value_box("Mínimo", ui.output_text("minimo"), theme="danger"))
+    ),
+    
+    # Gráficos
+    ui.row(
+        ui.column(8, ui.output_plot("grafico_principal")),
+        ui.column(4, ui.output_plot("grafico_categoria"))
+    ),
+    
+    # Tabla de datos
+    ui.h3("Datos Filtrados"),
+    ui.output_table("tabla_datos")
+)
+
+def server(input, output, session):
+    
+    # Datos reactivos filtrados
+    @reactive.Calc
+    def datos_filtrados():
+        df = data.copy()
+        
+        # Filtrar por fecha
+        inicio, fin = input.fecha_rango()
+        df = df[(df['fecha'] >= inicio) & (df['fecha'] <= fin)]
+        
+        # Filtrar por categoría
+        if input.categorias():
+            df = df[df['categoria'].isin(input.categorias())]
+        
+        # Filtrar por región
+        if input.region() != "Todas":
+            df = df[df['region'] == input.region()]
+            
+        return df
+    
+    # Métricas calculadas
+    @output
+    @render.text
+    def total_ventas():
+        df = datos_filtrados()
+        return f"${df['ventas'].sum():,.0f}"
+    
+    @output
+    @render.text
+    def promedio_diario():
+        df = datos_filtrados()
+        return f"${df['ventas'].mean():,.0f}"
+    
+    @output
+    @render.text
+    def maximo():
+        df = datos_filtrados()
+        return f"${df['ventas'].max():,.0f}"
+    
+    @output
+    @render.text
+    def minimo():
+        df = datos_filtrados()
+        return f"${df['ventas'].min():,.0f}"
+    
+    # Gráfico principal
+    @output
+    @render.plot
+    def grafico_principal():
+        df = datos_filtrados()
+        
+        fig, ax = plt.subplots(figsize=(10, 6))
+        
+        if input.tipo_grafico() == "linea":
+            ventas_diarias = df.groupby('fecha')['ventas'].sum().reset_index()
+            ax.plot(ventas_diarias['fecha'], ventas_diarias['ventas'])
+            ax.set_title("Evolución de Ventas por Día")
+            
+        elif input.tipo_grafico() == "barras":
+            ventas_categoria = df.groupby('categoria')['ventas'].sum()
+            ax.bar(ventas_categoria.index, ventas_categoria.values)
+            ax.set_title("Ventas por Categoría")
+            
+        else:  # histograma
+            ax.hist(df['ventas'], bins=30, alpha=0.7)
+            ax.set_title("Distribución de Ventas")
+        
+        ax.tick_params(axis='x', rotation=45)
+        plt.tight_layout()
+        return fig
+    
+    # Gráfico por categoría
+    @output
+    @render.plot
+    def grafico_categoria():
+        df = datos_filtrados()
+        
+        fig, ax = plt.subplots(figsize=(6, 6))
+        ventas_cat = df.groupby('categoria')['ventas'].sum()
+        
+        ax.pie(ventas_cat.values, labels=ventas_cat.index, autopct='%1.1f%%')
+        ax.set_title("Distribución por Categoría")
+        
+        return fig
+    
+    # Tabla de datos
+    @output
+    @render.table
+    def tabla_datos():
+        df = datos_filtrados()
+        return df.head(10).round(2)  # Mostrar solo primeras 10 filas
+
+# Crear y ejecutar la aplicación
+app = App(app_ui, server)
+
+if __name__ == "__main__":
+    app.run()
+</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Instalación y Despliegue -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-download mr-2 text-green-500"></i>Instalación y Despliegue
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-3">📦 Instalación</h5>
+                                            <div class="bg-black text-green-400 p-3 rounded font-mono text-sm">
+                                                <pre><code># Instalación básica
+pip install shiny
+
+# Con dependencias adicionales
+pip install shiny[dev]
+
+# Para gráficos avanzados
+pip install plotly matplotlib seaborn</code></pre>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-3">🚀 Ejecución</h5>
+                                            <div class="bg-black text-green-400 p-3 rounded font-mono text-sm">
+                                                <pre><code># Ejecutar aplicación
+python app.py
+
+# Con recarga automática
+shiny run app.py --reload
+
+# Especificar puerto
+shiny run app.py --port 8080</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6">
+                                        <h5 class="font-semibold theme-text-primary mb-3">☁️ Opciones de Despliegue</h5>
+                                        <div class="grid md:grid-cols-3 gap-4">
+                                            <div class="theme-bg-primary border theme-border p-4 rounded-lg">
+                                                <h6 class="font-semibold theme-text-primary mb-2">Heroku</h6>
+                                                <p class="text-xs theme-text-secondary">Plataforma en la nube gratuita para aplicaciones web</p>
+                                            </div>
+                                            <div class="theme-bg-primary border theme-border p-4 rounded-lg">
+                                                <h6 class="font-semibold theme-text-primary mb-2">Streamlit Cloud</h6>
+                                                <p class="text-xs theme-text-secondary">Despliegue directo desde GitHub</p>
+                                            </div>
+                                            <div class="theme-bg-primary border theme-border p-4 rounded-lg">
+                                                <h6 class="font-semibold theme-text-primary mb-2">Docker</h6>
+                                                <p class="text-xs theme-text-secondary">Contenedores para despliegue escalable</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mejores Prácticas -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-star mr-2 text-yellow-500"></i>Mejores Prácticas
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-3">✅ Buenas Prácticas</h5>
+                                            <ul class="space-y-2 text-sm theme-text-secondary">
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-check text-green-500 mt-1"></i>
+                                                    <span>Usar <code>@reactive.Calc</code> para cálculos costosos</span>
+                                                </li>
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-check text-green-500 mt-1"></i>
+                                                    <span>Mantener funciones del servidor pequeñas y enfocadas</span>
+                                                </li>
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-check text-green-500 mt-1"></i>
+                                                    <span>Usar nombres descriptivos para inputs y outputs</span>
+                                                </li>
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-check text-green-500 mt-1"></i>
+                                                    <span>Implementar manejo de errores con try/except</span>
+                                                </li>
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-check text-green-500 mt-1"></i>
+                                                    <span>Optimizar el rendimiento con datos grandes</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-3">❌ Evitar</h5>
+                                            <ul class="space-y-2 text-sm theme-text-secondary">
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-times text-red-500 mt-1"></i>
+                                                    <span>Cálculos pesados en funciones de renderizado</span>
+                                                </li>
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-times text-red-500 mt-1"></i>
+                                                    <span>Modificar variables globales directamente</span>
+                                                </li>
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-times text-red-500 mt-1"></i>
+                                                    <span>Usar loops infinitos en funciones reactivas</span>
+                                                </li>
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-times text-red-500 mt-1"></i>
+                                                    <span>Crear dependencias circulares entre elementos</span>
+                                                </li>
+                                                <li class="flex items-start space-x-2">
+                                                    <i class="fas fa-times text-red-500 mt-1"></i>
+                                                    <span>No validar entradas del usuario</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tipos de Inputs Detallados -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-list-ul mr-2 text-orange-500"></i>Catálogo Completo de Inputs
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-2 gap-8">
+                                        <!-- Inputs Básicos -->
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">🎯 Inputs Básicos</h5>
+                                            <div class="space-y-4">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.input_text()</strong>
+                                                        <span class="text-xs theme-text-secondary">Texto</span>
+                                                    </div>
+                                                    <code class="text-xs theme-text-secondary">ui.input_text(id, label, value, width, placeholder, autocomplete, spellcheck)</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Campo de texto simple con opciones de autocompletado</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.input_text_area()</strong>
+                                                        <span class="text-xs theme-text-secondary">Área de texto</span>
+                                                    </div>
+                                                    <code class="text-xs theme-text-secondary">ui.input_text_area(id, label, value, width, height, placeholder)</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Área de texto multilínea para contenido extenso</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.input_password()</strong>
+                                                        <span class="text-xs theme-text-secondary">Contraseña</span>
+                                                    </div>
+                                                    <code class="text-xs theme-text-secondary">ui.input_password(id, label, value, width, placeholder)</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Campo de contraseña con texto oculto</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.input_numeric()</strong>
+                                                        <span class="text-xs theme-text-secondary">Numérico</span>
+                                                    </div>
+                                                    <code class="text-xs theme-text-secondary">ui.input_numeric(id, label, value, min, max, step, width)</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Entrada numérica con validación y controles de incremento</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Inputs de Selección -->
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">🔘 Inputs de Selección</h5>
+                                            <div class="space-y-4">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.input_select()</strong>
+                                                        <span class="text-xs theme-text-secondary">Lista desplegable</span>
+                                                    </div>
+                                                    <code class="text-xs theme-text-secondary">ui.input_select(id, label, choices, selected, multiple, selectize, width, size)</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Lista desplegable con selección simple o múltiple</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.input_selectize()</strong>
+                                                        <span class="text-xs theme-text-secondary">Selectize mejorado</span>
+                                                    </div>
+                                                    <code class="text-xs theme-text-secondary">ui.input_selectize(id, label, choices, selected, multiple, options)</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Versión mejorada de select con búsqueda y tags</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.input_radio_buttons()</strong>
+                                                        <span class="text-xs theme-text-secondary">Radio buttons</span>
+                                                    </div>
+                                                    <code class="text-xs theme-text-secondary">ui.input_radio_buttons(id, label, choices, selected, inline, width)</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Botones de radio para selección única excluyente</p>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.input_checkbox_group()</strong>
+                                                        <span class="text-xs theme-text-secondary">Grupo de checkboxes</span>
+                                                    </div>
+                                                    <code class="text-xs theme-text-secondary">ui.input_checkbox_group(id, label, choices, selected, inline, width)</code>
+                                                    <p class="text-xs theme-text-secondary mt-1">Grupo de casillas de verificación para selección múltiple</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Inputs Avanzados -->
+                                    <div class="mt-8">
+                                        <h5 class="font-semibold theme-text-primary mb-4">🛠️ Inputs Avanzados y Especializados</h5>
+                                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                <strong class="theme-text-primary text-sm">ui.input_date()</strong>
+                                                <p class="text-xs theme-text-secondary mt-1">Selector de fecha con opciones de formato y restricciones</p>
+                                                <code class="text-xs theme-text-secondary block mt-2">min, max, format, startview, weekstart, language</code>
+                                            </div>
+                                            
+                                            <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                <strong class="theme-text-primary text-sm">ui.input_date_range()</strong>
+                                                <p class="text-xs theme-text-secondary mt-1">Selector de rango de fechas</p>
+                                                <code class="text-xs theme-text-secondary block mt-2">start, end, separator, autoclose</code>
+                                            </div>
+                                            
+                                            <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                <strong class="theme-text-primary text-sm">ui.input_file()</strong>
+                                                <p class="text-xs theme-text-secondary mt-1">Carga de archivos con filtros</p>
+                                                <code class="text-xs theme-text-secondary block mt-2">multiple, accept, capture, buttonLabel</code>
+                                            </div>
+                                            
+                                            <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                <strong class="theme-text-primary text-sm">ui.input_slider()</strong>
+                                                <p class="text-xs theme-text-secondary mt-1">Control deslizante con animación</p>
+                                                <code class="text-xs theme-text-secondary block mt-2">min, max, step, ticks, animate, dragRange</code>
+                                            </div>
+                                            
+                                            <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                <strong class="theme-text-primary text-sm">ui.input_switch()</strong>
+                                                <p class="text-xs theme-text-secondary mt-1">Interruptor de encendido/apagado</p>
+                                                <code class="text-xs theme-text-secondary block mt-2">value, width</code>
+                                            </div>
+                                            
+                                            <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                <strong class="theme-text-primary text-sm">ui.download_button()</strong>
+                                                <p class="text-xs theme-text-secondary mt-1">Botón de descarga de archivos</p>
+                                                <code class="text-xs theme-text-secondary block mt-2">@session.download decorator</code>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tipos de Outputs Detallados -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-tv mr-2 text-cyan-500"></i>Catálogo Completo de Outputs
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-2 gap-8">
+                                        <!-- Outputs de Texto -->
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">📝 Outputs de Texto y HTML</h5>
+                                            <div class="space-y-4">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.output_text()</strong>
+                                                        <code class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">@render.text</code>
+                                                    </div>
+                                                    <p class="text-xs theme-text-secondary">Texto simple con formato HTML básico</p>
+                                                    <code class="text-xs theme-text-secondary block mt-2">container, inline parameters</code>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.output_text_verbatim()</strong>
+                                                        <code class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">@render.text</code>
+                                                    </div>
+                                                    <p class="text-xs theme-text-secondary">Texto preformateado (como código o logs)</p>
+                                                    <code class="text-xs theme-text-secondary block mt-2">Mantiene espacios y saltos de línea</code>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.output_ui()</strong>
+                                                        <code class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">@render.ui</code>
+                                                    </div>
+                                                    <p class="text-xs theme-text-secondary">UI dinámica que puede cambiar completamente</p>
+                                                    <code class="text-xs theme-text-secondary block mt-2">inline, container, fillable</code>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.output_html()</strong>
+                                                        <code class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">@render.ui</code>
+                                                    </div>
+                                                    <p class="text-xs theme-text-secondary">HTML personalizado directamente</p>
+                                                    <code class="text-xs theme-text-secondary block mt-2">Para contenido HTML complejo</code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Outputs de Datos y Visualización -->
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">📊 Outputs de Datos y Gráficos</h5>
+                                            <div class="space-y-4">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.output_plot()</strong>
+                                                        <code class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">@render.plot</code>
+                                                    </div>
+                                                    <p class="text-xs theme-text-secondary">Gráficos matplotlib, seaborn, plotly</p>
+                                                    <code class="text-xs theme-text-secondary block mt-2">width, height, click, dblclick, hover, brush</code>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.output_image()</strong>
+                                                        <code class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">@render.image</code>
+                                                    </div>
+                                                    <p class="text-xs theme-text-secondary">Imágenes estáticas o dinámicas</p>
+                                                    <code class="text-xs theme-text-secondary block mt-2">width, height, click events, inline</code>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.output_table()</strong>
+                                                        <code class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">@render.table</code>
+                                                    </div>
+                                                    <p class="text-xs theme-text-secondary">Tablas HTML simples</p>
+                                                    <code class="text-xs theme-text-secondary block mt-2">Para DataFrames de pandas básicos</code>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <strong class="theme-text-primary">ui.output_data_frame()</strong>
+                                                        <code class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">@render.data_frame</code>
+                                                    </div>
+                                                    <p class="text-xs theme-text-secondary">Tablas interactivas avanzadas</p>
+                                                    <code class="text-xs theme-text-secondary block mt-2">Paginación, filtrado, ordenamiento</code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Reactividad Avanzada -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-cog mr-2 text-purple-500"></i>Reactividad Avanzada y Patrones
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-2 gap-8">
+                                        <!-- Valores Reactivos Personalizados -->
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">🔄 Valores Reactivos Personalizados</h5>
+                                            <div class="space-y-4">
+                                                <div class="theme-bg-primary border theme-border p-4 rounded">
+                                                    <h6 class="font-semibold theme-text-primary mb-2">reactive.Value()</h6>
+                                                    <p class="text-xs theme-text-secondary mb-3">Crea valores reactivos personalizados que puedes modificar</p>
+                                                    <div class="bg-black text-green-400 p-3 rounded font-mono text-xs">
+                                                        <pre><code># Crear valor reactivo personalizado
+rv = reactive.Value(0)
+rv.set(5)  # Establecer valor
+current_val = rv.get()  # Obtener valor
+
+# Uso en función reactiva
+@reactive.Calc
+def computed():
+    return rv.get() * 2</code></pre>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-4 rounded">
+                                                    <h6 class="font-semibold theme-text-primary mb-2">reactive.isolate()</h6>
+                                                    <p class="text-xs theme-text-secondary mb-3">Rompe la reactividad para evitar dependencias no deseadas</p>
+                                                    <div class="bg-black text-green-400 p-3 rounded font-mono text-xs">
+                                                        <pre><code>@render.text
+def output():
+    # Reactivo: se ejecuta cuando input.x() cambia
+    x = input.x()
+    
+    # No reactivo: no causa re-ejecución
+    with reactive.isolate():
+        y = input.y()
+    
+    return f"X: {x}, Y: {y}"</code></pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Eventos y Efectos -->
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">⚡ Eventos y Efectos Secundarios</h5>
+                                            <div class="space-y-4">
+                                                <div class="theme-bg-primary border theme-border p-4 rounded">
+                                                    <h6 class="font-semibold theme-text-primary mb-2">@reactive.event</h6>
+                                                    <p class="text-xs theme-text-secondary mb-3">Controla exactamente cuándo se ejecuta una función reactiva</p>
+                                                    <div class="bg-black text-green-400 p-3 rounded font-mono text-xs">
+                                                        <pre><code># Solo se ejecuta cuando se hace clic en el botón
+@reactive.Calc
+@reactive.event(input.update_btn)
+def expensive_calculation():
+    # Solo se recalcula al hacer clic
+    return complex_operation()
+
+# Múltiples eventos
+@reactive.effect
+@reactive.event(input.btn1, input.btn2)
+def multi_trigger():
+    print("Triggered by either button")</code></pre>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="theme-bg-primary border theme-border p-4 rounded">
+                                                    <h6 class="font-semibold theme-text-primary mb-2">@reactive.Effect</h6>
+                                                    <p class="text-xs theme-text-secondary mb-3">Ejecuta efectos secundarios reactivamente (logs, actualizaciones, etc.)</p>
+                                                    <div class="bg-black text-green-400 p-3 rounded font-mono text-xs">
+                                                        <pre><code>@reactive.effect
+def log_changes():
+    # Se ejecuta cada vez que input.data() cambia
+    data = input.data()
+    print(f"Data changed to: {data}")
+    # Guardar en base de datos, enviar notificaciones, etc.
+
+# Efecto condicional
+@reactive.effect
+def conditional_effect():
+    if input.enable_logging():
+        print(f"Value: {input.value()}")</code></pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comparación con Shiny for R -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fab fa-r-project mr-2 text-blue-600"></i>Diferencias con Shiny for R
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <p class="theme-text-secondary mb-6">
+                                        Shiny for Python mantiene la misma filosofía que Shiny for R pero adapta la sintaxis a las convenciones de Python.
+                                    </p>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-8">
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">
+                                                <i class="fab fa-r-project text-blue-600 mr-2"></i>Shiny for R
+                                            </h5>
+                                            <div class="space-y-3">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Inputs</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">input$x  # Acceso como lista</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Outputs</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">output$y <- renderText(z())</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Reactive Values</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">reactiveVal(1)</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Expressions</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">z <- reactive({input$x + 1})</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Events</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">eventReactive(input$go, {...})</code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">
+                                                <i class="fab fa-python text-yellow-500 mr-2"></i>Shiny for Python
+                                            </h5>
+                                            <div class="space-y-3">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Inputs</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">input.x()  # Llamada de función</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Outputs</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">@render.text<br>def y(): return z()</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Reactive Values</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">reactive.Value(1)</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Expressions</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">@reactive.Calc<br>def z(): return input.x()+1</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">Events</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">@reactive.event(input.go)<br>@reactive.Calc<br>def func(): ...</code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6 p-4 theme-bg-primary border theme-border rounded-lg">
+                                        <h6 class="font-semibold theme-text-primary mb-2">🔑 Diferencias Clave</h6>
+                                        <ul class="text-sm theme-text-secondary space-y-1">
+                                            <li>• <strong>Decoradores:</strong> Python usa @decoradores para definir outputs en lugar de asignaciones</li>
+                                            <li>• <strong>Funciones:</strong> Los inputs se llaman como funciones: input.x() vs input$x</li>
+                                            <li>• <strong>Organización:</strong> Las funciones están organizadas en submódulos (ui.input_*, @render.*)</li>
+                                            <li>• <strong>Navegación:</strong> Se usa nav_*() en lugar de *Tab() para pestañas dinámicas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shinylive y Despliegue -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-rocket mr-2 text-red-500"></i>Shinylive: Shiny en el Navegador
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-2 gap-8 mb-6">
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">🌐 ¿Qué es Shinylive?</h5>
+                                            <p class="theme-text-secondary mb-4">
+                                                Shinylive utiliza WebAssembly para ejecutar Python completamente en el navegador, 
+                                                sin necesidad de un servidor Python. Es perfecto para demos, prototipos y educación.
+                                            </p>
+                                            <div class="theme-bg-primary border theme-border p-4 rounded">
+                                                <h6 class="font-semibold theme-text-primary mb-2">✨ Ventajas</h6>
+                                                <ul class="text-sm theme-text-secondary space-y-1">
+                                                    <li>• Sin servidor Python requerido</li>
+                                                    <li>• Carga instantánea</li>
+                                                    <li>• Ideal para prototipos</li>
+                                                    <li>• Fácil de compartir</li>
+                                                    <li>• Integración con Quarto</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">⚙️ Cómo Usar Shinylive</h5>
+                                            <div class="space-y-4">
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">1. Editor Online</strong>
+                                                    <p class="text-xs theme-text-secondary mt-1">Visita shinylive.io para editar y probar aplicaciones</p>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">2. Exportar Aplicación</strong>
+                                                    <code class="text-xs theme-text-secondary block mt-1">shinylive export myapp site</code>
+                                                </div>
+                                                <div class="theme-bg-primary border theme-border p-3 rounded">
+                                                    <strong class="theme-text-primary text-sm">3. Desplegar</strong>
+                                                    <p class="text-xs theme-text-secondary mt-1">Sube a GitHub Pages, Netlify, o cualquier hosting estático</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Integración con Quarto -->
+                                    <div class="mb-6">
+                                        <h5 class="font-semibold theme-text-primary mb-4">📝 Integración con Quarto</h5>
+                                        <p class="theme-text-secondary mb-4">
+                                            Puedes embeber aplicaciones Shinylive directamente en documentos Quarto, blogs y sitios web:
+                                        </p>
+                                        
+                                        <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm">
+                                            <pre><code>```{shinylive-python}
+#| standalone: true
+#| components: [editor, viewer]
+
+from shiny import App, render, ui
+import matplotlib.pyplot as plt
+import numpy as np
+
+app_ui = ui.page_fluid(
+    ui.input_slider("n", "Sample Size", 0, 1000, 20),
+    ui.output_plot("dist")
+)
+
+def server(input, output, session):
+    @render.plot
+    def dist():
+        x = np.random.randn(input.n())
+        plt.hist(x, bins=30)
+        plt.title("Random Distribution")
+
+app = App(app_ui, server)
+```</code></pre>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Limitaciones -->
+                                    <div class="theme-bg-primary border border-yellow-500 p-4 rounded-lg">
+                                        <h6 class="font-semibold theme-text-primary mb-2">⚠️ Limitaciones de Shinylive</h6>
+                                        <ul class="text-sm theme-text-secondary space-y-1">
+                                            <li>• No todos los paquetes Python están disponibles</li>
+                                            <li>• Rendimiento limitado por el navegador</li>
+                                            <li>• No soporta bases de datos externas directamente</li>
+                                            <li>• Tiempo de carga inicial más lento</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Temas y Personalización -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold theme-text-primary mb-4">
+                                    <i class="fas fa-palette mr-2 text-pink-500"></i>Temas y Personalización Visual
+                                </h4>
+                                <div class="theme-bg-tertiary rounded-lg p-6">
+                                    <div class="grid md:grid-cols-2 gap-8">
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">🎨 Paquete shinyswatch</h5>
+                                            <p class="theme-text-secondary mb-4">
+                                                shinyswatch proporciona temas Bootstrap predefinidos para personalizar la apariencia de tu aplicación.
+                                            </p>
+                                            
+                                            <div class="bg-black text-green-400 p-4 rounded font-mono text-sm mb-4">
+                                                <pre><code># Instalación
+pip install shinyswatch
+
+# Uso básico
+import shinyswatch
+from shiny import App, ui
+
+app_ui = ui.page_fluid(
+    shinyswatch.theme.darkly(),  # Tema oscuro
+    ui.h1("Mi Aplicación"),
+    ui.p("Con tema personalizado")
+)
+
+# Otros temas disponibles:
+# shinyswatch.theme.cerulean()
+# shinyswatch.theme.cosmo()
+# shinyswatch.theme.flatly()
+# shinyswatch.theme.journal()
+# shinyswatch.theme.litera()
+# shinyswatch.theme.lumen()
+# shinyswatch.theme.lux()
+# shinyswatch.theme.materia()
+# shinyswatch.theme.minty()
+# shinyswatch.theme.morph()
+# shinyswatch.theme.pulse()
+# shinyswatch.theme.quartz()
+# shinyswatch.theme.sandstone()
+# shinyswatch.theme.simplex()
+# shinyswatch.theme.sketchy()
+# shinyswatch.theme.slate()
+# shinyswatch.theme.solar()
+# shinyswatch.theme.spacelab()
+# shinyswatch.theme.superhero()
+# shinyswatch.theme.united()
+# shinyswatch.theme.vapor()
+# shinyswatch.theme.yeti()
+# shinyswatch.theme.zephyr()</code></pre>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <h5 class="font-semibold theme-text-primary mb-4">🛠️ CSS Personalizado</h5>
+                                            <p class="theme-text-secondary mb-4">
+                                                También puedes agregar CSS personalizado para un control total sobre el diseño.
+                                            </p>
+                                            
+                                            <div class="bg-black text-green-400 p-4 rounded font-mono text-sm mb-4">
+                                                <pre><code># CSS personalizado
+from shiny import App, ui
+
+custom_css = """
+.custom-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.custom-card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px 0;
+}
+"""
+
+app_ui = ui.page_fluid(
+    ui.tags.style(custom_css),
+    ui.div(
+        {"class": "custom-header"},
+        ui.h1("Mi Aplicación Personalizada")
+    ),
+    ui.div(
+        {"class": "custom-card"},
+        ui.p("Contenido con estilo personalizado")
+    )
+)</code></pre>
+                                            </div>
+                                            
+                                            <div class="theme-bg-primary border theme-border p-4 rounded">
+                                                <h6 class="font-semibold theme-text-primary mb-2">💡 Tips de Personalización</h6>
+                                                <ul class="text-sm theme-text-secondary space-y-1">
+                                                    <li>• Usa Bootstrap classes para consistencia</li>
+                                                    <li>• Combina temas con CSS personalizado</li>
+                                                    <li>• Considera la accesibilidad en los colores</li>
+                                                    <li>• Prueba en diferentes tamaños de pantalla</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recursos Adicionales -->
+                            <div class="text-center border-t theme-border pt-6">
+                                <div class="mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold theme-text-primary mb-3">Recursos para Aprender Más</h4>
+                                    <p class="theme-text-secondary mb-6">Continúa tu aprendizaje con estos recursos oficiales y ejemplos interactivos.</p>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                                    <a href="https://shiny.rstudio.com/py/" target="_blank" class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                        <i class="fas fa-book text-blue-500 text-2xl mb-2"></i>
+                                        <h5 class="font-semibold theme-text-primary">Documentación Oficial</h5>
+                                        <p class="text-sm theme-text-secondary">Guías completas y referencia de API</p>
+                                    </a>
+                                    
+                                    <a href="https://shinylive.io/py/examples/" target="_blank" class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                        <i class="fas fa-code text-green-500 text-2xl mb-2"></i>
+                                        <h5 class="font-semibold theme-text-primary">Ejemplos Interactivos</h5>
+                                        <p class="text-sm theme-text-secondary">Prueba y modifica ejemplos en el navegador</p>
+                                    </a>
+                                    
+                                    <a href="https://github.com/rstudio/py-shiny" target="_blank" class="block p-4 theme-bg-tertiary rounded-lg hover:shadow-md transition-all duration-200 hover:scale-105">
+                                        <i class="fab fa-github text-purple-500 text-2xl mb-2"></i>
+                                        <h5 class="font-semibold theme-text-primary">Repositorio GitHub</h5>
+                                        <p class="text-sm theme-text-secondary">Código fuente y contribuciones</p>
+                                    </a>
+                                </div>
+                                
+                                <!-- Hojas de Resumen (Cheat Sheets) -->
+                                <div class="mb-6">
+                                    <h5 class="text-md font-semibold theme-text-primary mb-4 text-center">
+                                        <i class="fas fa-file-pdf mr-2 text-red-500"></i>Hojas de Resumen Rápido (Cheat Sheets)
+                                    </h5>
+                                    <p class="text-sm theme-text-secondary text-center mb-4">
+                                        Descarga hojas de referencia rápida en tu idioma preferido para tener siempre a mano
+                                    </p>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <!-- Cheat Sheet de Shiny for R en Español -->
+                                        <div class="theme-bg-tertiary border-2 border-amber-500 rounded-lg p-6 text-center">
+                                            <div class="mb-4">
+                                                <i class="fas fa-file-pdf text-red-500 text-4xl mb-3"></i>
+                                                <div class="flex items-center justify-center space-x-2 mb-2">
+                                                    <i class="fas fa-flag"></i>
+                                                    <h6 class="font-bold theme-text-primary">Shiny for R en Español</h6>
+                                                </div>
+                                                <p class="text-sm theme-text-secondary mb-4">
+                                                    Referencia rápida de Shiny for R en español. Los conceptos son muy similares a Shiny for Python
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="space-y-3">
+                                                <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/spanish/shiny_es.pdf" target="_blank" 
+                                                   class="block w-full py-3 px-4 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors font-semibold">
+                                                    <i class="fas fa-download mr-2"></i>Descargar PDF en Español
+                                                </a>
+                                                
+                                                <a href="https://github.com/rstudio/cheatsheets/blob/main/translations/spanish/shiny_es.pdf" target="_blank" 
+                                                   class="block w-full py-2 px-4 border border-amber-500 text-amber-600 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-colors text-sm">
+                                                    <i class="fas fa-eye mr-2"></i>Ver en GitHub
+                                                </a>
+                                            </div>
+                                            
+                                            <div class="mt-4 p-3 theme-bg-primary border border-amber-500 rounded-lg">
+                                                <p class="text-xs theme-text-secondary">
+                                                    <strong>Nota:</strong> Es para Shiny for R, pero los conceptos y estructura son muy similares a Python
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Cheat Sheet de Shiny for Python en Inglés -->
+                                        <div class="theme-bg-tertiary border-2 border-blue-500 rounded-lg p-6 text-center">
+                                            <div class="mb-4">
+                                                <i class="fas fa-file-pdf text-red-500 text-4xl mb-3"></i>
+                                                <div class="flex items-center justify-center space-x-2 mb-2">
+                                                    <i class="fas fa-python text-blue-500"></i>
+                                                    <h6 class="font-bold theme-text-primary">Shiny for Python Official</h6>
+                                                </div>
+                                                <p class="text-sm theme-text-secondary mb-4">
+                                                    Official quick reference specifically for Shiny for Python with all components and examples
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="space-y-3">
+                                                <a href="https://rstudio.github.io/cheatsheets/shiny-python.pdf" target="_blank" 
+                                                   class="block w-full py-3 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+                                                    <i class="fas fa-download mr-2"></i>Download PDF
+                                                </a>
+                                                
+                                                <a href="https://rstudio.github.io/cheatsheets/html/shiny-python.html" target="_blank" 
+                                                   class="block w-full py-2 px-4 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors text-sm">
+                                                    <i class="fas fa-eye mr-2"></i>View HTML Version
+                                                </a>
+                                            </div>
+                                            
+                                            <div class="mt-4 p-3 theme-bg-primary border border-blue-500 rounded-lg">
+                                                <p class="text-xs theme-text-secondary">
+                                                    <strong>Includes:</strong> Inputs, Outputs, Layouts, Reactivity, Deployment, Python-specific syntax
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Nota importante sobre las versiones -->
+                                    <div class="mt-6 p-4 theme-bg-primary border border-orange-500 rounded-lg">
+                                        <div class="flex items-start space-x-3">
+                                            <i class="fas fa-info-circle text-orange-500 mt-1"></i>
+                                            <div>
+                                                <h6 class="font-semibold theme-text-primary mb-2">📝 Importante sobre las Hojas de Resumen</h6>
+                                                <div class="text-sm theme-text-secondary space-y-2">
+                                                    <p><strong>Shiny for Python:</strong> Solo disponible en inglés por el momento. Es la versión oficial específica para Python.</p>
+                                                    <p><strong>Shiny for R en Español:</strong> Incluida como referencia ya que los conceptos UI, reactividad y layouts son prácticamente idénticos entre R y Python, solo cambia la sintaxis.</p>
+                                                    <p><strong>Recomendación:</strong> Usa ambas - la de Python para sintaxis específica y la de R en español para conceptos generales.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Recursos Adicionales por Idioma -->
+                                <div class="mb-6">
+                                    <h5 class="text-md font-semibold theme-text-primary mb-4 text-center">
+                                        <i class="fas fa-language mr-2 text-orange-500"></i>Recursos por Idioma
+                                    </h5>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <!-- Recursos en Español -->
+                                        <div class="theme-bg-tertiary rounded-lg p-4">
+                                            <h6 class="font-semibold theme-text-primary mb-3 flex items-center">
+                                                <i class="fas fa-flag mr-2"></i>Recursos en Español
+                                            </h6>
+                                            <div class="space-y-2">
+                                                <a href="https://posit.co/recursos/cheatsheets/?type=translations&lang=spanish" target="_blank" 
+                                                   class="block text-sm theme-text-secondary hover:text-blue-500 transition-colors">
+                                                    <i class="fas fa-external-link-alt mr-2"></i>Colección de Hojas de Resumen en Español
+                                                </a>
+                                                <a href="https://docs.python.org/es/3/" target="_blank" 
+                                                   class="block text-sm theme-text-secondary hover:text-blue-500 transition-colors">
+                                                    <i class="fas fa-book mr-2"></i>Documentación Python en Español
+                                                </a>
+                                                <a href="https://r4ds.hadley.nz/es/" target="_blank" 
+                                                   class="block text-sm theme-text-secondary hover:text-blue-500 transition-colors">
+                                                    <i class="fas fa-chart-bar mr-2"></i>R para Ciencia de Datos (conceptos aplicables)
+                                                </a>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Recursos en Inglés -->
+                                        <div class="theme-bg-tertiary rounded-lg p-4">
+                                            <h6 class="font-semibold theme-text-primary mb-3 flex items-center">
+                                                <i class="fas fa-globe mr-2"></i>English Resources
+                                            </h6>
+                                            <div class="space-y-2">
+                                                <a href="https://posit.co/resources/cheatsheets/" target="_blank" 
+                                                   class="block text-sm theme-text-secondary hover:text-blue-500 transition-colors">
+                                                    <i class="fas fa-external-link-alt mr-2"></i>Complete Cheat Sheets Collection
+                                                </a>
+                                                <a href="https://shiny.posit.co/py/docs/" target="_blank" 
+                                                   class="block text-sm theme-text-secondary hover:text-blue-500 transition-colors">
+                                                    <i class="fas fa-book mr-2"></i>Official Shiny for Python Documentation
+                                                </a>
+                                                <a href="https://mastering-shiny.org/" target="_blank" 
+                                                   class="block text-sm theme-text-secondary hover:text-blue-500 transition-colors">
+                                                    <i class="fas fa-graduation-cap mr-2"></i>Mastering Shiny (Advanced Concepts)
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tips para Usar las Hojas de Resumen -->
+                                <div class="theme-bg-primary border theme-border rounded-lg p-4 mb-6">
+                                    <h6 class="font-semibold theme-text-primary mb-3">
+                                        <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>Cómo Aprovechar las Hojas de Resumen
+                                    </h6>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h7 class="font-semibold theme-text-primary text-sm mb-2">📋 Para Referencia Rápida</h7>
+                                            <ul class="text-xs theme-text-secondary space-y-1">
+                                                <li>• Imprime y ten cerca mientras programas</li>
+                                                <li>• Guarda en marcadores del navegador</li>
+                                                <li>• Úsala para recordar sintaxis específica</li>
+                                                <li>• Consulta parámetros de funciones</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h7 class="font-semibold theme-text-primary text-sm mb-2">🎓 Para Aprender</h7>
+                                            <ul class="text-xs theme-text-secondary space-y-1">
+                                                <li>• Compara ejemplos con tu código</li>
+                                                <li>• Practica con los snippets incluidos</li>
+                                                <li>• Identifica patrones de uso común</li>
+                                                <li>• Descubre funciones que no conocías</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
