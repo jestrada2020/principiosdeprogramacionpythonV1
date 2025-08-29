@@ -23,7 +23,7 @@ const modules = {
             </ul>
             
             <h3 class="text-xl font-semibold theme-text-primary mb-3">Aplicaciones de Python</h3>
-            <div class="grid md:grid-cols-2 gap-4">
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
                 <div class="p-4 theme-bg-tertiary rounded-lg">
                     <h4 class="font-semibold theme-text-primary">Desarrollo Web</h4>
                     <p class="text-sm theme-text-secondary">Django, Flask, FastAPI</p>
@@ -41,15 +41,42 @@ const modules = {
                     <p class="text-sm theme-text-secondary">Selenium, Scrapy, Boto3</p>
                 </div>
             </div>
+            
+            <div class="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-xl mb-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">🚀 Empieza a Programar Ahora</h3>
+                <p class="theme-text-secondary mb-6">¿Listo para escribir tu primer código Python? Elige una de estas herramientas online gratuitas:</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="window.open('https://colab.research.google.com/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fab fa-google mr-2"></i>Google Colab
+                    </button>
+                    <button onclick="window.open('https://vscode.dev/?vscode-lang=es-es', '_blank')" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-code mr-2"></i>Visual Studio Code
+                    </button>
+                    <button onclick="window.open('https://shinylive.io/py/editor/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-star mr-2"></i>Shiny Live
+                    </button>
+                </div>
+                
+                <div class="mt-4 p-4 theme-bg-secondary rounded-lg">
+                    <p class="text-sm theme-text-secondary">
+                        <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                        <strong>Consejo:</strong> Ambas herramientas son gratuitas y funcionan directamente en tu navegador. No necesitas instalar nada.
+                    </p>
+                </div>
+            </div>
         `,
         colabContent: `
             <div class="mb-6">
-                <h4 class="text-lg font-semibold theme-text-primary mb-3">🚀 Práctica en Google Colab</h4>
-                <p class="theme-text-secondary mb-4">Experimenta con estos ejercicios prácticos en Google Colab. Cada bloque de código está diseñado para ayudarte a entender mejor Python.</p>
+                <h4 class="text-lg font-semibold theme-text-primary mb-3">🚀 Práctica Interactiva</h4>
+                <p class="theme-text-secondary mb-4">Experimenta con estos ejercicios prácticos usando las herramientas online disponibles. Cada bloque de código está diseñado para ayudarte a entender mejor Python.</p>
                 
-                <div class="mb-6">
+                <div class="mb-6 flex flex-wrap gap-3">
                     <button onclick="window.open('https://colab.research.google.com/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
                         <i class="fab fa-google mr-2"></i>Abrir Google Colab
+                    </button>
+                    <button onclick="window.open('https://vscode.dev/?vscode-lang=es-es', '_blank')" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-code mr-2"></i>Abrir Visual Studio Code
                     </button>
                 </div>
                 
@@ -95,6 +122,25 @@ print(f"15 / 3 = {15 / 3}")<br>
 print(f"2 ** 8 = {2 ** 8}")<br>
 print(f"17 % 5 = {17 % 5}")</code>
                         </div>
+                    </div>
+                    
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-2">💻 Ejercicio 4: Prueba en Visual Studio Code Online</h5>
+                        <p class="text-sm theme-text-secondary mb-3">También puedes probar estos ejercicios en Visual Studio Code Online:</p>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-3">
+                            <code># Crear un archivo Python en VS Code<br>
+# 1. Haz clic en "Abrir Visual Studio Code" arriba<br>
+# 2. Crea un nuevo archivo: archivo.py<br>
+# 3. Copia cualquiera de los ejercicios anteriores<br>
+# 4. Guarda el archivo y ejecútalo<br><br>
+print("¡Hola desde Visual Studio Code!")<br>
+nombre = input("¿Cuál es tu nombre? ")<br>
+print(f"¡Bienvenido a Python, {nombre}!")</code>
+                        </div>
+                        <p class="text-sm theme-text-secondary">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            VS Code Online te permite programar Python directamente en el navegador sin instalar nada.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -170,6 +216,369 @@ print(f"17 % 5 = {17 % 5}")</code>
                         <i class="fas fa-external-link-alt mr-2"></i>Abrir Shiny Examples
                     </button>
                     <p class="text-sm theme-text-secondary mt-2">Se abrirá en una nueva ventana</p>
+                </div>
+            </div>
+            
+            <!-- Ejemplo completo de Shiny for Python -->
+            <div class="border-t theme-border pt-6">
+                <div class="mb-6">
+                    <h4 class="text-2xl font-semibold theme-text-primary mb-4">📊 Ejemplo Completo: Calculadora de Ecuaciones Cúbicas</h4>
+                    <p class="theme-text-secondary mb-6">
+                        A continuación encontrarás un ejemplo completo de una aplicación Shiny for Python que demuestra 
+                        conceptos básicos de la interfaz de usuario (UI) y la lógica del servidor (Server).
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-3">🎛️ Componentes UI Utilizados</h5>
+                        <ul class="text-sm theme-text-secondary space-y-2">
+                            <li><strong>ui.page_fluid():</strong> Layout responsivo principal</li>
+                            <li><strong>ui.navset_tab():</strong> Sistema de pestañas</li>
+                            <li><strong>ui.input_numeric():</strong> Campos de entrada numéricos</li>
+                            <li><strong>ui.input_action_button():</strong> Botón de acción</li>
+                            <li><strong>ui.output_ui():</strong> Salida dinámica de contenido</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                        <h5 class="font-semibold theme-text-primary mb-3">⚙️ Funcionalidad del Servidor</h5>
+                        <ul class="text-sm theme-text-secondary space-y-2">
+                            <li><strong>@reactive.event():</strong> Reactividad basada en eventos</li>
+                            <li><strong>@render.ui:</strong> Renderizado dinámico de interfaz</li>
+                            <li><strong>input/output:</strong> Comunicación entre UI y servidor</li>
+                            <li><strong>Validación:</strong> Control de errores y límites</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h5 class="text-lg font-semibold theme-text-primary mb-3">📝 Código Completo</h5>
+                    <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-xs overflow-x-auto" style="text-align: left;">
+                        <pre style="text-align: left;"><code>from shiny import App, render, ui, reactive
+import math
+
+# Definir la interfaz de usuario
+app_ui = ui.page_fluid(
+    ui.tags.head(
+        ui.tags.style("""
+            .card-header {
+                font-weight: bold;
+                font-size: 16px;
+                background-color: #007bff;
+                color: white;
+            }
+            .step-box {
+                background-color: #f0f8ff;
+                border-left: 5px solid #4b9fc9;
+                border-radius: 5px;
+                padding: 15px;
+                margin: 10px 0;
+            }
+            .math-equation {
+                font-size: 16px;
+                margin: 10px 0;
+                padding: 10px;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                text-align: center;
+            }
+            .result-section {
+                margin: 15px 0;
+                padding: 10px;
+                border-left: 3px solid #007bff;
+                background-color: #f8f9fa;
+            }
+        """)
+    ),
+    
+    ui.navset_tab(
+        ui.nav_panel(
+            "Calculadora",
+            ui.div(
+                {"style": "max-width: 1200px; margin: 0 auto; padding: 20px;"},
+                ui.h2("Resolución de Ecuaciones Cúbicas Generales"),
+                ui.p("Esta aplicación calcula las raíces de ecuaciones cúbicas de la forma:"),
+                ui.div(
+                    {"style": "text-align: center; font-size: 18px; margin: 15px 0; padding: 10px; background-color: #f8f9fa; border-radius: 5px;"},
+                    "ax³ + bx² + cx + d = 0"
+                ),
+                
+                ui.row(
+                    ui.column(
+                        4,
+                        ui.card( # a = -2; b = 16; c = 61; d = 16 otra opción a = -2; b = 16; c = 111; d = 16
+                            ui.card_header("Coeficientes"),
+                            ui.input_numeric("a", "Coeficiente a (a ≠ 0)", value=1, step=0.1),
+                            ui.input_numeric("b", "Coeficiente b", value=-6, step=0.1), 
+                            ui.input_numeric("c", "Coeficiente c", value=11, step=0.1),
+                            ui.input_numeric("d", "Coeficiente d", value=-6, step=0.1),
+                            ui.input_action_button("calculate", "Calcular Raíces", class_="btn btn-primary mt-3")
+                        )
+                    ),
+                    ui.column(
+                        8,
+                        ui.card(
+                            ui.card_header("Resultados"),
+                            ui.div(
+                                {"style": "background-color: #f9f9f9; border-radius: 5px; padding: 15px; margin-top: 10px;"},
+                                ui.output_ui("results")
+                            )
+                        )
+                    )
+                )
+            )
+        ),
+        
+        ui.nav_panel(
+            "Instrucciones",
+            ui.div(
+                {"style": "max-width: 800px; margin: 0 auto; padding: 20px;"},
+                ui.h2("Instrucciones de uso"),
+                ui.p("Esta aplicación resuelve ecuaciones cúbicas de la forma general:"),
+                ui.div(
+                    {"style": "text-align: center; font-size: 18px; margin: 15px 0; padding: 10px; background-color: #f8f9fa; border-radius: 5px;"},
+                    "ax³ + bx² + cx + d = 0"
+                ),
+                ui.p("Donde a ≠ 0."),
+                
+                ui.h3("Pasos del método:"),
+                ui.tags.ol(
+                    ui.tags.li("Convertir la ecuación a forma reducida y³ + py + q = 0 mediante la sustitución x = y - b/(3a)"),
+                    ui.tags.li("Calcular los parámetros Q = (3ac - b²)/(9a²) y R = (9abc - 27a²d - 2b³)/(54a³)"),
+                    ui.tags.li("Calcular el discriminante D = Q³ + R²"),
+                    ui.tags.li("Determinar el tipo de raíces según el valor de D"),
+                    ui.tags.li("Calcular las raíces según el caso correspondiente")
+                ),
+                
+                ui.h3("Interpretación del discriminante:"),
+                ui.tags.ul(
+                    ui.tags.li(
+                        ui.span("D > 0: ", {"style": "color: #e74c3c; font-weight: bold;"}),
+                        "Una raíz real y dos complejas conjugadas"
+                    ),
+                    ui.tags.li(
+                        ui.span("D = 0: ", {"style": "color: #f39c12; font-weight: bold;"}),
+                        "Todas las raíces reales y al menos dos iguales"
+                    ),
+                    ui.tags.li(
+                        ui.span("D < 0: ", {"style": "color: #27ae60; font-weight: bold;"}),
+                        "Tres raíces reales distintas"
+                    )
+                )
+            )
+        )
+    ),
+    
+    title="Solver Ecuación Cúbica General"
+)
+
+def server(input, output, session):
+    
+    def cube_root(x):
+        """Función para calcular raíces cúbicas de números reales (incluyendo negativos)"""
+        if x >= 0:
+            return x**(1/3)
+        else:
+            return -(abs(x)**(1/3))
+    
+    @render.ui
+    @reactive.event(input.calculate)
+    def results():
+        a = input.a()
+        b = input.b()
+        c_val = input.c()
+        d = input.d()
+        
+        # Validar que a no sea cero
+        if a == 0:
+            return ui.div(
+                {"style": "color: red; font-weight: bold;"},
+                "Error: El coeficiente 'a' no puede ser cero"
+            )
+        
+        # Validar límites numéricos
+        if any(abs(coef) > 1e10 for coef in [a, b, c_val, d]):
+            return ui.div(
+                {"style": "color: red; font-weight: bold;"},
+                "Error: Los coeficientes son demasiado grandes (máximo 1e10)"
+            )
+        
+        # Paso 1: Conversión a forma reducida
+        # x = y - b/(3a) => y³ + py + q = 0
+        p = (3*a*c_val - b**2) / (3*a**2)
+        q = (2*b**3 - 9*a*b*c_val + 27*a**2*d) / (27*a**3)
+        
+        # Paso 2: Cálculo de Q y R
+        try:
+            Q = (3*a*c_val - b**2) / (9*a**2)
+            R = (9*a*b*c_val - 27*a**2*d - 2*b**3) / (54*a**3)
+            
+            # Paso 3: Cálculo del discriminante
+            D = Q**3 + R**2
+            
+            # Verificar que no hay overflow o valores extremos
+            if not all(math.isfinite(val) for val in [Q, R, D]):
+                raise OverflowError("Valores numéricos extremos")
+                
+        except (OverflowError, ZeroDivisionError) as e:
+            return ui.div(
+                {"style": "color: red; font-weight: bold;"},
+                f"Error en el cálculo: {str(e)}. Use valores más pequeños."
+            )
+        
+        # Generar la salida HTML
+        results_html = []
+        
+        # Mostrar ecuación original
+        results_html.append(ui.h4("Ecuación ingresada:"))
+        equation_text = f"{a:.2f}x³ + {b:.2f}x² + {c_val:.2f}x + {d:.2f} = 0"
+        results_html.append(ui.div({"class": "math-equation"}, equation_text))
+        
+        # Paso 1: Conversión a forma reducida
+        results_html.append(ui.div(
+            {"class": "result-section"},
+            ui.h4("Paso 1: Conversión a forma reducida"),
+            ui.p("Realizamos la sustitución:"),
+            ui.div({"class": "math-equation"}, f"x = y - b/(3a) = y - {b:.2f}/(3×{a:.2f}) = y - {b/(3*a):.4f}"),
+            ui.p("Obteniendo la ecuación reducida:"),
+            ui.div({"class": "math-equation"}, f"y³ + {p:.4f}y + {q:.4f} = 0")
+        ))
+        
+        # Paso 2: Cálculo de Q y R
+        results_html.append(ui.div(
+            {"class": "result-section"},
+            ui.h4("Paso 2: Cálculo de Q y R"),
+            ui.p("Calculamos los parámetros Q y R:"),
+            ui.div({"class": "math-equation"}, 
+                   f"Q = (3ac - b²)/(9a²) = (3×{a:.2f}×{c_val:.2f} - ({b:.2f})²)/(9×({a:.2f})²) = {Q:.6f}"),
+            ui.div({"class": "math-equation"}, 
+                   f"R = (9abc - 27a²d - 2b³)/(54a³) = {R:.6f}")
+        ))
+        
+        # Paso 3: Cálculo del discriminante
+        color = "#e74c3c" if D > 0 else "#f39c12" if D == 0 else "#27ae60"
+        results_html.append(ui.div(
+            {"class": "result-section"},
+            ui.h4("Paso 3: Cálculo del discriminante"),
+            ui.p("Calculamos el discriminante D:"),
+            ui.div({"class": "math-equation"}, f"D = Q³ + R² = ({Q:.6f})³ + ({R:.6f})² = {D:.6f}"),
+            ui.div({"style": f"color: {color}; font-weight: bold;"}, 
+                   f"D = {D:.6f}")
+        ))
+        
+        # Paso 4: Tipo de raíces
+        if D > 0:
+            type_text = "Una raíz real y dos complejas conjugadas"
+            type_color = "#e74c3c"
+        elif D == 0:
+            type_text = "Todas las raíces reales y al menos dos iguales"
+            type_color = "#f39c12"
+        else:
+            type_text = "Tres raíces reales distintas"
+            type_color = "#27ae60"
+        
+        results_html.append(ui.div(
+            {"class": "result-section"},
+            ui.h4("Paso 4: Determinación del tipo de raíces"),
+            ui.p("Según el valor del discriminante, determinamos que las raíces son:"),
+            ui.div({"style": f"color: {type_color}; font-weight: bold;"}, type_text)
+        ))
+        
+        # Paso 5: Cálculo de las raíces
+        x_offset = b/(3*a)
+        
+        if D > 0:
+            # Caso 1: Una raíz real y dos complejas
+            S1 = cube_root(R + math.sqrt(D))
+            S2 = cube_root(R - math.sqrt(D))
+            
+            y1 = S1 + S2
+            y2 = -(S1 + S2)/2 + (math.sqrt(3)/2)*(S1 - S2)*1j
+            y3 = -(S1 + S2)/2 - (math.sqrt(3)/2)*(S1 - S2)*1j
+            
+            x1 = y1 - x_offset
+            x2 = y2 - x_offset
+            x3 = y3 - x_offset
+            
+            results_html.append(ui.div(
+                {"class": "result-section"},
+                ui.h4("Paso 5: Cálculo de las raíces"),
+                ui.p("Para D > 0, usamos el método algebraico:"),
+                ui.div({"class": "math-equation"}, f"S₁ = ∛(R + √D) = ∛({R:.6f} + √{D:.6f}) = {S1:.6f}"),
+                ui.div({"class": "math-equation"}, f"S₂ = ∛(R - √D) = ∛({R:.6f} - √{D:.6f}) = {S2:.6f}"),
+                ui.p("Las raíces son:"),
+                ui.div({"class": "math-equation"}, f"x₁ = {x1:.6f}"),
+                ui.div({"class": "math-equation"}, f"x₂ = {x2.real:.6f} {'+' if x2.imag >= 0 else ''} {x2.imag:.6f}i"),
+                ui.div({"class": "math-equation"}, f"x₃ = {x3.real:.6f} {'+' if x3.imag >= 0 else ''} {x3.imag:.6f}i")
+            ))
+            
+        elif D == 0:
+            # Caso 2: Todas reales, al menos dos iguales
+            S = cube_root(R)
+            
+            y1 = 2*S
+            y2 = -S
+            y3 = -S
+            
+            x1 = y1 - x_offset
+            x2 = y2 - x_offset
+            x3 = y3 - x_offset
+            
+            results_html.append(ui.div(
+                {"class": "result-section"},
+                ui.h4("Paso 5: Cálculo de las raíces"),
+                ui.p("Para D = 0, usamos el método algebraico simplificado:"),
+                ui.div({"class": "math-equation"}, f"S = ∛R = ∛{R:.6f} = {S:.6f}"),
+                ui.p("Las raíces son:"),
+                ui.div({"class": "math-equation"}, f"x₁ = {x1:.6f}"),
+                ui.div({"class": "math-equation"}, f"x₂ = x₃ = {x2:.6f}")
+            ))
+            
+        else:
+            # Caso 3: Tres raíces reales distintas (método trigonométrico)
+            # Validar que el argumento de arccos esté en [-1, 1]
+            arg = R/math.sqrt(-Q**3)
+            if arg > 1:
+                arg = 1
+            elif arg < -1:
+                arg = -1
+            theta = math.acos(arg)
+            
+            y1 = 2*math.sqrt(-Q)*math.cos(theta/3)
+            y2 = 2*math.sqrt(-Q)*math.cos((theta + 2*math.pi)/3)
+            y3 = 2*math.sqrt(-Q)*math.cos((theta + 4*math.pi)/3)
+            
+            x1 = y1 - x_offset
+            x2 = y2 - x_offset
+            x3 = y3 - x_offset
+            
+            results_html.append(ui.div(
+                {"class": "result-section"},
+                ui.h4("Paso 5: Cálculo de las raíces"),
+                ui.p("Para D < 0, usamos el método trigonométrico:"),
+                ui.div({"class": "math-equation"}, f"θ = arccos(R/√(-Q³)) = arccos({R:.6f}/√(-{Q:.6f}³)) = {theta:.6f}"),
+                ui.p("Las raíces son:"),
+                ui.div({"class": "math-equation"}, f"x₁ = {x1:.6f}"),
+                ui.div({"class": "math-equation"}, f"x₂ = {x2:.6f}"),
+                ui.div({"class": "math-equation"}, f"x₃ = {x3:.6f}")
+            ))
+        
+        return ui.div(*results_html)
+
+# Crear la aplicación
+app = App(app_ui, server)
+</code></pre>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+                    <h5 class="text-md font-semibold theme-text-primary mb-3">🚀 Prueba el Código</h5>
+                    <p class="text-sm theme-text-secondary mb-4">
+                        Copia este código completo y pégalo en Shiny Live para ver cómo funciona una aplicación web interactiva real.
+                    </p>
+                    <button onclick="window.open('https://shinylive.io/py/editor/', '_blank')" class="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-star mr-2"></i>Abrir en Shiny Live
+                    </button>
                 </div>
             </div>
         `,
