@@ -88,6 +88,9 @@ function bindEventListeners() {
         if (e.target && e.target.dataset.tab === 'evaluacionPrimerQuiz') {
             generateQRCode();
         }
+        if (e.target && e.target.dataset.tab === 'evaluacionQuizDos') {
+            generateQuizDosQRCode();
+        }
         if (e.target && e.target.dataset.tab === 'primerParcialPython') {
             generateParcialQRCode();
         }
@@ -340,6 +343,7 @@ function updateTabVisibility(moduleId) {
     // Define which tabs should be visible for each module
     const moduleTabConfig = {
         'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython'],
+        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos'],
         // All other modules only have the standard tabs (without primerParcialPython)
         'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz']
     };
@@ -1015,6 +1019,24 @@ function copyEvaluacionLink() {
     });
 }
 
+// Function to copy EvaluacionQuizDos link to clipboard
+function copyEvaluacionQuizDosLink() {
+    const url = 'https://jestrada2020.github.io/SegundoQuizShinyForPythonV1/';
+    
+    navigator.clipboard.writeText(url).then(() => {
+        showNotification('¡Enlace copiado al portapapeles!');
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification('¡Enlace copiado al portapapeles!');
+    });
+}
+
 // Function to generate QR code for PrimerParcialPython
 function generateParcialQRCode() {
     const url = 'https://jestrada2020.github.io/PrimerParcialBioPythonV1/';
@@ -1039,6 +1061,43 @@ function generateParcialQRCode() {
     // Add loading message while QR loads
     qrImg.onload = function() {
         showNotification('Código QR del parcial generado exitosamente');
+    };
+    
+    qrImg.onerror = function() {
+        qrContainer.innerHTML = `
+            <div class="p-4 text-center">
+                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
+                <p class="text-sm text-gray-600">No se pudo generar el código QR</p>
+                <p class="text-xs text-gray-500 mt-1">Usa el enlace directo</p>
+            </div>
+        `;
+    };
+}
+
+// Function to generate QR code for EvaluacionQuizDos
+function generateQuizDosQRCode() {
+    const url = 'https://jestrada2020.github.io/SegundoQuizShinyForPythonV1/';
+    const qrContainer = document.getElementById('qrCodeQuizDosContainer');
+    
+    if (!qrContainer || qrContainer.innerHTML !== '') {
+        return; // Already generated or container not found
+    }
+    
+    // Generate QR code using QR Server API
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+    
+    const qrImg = document.createElement('img');
+    qrImg.src = qrCodeUrl;
+    qrImg.alt = 'QR Code para Quiz dos';
+    qrImg.className = 'mx-auto';
+    qrImg.style.width = '200px';
+    qrImg.style.height = '200px';
+    
+    qrContainer.appendChild(qrImg);
+    
+    // Add loading message while QR loads
+    qrImg.onload = function() {
+        showNotification('Código QR del Quiz dos generado exitosamente');
     };
     
     qrImg.onerror = function() {
