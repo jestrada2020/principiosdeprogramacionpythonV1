@@ -94,6 +94,9 @@ function bindEventListeners() {
         if (e.target && e.target.dataset.tab === 'primerParcialPython') {
             generateParcialQRCode();
         }
+        if (e.target && e.target.dataset.tab === 'parcialDos') {
+            generateParcialDosQRCode();
+        }
     });
 }
 
@@ -343,7 +346,7 @@ function updateTabVisibility(moduleId) {
     // Define which tabs should be visible for each module
     const moduleTabConfig = {
         'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython'],
-        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos'],
+        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos'],
         // All other modules only have the standard tabs (without primerParcialPython)
         'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz']
     };
@@ -1111,6 +1114,43 @@ function generateQuizDosQRCode() {
     };
 }
 
+// Function to generate QR code for Parcial Dos
+function generateParcialDosQRCode() {
+    const url = 'https://jestrada2020.github.io/SegundoParcialBioPythonV1/';
+    const qrContainer = document.getElementById('qrCodeParcialDosContainer');
+    
+    if (!qrContainer || qrContainer.innerHTML !== '') {
+        return; // Already generated or container not found
+    }
+    
+    // Generate QR code using QR Server API
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+    
+    const qrImg = document.createElement('img');
+    qrImg.src = qrCodeUrl;
+    qrImg.alt = 'QR Code para Segundo Parcial';
+    qrImg.className = 'mx-auto';
+    qrImg.style.width = '200px';
+    qrImg.style.height = '200px';
+    
+    qrContainer.appendChild(qrImg);
+    
+    // Add loading message while QR loads
+    qrImg.onload = function() {
+        showNotification('Código QR del Segundo Parcial generado exitosamente');
+    };
+    
+    qrImg.onerror = function() {
+        qrContainer.innerHTML = `
+            <div class="p-4 text-center">
+                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
+                <p class="text-sm text-gray-600">No se pudo generar el código QR</p>
+                <p class="text-xs text-gray-500 mt-1">Usa el enlace directo</p>
+            </div>
+        `;
+    };
+}
+
 // Function to copy PrimerParcialPython link to clipboard
 function copyParcialLink() {
     const url = 'https://jestrada2020.github.io/PrimerParcialBioPythonV1/';
@@ -1126,5 +1166,23 @@ function copyParcialLink() {
         document.execCommand('copy');
         document.body.removeChild(textArea);
         showNotification('¡Enlace del parcial copiado al portapapeles!');
+    });
+}
+
+// Function to copy Parcial Dos link to clipboard
+function copyParcialDosLink() {
+    const url = 'https://jestrada2020.github.io/SegundoParcialBioPythonV1/';
+    
+    navigator.clipboard.writeText(url).then(() => {
+        showNotification('¡Enlace del Segundo Parcial copiado al portapapeles!');
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification('¡Enlace del Segundo Parcial copiado al portapapeles!');
     });
 }
