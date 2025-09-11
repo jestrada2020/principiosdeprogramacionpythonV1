@@ -81,6 +81,12 @@ function bindEventListeners() {
         if (e.target && e.target.id === 'launchCursorBtn') {
             launchCursorIDE();
         }
+        if (e.target && e.target.id === 'openOverleafBtn') {
+            openOverleafEditor();
+        }
+        if (e.target && e.target.id === 'openZAIBtn') {
+            openZAI();
+        }
     });
     
     // Generate QR code when EvaluacionPrimerQuiz tab is loaded
@@ -97,6 +103,27 @@ function bindEventListeners() {
         if (e.target && e.target.dataset.tab === 'parcialDos') {
             generateParcialDosQRCode();
         }
+    });
+    
+    // Check Z AI iframe status when the module is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Observer to check when Z AI module content is loaded
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList') {
+                    const zaiIframe = document.getElementById('zai-iframe');
+                    if (zaiIframe && !window.zaiCheckInitiated) {
+                        window.zaiCheckInitiated = true;
+                        checkZAIIframeStatus();
+                    }
+                }
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     });
 }
 
@@ -345,10 +372,10 @@ function checkQuizAnswers(questions) {
 function updateTabVisibility(moduleId) {
     // Define which tabs should be visible for each module
     const moduleTabConfig = {
-        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython'],
-        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos'],
+        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex'],
+        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex'],
         // All other modules only have the standard tabs (without primerParcialPython)
-        'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz']
+        'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'editorLatex']
     };
     
     // Get the tabs that should be visible for this module
@@ -762,6 +789,12 @@ if (typeof module !== 'undefined' && module.exports) {
         clearCode,
         saveCode,
         openNewColabNotebook,
+        openOverleafEditor,
+        openZAI,
+        handleZAIIframeLoad,
+        handleZAIIframeError,
+        showZAIFallback,
+        checkZAIIframeStatus,
         launchCursorIDE
     };
 }
@@ -779,6 +812,77 @@ function openNewColabNotebook() {
     setTimeout(() => {
         showNotification('¡Colab abierto! Inicia sesión con tu cuenta de Google');
     }, 2000);
+}
+
+function openOverleafEditor() {
+    // Show notification
+    showNotification('Abriendo Overleaf...');
+    
+    // Open Overleaf in a new tab
+    const overleafUrl = 'https://www.overleaf.com/';
+    window.open(overleafUrl, '_blank');
+    
+    // Optional: Show a brief instruction notification after a delay
+    setTimeout(() => {
+        showNotification('¡Overleaf abierto! Inicia sesión para crear documentos LaTeX');
+    }, 2000);
+}
+
+function openZAI() {
+    // Show notification
+    showNotification('Abriendo Z AI...');
+    
+    // Open Z AI in a new tab
+    const zaiUrl = 'https://chat.z.ai/';
+    window.open(zaiUrl, '_blank');
+    
+    // Optional: Show a brief instruction notification after a delay
+    setTimeout(() => {
+        showNotification('¡Z AI abierto! Comienza a chatear con la IA avanzada');
+    }, 2000);
+}
+
+function handleZAIIframeLoad() {
+    // This function is called when the iframe loads successfully
+    console.log('Z AI iframe loaded successfully');
+}
+
+function handleZAIIframeError() {
+    // This function is called when the iframe fails to load
+    console.log('Z AI iframe failed to load, showing fallback');
+    showZAIFallback();
+}
+
+function showZAIFallback() {
+    // Hide the iframe and show the fallback message
+    const iframeContainer = document.getElementById('zai-iframe-container');
+    const fallback = document.getElementById('zai-fallback');
+    
+    if (iframeContainer && fallback) {
+        iframeContainer.style.display = 'none';
+        fallback.classList.remove('hidden');
+        fallback.style.display = 'flex';
+    }
+}
+
+// Function to detect if iframe is blocked (runs after a delay)
+function checkZAIIframeStatus() {
+    setTimeout(() => {
+        const iframe = document.getElementById('zai-iframe');
+        if (iframe) {
+            try {
+                // Try to access iframe content (will fail if blocked by X-Frame-Options)
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (!iframeDoc || iframeDoc.location.href === 'about:blank') {
+                    showZAIFallback();
+                }
+            } catch (e) {
+                // If we can't access iframe content, it's likely blocked
+                console.log('Z AI iframe access blocked, showing fallback');
+                showZAIFallback();
+            }
+        }
+    }, 3000); // Wait 3 seconds before checking
 }
 
 // Function to detect OS and launch Cursor IDE

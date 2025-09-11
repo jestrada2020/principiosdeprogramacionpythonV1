@@ -3156,5 +3156,188 @@ resultado = numero1 + numero2<br>
                 correct: 1
             }
         ]
+    },
+
+    zai: {
+        title: "16. Z AI",
+        description: "IA China Avanzada",
+        video: "",
+        additionalVideos: [],
+        content: `
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">Z AI - Asistente de Inteligencia Artificial Avanzada</h2>
+            <p class="theme-text-secondary mb-6">Z AI es una plataforma de inteligencia artificial china de última generación que ofrece capacidades avanzadas de conversación, programación y análisis. Ideal para estudiantes y desarrolladores que buscan asistencia inteligente en sus proyectos.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Programación Avanzada</h3>
+                    <p class="text-sm theme-text-secondary text-center">Asistencia especializada en múltiples lenguajes de programación</p>
+                </div>
+                
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">IA Conversacional</h3>
+                    <p class="text-sm theme-text-secondary text-center">Conversaciones naturales y contextuales avanzadas</p>
+                </div>
+                
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Análisis de Datos</h3>
+                    <p class="text-sm theme-text-secondary text-center">Procesamiento y análisis inteligente de información</p>
+                </div>
+                
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-language text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Multiidioma</h3>
+                    <p class="text-sm theme-text-secondary text-center">Soporte para múltiples idiomas incluyendo español</p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">Chat con Z AI</h3>
+                
+                <!-- Botón principal para abrir Z AI -->
+                <div class="mb-6 text-center">
+                    <div class="bg-gradient-to-r from-red-500 to-purple-600 p-6 rounded-xl text-white">
+                        <div class="flex items-center justify-center mb-4">
+                            <i class="fas fa-external-link-alt text-2xl mr-3"></i>
+                            <h4 class="text-lg font-bold">Acceder a Z AI</h4>
+                        </div>
+                        <p class="mb-4 text-sm opacity-90">
+                            Haz clic para abrir Z AI en una nueva pestaña y comenzar a chatear con esta avanzada inteligencia artificial.
+                        </p>
+                        <button id="openZAIBtn" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-rocket mr-2"></i>Abrir Z AI Chat
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Intento de iframe con fallback -->
+                <div class="relative">
+                    <div class="theme-bg-tertiary rounded-xl overflow-hidden" style="height: 600px;">
+                        <div id="zai-iframe-container" class="w-full h-full">
+                            <iframe 
+                                id="zai-iframe"
+                                src="https://chat.z.ai/" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0"
+                                style="border-radius: 12px;"
+                                onload="handleZAIIframeLoad()"
+                                onerror="handleZAIIframeError()">
+                            </iframe>
+                        </div>
+                        
+                        <!-- Mensaje de fallback si el iframe no carga -->
+                        <div id="zai-fallback" class="hidden w-full h-full flex items-center justify-center p-8 text-center">
+                            <div>
+                                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold theme-text-primary mb-3">No se puede mostrar Z AI en esta ventana</h4>
+                                <p class="theme-text-secondary mb-4 text-sm">
+                                    Debido a las políticas de seguridad del sitio web, Z AI no puede ser mostrado dentro de un iframe. 
+                                </p>
+                                <button onclick="window.open('https://chat.z.ai/', '_blank')" 
+                                        class="bg-gradient-to-r from-red-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Abrir Z AI en Nueva Pestaña
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Instrucciones adicionales -->
+                    <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                        <div class="flex items-start">
+                            <i class="fas fa-info-circle text-blue-500 mt-0.5 mr-3"></i>
+                            <div class="text-sm">
+                                <p class="theme-text-primary font-medium mb-1">💡 Consejo de uso:</p>
+                                <p class="theme-text-secondary">
+                                    Si el chat no se muestra arriba, usa el botón "Abrir Z AI Chat" para acceder directamente a la plataforma. 
+                                    Una vez allí, puedes hacer preguntas sobre Python, pedir ayuda con código o solicitar explicaciones de conceptos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-4 theme-bg-tertiary rounded-lg">
+                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar Z AI:</h4>
+                <ul class="text-sm theme-text-secondary space-y-1 ml-4">
+                    <li>• Sé específico en tus preguntas sobre programación en Python</li>
+                    <li>• Comparte el código completo para obtener mejores sugerencias</li>
+                    <li>• Pregunta sobre mejores prácticas y optimización de código</li>
+                    <li>• Solicita explicaciones paso a paso de algoritmos complejos</li>
+                    <li>• Pide ejemplos prácticos y casos de uso reales</li>
+                    <li>• Usa Z AI para revisar y mejorar tu código existente</li>
+                </ul>
+            </div>
+        `,
+        practice: {
+            description: "Usa Z AI para obtener ayuda con un concepto de Python que no entiendas",
+            template: "# Ejemplo de pregunta para Z AI:\\n# '¿Puedes explicarme cómo funcionan los decoradores en Python con ejemplos prácticos?'\\n\\n# Tu código de práctica aquí",
+            solution: "# Z AI puede ayudarte con:\\n# - Explicaciones detalladas de conceptos\\n# - Ejemplos de código prácticos\\n# - Depuración y optimización\\n# - Mejores prácticas de programación"
+        },
+        quiz: [
+            {
+                question: "¿Para qué puedes usar Z AI en tu aprendizaje de Python?",
+                options: ["Solo para chatear casualmente", "Ayuda con código, explicaciones y depuración", "Solo para traducciones", "Solo para matemáticas"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es una ventaja de Z AI para programadores?",
+                options: ["Solo funciona en chino", "Asistencia avanzada en múltiples lenguajes", "Solo para principiantes", "No entiende código"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de asistencia puede proporcionar Z AI con el código Python?",
+                options: ["Solo comentarios simples", "Análisis, mejoras y explicaciones detalladas", "Solo corrección de sintaxis", "Solo traducciones"],
+                correct: 1
+            },
+            {
+                question: "¿Z AI puede ayudar con proyectos completos de Python?",
+                options: ["No, solo líneas individuales", "Sí, puede analizar y sugerir mejoras en proyectos", "Solo con funciones básicas", "Solo con variables"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo puede Z AI ayudar en el aprendizaje de algoritmos?",
+                options: ["No puede ayudar", "Explicaciones paso a paso y ejemplos prácticos", "Solo definiciones", "Solo pseudocódigo"],
+                correct: 1
+            },
+            {
+                question: "¿Qué idiomas soporta Z AI?",
+                options: ["Solo chino", "Múltiples idiomas incluyendo español", "Solo inglés", "Solo idiomas asiáticos"],
+                correct: 1
+            },
+            {
+                question: "¿Z AI puede explicar conceptos complejos de Python?",
+                options: ["No, solo conceptos básicos", "Sí, con explicaciones detalladas y ejemplos", "Solo con documentación", "Solo con enlaces"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo puede Z AI ayudar con las mejores prácticas de Python?",
+                options: ["No puede ayudar", "Sugerencias y explicaciones de código limpio", "Solo corrección básica", "Solo comentarios"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de análisis puede hacer Z AI en tu código?",
+                options: ["Solo errores de sintaxis", "Análisis profundo, optimización y mejoras", "Solo formato", "Solo comentarios"],
+                correct: 1
+            },
+            {
+                question: "¿Z AI puede ayudar a generar código Python desde descripciones?",
+                options: ["No, solo revisa código", "Sí, puede generar código funcional", "Solo pseudocódigo", "Solo comentarios"],
+                correct: 1
+            }
+        ]
     }
 };

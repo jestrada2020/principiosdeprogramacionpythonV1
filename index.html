@@ -255,6 +255,18 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="module-item p-3 rounded-lg cursor-pointer hover:theme-bg-tertiary transition-colors" data-module="zai">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full not-started flex items-center justify-center">
+                            <i class="fas fa-brain text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium theme-text-primary">16. Z AI</h3>
+                            <p class="text-sm theme-text-secondary">IA China Avanzada</p>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
     </div>
@@ -391,6 +403,9 @@
                         </button>
                         <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="shinyConceptos">
                             <i class="fas fa-lightbulb mr-2"></i>Conceptos Clave Shiny
+                        </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors" data-tab="editorLatex">
+                            <i class="fas fa-file-alt mr-2"></i>EditorDeLatex
                         </button>
                     </div>
                 </div>
@@ -3744,6 +3759,180 @@ app_ui = ui.page_fluid(
                                                 <li>• Identifica patrones de uso común</li>
                                                 <li>• Descubre funciones que no conocías</li>
                                             </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Editor de LaTeX Tab -->
+                    <div id="editorLatexTab" class="tab-pane hidden">
+                        <div class="theme-bg-secondary rounded-2xl p-6">
+                            <h3 class="text-xl font-semibold theme-text-primary mb-4">
+                                <i class="fas fa-file-alt mr-2"></i>Editor de LaTeX - Overleaf
+                            </h3>
+                            
+                            <div class="mb-6">
+                                <p class="theme-text-secondary mb-4">
+                                    Overleaf es el editor de LaTeX colaborativo más popular del mundo. Te permite crear documentos académicos, 
+                                    artículos de investigación, presentaciones y más con LaTeX de forma online y colaborativa.
+                                </p>
+                                
+                                <div class="bg-gradient-to-r from-green-500 to-blue-600 p-6 rounded-xl text-white mb-6">
+                                    <div class="flex items-center mb-4">
+                                        <i class="fas fa-rocket text-2xl mr-3"></i>
+                                        <h4 class="text-lg font-bold">¡Comienza a crear documentos profesionales!</h4>
+                                    </div>
+                                    <p class="mb-4">
+                                        Overleaf te permite escribir LaTeX sin instalación, con plantillas predefinidas y colaboración en tiempo real.
+                                    </p>
+                                    <button id="openOverleafBtn" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                                        <i class="fas fa-external-link-alt mr-2"></i>Abrir Overleaf
+                                    </button>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                                    <div class="theme-bg-tertiary p-4 rounded-lg">
+                                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-3">
+                                            <i class="fas fa-edit text-white"></i>
+                                        </div>
+                                        <h5 class="font-semibold theme-text-primary mb-2">Sin Instalación</h5>
+                                        <p class="text-sm theme-text-secondary">Editor online completo, sin necesidad de instalar LaTeX localmente</p>
+                                    </div>
+                                    <div class="theme-bg-tertiary p-4 rounded-lg">
+                                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-3">
+                                            <i class="fas fa-users text-white"></i>
+                                        </div>
+                                        <h5 class="font-semibold theme-text-primary mb-2">Colaborativo</h5>
+                                        <p class="text-sm theme-text-secondary">Trabaja en equipo en tiempo real, como Google Docs pero para LaTeX</p>
+                                    </div>
+                                    <div class="theme-bg-tertiary p-4 rounded-lg">
+                                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mb-3">
+                                            <i class="fas fa-file-pdf text-white"></i>
+                                        </div>
+                                        <h5 class="font-semibold theme-text-primary mb-2">Plantillas</h5>
+                                        <p class="text-sm theme-text-secondary">Miles de plantillas para artículos, tesis, presentaciones y más</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="theme-bg-tertiary p-4 rounded-lg mb-6">
+                                    <h5 class="font-semibold theme-text-primary mb-3">✨ Características principales:</h5>
+                                    <ul class="text-sm theme-text-secondary space-y-1">
+                                        <li>• Editor de código LaTeX con resaltado de sintaxis</li>
+                                        <li>• Vista previa en tiempo real del PDF generado</li>
+                                        <li>• Gestión de bibliografías con BibTeX</li>
+                                        <li>• Control de versiones integrado</li>
+                                        <li>• Sincronización con GitHub y GitLab</li>
+                                        <li>• Compilación automática y detección de errores</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Recursos de Ayuda LaTeX -->
+                                <div class="theme-bg-tertiary p-4 rounded-lg">
+                                    <h5 class="font-semibold theme-text-primary mb-4">
+                                        <i class="fas fa-book mr-2 text-orange-500"></i>Recursos de Ayuda para LaTeX
+                                    </h5>
+                                    <p class="text-sm theme-text-secondary mb-4">
+                                        Aprende LaTeX con estos recursos especializados en fórmulas matemáticas y documentación:
+                                    </p>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <!-- Overleaf Learn -->
+                                        <div class="border theme-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                                            <div class="flex items-center mb-3">
+                                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                                                    <i class="fas fa-graduation-cap text-white text-sm"></i>
+                                                </div>
+                                                <h6 class="font-semibold theme-text-primary">Overleaf Learn</h6>
+                                            </div>
+                                            <p class="text-xs theme-text-secondary mb-3">
+                                                Documentación oficial completa con tutoriales paso a paso para fórmulas matemáticas
+                                            </p>
+                                            <a href="https://es.overleaf.com/learn" target="_blank" 
+                                               class="inline-flex items-center text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                                                <i class="fas fa-external-link-alt mr-1"></i>
+                                                Abrir Overleaf Learn
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- LaTeX Math Symbols -->
+                                        <div class="border theme-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                                            <div class="flex items-center mb-3">
+                                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                                                    <i class="fas fa-calculator text-white text-sm"></i>
+                                                </div>
+                                                <h6 class="font-semibold theme-text-primary">Detexify</h6>
+                                            </div>
+                                            <p class="text-xs theme-text-secondary mb-3">
+                                                Dibuja un símbolo matemático y encuentra su código LaTeX correspondiente
+                                            </p>
+                                            <a href="http://detexify.kirelabs.org/classify.html" target="_blank" 
+                                               class="inline-flex items-center text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                                                <i class="fas fa-external-link-alt mr-1"></i>
+                                                Abrir Detexify
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- LaTeX Equation Editor -->
+                                        <div class="border theme-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                                            <div class="flex items-center mb-3">
+                                                <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
+                                                    <i class="fas fa-edit text-white text-sm"></i>
+                                                </div>
+                                                <h6 class="font-semibold theme-text-primary">LaTeX Equation Editor</h6>
+                                            </div>
+                                            <p class="text-xs theme-text-secondary mb-3">
+                                                Editor visual de ecuaciones que genera código LaTeX automáticamente
+                                            </p>
+                                            <a href="https://latex.codecogs.com/eqneditor/editor.php" target="_blank" 
+                                               class="inline-flex items-center text-xs bg-purple-100 text-purple-800 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
+                                                <i class="fas fa-external-link-alt mr-1"></i>
+                                                Abrir Editor
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- LaTeX Tables Generator -->
+                                        <div class="border theme-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                                            <div class="flex items-center mb-3">
+                                                <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center mr-3">
+                                                    <i class="fas fa-table text-white text-sm"></i>
+                                                </div>
+                                                <h6 class="font-semibold theme-text-primary">Tables Generator</h6>
+                                            </div>
+                                            <p class="text-xs theme-text-secondary mb-3">
+                                                Crea tablas LaTeX de forma visual y exporta el código generado
+                                            </p>
+                                            <a href="https://www.tablesgenerator.com/latex_tables" target="_blank" 
+                                               class="inline-flex items-center text-xs bg-teal-100 text-teal-800 px-3 py-1 rounded-full hover:bg-teal-200 transition-colors">
+                                                <i class="fas fa-external-link-alt mr-1"></i>
+                                                Abrir Generator
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Ejemplos rápidos de fórmulas -->
+                                    <div class="mt-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                                        <h6 class="font-semibold theme-text-primary mb-3">
+                                            <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>Ejemplos de Fórmulas LaTeX
+                                        </h6>
+                                        <div class="grid md:grid-cols-2 gap-3 text-xs">
+                                            <div>
+                                                <code class="bg-black text-green-400 p-2 rounded block mb-1">\\frac{a}{b}</code>
+                                                <span class="theme-text-secondary">Fracción: a/b</span>
+                                            </div>
+                                            <div>
+                                                <code class="bg-black text-green-400 p-2 rounded block mb-1">\\sqrt{x}</code>
+                                                <span class="theme-text-secondary">Raíz cuadrada</span>
+                                            </div>
+                                            <div>
+                                                <code class="bg-black text-green-400 p-2 rounded block mb-1">x^{2}</code>
+                                                <span class="theme-text-secondary">Exponente</span>
+                                            </div>
+                                            <div>
+                                                <code class="bg-black text-green-400 p-2 rounded block mb-1">\\sum_{i=1}^{n}</code>
+                                                <span class="theme-text-secondary">Sumatoria</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
