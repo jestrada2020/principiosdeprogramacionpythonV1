@@ -2794,8 +2794,128 @@ resultado = numero1 + numero2<br>
         ]
     },
     
+    chatgptea: {
+        title: "14. ChatGPT EA",
+        description: "IA norteamericana avanzada",
+        video: "",
+        additionalVideos: [],
+        content: `
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT EA - Asistente IA Norteamericano</h2>
+            <p class="theme-text-secondary mb-6">ChatGPT EA es un asistente de inteligencia artificial norteamericano desarrollado por OpenAI que puede ayudarte con programación en Python, resolver dudas, explicar código y mucho más.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Programación Avanzada</h3>
+                    <p class="text-sm theme-text-secondary text-center">Ayuda experta en Python, debugging y arquitectura de software</p>
+                </div>
+                
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">IA Conversacional</h3>
+                    <p class="text-sm theme-text-secondary text-center">Conversaciones naturales y explicaciones detalladas</p>
+                </div>
+                
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-project-diagram text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Proyectos Complejos</h3>
+                    <p class="text-sm theme-text-secondary text-center">Asistencia en proyectos de gran escala y arquitectura</p>
+                </div>
+                
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Aprendizaje Personalizado</h3>
+                    <p class="text-sm theme-text-secondary text-center">Adaptado a tu nivel y estilo de aprendizaje</p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">ChatGPT EA - Acceso Directo</h3>
+                <div class="theme-bg-tertiary rounded-xl overflow-hidden" style="height: 600px;">
+                    <iframe 
+                        src="https://chatgpt.com/" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0"
+                        style="border-radius: 12px;">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">🚀 Acceso Rápido a ChatGPT</h3>
+                <div class="space-y-4">
+                    <div class="p-6 theme-bg-tertiary rounded-xl border-2 border-green-500">
+                        <div class="text-center">
+                            <h4 class="text-lg font-semibold theme-text-primary mb-3">¡Accede a ChatGPT ahora!</h4>
+                            <p class="theme-text-secondary mb-4">Haz clic para abrir ChatGPT en una nueva pestaña y comenzar a programar con IA.</p>
+                            <button onclick="window.open('https://chatgpt.com/', '_blank')" class="px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                                <i class="fas fa-external-link-alt mr-2"></i>Abrir ChatGPT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-4 theme-bg-tertiary rounded-lg">
+                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar ChatGPT EA:</h4>
+                <ul class="text-sm theme-text-secondary space-y-1 ml-4">
+                    <li>• Formula preguntas específicas sobre Python y programación</li>
+                    <li>• Comparte tu código completo para obtener ayuda contextual</li>
+                    <li>• Pregunta sobre patrones de diseño y mejores prácticas</li>
+                    <li>• Solicita revisión de código y sugerencias de optimización</li>
+                    <li>• Pide explicaciones paso a paso de algoritmos complejos</li>
+                    <li>• Explora ideas para proyectos y aplicaciones</li>
+                </ul>
+            </div>
+        `,
+        exercises: [
+            {
+                title: "Consulta con ChatGPT EA",
+                description: "Usa ChatGPT EA para obtener ayuda con un problema de programación avanzado",
+                template: "# Ejemplo de consulta para ChatGPT EA:\n# 'Ayúdame a optimizar este algoritmo de ordenamiento y explica la complejidad temporal'\n\n# Tu código para revisar aquí",
+                solution: "# ChatGPT EA puede ayudarte a:\n# - Analizar complejidad algorítmica\n# - Sugerir optimizaciones\n# - Explicar patrones de diseño\n# - Revisar arquitectura de código"
+            }
+        ],
+        quiz: [
+            {
+                question: "¿Cuál es la principal característica de ChatGPT EA?",
+                options: ["Solo genera código", "IA conversacional avanzada para programación", "Solo corrige errores", "Solo traduce lenguajes"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT EA puede ayudar con proyectos complejos?",
+                options: ["No, solo código básico", "Sí, incluyendo arquitectura y diseño", "Solo sintaxis", "Solo documentación"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de asistencia proporciona ChatGPT EA en Python?",
+                options: ["Solo corrección de errores", "Programación, debugging, optimización y diseño", "Solo explicaciones básicas", "Solo instalación"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT EA puede adaptarse a diferentes niveles de programación?",
+                options: ["No, solo para expertos", "Sí, desde principiante hasta avanzado", "Solo nivel intermedio", "Solo profesionales"],
+                correct: 1
+            },
+            {
+                question: "¿Qué ventaja tiene usar ChatGPT EA para aprender Python?",
+                options: ["Es más lento que otros métodos", "Proporciona explicaciones personalizadas e interactivas", "Solo funciona en inglés", "Requiere pago obligatorio"],
+                correct: 1
+            }
+        ]
+    },
+    
     "google-colab": {
-        title: "14. Google Colab",
+        title: "15. Google Colab",
         description: "Notebook en la nube",
         video: "https://www.youtube.com/embed/inN8seMm7UI",
         additionalVideos: [
@@ -3336,6 +3456,144 @@ resultado = numero1 + numero2<br>
             {
                 question: "¿Z AI puede ayudar a generar código Python desde descripciones?",
                 options: ["No, solo revisa código", "Sí, puede generar código funcional", "Solo pseudocódigo", "Solo comentarios"],
+                correct: 1
+            }
+        ]
+    },
+    
+    chatgptea: {
+        title: "14. ChatGPT EA",
+        description: "Asistente IA Norteamericano",
+        video: "",
+        additionalVideos: [],
+        content: `
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT EA - Tu Asistente de Programación Avanzado</h2>
+            <p class="theme-text-secondary mb-6">ChatGPT EA es un asistente de inteligencia artificial norteamericano que puede ayudarte con programación en Python, resolver dudas complejas, explicar código, generar aplicaciones y mucho más.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Programación Avanzada</h3>
+                    <p class="text-sm theme-text-secondary text-center">Asistencia completa en desarrollo Python</p>
+                </div>
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">IA Conversacional</h3>
+                    <p class="text-sm theme-text-secondary text-center">Explicaciones detalladas y personalizadas</p>
+                </div>
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-project-diagram text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Proyectos Completos</h3>
+                    <p class="text-sm theme-text-secondary text-center">Desarrollo de aplicaciones desde cero</p>
+                </div>
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Aprendizaje Guiado</h3>
+                    <p class="text-sm theme-text-secondary text-center">Aprende nuevos conceptos paso a paso</p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">Chat ChatGPT EA</h3>
+                <div class="theme-bg-tertiary rounded-xl overflow-hidden" style="height: 600px;">
+                    <iframe 
+                        src="https://chatgpt.com/" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        scrolling="no"
+                        title="ChatGPT EA - Asistente IA Norteamericano">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">Enlace Directo a la Aplicación</h3>
+                <div class="p-4 theme-bg-tertiary rounded-lg text-center">
+                    <a href="https://chatgpt.com/" target="_blank" class="inline-flex items-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        Abrir ChatGPT EA en Nueva Pestaña
+                    </a>
+                </div>
+            </div>
+            
+            <div class="p-4 theme-bg-tertiary rounded-lg">
+                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar ChatGPT EA:</h4>
+                <ul class="text-sm theme-text-secondary space-y-1 ml-4">
+                    <li>• Describe detalladamente lo que quieres lograr en Python</li>
+                    <li>• Comparte tu código para obtener mejoras específicas</li>
+                    <li>• Solicita explicaciones paso a paso de algoritmos complejos</li>
+                    <li>• Pide ayuda con proyectos completos y arquitectura de aplicaciones</li>
+                    <li>• Aprovecha su capacidad para generar código desde descripciones</li>
+                    <li>• Pregunta sobre mejores prácticas y patrones de diseño</li>
+                </ul>
+            </div>
+        `,
+        exercises: [
+            {
+                title: "Consulta Avanzada a la IA",
+                description: "Usa ChatGPT EA para obtener ayuda con un proyecto completo de Python",
+                template: "# Ejemplo de consulta avanzada para ChatGPT EA:\n# 'Ayúdame a crear una aplicación web en Python con Flask que maneje un CRUD de usuarios'\n\n# Tu código de proyecto aquí",
+                solution: "# Ejemplo de respuesta que podrías obtener:\nfrom flask import Flask, request, jsonify\nfrom flask_sqlalchemy import SQLAlchemy\n\napp = Flask(__name__)\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'\ndb = SQLAlchemy(app)\n\nclass User(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(100), nullable=False)\n    email = db.Column(db.String(100), unique=True, nullable=False)\n\n# Rutas CRUD aquí..."
+            }
+        ],
+        quiz: [
+            {
+                question: "¿Cuál es la principal fortaleza de ChatGPT EA para programadores Python?",
+                options: ["Solo corrección de sintaxis", "Asistencia completa en desarrollo avanzado", "Solo documentación básica", "Solo ejemplos simples"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT EA puede ayudar con arquitectura de aplicaciones Python?",
+                options: ["No, solo código simple", "Sí, puede ayudar con diseño completo", "Solo con funciones básicas", "Solo con variables"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de proyectos puede ayudar a desarrollar ChatGPT EA?",
+                options: ["Solo scripts básicos", "Aplicaciones web, APIs, automatización y más", "Solo calculadoras", "Solo juegos simples"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT EA puede explicar patrones de diseño en Python?",
+                options: ["No conoce patrones", "Sí, explica patrones con ejemplos prácticos", "Solo teoría básica", "Solo nombres de patrones"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo puede ChatGPT EA ayudar con el aprendizaje de Python?",
+                options: ["Solo respuestas cortas", "Explicaciones detalladas y ejercicios personalizados", "Solo enlaces externos", "Solo definiciones"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT EA puede ayudar con debugging avanzado?",
+                options: ["Solo errores de sintaxis", "Sí, análisis completo y soluciones", "Solo mensajes de error", "Solo sugerencias básicas"],
+                correct: 1
+            },
+            {
+                question: "¿Qué ventaja tiene ChatGPT EA para proyectos profesionales?",
+                options: ["Es gratuito siempre", "Conocimiento actualizado y mejores prácticas", "Solo para estudiantes", "Solo código básico"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT EA puede generar código Python desde descripciones en español?",
+                options: ["Solo entiende inglés", "Sí, multiidioma incluido español", "Solo código simple", "Solo comentarios"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo puede ChatGPT EA mejorar tu código Python existente?",
+                options: ["No puede mejorar código", "Optimización, refactoring y mejores prácticas", "Solo formato", "Solo comentarios"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT EA puede ayudar con librerías específicas de Python como Django o Pandas?",
+                options: ["Solo librerías básicas", "Sí, conoce amplia gama de librerías", "Solo sintaxis básica", "Solo instalación"],
                 correct: 1
             }
         ]
