@@ -100,6 +100,9 @@ function bindEventListeners() {
         if (e.target && e.target.dataset.tab === 'tercerQuiz') {
             generateTercerQuizQRCode();
         }
+        if (e.target && e.target.dataset.tab === 'tercerParcial') {
+            generateTercerParcialQRCode();
+        }
         if (e.target && e.target.dataset.tab === 'primerParcialPython') {
             generateParcialQRCode();
         }
@@ -377,7 +380,7 @@ function updateTabVisibility(moduleId) {
     const moduleTabConfig = {
         'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex'],
         'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex'],
-        'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'editorLatex'],
+        'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'tercerParcial', 'editorLatex'],
         // All other modules only have the standard tabs (without primerParcialPython)
         'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'editorLatex']
     };
@@ -1262,6 +1265,61 @@ function generateTercerQuizQRCode() {
 // Function to copy TercerQuiz link to clipboard
 function copyTercerQuizLink() {
     const url = 'https://jestrada2020.github.io/TercerQuizProgramacionPython/';
+
+    navigator.clipboard.writeText(url).then(() => {
+        showNotification('¡Enlace copiado al portapapeles!');
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification('¡Enlace copiado al portapapeles!');
+    });
+}
+
+// Function to generate QR code for TercerParcial
+function generateTercerParcialQRCode() {
+    const url = 'https://jestrada2020.github.io/TercerParcialProgramacionBioPyhtonv1/';
+    const qrContainer = document.getElementById('qrCodeTercerParcialContainer');
+
+    if (!qrContainer || qrContainer.innerHTML !== '') {
+        return; // Already generated or container not found
+    }
+
+    // Generate QR code using QR Server API
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+
+    const qrImg = document.createElement('img');
+    qrImg.src = qrCodeUrl;
+    qrImg.alt = 'QR Code para Tercer Parcial';
+    qrImg.className = 'mx-auto';
+    qrImg.style.width = '200px';
+    qrImg.style.height = '200px';
+
+    qrContainer.appendChild(qrImg);
+
+    // Add loading message while QR loads
+    qrImg.onload = function() {
+        showNotification('Código QR del Tercer Parcial generado exitosamente');
+    };
+
+    qrImg.onerror = function() {
+        qrContainer.innerHTML = `
+            <div class="p-4 text-center">
+                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
+                <p class="text-sm text-gray-600">No se pudo generar el código QR</p>
+                <p class="text-xs text-gray-500 mt-1">Usa el enlace directo</p>
+            </div>
+        `;
+    };
+}
+
+// Function to copy TercerParcial link to clipboard
+function copyTercerParcialLink() {
+    const url = 'https://jestrada2020.github.io/TercerParcialProgramacionBioPyhtonv1/';
 
     navigator.clipboard.writeText(url).then(() => {
         showNotification('¡Enlace copiado al portapapeles!');
