@@ -100,6 +100,12 @@ function bindEventListeners() {
         if (e.target && e.target.dataset.tab === 'tercerQuiz') {
             generateTercerQuizQRCode();
         }
+        if (e.target && e.target.dataset.tab === 'cuartoQuiz') {
+            generateCuartoQuizQRCode();
+        }
+        if (e.target && e.target.dataset.tab === 'cuartoParcial') {
+            generateCuartoParcialQRCode();
+        }
         if (e.target && e.target.dataset.tab === 'tercerParcial') {
             generateTercerParcialQRCode();
         }
@@ -381,6 +387,7 @@ function updateTabVisibility(moduleId) {
         'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex'],
         'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex'],
         'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'tercerParcial', 'editorLatex'],
+        'io': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'cuartoQuiz', 'cuartoParcial', 'editorLatex'],
         // All other modules only have the standard tabs (without primerParcialPython)
         'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'editorLatex']
     };
@@ -1265,6 +1272,116 @@ function generateTercerQuizQRCode() {
 // Function to copy TercerQuiz link to clipboard
 function copyTercerQuizLink() {
     const url = 'https://jestrada2020.github.io/TercerQuizProgramacionPython/';
+
+    navigator.clipboard.writeText(url).then(() => {
+        showNotification('¡Enlace copiado al portapapeles!');
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification('¡Enlace copiado al portapapeles!');
+    });
+}
+
+// Function to generate QR code for CuartoQuiz
+function generateCuartoQuizQRCode() {
+    const url = 'https://jestrada2020.github.io/CuartoQuizProgramacionversion1/';
+    const qrContainer = document.getElementById('qrCodeCuartoQuizContainer');
+
+    if (!qrContainer || qrContainer.innerHTML !== '') {
+        return; // Already generated or container not found
+    }
+
+    // Generate QR code using QR Server API
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+
+    const qrImg = document.createElement('img');
+    qrImg.src = qrCodeUrl;
+    qrImg.alt = 'QR Code para Cuarto Quiz';
+    qrImg.className = 'mx-auto';
+    qrImg.style.width = '200px';
+    qrImg.style.height = '200px';
+
+    qrContainer.appendChild(qrImg);
+
+    // Add loading message while QR loads
+    qrImg.onload = function() {
+        showNotification('Código QR del Cuarto Quiz generado exitosamente');
+    };
+
+    qrImg.onerror = function() {
+        qrContainer.innerHTML = `
+            <div class="p-4 text-center">
+                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
+                <p class="text-sm text-gray-600">No se pudo generar el código QR</p>
+                <p class="text-xs text-gray-500 mt-1">Usa el enlace directo</p>
+            </div>
+        `;
+    };
+}
+
+// Function to copy CuartoQuiz link to clipboard
+function copyCuartoQuizLink() {
+    const url = 'https://jestrada2020.github.io/CuartoQuizProgramacionversion1/';
+
+    navigator.clipboard.writeText(url).then(() => {
+        showNotification('¡Enlace copiado al portapapeles!');
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification('¡Enlace copiado al portapapeles!');
+    });
+}
+
+// Function to generate QR code for CuartoParcial
+function generateCuartoParcialQRCode() {
+    const url = 'https://jestrada2020.github.io/EvaluacionFinalProgramacionBioPythonv1/';
+    const qrContainer = document.getElementById('qrCodeCuartoParcialContainer');
+
+    if (!qrContainer || qrContainer.innerHTML !== '') {
+        return; // Already generated or container not found
+    }
+
+    // Generate QR code using QR Server API
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+
+    const qrImg = document.createElement('img');
+    qrImg.src = qrCodeUrl;
+    qrImg.alt = 'QR Code para Cuarto Parcial';
+    qrImg.className = 'mx-auto';
+    qrImg.style.width = '200px';
+    qrImg.style.height = '200px';
+
+    qrContainer.appendChild(qrImg);
+
+    // Add loading message while QR loads
+    qrImg.onload = function() {
+        showNotification('Código QR del Cuarto Parcial generado exitosamente');
+    };
+
+    qrImg.onerror = function() {
+        qrContainer.innerHTML = `
+            <div class="p-4 text-center">
+                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
+                <p class="text-sm text-gray-600">No se pudo generar el código QR</p>
+                <p class="text-xs text-gray-500 mt-1">Usa el enlace directo</p>
+            </div>
+        `;
+    };
+}
+
+// Function to copy CuartoParcial link to clipboard
+function copyCuartoParcialLink() {
+    const url = 'https://jestrada2020.github.io/EvaluacionFinalProgramacionBioPythonv1/';
 
     navigator.clipboard.writeText(url).then(() => {
         showNotification('¡Enlace copiado al portapapeles!');
