@@ -655,7 +655,7 @@ app = App(app_ui, server)
             }
         ]
     },
-    
+
     interpreter: {
         title: "2. Usando el Intérprete de Python",
         description: "Instalación y configuración",
@@ -829,7 +829,7 @@ print(f"Tamaño máximo de int: {sys.maxsize}")</code>
             }
         ]
     },
-    
+
     "control-flow": {
         title: "4. Control de Flujo",
         description: "if, for, while, funciones",
@@ -1092,7 +1092,7 @@ print(f"Primeros 10 números de Fibonacci: {fibonacci(10)}")</code>
             }
         ]
     },
-    
+
     "data-structures": {
         title: "5. Estructuras de Datos",
         description: "Listas, tuplas, diccionarios",
@@ -1455,7 +1455,7 @@ datos_ventas = {<br>
             }
         ]
     },
-    
+
     basics: {
         title: "3. Introducción Informal a Python",
         description: "Números, texto y listas",
@@ -1732,7 +1732,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     modules: {
         title: "6. Módulos",
         description: "Importar y crear módulos",
@@ -1863,7 +1863,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     io: {
         title: "7. Entrada y Salida",
         description: "Archivos y formateo",
@@ -1997,7 +1997,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     errors: {
         title: "8. Errores y Excepciones",
         description: "Manejo de errores",
@@ -2141,7 +2141,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     classes: {
         title: "9. Clases",
         description: "Programación orientada a objetos",
@@ -2288,7 +2288,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     stdlib: {
         title: "10. Biblioteca Estándar",
         description: "Módulos más importantes",
@@ -2428,7 +2428,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     stdlib2: {
         title: "11. Biblioteca Estándar II",
         description: "Temas avanzados",
@@ -2545,7 +2545,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     venv: {
         title: "12. Entornos Virtuales",
         description: "Gestión de paquetes",
@@ -2664,7 +2664,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     deepseek: {
         title: "13. DeepSeek IA",
         description: "Asistente IA gratuito",
@@ -2710,14 +2710,24 @@ resultado = numero1 + numero2<br>
             
             <div class="mb-6">
                 <h3 class="text-xl font-semibold theme-text-primary mb-4">Chat DeepSeek IA</h3>
-                <div class="theme-bg-tertiary rounded-xl overflow-hidden" style="height: 600px;">
-                    <iframe 
-                        src="https://www.ChatStream.org/embed" 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0"
-                        style="border-radius: 12px;">
-                    </iframe>
+                <div class="theme-bg-tertiary rounded-xl p-8 text-center">
+                    <div class="mb-6">
+                        <i class="fas fa-robot text-6xl text-blue-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold theme-text-primary mb-2">Accede a DeepSeek IA</h4>
+                        <p class="theme-text-secondary max-w-lg mx-auto">
+                            Para una mejor experiencia, usa DeepSeek directamente en su plataforma oficial. 
+                            Obtendrás respuestas más rápidas y acceso a todas sus funciones.
+                        </p>
+                    </div>
+                    
+                    <button onclick="window.open('https://chat.deepseek.com/', '_blank')" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-external-link-alt mr-2"></i>Abrir DeepSeek IA
+                    </button>
+                    
+                    <p class="text-sm theme-text-secondary mt-4">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Se abrirá en una nueva pestaña del navegador
+                    </p>
                 </div>
             </div>
             
@@ -2793,15 +2803,15 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     chatgptea: {
-        title: "14. ChatGPT EA",
+        title: "14. ChatGPT IA",
         description: "IA norteamericana avanzada",
         video: "",
         additionalVideos: [],
         content: `
-            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT EA - Asistente IA Norteamericano</h2>
-            <p class="theme-text-secondary mb-6">ChatGPT EA es un asistente de inteligencia artificial norteamericano desarrollado por OpenAI que puede ayudarte con programación en Python, resolver dudas, explicar código y mucho más.</p>
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT IA - Asistente IA Norteamericano</h2>
+            <p class="theme-text-secondary mb-6">ChatGPT IA es un asistente de inteligencia artificial norteamericano desarrollado por OpenAI que puede ayudarte con programación en Python, resolver dudas, explicar código y mucho más.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -2838,15 +2848,25 @@ resultado = numero1 + numero2<br>
             </div>
             
             <div class="mb-6">
-                <h3 class="text-xl font-semibold theme-text-primary mb-4">ChatGPT EA - Acceso Directo</h3>
-                <div class="theme-bg-tertiary rounded-xl overflow-hidden" style="height: 600px;">
-                    <iframe 
-                        src="https://chatgpt.com/" 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0"
-                        style="border-radius: 12px;">
-                    </iframe>
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">ChatGPT IA - Acceso Directo</h3>
+                <div class="theme-bg-tertiary rounded-xl p-8 text-center">
+                    <div class="mb-6">
+                        <i class="fas fa-brain text-6xl text-green-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold theme-text-primary mb-2">Accede a ChatGPT IA</h4>
+                        <p class="theme-text-secondary max-w-lg mx-auto">
+                            Para una mejor experiencia, usa ChatGPT directamente en su plataforma oficial. 
+                            Obtendrás respuestas más rápidas, historial de chats y acceso a todas sus funciones.
+                        </p>
+                    </div>
+                    
+                    <button onclick="window.open('https://chatgpt.com/', '_blank')" class="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-external-link-alt mr-2"></i>Abrir ChatGPT
+                    </button>
+                    
+                    <p class="text-sm theme-text-secondary mt-4">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Se abrirá en una nueva pestaña del navegador
+                    </p>
                 </div>
             </div>
             
@@ -2866,7 +2886,7 @@ resultado = numero1 + numero2<br>
             </div>
             
             <div class="p-4 theme-bg-tertiary rounded-lg">
-                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar ChatGPT EA:</h4>
+                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar ChatGPT IA:</h4>
                 <ul class="text-sm theme-text-secondary space-y-1 ml-4">
                     <li>• Formula preguntas específicas sobre Python y programación</li>
                     <li>• Comparte tu código completo para obtener ayuda contextual</li>
@@ -2879,15 +2899,15 @@ resultado = numero1 + numero2<br>
         `,
         exercises: [
             {
-                title: "Consulta con ChatGPT EA",
-                description: "Usa ChatGPT EA para obtener ayuda con un problema de programación avanzado",
-                template: "# Ejemplo de consulta para ChatGPT EA:\n# 'Ayúdame a optimizar este algoritmo de ordenamiento y explica la complejidad temporal'\n\n# Tu código para revisar aquí",
-                solution: "# ChatGPT EA puede ayudarte a:\n# - Analizar complejidad algorítmica\n# - Sugerir optimizaciones\n# - Explicar patrones de diseño\n# - Revisar arquitectura de código"
+                title: "Consulta con ChatGPT IA",
+                description: "Usa ChatGPT IA para obtener ayuda con un problema de programación avanzado",
+                template: "# Ejemplo de consulta para ChatGPT IA:\n# 'Ayúdame a optimizar este algoritmo de ordenamiento y explica la complejidad temporal'\n\n# Tu código para revisar aquí",
+                solution: "# ChatGPT IA puede ayudarte a:\n# - Analizar complejidad algorítmica\n# - Sugerir optimizaciones\n# - Explicar patrones de diseño\n# - Revisar arquitectura de código"
             }
         ],
         quiz: [
             {
-                question: "¿Cuál es la principal característica de ChatGPT EA?",
+                question: "¿Cuál es la principal característica de ChatGPT IA?",
                 options: ["Solo genera código", "IA conversacional avanzada para programación", "Solo corrige errores", "Solo traduce lenguajes"],
                 correct: 1
             },
@@ -2913,7 +2933,7 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     "google-colab": {
         title: "15. Google Colab",
         description: "Notebook en la nube",
@@ -3085,9 +3105,9 @@ resultado = numero1 + numero2<br>
             }
         ]
     },
-    
+
     cursor: {
-        title: "15. Cursor IDE",
+        title: "16. Cursor IDE",
         description: "Editor con IA integrada",
         video: "https://www.youtube.com/embed/tp1yrfYnLR8",
         additionalVideos: [
@@ -3279,13 +3299,13 @@ resultado = numero1 + numero2<br>
     },
 
     zai: {
-        title: "16. Z AI",
+        title: "17. Z IA",
         description: "IA China Avanzada",
         video: "",
         additionalVideos: [],
         content: `
-            <h2 class="text-2xl font-bold theme-text-primary mb-4">Z AI - Asistente de Inteligencia Artificial Avanzada</h2>
-            <p class="theme-text-secondary mb-6">Z AI es una plataforma de inteligencia artificial china de última generación que ofrece capacidades avanzadas de conversación, programación y análisis. Ideal para estudiantes y desarrolladores que buscan asistencia inteligente en sus proyectos.</p>
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">Z IA - Asistente de Inteligencia Artificial Avanzada</h2>
+            <p class="theme-text-secondary mb-6">Z IA es una plataforma de inteligencia artificial china de última generación que ofrece capacidades avanzadas de conversación, programación y análisis. Ideal para estudiantes y desarrolladores que buscan asistencia inteligente en sus proyectos.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -3321,154 +3341,109 @@ resultado = numero1 + numero2<br>
                 </div>
             </div>
             
+
+            
             <div class="mb-6">
-                <h3 class="text-xl font-semibold theme-text-primary mb-4">Chat con Z AI</h3>
-                
-                <!-- Botón principal para abrir Z AI -->
-                <div class="mb-6 text-center">
-                    <div class="bg-gradient-to-r from-red-500 to-purple-600 p-6 rounded-xl text-white">
-                        <div class="flex items-center justify-center mb-4">
-                            <i class="fas fa-external-link-alt text-2xl mr-3"></i>
-                            <h4 class="text-lg font-bold">Acceder a Z AI</h4>
-                        </div>
-                        <p class="mb-4 text-sm opacity-90">
-                            Haz clic para abrir Z AI en una nueva pestaña y comenzar a chatear con esta avanzada inteligencia artificial.
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">Z IA - Acceso Directo</h3>
+                <div class="theme-bg-tertiary rounded-xl p-8 text-center">
+                    <div class="mb-6">
+                        <i class="fas fa-brain text-6xl text-purple-600 mb-4"></i>
+                        <h4 class="text-2xl font-bold theme-text-primary mb-2">Accede a Z IA</h4>
+                        <p class="theme-text-secondary max-w-lg mx-auto">
+                            Interactúa directamente con Z IA en su plataforma oficial para obtener asistencia avanzada en tus proyectos.
                         </p>
-                        <button id="openZAIBtn" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
-                            <i class="fas fa-rocket mr-2"></i>Abrir Z AI Chat
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Intento de iframe con fallback -->
-                <div class="relative">
-                    <div class="theme-bg-tertiary rounded-xl overflow-hidden" style="height: 600px;">
-                        <div id="zai-iframe-container" class="w-full h-full">
-                            <iframe 
-                                id="zai-iframe"
-                                src="https://chat.z.ai/" 
-                                width="100%" 
-                                height="100%" 
-                                frameborder="0"
-                                style="border-radius: 12px;"
-                                onload="handleZAIIframeLoad()"
-                                onerror="handleZAIIframeError()">
-                            </iframe>
-                        </div>
-                        
-                        <!-- Mensaje de fallback si el iframe no carga -->
-                        <div id="zai-fallback" class="hidden w-full h-full flex items-center justify-center p-8 text-center">
-                            <div>
-                                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold theme-text-primary mb-3">No se puede mostrar Z AI en esta ventana</h4>
-                                <p class="theme-text-secondary mb-4 text-sm">
-                                    Debido a las políticas de seguridad del sitio web, Z AI no puede ser mostrado dentro de un iframe. 
-                                </p>
-                                <button onclick="window.open('https://chat.z.ai/', '_blank')" 
-                                        class="bg-gradient-to-r from-red-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Abrir Z AI en Nueva Pestaña
-                                </button>
-                            </div>
-                        </div>
                     </div>
                     
-                    <!-- Instrucciones adicionales -->
-                    <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                        <div class="flex items-start">
-                            <i class="fas fa-info-circle text-blue-500 mt-0.5 mr-3"></i>
-                            <div class="text-sm">
-                                <p class="theme-text-primary font-medium mb-1">💡 Consejo de uso:</p>
-                                <p class="theme-text-secondary">
-                                    Si el chat no se muestra arriba, usa el botón "Abrir Z AI Chat" para acceder directamente a la plataforma. 
-                                    Una vez allí, puedes hacer preguntas sobre Python, pedir ayuda con código o solicitar explicaciones de conceptos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <button onclick="window.open('https://chat.z.ai/', '_blank')" class="px-8 py-4 bg-gradient-to-r from-red-500 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-rocket mr-2"></i>Abrir Z IA
+                    </button>
+                    
+                    <p class="text-sm theme-text-secondary mt-4">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Se abrirá en una nueva pestaña del navegador
+                    </p>
                 </div>
             </div>
-            
+
             <div class="p-4 theme-bg-tertiary rounded-lg">
-                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar Z AI:</h4>
+                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar Z IA:</h4>
                 <ul class="text-sm theme-text-secondary space-y-1 ml-4">
                     <li>• Sé específico en tus preguntas sobre programación en Python</li>
                     <li>• Comparte el código completo para obtener mejores sugerencias</li>
                     <li>• Pregunta sobre mejores prácticas y optimización de código</li>
                     <li>• Solicita explicaciones paso a paso de algoritmos complejos</li>
                     <li>• Pide ejemplos prácticos y casos de uso reales</li>
-                    <li>• Usa Z AI para revisar y mejorar tu código existente</li>
+                    <li>• Usa Z IA para revisar y mejorar tu código existente</li>
                 </ul>
             </div>
         `,
         practice: {
-            description: "Usa Z AI para obtener ayuda con un concepto de Python que no entiendas",
-            template: "# Ejemplo de pregunta para Z AI:\\n# '¿Puedes explicarme cómo funcionan los decoradores en Python con ejemplos prácticos?'\\n\\n# Tu código de práctica aquí",
-            solution: "# Z AI puede ayudarte con:\\n# - Explicaciones detalladas de conceptos\\n# - Ejemplos de código prácticos\\n# - Depuración y optimización\\n# - Mejores prácticas de programación"
+            description: "Usa Z IA para obtener ayuda con un concepto de Python que no entiendas",
+            template: "# Ejemplo de pregunta para Z IA:\\n# '¿Puedes explicarme cómo funcionan los decoradores en Python con ejemplos prácticos?'\\n\\n# Tu código de práctica aquí",
+            solution: "# Z IA puede ayudarte con:\\n# - Explicaciones detalladas de conceptos\\n# - Ejemplos de código prácticos\\n# - Depuración y optimización\\n# - Mejores prácticas de programación"
         },
         quiz: [
             {
-                question: "¿Para qué puedes usar Z AI en tu aprendizaje de Python?",
+                question: "¿Para qué puedes usar Z IA en tu aprendizaje de Python?",
                 options: ["Solo para chatear casualmente", "Ayuda con código, explicaciones y depuración", "Solo para traducciones", "Solo para matemáticas"],
                 correct: 1
             },
             {
-                question: "¿Cuál es una ventaja de Z AI para programadores?",
+                question: "¿Cuál es una ventaja de Z IA para programadores?",
                 options: ["Solo funciona en chino", "Asistencia avanzada en múltiples lenguajes", "Solo para principiantes", "No entiende código"],
                 correct: 1
             },
             {
-                question: "¿Qué tipo de asistencia puede proporcionar Z AI con el código Python?",
+                question: "¿Qué tipo de asistencia puede proporcionar Z IA con el código Python?",
                 options: ["Solo comentarios simples", "Análisis, mejoras y explicaciones detalladas", "Solo corrección de sintaxis", "Solo traducciones"],
                 correct: 1
             },
             {
-                question: "¿Z AI puede ayudar con proyectos completos de Python?",
+                question: "¿Z IA puede ayudar con proyectos completos de Python?",
                 options: ["No, solo líneas individuales", "Sí, puede analizar y sugerir mejoras en proyectos", "Solo con funciones básicas", "Solo con variables"],
                 correct: 1
             },
             {
-                question: "¿Cómo puede Z AI ayudar en el aprendizaje de algoritmos?",
+                question: "¿Cómo puede Z IA ayudar en el aprendizaje de algoritmos?",
                 options: ["No puede ayudar", "Explicaciones paso a paso y ejemplos prácticos", "Solo definiciones", "Solo pseudocódigo"],
                 correct: 1
             },
             {
-                question: "¿Qué idiomas soporta Z AI?",
+                question: "¿Qué idiomas soporta Z IA?",
                 options: ["Solo chino", "Múltiples idiomas incluyendo español", "Solo inglés", "Solo idiomas asiáticos"],
                 correct: 1
             },
             {
-                question: "¿Z AI puede explicar conceptos complejos de Python?",
+                question: "¿Z IA puede explicar conceptos complejos de Python?",
                 options: ["No, solo conceptos básicos", "Sí, con explicaciones detalladas y ejemplos", "Solo con documentación", "Solo con enlaces"],
                 correct: 1
             },
             {
-                question: "¿Cómo puede Z AI ayudar con las mejores prácticas de Python?",
+                question: "¿Cómo puede Z IA ayudar con las mejores prácticas de Python?",
                 options: ["No puede ayudar", "Sugerencias y explicaciones de código limpio", "Solo corrección básica", "Solo comentarios"],
                 correct: 1
             },
             {
-                question: "¿Qué tipo de análisis puede hacer Z AI en tu código?",
+                question: "¿Qué tipo de análisis puede hacer Z IA en tu código?",
                 options: ["Solo errores de sintaxis", "Análisis profundo, optimización y mejoras", "Solo formato", "Solo comentarios"],
                 correct: 1
             },
             {
-                question: "¿Z AI puede ayudar a generar código Python desde descripciones?",
+                question: "¿Z IA puede ayudar a generar código Python desde descripciones?",
                 options: ["No, solo revisa código", "Sí, puede generar código funcional", "Solo pseudocódigo", "Solo comentarios"],
                 correct: 1
             }
         ]
     },
-    
+
     chatgptea: {
-        title: "14. ChatGPT EA",
+        title: "14. ChatGPT IA",
         description: "Asistente IA Norteamericano",
         video: "",
         additionalVideos: [],
         content: `
-            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT EA - Tu Asistente de Programación Avanzado</h2>
-            <p class="theme-text-secondary mb-6">ChatGPT EA es un asistente de inteligencia artificial norteamericano que puede ayudarte con programación en Python, resolver dudas complejas, explicar código, generar aplicaciones y mucho más.</p>
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT IA - Tu Asistente de Programación Avanzado</h2>
+            <p class="theme-text-secondary mb-6">ChatGPT IA es un asistente de inteligencia artificial norteamericano que puede ayudarte con programación en Python, resolver dudas complejas, explicar código, generar aplicaciones y mucho más.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -3501,32 +3476,20 @@ resultado = numero1 + numero2<br>
                 </div>
             </div>
             
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold theme-text-primary mb-4">Chat ChatGPT EA</h3>
-                <div class="theme-bg-tertiary rounded-xl overflow-hidden" style="height: 600px;">
-                    <iframe 
-                        src="https://chatgpt.com/" 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" 
-                        scrolling="no"
-                        title="ChatGPT EA - Asistente IA Norteamericano">
-                    </iframe>
-                </div>
-            </div>
+
             
             <div class="mb-6">
                 <h3 class="text-xl font-semibold theme-text-primary mb-4">Enlace Directo a la Aplicación</h3>
                 <div class="p-4 theme-bg-tertiary rounded-lg text-center">
                     <a href="https://chatgpt.com/" target="_blank" class="inline-flex items-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
                         <i class="fas fa-external-link-alt mr-2"></i>
-                        Abrir ChatGPT EA en Nueva Pestaña
+                        Abrir ChatGPT IA en Nueva Pestaña
                     </a>
                 </div>
             </div>
             
             <div class="p-4 theme-bg-tertiary rounded-lg">
-                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar ChatGPT EA:</h4>
+                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar ChatGPT IA:</h4>
                 <ul class="text-sm theme-text-secondary space-y-1 ml-4">
                     <li>• Describe detalladamente lo que quieres lograr en Python</li>
                     <li>• Comparte tu código para obtener mejoras específicas</li>
@@ -3540,60 +3503,191 @@ resultado = numero1 + numero2<br>
         exercises: [
             {
                 title: "Consulta Avanzada a la IA",
-                description: "Usa ChatGPT EA para obtener ayuda con un proyecto completo de Python",
-                template: "# Ejemplo de consulta avanzada para ChatGPT EA:\n# 'Ayúdame a crear una aplicación web en Python con Flask que maneje un CRUD de usuarios'\n\n# Tu código de proyecto aquí",
+                description: "Usa ChatGPT IA para obtener ayuda con un proyecto completo de Python",
+                template: "# Ejemplo de consulta avanzada para ChatGPT IA:\n# 'Ayúdame a crear una aplicación web en Python con Flask que maneje un CRUD de usuarios'\n\n# Tu código de proyecto aquí",
                 solution: "# Ejemplo de respuesta que podrías obtener:\nfrom flask import Flask, request, jsonify\nfrom flask_sqlalchemy import SQLAlchemy\n\napp = Flask(__name__)\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'\ndb = SQLAlchemy(app)\n\nclass User(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(100), nullable=False)\n    email = db.Column(db.String(100), unique=True, nullable=False)\n\n# Rutas CRUD aquí..."
             }
         ],
         quiz: [
             {
-                question: "¿Cuál es la principal fortaleza de ChatGPT EA para programadores Python?",
+                question: "¿Cuál es la principal fortaleza de ChatGPT IA para programadores Python?",
                 options: ["Solo corrección de sintaxis", "Asistencia completa en desarrollo avanzado", "Solo documentación básica", "Solo ejemplos simples"],
                 correct: 1
             },
             {
-                question: "¿ChatGPT EA puede ayudar con arquitectura de aplicaciones Python?",
+                question: "¿ChatGPT IA puede ayudar con arquitectura de aplicaciones Python?",
                 options: ["No, solo código simple", "Sí, puede ayudar con diseño completo", "Solo con funciones básicas", "Solo con variables"],
                 correct: 1
             },
             {
-                question: "¿Qué tipo de proyectos puede ayudar a desarrollar ChatGPT EA?",
+                question: "¿Qué tipo de proyectos puede ayudar a desarrollar ChatGPT IA?",
                 options: ["Solo scripts básicos", "Aplicaciones web, APIs, automatización y más", "Solo calculadoras", "Solo juegos simples"],
                 correct: 1
             },
             {
-                question: "¿ChatGPT EA puede explicar patrones de diseño en Python?",
+                question: "¿ChatGPT IA puede explicar patrones de diseño en Python?",
                 options: ["No conoce patrones", "Sí, explica patrones con ejemplos prácticos", "Solo teoría básica", "Solo nombres de patrones"],
                 correct: 1
             },
             {
-                question: "¿Cómo puede ChatGPT EA ayudar con el aprendizaje de Python?",
+                question: "¿Cómo puede ChatGPT IA ayudar con el aprendizaje de Python?",
                 options: ["Solo respuestas cortas", "Explicaciones detalladas y ejercicios personalizados", "Solo enlaces externos", "Solo definiciones"],
                 correct: 1
             },
             {
-                question: "¿ChatGPT EA puede ayudar con debugging avanzado?",
+                question: "¿ChatGPT IA puede ayudar con debugging avanzado?",
                 options: ["Solo errores de sintaxis", "Sí, análisis completo y soluciones", "Solo mensajes de error", "Solo sugerencias básicas"],
                 correct: 1
             },
             {
-                question: "¿Qué ventaja tiene ChatGPT EA para proyectos profesionales?",
+                question: "¿Qué ventaja tiene ChatGPT IA para proyectos profesionales?",
                 options: ["Es gratuito siempre", "Conocimiento actualizado y mejores prácticas", "Solo para estudiantes", "Solo código básico"],
                 correct: 1
             },
             {
-                question: "¿ChatGPT EA puede generar código Python desde descripciones en español?",
+                question: "¿ChatGPT IA puede generar código Python desde descripciones en español?",
                 options: ["Solo entiende inglés", "Sí, multiidioma incluido español", "Solo código simple", "Solo comentarios"],
                 correct: 1
             },
             {
-                question: "¿Cómo puede ChatGPT EA mejorar tu código Python existente?",
+                question: "¿Cómo puede ChatGPT IA mejorar tu código Python existente?",
                 options: ["No puede mejorar código", "Optimización, refactoring y mejores prácticas", "Solo formato", "Solo comentarios"],
                 correct: 1
             },
             {
-                question: "¿ChatGPT EA puede ayudar con librerías específicas de Python como Django o Pandas?",
+                question: "¿ChatGPT IA puede ayudar con librerías específicas de Python como Django o Pandas?",
                 options: ["Solo librerías básicas", "Sí, conoce amplia gama de librerías", "Solo sintaxis básica", "Solo instalación"],
+                correct: 1
+            }
+        ]
+    },
+
+    antigravity: {
+        title: "18. Antigravity Google",
+        description: "Asistente de codificación avanzado de Google",
+        video: "https://www.youtube.com/embed/p36n_wHEShs",
+        additionalVideos: [],
+        content: `
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">Antigravity Google - Asistente de Codificación Superior</h2>
+            <p class="theme-text-secondary mb-6">Antigravity es la última innovación de Google para desarrolladores. Combina el poder de Gemini Ultra con herramientas agenticas avanzadas para escribir, depurar y desplegar código de manera autónoma y eficiente.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Codificación Agentica</h3>
+                    <p class="text-sm theme-text-secondary text-center">Permite que Antigravity tome el control para realizar tareas complejas de principio a fin</p>
+                </div>
+                
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-google text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Gemini Ultra</h3>
+                    <p class="text-sm theme-text-secondary text-center">Impulsado por el modelo más capaz de Google para razonamiento y codificación</p>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">🛠️ Guía de Instalación</h3>
+                <div class="theme-bg-tertiary rounded-xl p-6">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Windows -->
+                        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <i class="fab fa-windows text-blue-500 text-2xl mr-2"></i>
+                                <h4 class="font-bold theme-text-primary">Windows</h4>
+                            </div>
+                            <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                                <li>Descarga el instalador desde el sitio oficial.</li>
+                                <li>Ejecuta <code>antigravity_setup.exe</code>.</li>
+                                <li>Sigue las instrucciones en pantalla.</li>
+                                <li>Abre tu terminal y escribe <code>antigravity login</code>.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Mac -->
+                        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <i class="fab fa-apple text-gray-500 text-2xl mr-2"></i>
+                                <h4 class="font-bold theme-text-primary">macOS</h4>
+                            </div>
+                            <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                                <li>Abre tu terminal.</li>
+                                <li>Ejecuta: <code>brew install google-antigravity</code></li>
+                                <li>O descarga el .dmg oficial.</li>
+                                <li>Autentícate con <code>antigravity login</code>.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Linux -->
+                        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <i class="fab fa-linux text-yellow-500 text-2xl mr-2"></i>
+                                <h4 class="font-bold theme-text-primary">Linux</h4>
+                            </div>
+                            <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                                <li>Usa curl: <code>curl -sL https://antigravity.google/install | bash</code></li>
+                                <li>O usa apt: <code>sudo apt install antigravity</code></li>
+                                <li>Verifica con <code>antigravity --version</code>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">Antigravity - Acceso Directo</h3>
+                <div class="theme-bg-tertiary rounded-xl p-8 text-center">
+                    <div class="mb-6">
+                        <i class="fas fa-rocket text-6xl text-blue-600 mb-4"></i>
+                        <h4 class="text-2xl font-bold theme-text-primary mb-2">Accede a Antigravity</h4>
+                        <p class="theme-text-secondary max-w-lg mx-auto">
+                            Explora la documentación completa y las herramientas web de Antigravity Google.
+                        </p>
+                    </div>
+                    
+                    <button onclick="window.open('https://gemini.google.com/', '_blank')" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-external-link-alt mr-2"></i>Abrir Antigravity
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-4 theme-bg-tertiary rounded-lg">
+                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar Antigravity:</h4>
+                <ul class="text-sm theme-text-secondary space-y-1 ml-4">
+                    <li>• Usa el modo "Agentic" para tareas de múltiples pasos</li>
+                    <li>• Conecta Antigravity a tu repositorio para contexto completo</li>
+                    <li>• Pide explicaciones de arquitectura, no solo de código</li>
+                    <li>• Utiliza los comandos de voz si están disponibles en tu versión</li>
+                </ul>
+            </div>
+        `,
+        quiz: [
+            {
+                question: "¿Qué es Antigravity Google?",
+                options: ["Un juego de física", "Un asistente de codificación avanzado", "Un nuevo navegador", "Un sistema operativo"],
+                correct: 1
+            },
+            {
+                question: "¿Qué modelo impulsa a Antigravity?",
+                options: ["GPT-4", "Llama 3", "Gemini Ultra", "Claude 3"],
+                correct: 2
+            },
+            {
+                question: "¿Cómo se instala Antigravity en macOS?",
+                options: ["Solo compilando desde fuente", "Brew install o .dmg", "No está disponible en Mac", "Solo vía App Store"],
+                correct: 1
+            },
+            {
+                question: "¿Qué característica distingue a Antigravity?",
+                options: ["Capacidades agenticas autónomas", "Solo funciona offline", "Es de pago solamente", "Solo soporta Python"],
+                correct: 0
+            },
+            {
+                question: "¿Cómo verificas la instalación en Linux?",
+                options: ["linux check", "antigravity --version", "google status", "ver install"],
                 correct: 1
             }
         ]
