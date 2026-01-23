@@ -2549,7 +2549,7 @@ resultado = numero1 + numero2<br>
     venv: {
         title: "12. Entornos Virtuales",
         description: "Gestión de paquetes",
-        video: "https://www.youtube.com/embed/nKPbfIU442g",
+        video: "https://www.youtube.com/embed/TNtrAvNNxTY",
         additionalVideos: [],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Entornos Virtuales y Paquetes</h2>
@@ -2668,7 +2668,7 @@ resultado = numero1 + numero2<br>
     deepseek: {
         title: "13. DeepSeek IA",
         description: "Asistente IA gratuito",
-        video: "",
+        video: "https://www.youtube.com/embed/Fuzzpcog7tQ",
         additionalVideos: [],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">DeepSeek IA - Tu Asistente de Programación</h2>
@@ -2937,10 +2937,10 @@ resultado = numero1 + numero2<br>
     "google-colab": {
         title: "15. Google Colab",
         description: "Notebook en la nube",
-        video: "https://www.youtube.com/embed/inN8seMm7UI",
+        video: "https://www.youtube.com/embed/Iq6k1hlz4NQ",
         additionalVideos: [
-            { title: "Introducción a Google Colab", url: "https://www.youtube.com/embed/2QqvFa_27J4" },
-            { title: "Google Colab Tips", url: "https://www.youtube.com/embed/Zwg8c0RIP7g" }
+            { title: "Google Colab Tutorial 1", url: "https://www.youtube.com/embed/5pf0_bpNbkw" },
+            { title: "Google Colab Tutorial 2", url: "https://www.youtube.com/embed/agj3AxNPDWU" }
         ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Google Colab - Tu Laboratorio Python en la Nube</h2>
@@ -3109,10 +3109,11 @@ resultado = numero1 + numero2<br>
     cursor: {
         title: "16. Cursor IDE",
         description: "Editor con IA integrada",
-        video: "https://www.youtube.com/embed/tp1yrfYnLR8",
+        video: "https://www.youtube.com/embed/9ofd5bgtGHw",
         additionalVideos: [
-            { title: "Cursor AI Setup", url: "https://www.youtube.com/embed/yk5lkEKlp6I" },
-            { title: "Cursor vs VS Code", url: "https://www.youtube.com/embed/XLF-tZqD--o" }
+            { title: "Cursor Tutorial 1", url: "https://www.youtube.com/embed/V20yEr1doa8" },
+            { title: "Cursor Tutorial 2", url: "https://www.youtube.com/embed/bMmVZFd7HA4" },
+            { title: "Cursor Tutorial 3", url: "https://www.youtube.com/embed/_t-CExoj8lM" }
         ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Cursor IDE - Editor de Código con IA</h2>
@@ -3301,8 +3302,12 @@ resultado = numero1 + numero2<br>
     zai: {
         title: "17. Z IA",
         description: "IA China Avanzada",
-        video: "",
-        additionalVideos: [],
+        video: "https://www.youtube.com/embed/7qyoYDiP-8A",
+        additionalVideos: [
+            { title: "Z IA Tutorial 1", url: "https://www.youtube.com/embed/83Z0NyOGAKg" },
+            { title: "Z IA Tutorial 2", url: "https://www.youtube.com/embed/QnSbauHZDGE" },
+            { title: "Z IA Tutorial 3", url: "https://www.youtube.com/embed/1Q7Z9pUYksE" }
+        ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Z IA - Asistente de Inteligencia Artificial Avanzada</h2>
             <p class="theme-text-secondary mb-6">Z IA es una plataforma de inteligencia artificial china de última generación que ofrece capacidades avanzadas de conversación, programación y análisis. Ideal para estudiantes y desarrolladores que buscan asistencia inteligente en sus proyectos.</p>
@@ -3439,7 +3444,7 @@ resultado = numero1 + numero2<br>
     chatgptea: {
         title: "14. ChatGPT IA",
         description: "Asistente IA Norteamericano",
-        video: "",
+        video: "https://www.youtube.com/embed/dKKe1PL2Stk",
         additionalVideos: [],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT IA - Tu Asistente de Programación Avanzado</h2>
@@ -3566,7 +3571,11 @@ resultado = numero1 + numero2<br>
         title: "18. Antigravity Google",
         description: "Asistente de codificación avanzado de Google",
         video: "https://www.youtube.com/embed/p36n_wHEShs",
-        additionalVideos: [],
+        additionalVideos: [
+            { title: "Intro a Google Antigravity", url: "https://www.youtube.com/embed/liqfwPC4FmA" },
+            { title: "Tutorial Avanzado", url: "https://www.youtube.com/embed/fwh85bYmMU8" },
+            { title: "Trucos y Consejos", url: "https://www.youtube.com/embed/MS5hEUFpW-s" }
+        ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Antigravity Google - Asistente de Codificación Superior</h2>
             <p class="theme-text-secondary mb-6">Antigravity es la última innovación de Google para desarrolladores. Combina el poder de Gemini Ultra con herramientas agenticas avanzadas para escribir, depurar y desplegar código de manera autónoma y eficiente.</p>
@@ -3688,6 +3697,141 @@ resultado = numero1 + numero2<br>
             {
                 question: "¿Cómo verificas la instalación en Linux?",
                 options: ["linux check", "antigravity --version", "google status", "ver install"],
+                correct: 1
+            }
+        ]
+    },
+
+    vm: {
+        title: "19. Maquinas Virtuales",
+        description: "Aprende a virtualizar sistemas operativos",
+        video: "https://www.youtube.com/embed/mzo2OjcSxag",
+        additionalVideos: [
+            { title: "Instalación VirtualBox", url: "https://www.youtube.com/embed/uiFZUfmFAus" },
+            { title: "Crear Máquina Virtual", url: "https://www.youtube.com/embed/jfdAiVgHuDs" },
+            { title: "Configuración Avanzada", url: "https://www.youtube.com/embed/mOuKtZVMwbw" },
+            { title: "Instalar Ubuntu en VB", url: "https://www.youtube.com/embed/Uq74kKd1CAg" },
+            { title: "Guest Additions", url: "https://www.youtube.com/embed/Qy44XLpiChc" },
+            { title: "Carpetas Compartidas", url: "https://www.youtube.com/embed/wnv73xmyRr0" }
+        ],
+        content: `
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">Máquinas Virtuales - Tu Laboratorio Seguro</h2>
+            <p class="theme-text-secondary mb-6">Una máquina virtual (VM) te permite ejecutar un sistema operativo completo dentro de otro. Es ideal para probar Linux sin borrar Windows, o experimentar con configuraciones sin riesgo.</p>
+            
+            <div class="mb-8 theme-bg-tertiary rounded-xl p-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">🚀 Instalación de VirtualBox</h3>
+                <p class="theme-text-secondary mb-4">Usaremos VirtualBox, una herramienta gratuita y potente para virtualización.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Windows -->
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <i class="fab fa-windows text-blue-500 text-2xl mr-2"></i>
+                            <h4 class="font-bold theme-text-primary">Windows</h4>
+                        </div>
+                        <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                            <li>Ve a <a href="https://www.virtualbox.org/" target="_blank" class="text-blue-500 underline">virtualbox.org</a>.</li>
+                            <li>Descarga "Windows hosts".</li>
+                            <li>Ejecuta el instalador <code>.exe</code>.</li>
+                            <li>Acepta todas las opciones por defecto (instalará drivers de red).</li>
+                            <li>Reinicia si es necesario.</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Mac -->
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <i class="fab fa-apple text-gray-500 text-2xl mr-2"></i>
+                            <h4 class="font-bold theme-text-primary">macOS</h4>
+                        </div>
+                        <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                            <li>Ve a <a href="https://www.virtualbox.org/" target="_blank" class="text-blue-500 underline">virtualbox.org</a>.</li>
+                            <li>Descarga "OS X hosts".</li>
+                            <li>Abre el <code>.dmg</code> y ejecuta <code>VirtualBox.pkg</code>.</li>
+                            <li>Permite la extensión del sistema en "Seguridad y Privacidad".</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Linux -->
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <i class="fab fa-linux text-yellow-500 text-2xl mr-2"></i>
+                            <h4 class="font-bold theme-text-primary">Linux</h4>
+                        </div>
+                        <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                            <li>Abre la terminal.</li>
+                            <li>Ubuntu/Debian: <code>sudo apt install virtualbox</code></li>
+                            <li>Fedora: <code>sudo dnf install virtualbox</code></li>
+                            <li>Agrega tu usuario al grupo vboxusers: <code>sudo usermod -aG vboxusers $USER</code></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">⚙️ Configuración Básica</h3>
+                <div class="theme-bg-tertiary rounded-xl p-6">
+                    <ol class="space-y-4 theme-text-secondary">
+                        <li class="flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 text-sm flex-shrink-0">1</span>
+                            <div>
+                                <span class="font-bold theme-text-primary">Nueva Máquina:</span> Haz clic en el botón "Nueva" (New). Asigna un nombre (ej. "Ubuntu 22.04") y selecciona el tipo "Linux" y versión "Ubuntu (64-bit)".
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 text-sm flex-shrink-0">2</span>
+                            <div>
+                                <span class="font-bold theme-text-primary">Memoria RAM:</span> Asigna al menos 4 GB (4096 MB) si tu PC tiene 8GB o más. Nunca asignes más del 50% de tu RAM real no entres a la zona roja.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 text-sm flex-shrink-0">3</span>
+                            <div>
+                                <span class="font-bold theme-text-primary">Disco Duro:</span> Crea un disco virtual ahora (VDI). Reservado dinámicamente es mejor para ahorrar espacio. Asigna al menos 25 GB.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 text-sm flex-shrink-0">4</span>
+                            <div>
+                                <span class="font-bold theme-text-primary">Imagen ISO:</span> Antes de iniciar, ve a Configuración > Almacenamiento. En el icono de CD "Vacío", selecciona tu archivo .iso descargado (ej. Ubuntu).
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="p-4 theme-bg-tertiary rounded-lg">
+                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos Pro:</h4>
+                <ul class="text-sm theme-text-secondary space-y-1 ml-4">
+                    <li>• Instala las "Guest Additions" después de instalar el SO para pantalla completa y compartir portapapeles.</li>
+                    <li>• Usa "Snapshots" (Instantáneas) antes de hacer cambios peligrosos para poder volver atrás.</li>
+                </ul>
+            </div>
+        `,
+        quiz: [
+            {
+                question: "¿Qué es una Máquina Virtual?",
+                options: ["Un juego de realidad virtual", "Un ordenador simulado por software", "Un robot físico", "Un virus"],
+                correct: 1
+            },
+            {
+                question: "¿Qué software gratuito recomendamos para virtualizar?",
+                options: ["Photoshop", "Excel", "VirtualBox", "Chrome"],
+                correct: 2
+            },
+            {
+                question: "¿Qué necesitas descargar para instalar un sistema operativo en la VM?",
+                options: ["Una imagen ISO", "Un archivo MP3", "Un documento PDF", "Una foto JPG"],
+                correct: 0
+            },
+            {
+                question: "¿Cuánta RAM debes asignar a tu VM?",
+                options: ["Toda la que tengas", "Menos del 50% de tu RAM total", "Solo 1 MB", "Nada"],
+                correct: 1
+            },
+            {
+                question: "¿Para qué sirven los Snapshots?",
+                options: ["Para sacar fotos", "Para guardar el estado de la VM y restaurarlo", "Para imprimir", "Para acelerar internet"],
                 correct: 1
             }
         ]
