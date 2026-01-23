@@ -6,7 +6,7 @@ let notes = JSON.parse(localStorage.getItem('pythonNotes')) || {};
 let pyodide = null;
 
 // Initialize application
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initializeApp();
 });
 
@@ -14,19 +14,19 @@ function initializeApp() {
     // Apply saved theme
     document.body.className = `${theme} theme-bg-primary theme-text-primary transition-all duration-300`;
     updateThemeIcon();
-    
+
     // Update progress display
     updateProgress();
-    
+
     // Bind event listeners
     bindEventListeners();
-    
+
     // Initialize tab visibility (hide PrimerParcialPython by default)
     updateTabVisibility('default');
-    
+
     // Initialize Pyodide
     initializePyodide();
-    
+
     // Hide loading screen
     setTimeout(() => {
         document.getElementById('loadingScreen').style.display = 'none';
@@ -36,45 +36,45 @@ function initializeApp() {
 function bindEventListeners() {
     // Theme toggle
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-    
+
     // Mobile menu
     document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
-    
+
     // Module navigation
     document.querySelectorAll('.module-item').forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             const module = this.dataset.module;
             loadModule(module);
         });
     });
-    
+
     // Tab navigation
     document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             const tab = this.dataset.tab;
             switchTab(tab);
         });
     });
-    
+
     // Code editor buttons
     document.getElementById('runCodeBtn').addEventListener('click', runCode);
     document.getElementById('clearCodeBtn').addEventListener('click', clearCode);
     document.getElementById('saveCodeBtn').addEventListener('click', saveCode);
-    
+
     // Notes functionality
     document.getElementById('notesBtn').addEventListener('click', openNotesModal);
-    
+
     // Mark complete button
     document.getElementById('markCompleteBtn').addEventListener('click', markModuleComplete);
-    
+
     // Search functionality
     document.getElementById('searchInput').addEventListener('input', searchModules);
-    
+
     // Fullscreen toggle
     document.getElementById('fullscreenBtn').addEventListener('click', toggleFullscreen);
-    
+
     // Add event listener for Google Colab button after module content loads
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (e.target && e.target.id === 'newColabBtn') {
             openNewColabNotebook();
         }
@@ -88,9 +88,9 @@ function bindEventListeners() {
             openZAI();
         }
     });
-    
+
     // Generate QR code when EvaluacionPrimerQuiz tab is loaded
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (e.target && e.target.dataset.tab === 'evaluacionPrimerQuiz') {
             generateQRCode();
         }
@@ -116,12 +116,12 @@ function bindEventListeners() {
             generateParcialDosQRCode();
         }
     });
-    
+
     // Check Z AI iframe status when the module is loaded
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Observer to check when Z AI module content is loaded
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
                 if (mutation.type === 'childList') {
                     const zaiIframe = document.getElementById('zai-iframe');
                     if (zaiIframe && !window.zaiCheckInitiated) {
@@ -131,7 +131,7 @@ function bindEventListeners() {
                 }
             });
         });
-        
+
         observer.observe(document.body, {
             childList: true,
             subtree: true
@@ -144,60 +144,60 @@ function loadModule(moduleId) {
         console.error('modules object not loaded');
         return;
     }
-    
+
     if (!modules[moduleId]) {
         console.error(`Module ${moduleId} not found`);
         return;
     }
-    
+
     currentModule = moduleId;
     const module = modules[moduleId];
-    
+
     // Hide welcome screen and show module content
     document.getElementById('welcomeScreen').style.display = 'none';
     document.getElementById('moduleContent').style.display = 'block';
     document.getElementById('moduleContent').classList.add('fade-in');
-    
+
     // Update title
     document.getElementById('currentModuleTitle').textContent = module.title;
-    
+
     // Show mark complete button
     document.getElementById('markCompleteBtn').style.display = 'block';
-    
+
     // Load video
     const videoContainer = document.getElementById('videoContainer').querySelector('iframe');
     videoContainer.src = module.video;
-    
+
     // Load additional videos
     loadAdditionalVideos(module.additionalVideos);
-    
+
     // Load content
     document.getElementById('moduleTextContent').innerHTML = module.content;
-    
+
     // Load Google Colab content
     loadColabContent(module.colabContent);
-    
+
     // Load Shiny content
     loadShinyContent(module.shinyContent);
-    
+
     // Load exercises
     loadExercises(module.exercises);
-    
+
     // Load quiz
     loadQuiz(module.quiz);
-    
+
     // Update active module in sidebar
     updateActiveModule(moduleId);
-    
+
     // Close mobile menu
     closeMobileMenu();
-    
+
     // Show/hide tabs based on module
     updateTabVisibility(moduleId);
-    
+
     // Switch to content tab
     switchTab('content');
-    
+
     // Load notes for this module
     loadModuleNotes(moduleId);
 }
@@ -205,7 +205,7 @@ function loadModule(moduleId) {
 function loadAdditionalVideos(videos) {
     const container = document.getElementById('additionalVideos');
     container.innerHTML = '';
-    
+
     videos.forEach(video => {
         const videoEl = document.createElement('div');
         videoEl.className = 'p-3 theme-bg-tertiary rounded-lg cursor-pointer hover:opacity-80 transition-opacity';
@@ -220,12 +220,12 @@ function loadAdditionalVideos(videos) {
                 </div>
             </div>
         `;
-        
-        videoEl.addEventListener('click', function() {
+
+        videoEl.addEventListener('click', function () {
             const mainVideo = document.getElementById('videoContainer').querySelector('iframe');
             mainVideo.src = video.url;
         });
-        
+
         container.appendChild(videoEl);
     });
 }
@@ -267,7 +267,7 @@ function loadShinyContent(shinyContent) {
 function loadExercises(exercises) {
     const container = document.getElementById('exercisesList');
     container.innerHTML = '';
-    
+
     exercises.forEach((exercise, index) => {
         const exerciseEl = document.createElement('div');
         exerciseEl.className = 'exercise-card theme-bg-secondary rounded-2xl p-6';
@@ -295,22 +295,22 @@ function loadExercises(exercises) {
                 </button>
             </div>
         `;
-        
+
         // Bind exercise buttons
         const runBtn = exerciseEl.querySelector('.run-exercise-btn');
         const solutionBtn = exerciseEl.querySelector('.show-solution-btn');
         const codeArea = exerciseEl.querySelector('.exercise-code');
         const outputArea = exerciseEl.querySelector('.exercise-output');
-        
-        runBtn.addEventListener('click', function() {
+
+        runBtn.addEventListener('click', function () {
             runExerciseCode(codeArea.value, outputArea);
         });
-        
-        solutionBtn.addEventListener('click', function() {
+
+        solutionBtn.addEventListener('click', function () {
             codeArea.value = exercise.solution;
             showNotification('Solución cargada');
         });
-        
+
         container.appendChild(exerciseEl);
     });
 }
@@ -318,7 +318,7 @@ function loadExercises(exercises) {
 function loadQuiz(questions) {
     const container = document.getElementById('quizContainer');
     container.innerHTML = '';
-    
+
     questions.forEach((question, index) => {
         const questionEl = document.createElement('div');
         questionEl.className = 'mb-6 p-4 theme-bg-tertiary rounded-lg';
@@ -333,31 +333,31 @@ function loadQuiz(questions) {
                 `).join('')}
             </div>
         `;
-        
+
         container.appendChild(questionEl);
     });
-    
+
     // Add submit button
     const submitBtn = document.createElement('button');
     submitBtn.className = 'w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold';
     submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Enviar Respuestas';
-    submitBtn.addEventListener('click', function() {
+    submitBtn.addEventListener('click', function () {
         checkQuizAnswers(questions);
     });
-    
+
     container.appendChild(submitBtn);
 }
 
 function checkQuizAnswers(questions) {
     let correctAnswers = 0;
-    
+
     questions.forEach((question, index) => {
         const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
         if (selectedOption && parseInt(selectedOption.value) === question.correct) {
             correctAnswers++;
         }
     });
-    
+
     const percentage = Math.round((correctAnswers / questions.length) * 100);
     const resultEl = document.createElement('div');
     resultEl.className = `mt-6 p-4 rounded-lg ${percentage >= 70 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
@@ -366,16 +366,16 @@ function checkQuizAnswers(questions) {
         <p>Has respondido correctamente ${correctAnswers} de ${questions.length} preguntas (${percentage}%)</p>
         ${percentage >= 70 ? '<p class="mt-2"><i class="fas fa-check-circle mr-2"></i>¡Excelente trabajo!</p>' : '<p class="mt-2"><i class="fas fa-times-circle mr-2"></i>Te recomendamos revisar el contenido.</p>'}
     `;
-    
+
     const container = document.getElementById('quizContainer');
     const existingResult = container.querySelector('.quiz-result');
     if (existingResult) {
         existingResult.remove();
     }
-    
+
     resultEl.className += ' quiz-result';
     container.appendChild(resultEl);
-    
+
     if (percentage >= 70) {
         markModuleComplete();
     }
@@ -384,17 +384,17 @@ function checkQuizAnswers(questions) {
 function updateTabVisibility(moduleId) {
     // Define which tabs should be visible for each module
     const moduleTabConfig = {
-        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex'],
-        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex'],
-        'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'tercerParcial', 'editorLatex'],
-        'io': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'cuartoQuiz', 'cuartoParcial', 'editorLatex'],
+        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex', 'github'],
+        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex', 'github'],
+        'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'tercerParcial', 'editorLatex', 'github'],
+        'io': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'cuartoQuiz', 'cuartoParcial', 'editorLatex', 'github'],
         // All other modules only have the standard tabs (without primerParcialPython)
-        'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'editorLatex']
+        'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'editorLatex', 'github']
     };
-    
+
     // Get the tabs that should be visible for this module
     const visibleTabs = moduleTabConfig[moduleId] || moduleTabConfig['default'];
-    
+
     // Show/hide tabs based on configuration
     document.querySelectorAll('.tab-btn').forEach(btn => {
         const tabId = btn.dataset.tab;
@@ -412,19 +412,19 @@ function switchTab(tabId) {
         btn.classList.remove('active', 'bg-blue-500', 'text-white');
         btn.classList.add('theme-text-secondary');
     });
-    
+
     const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
     if (targetTab && targetTab.style.display !== 'none') {
         targetTab.classList.add('active', 'bg-blue-500', 'text-white');
         targetTab.classList.remove('theme-text-secondary');
     }
-    
+
     // Update tab content
     document.querySelectorAll('.tab-pane').forEach(pane => {
         pane.classList.add('hidden');
         pane.classList.remove('active');
     });
-    
+
     const targetPane = document.getElementById(`${tabId}Tab`);
     if (targetPane) {
         targetPane.classList.remove('hidden');
@@ -437,7 +437,7 @@ function updateActiveModule(moduleId) {
         item.classList.remove('bg-blue-500', 'text-white');
         item.classList.add('theme-text-primary');
     });
-    
+
     const activeModule = document.querySelector(`[data-module="${moduleId}"]`);
     if (activeModule) {
         activeModule.classList.add('bg-blue-500', 'text-white');
@@ -469,10 +469,10 @@ function closeMobileMenu() {
 
 function markModuleComplete() {
     if (!currentModule) return;
-    
+
     progress[currentModule] = 'completed';
     localStorage.setItem('pythonProgress', JSON.stringify(progress));
-    
+
     // Update module status in sidebar
     const moduleElement = document.querySelector(`[data-module="${currentModule}"]`);
     if (moduleElement) {
@@ -480,7 +480,7 @@ function markModuleComplete() {
         statusIcon.className = 'w-8 h-8 rounded-full completed flex items-center justify-center';
         statusIcon.innerHTML = '<i class="fas fa-check text-sm"></i>';
     }
-    
+
     updateProgress();
     showNotification('¡Módulo completado!');
 }
@@ -491,11 +491,11 @@ function updateProgress() {
         console.log('modules object not yet loaded');
         return;
     }
-    
+
     const totalModules = Object.keys(modules || {}).length;
     const completedModules = Object.values(progress).filter(status => status === 'completed').length;
     const percentage = Math.round((completedModules / totalModules) * 100);
-    
+
     // Update progress circle
     const circle = document.getElementById('progressCircle');
     if (circle) {
@@ -503,18 +503,18 @@ function updateProgress() {
         const offset = circumference - (percentage / 100) * circumference;
         circle.style.strokeDashoffset = offset;
     }
-    
+
     // Update progress text
     const progressText = document.getElementById('progressText');
     if (progressText) {
         progressText.textContent = `${percentage}%`;
     }
-    
+
     const modulesCompleted = document.getElementById('modulesCompleted');
     if (modulesCompleted) {
         modulesCompleted.textContent = `${completedModules}/${totalModules}`;
     }
-    
+
     // Update module status icons
     if (typeof modules !== 'undefined') {
         Object.keys(modules || {}).forEach(moduleId => {
@@ -523,9 +523,9 @@ function updateProgress() {
                 const statusIcon = moduleElement.querySelector('.w-8.h-8');
                 if (statusIcon) {
                     const status = progress[moduleId] || 'not-started';
-                    
+
                     statusIcon.className = `w-8 h-8 rounded-full ${status} flex items-center justify-center`;
-                    
+
                     if (status === 'completed') {
                         statusIcon.innerHTML = '<i class="fas fa-check text-sm"></i>';
                     } else if (status === 'in-progress') {
@@ -542,11 +542,11 @@ function updateProgress() {
 function searchModules() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const moduleItems = document.querySelectorAll('.module-item');
-    
+
     moduleItems.forEach(item => {
         const title = item.querySelector('h3').textContent.toLowerCase();
         const description = item.querySelector('p').textContent.toLowerCase();
-        
+
         if (title.includes(searchTerm) || description.includes(searchTerm)) {
             item.style.display = 'block';
         } else {
@@ -557,7 +557,7 @@ function searchModules() {
 
 function openNotesModal() {
     document.getElementById('notesModal').classList.remove('hidden');
-    
+
     // Load notes for current module
     if (currentModule && notes[currentModule]) {
         document.getElementById('notesTextarea').value = notes[currentModule];
@@ -570,11 +570,11 @@ function closeNotesModal() {
 
 function saveNotes() {
     if (!currentModule) return;
-    
+
     const noteText = document.getElementById('notesTextarea').value;
     notes[currentModule] = noteText;
     localStorage.setItem('pythonNotes', JSON.stringify(notes));
-    
+
     closeNotesModal();
     showNotification('Notas guardadas');
 }
@@ -589,7 +589,7 @@ function showNotification(message) {
     if (notification) {
         document.getElementById('notificationText').textContent = message;
         notification.classList.remove('hidden');
-        
+
         setTimeout(() => {
             notification.classList.add('hidden');
         }, 3000);
@@ -619,18 +619,18 @@ async function initializePyodide() {
 async function runCode() {
     const codeEditor = document.getElementById('codeEditor');
     const codeOutput = document.getElementById('codeOutput');
-    
+
     if (!codeEditor || !codeOutput) return;
-    
+
     const code = codeEditor.value;
-    
+
     if (!code.trim()) {
         codeOutput.innerHTML = '<div class="text-red-500">Por favor, escribe algo de código</div>';
         return;
     }
-    
+
     codeOutput.innerHTML = '<div class="text-blue-500 animate-pulse-slow">Ejecutando código...</div>';
-    
+
     try {
         if (pyodide) {
             // Capture output
@@ -640,18 +640,18 @@ async function runCode() {
                 sys.stdout = StringIO()
                 sys.stderr = StringIO()
             `);
-            
+
             // Run user code
             pyodide.runPython(code);
-            
+
             // Get output
             const stdout = pyodide.runPython('sys.stdout.getvalue()');
             const stderr = pyodide.runPython('sys.stderr.getvalue()');
-            
+
             let result = '';
             if (stdout) result += stdout;
             if (stderr) result += `<div class="text-red-500">${stderr}</div>`;
-            
+
             codeOutput.innerHTML = result || '<div class="text-green-500">Código ejecutado sin salida</div>';
         } else {
             // Fallback for basic code simulation
@@ -673,7 +673,7 @@ function simulateCodeExecution(code) {
             }).join('');
         }
     }
-    
+
     return '<div class="text-blue-500">Código procesado (simulación)</div>';
 }
 
@@ -682,9 +682,9 @@ async function runExerciseCode(code, outputElement) {
         outputElement.innerHTML = '<div class="text-red-500">Por favor, escribe algo de código</div>';
         return;
     }
-    
+
     outputElement.innerHTML = '<div class="text-blue-500 animate-pulse-slow">Ejecutando...</div>';
-    
+
     try {
         if (pyodide) {
             pyodide.runPython(`
@@ -693,16 +693,16 @@ async function runExerciseCode(code, outputElement) {
                 sys.stdout = StringIO()
                 sys.stderr = StringIO()
             `);
-            
+
             pyodide.runPython(code);
-            
+
             const stdout = pyodide.runPython('sys.stdout.getvalue()');
             const stderr = pyodide.runPython('sys.stderr.getvalue()');
-            
+
             let result = '';
             if (stdout) result += stdout;
             if (stderr) result += `<div class="text-red-500">${stderr}</div>`;
-            
+
             outputElement.innerHTML = result || '<div class="text-green-500">Código ejecutado sin salida</div>';
         } else {
             outputElement.innerHTML = simulateCodeExecution(code);
@@ -715,11 +715,11 @@ async function runExerciseCode(code, outputElement) {
 function clearCode() {
     const codeEditor = document.getElementById('codeEditor');
     const codeOutput = document.getElementById('codeOutput');
-    
+
     if (codeEditor) {
         codeEditor.value = '';
     }
-    
+
     if (codeOutput) {
         codeOutput.innerHTML = '<div class="text-gray-500 italic">La salida aparecerá aquí...</div>';
     }
@@ -728,13 +728,13 @@ function clearCode() {
 function saveCode() {
     const codeEditor = document.getElementById('codeEditor');
     if (!codeEditor) return;
-    
+
     const code = codeEditor.value;
     if (!code.trim()) {
         showNotification('No hay código para guardar');
         return;
     }
-    
+
     const blob = new Blob([code], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -742,29 +742,29 @@ function saveCode() {
     a.download = `python_code_${Date.now()}.py`;
     a.click();
     URL.revokeObjectURL(url);
-    
+
     showNotification('Código guardado');
 }
 
 // Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     const sidebar = document.getElementById('sidebar');
     const menuBtn = document.getElementById('mobileMenuBtn');
-    
+
     if (sidebar && menuBtn && !sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
         closeMobileMenu();
     }
 });
 
 // Keyboard shortcuts
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     // Ctrl/Cmd + Enter to run code
     if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
         if (document.activeElement && document.activeElement.id === 'codeEditor') {
             runCode();
         }
     }
-    
+
     // Escape to close modals
     if (event.key === 'Escape') {
         closeNotesModal();
@@ -817,11 +817,11 @@ if (typeof module !== 'undefined' && module.exports) {
 function openNewColabNotebook() {
     // Show notification
     showNotification('Abriendo Google Colab...');
-    
+
     // Open Google Colab in a new tab
     const colabUrl = 'https://colab.research.google.com/';
     window.open(colabUrl, '_blank');
-    
+
     // Optional: Show a brief instruction notification after a delay
     setTimeout(() => {
         showNotification('¡Colab abierto! Inicia sesión con tu cuenta de Google');
@@ -831,11 +831,11 @@ function openNewColabNotebook() {
 function openOverleafEditor() {
     // Show notification
     showNotification('Abriendo Overleaf...');
-    
+
     // Open Overleaf in a new tab
     const overleafUrl = 'https://www.overleaf.com/';
     window.open(overleafUrl, '_blank');
-    
+
     // Optional: Show a brief instruction notification after a delay
     setTimeout(() => {
         showNotification('¡Overleaf abierto! Inicia sesión para crear documentos LaTeX');
@@ -845,11 +845,11 @@ function openOverleafEditor() {
 function openZAI() {
     // Show notification
     showNotification('Abriendo Z AI...');
-    
+
     // Open Z AI in a new tab
     const zaiUrl = 'https://chat.z.ai/';
     window.open(zaiUrl, '_blank');
-    
+
     // Optional: Show a brief instruction notification after a delay
     setTimeout(() => {
         showNotification('¡Z AI abierto! Comienza a chatear con la IA avanzada');
@@ -871,7 +871,7 @@ function showZAIFallback() {
     // Hide the iframe and show the fallback message
     const iframeContainer = document.getElementById('zai-iframe-container');
     const fallback = document.getElementById('zai-fallback');
-    
+
     if (iframeContainer && fallback) {
         iframeContainer.style.display = 'none';
         fallback.classList.remove('hidden');
@@ -906,13 +906,13 @@ function launchCursorIDE() {
     let os = 'unknown';
     let command = '';
     let terminalCommand = '';
-    
+
     if (userAgent.includes('win')) {
         os = 'Windows';
         command = 'cursor';
         terminalCommand = 'start cmd /k "cursor && exit"';
     } else if (userAgent.includes('mac')) {
-        os = 'macOS';  
+        os = 'macOS';
         command = 'cursor';
         terminalCommand = 'open -a Terminal --args cursor';
     } else if (userAgent.includes('linux')) {
@@ -920,7 +920,7 @@ function launchCursorIDE() {
         command = 'cursor';
         terminalCommand = 'gnome-terminal -- bash -c "cursor; exec bash"';
     }
-    
+
     // Try to execute terminal command automatically (will likely fail due to security)
     tryExecuteTerminalCommand(terminalCommand, os, command);
 }
@@ -929,10 +929,10 @@ function launchCursorIDE() {
 function tryExecuteTerminalCommand(terminalCommand, os, command) {
     // Show immediate notification
     showNotification('Intentando abrir terminal automáticamente...');
-    
+
     // Try different methods based on OS
     let success = false;
-    
+
     try {
         if (os === 'Windows') {
             // Try Windows-specific methods
@@ -947,7 +947,7 @@ function tryExecuteTerminalCommand(terminalCommand, os, command) {
     } catch (error) {
         console.log('Automatic terminal launch failed:', error);
     }
-    
+
     // If automatic launch fails, show modal with manual instructions
     setTimeout(() => {
         if (!success) {
@@ -1047,10 +1047,10 @@ function showCursorLaunchModal(os, command, terminalCommand) {
             </div>
         </div>
     `;
-    
+
     // Add modal to body
     document.body.insertAdjacentHTML('beforeend', modalHTML);
-    
+
     // Show notification
     showNotification(`Terminal comando listo para ${os}`);
 }
@@ -1089,29 +1089,29 @@ function closeCursorModal() {
 function generateQRCode() {
     const url = 'https://jestrada2020.github.io/PrimerQuizBioPythonV1/';
     const qrContainer = document.getElementById('qrCodeContainer');
-    
+
     if (!qrContainer || qrContainer.innerHTML !== '') {
         return; // Already generated or container not found
     }
-    
+
     // Generate QR code using QR Server API
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
-    
+
     const qrImg = document.createElement('img');
     qrImg.src = qrCodeUrl;
     qrImg.alt = 'QR Code para EvaluacionPrimerQuiz';
     qrImg.className = 'mx-auto';
     qrImg.style.width = '200px';
     qrImg.style.height = '200px';
-    
+
     qrContainer.appendChild(qrImg);
-    
+
     // Add loading message while QR loads
-    qrImg.onload = function() {
+    qrImg.onload = function () {
         showNotification('Código QR generado exitosamente');
     };
-    
-    qrImg.onerror = function() {
+
+    qrImg.onerror = function () {
         qrContainer.innerHTML = `
             <div class="p-4 text-center">
                 <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
@@ -1125,7 +1125,7 @@ function generateQRCode() {
 // Function to copy EvaluacionPrimerQuiz link to clipboard
 function copyEvaluacionLink() {
     const url = 'https://jestrada2020.github.io/PrimerQuizBioPythonV1/';
-    
+
     navigator.clipboard.writeText(url).then(() => {
         showNotification('¡Enlace copiado al portapapeles!');
     }).catch(() => {
@@ -1143,7 +1143,7 @@ function copyEvaluacionLink() {
 // Function to copy EvaluacionQuizDos link to clipboard
 function copyEvaluacionQuizDosLink() {
     const url = 'https://jestrada2020.github.io/SegundoQuizShinyForPythonV1/';
-    
+
     navigator.clipboard.writeText(url).then(() => {
         showNotification('¡Enlace copiado al portapapeles!');
     }).catch(() => {
@@ -1162,29 +1162,29 @@ function copyEvaluacionQuizDosLink() {
 function generateParcialQRCode() {
     const url = 'https://jestrada2020.github.io/PrimerParcialBioPythonV1/';
     const qrContainer = document.getElementById('qrCodeParcialContainer');
-    
+
     if (!qrContainer || qrContainer.innerHTML !== '') {
         return; // Already generated or container not found
     }
-    
+
     // Generate QR code using QR Server API
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
-    
+
     const qrImg = document.createElement('img');
     qrImg.src = qrCodeUrl;
     qrImg.alt = 'QR Code para PrimerParcialPython';
     qrImg.className = 'mx-auto';
     qrImg.style.width = '200px';
     qrImg.style.height = '200px';
-    
+
     qrContainer.appendChild(qrImg);
-    
+
     // Add loading message while QR loads
-    qrImg.onload = function() {
+    qrImg.onload = function () {
         showNotification('Código QR del parcial generado exitosamente');
     };
-    
-    qrImg.onerror = function() {
+
+    qrImg.onerror = function () {
         qrContainer.innerHTML = `
             <div class="p-4 text-center">
                 <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
@@ -1199,29 +1199,29 @@ function generateParcialQRCode() {
 function generateQuizDosQRCode() {
     const url = 'https://jestrada2020.github.io/SegundoQuizShinyForPythonV1/';
     const qrContainer = document.getElementById('qrCodeQuizDosContainer');
-    
+
     if (!qrContainer || qrContainer.innerHTML !== '') {
         return; // Already generated or container not found
     }
-    
+
     // Generate QR code using QR Server API
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
-    
+
     const qrImg = document.createElement('img');
     qrImg.src = qrCodeUrl;
     qrImg.alt = 'QR Code para Quiz dos';
     qrImg.className = 'mx-auto';
     qrImg.style.width = '200px';
     qrImg.style.height = '200px';
-    
+
     qrContainer.appendChild(qrImg);
-    
+
     // Add loading message while QR loads
-    qrImg.onload = function() {
+    qrImg.onload = function () {
         showNotification('Código QR del Quiz dos generado exitosamente');
     };
-    
-    qrImg.onerror = function() {
+
+    qrImg.onerror = function () {
         qrContainer.innerHTML = `
             <div class="p-4 text-center">
                 <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
@@ -1254,11 +1254,11 @@ function generateTercerQuizQRCode() {
     qrContainer.appendChild(qrImg);
 
     // Add loading message while QR loads
-    qrImg.onload = function() {
+    qrImg.onload = function () {
         showNotification('Código QR del Tercer Quiz generado exitosamente');
     };
 
-    qrImg.onerror = function() {
+    qrImg.onerror = function () {
         qrContainer.innerHTML = `
             <div class="p-4 text-center">
                 <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
@@ -1309,11 +1309,11 @@ function generateCuartoQuizQRCode() {
     qrContainer.appendChild(qrImg);
 
     // Add loading message while QR loads
-    qrImg.onload = function() {
+    qrImg.onload = function () {
         showNotification('Código QR del Cuarto Quiz generado exitosamente');
     };
 
-    qrImg.onerror = function() {
+    qrImg.onerror = function () {
         qrContainer.innerHTML = `
             <div class="p-4 text-center">
                 <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
@@ -1364,11 +1364,11 @@ function generateCuartoParcialQRCode() {
     qrContainer.appendChild(qrImg);
 
     // Add loading message while QR loads
-    qrImg.onload = function() {
+    qrImg.onload = function () {
         showNotification('Código QR del Cuarto Parcial generado exitosamente');
     };
 
-    qrImg.onerror = function() {
+    qrImg.onerror = function () {
         qrContainer.innerHTML = `
             <div class="p-4 text-center">
                 <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
@@ -1419,11 +1419,11 @@ function generateTercerParcialQRCode() {
     qrContainer.appendChild(qrImg);
 
     // Add loading message while QR loads
-    qrImg.onload = function() {
+    qrImg.onload = function () {
         showNotification('Código QR del Tercer Parcial generado exitosamente');
     };
 
-    qrImg.onerror = function() {
+    qrImg.onerror = function () {
         qrContainer.innerHTML = `
             <div class="p-4 text-center">
                 <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
@@ -1456,29 +1456,29 @@ function copyTercerParcialLink() {
 function generateParcialDosQRCode() {
     const url = 'https://jestrada2020.github.io/SegundoParcialBioPythonV1/';
     const qrContainer = document.getElementById('qrCodeParcialDosContainer');
-    
+
     if (!qrContainer || qrContainer.innerHTML !== '') {
         return; // Already generated or container not found
     }
-    
+
     // Generate QR code using QR Server API
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
-    
+
     const qrImg = document.createElement('img');
     qrImg.src = qrCodeUrl;
     qrImg.alt = 'QR Code para Segundo Parcial';
     qrImg.className = 'mx-auto';
     qrImg.style.width = '200px';
     qrImg.style.height = '200px';
-    
+
     qrContainer.appendChild(qrImg);
-    
+
     // Add loading message while QR loads
-    qrImg.onload = function() {
+    qrImg.onload = function () {
         showNotification('Código QR del Segundo Parcial generado exitosamente');
     };
-    
-    qrImg.onerror = function() {
+
+    qrImg.onerror = function () {
         qrContainer.innerHTML = `
             <div class="p-4 text-center">
                 <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mb-2"></i>
@@ -1492,7 +1492,7 @@ function generateParcialDosQRCode() {
 // Function to copy PrimerParcialPython link to clipboard
 function copyParcialLink() {
     const url = 'https://jestrada2020.github.io/PrimerParcialBioPythonV1/';
-    
+
     navigator.clipboard.writeText(url).then(() => {
         showNotification('¡Enlace del parcial copiado al portapapeles!');
     }).catch(() => {
@@ -1510,7 +1510,7 @@ function copyParcialLink() {
 // Function to copy Parcial Dos link to clipboard
 function copyParcialDosLink() {
     const url = 'https://jestrada2020.github.io/SegundoParcialBioPythonV1/';
-    
+
     navigator.clipboard.writeText(url).then(() => {
         showNotification('¡Enlace del Segundo Parcial copiado al portapapeles!');
     }).catch(() => {

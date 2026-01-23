@@ -509,6 +509,10 @@
                             data-tab="editorLatex">
                             <i class="fas fa-file-alt mr-2"></i>EditorDeLatex
                         </button>
+                        <button class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                            data-tab="github">
+                            <i class="fab fa-github mr-2"></i>Github
+                        </button>
                     </div>
                 </div>
 
@@ -4521,6 +4525,225 @@ app_ui = ui.page_fluid(
                                                 class="bg-black text-green-400 p-2 rounded block mb-1">\\sum_{i=1}^{n}</code>
                                             <span class="theme-text-secondary">Sumatoria</span>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Github Tab -->
+                <div id="githubTab" class="tab-pane hidden">
+                    <div class="theme-bg-secondary rounded-2xl p-6">
+                        <h3 class="text-xl font-semibold theme-text-primary mb-6"><i class="fab fa-github mr-2"></i>Guía
+                            de Github</h3>
+
+                        <div class="space-y-8">
+                            <!-- Video Section -->
+                            <div class="grid lg:grid-cols-3 gap-6">
+                                <!-- Main Video Player -->
+                                <div class="lg:col-span-2">
+                                    <div class="aspect-w-16 aspect-h-9 bg-black rounded-xl overflow-hidden shadow-lg mb-4"
+                                        style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                        <iframe id="githubMainVideo" src="https://www.youtube.com/embed/mBYSUUnMt9M"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                    <h4 class="font-semibold theme-text-primary text-lg">Curso Git y GitHub desde Cero
+                                    </h4>
+                                </div>
+
+                                <!-- Playlist -->
+                                <div class="space-y-3 h-96 overflow-y-auto">
+                                    <h5 class="font-semibold theme-text-primary mb-3">Videos Adicionales</h5>
+
+                                    <!-- Video 1 -->
+                                    <div class="p-3 theme-bg-tertiary rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                                        onclick="document.getElementById('githubMainVideo').src='https://www.youtube.com/embed/44ziZ12rJwU'">
+                                        <div class="flex items-center space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i class="fas fa-play text-white text-xs"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium theme-text-primary text-sm line-clamp-2">Curso de
+                                                    GIT y GITHUB para PRINCIPIANTE</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Video 2 -->
+                                    <div class="p-3 theme-bg-tertiary rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                                        onclick="document.getElementById('githubMainVideo').src='https://www.youtube.com/embed/jdXKwLNUfmg'">
+                                        <div class="flex items-center space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i class="fas fa-play text-white text-xs"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium theme-text-primary text-sm line-clamp-2">Aprende
+                                                    GIT y GITHUB en 15 minutos</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Video 3 -->
+                                    <div class="p-3 theme-bg-tertiary rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                                        onclick="document.getElementById('githubMainVideo').src='https://www.youtube.com/embed/p9S1wSChtSo'">
+                                        <div class="flex items-center space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i class="fas fa-play text-white text-xs"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium theme-text-primary text-sm line-clamp-2">Git y
+                                                    GitHub - Curso Práctico</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Video 4 -->
+                                    <div class="p-3 theme-bg-tertiary rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                                        onclick="document.getElementById('githubMainVideo').src='https://www.youtube.com/embed/ncR_h8QkYVY'">
+                                        <div class="flex items-center space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i class="fas fa-play text-white text-xs"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium theme-text-primary text-sm line-clamp-2">Curso
+                                                    Básico de Git y GitHub</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Reset Main Video -->
+                                    <div class="p-3 theme-bg-tertiary rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                                        onclick="document.getElementById('githubMainVideo').src='https://www.youtube.com/embed/mBYSUUnMt9M'">
+                                        <div class="flex items-center space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i class="fas fa-undo text-white text-xs"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium theme-text-primary text-sm">Volver al Video
+                                                    Principal</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Introduction -->
+                            <div>
+                                <h4 class="text-lg font-semibold theme-text-primary mb-3">¿Qué es GitHub?</h4>
+                                <p class="theme-text-secondary mb-4">GitHub es una plataforma de desarrollo colaborativo
+                                    para alojar proyectos utilizando el sistema de control de versiones Git. Es
+                                    utilizada principalmente para la creación de código fuente de programas de
+                                    ordenador.</p>
+
+                                <div class="flex flex-wrap gap-4">
+                                    <button onclick="window.open('https://github.com/', '_blank')"
+                                        class="px-6 py-3 bg-gray-800 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors">
+                                        <i class="fab fa-github mr-2"></i>Ir a GitHub
+                                    </button>
+                                    <button onclick="window.open('https://github.com/join', '_blank')"
+                                        class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                        <i class="fas fa-user-plus mr-2"></i>Crear Cuenta
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Installation -->
+                            <div>
+                                <h4 class="text-lg font-semibold theme-text-primary mb-3">Instalación de Git</h4>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                                        <h5 class="font-semibold theme-text-primary mb-2"><i
+                                                class="fab fa-windows mr-2"></i>Windows</h5>
+                                        <p class="text-sm theme-text-secondary mb-2">Descarga el instalador oficial:</p>
+                                        <a href="https://git-scm.com/download/win" target="_blank"
+                                            class="text-blue-500 hover:underline text-sm">git-scm.com/download/win</a>
+                                    </div>
+                                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                                        <h5 class="font-semibold theme-text-primary mb-2"><i
+                                                class="fab fa-apple mr-2"></i>macOS</h5>
+                                        <p class="text-sm theme-text-secondary mb-2">Usando Homebrew:</p>
+                                        <code
+                                            class="bg-black text-green-400 p-1 rounded text-xs block">brew install git</code>
+                                    </div>
+                                    <div class="p-4 theme-bg-tertiary rounded-lg">
+                                        <h5 class="font-semibold theme-text-primary mb-2"><i
+                                                class="fab fa-linux mr-2"></i>Linux</h5>
+                                        <p class="text-sm theme-text-secondary mb-2">Debian/Ubuntu:</p>
+                                        <code
+                                            class="bg-black text-green-400 p-1 rounded text-xs block">sudo apt install git</code>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Basic Configuration -->
+                            <div>
+                                <h4 class="text-lg font-semibold theme-text-primary mb-3">Configuración Básica</h4>
+                                <p class="theme-text-secondary mb-3">Antes de empezar, configura tu identidad:</p>
+                                <div class="bg-black text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+                                    <pre><code># Configura tu nombre de usuario
+git config --global user.name "Tu Nombre"
+
+# Configura tu correo electrónico
+git config --global user.email "tu@email.com"
+
+# Verifica la configuración
+git config --list</code></pre>
+                                </div>
+                            </div>
+
+                            <!-- Basic Commands -->
+                            <div>
+                                <h4 class="text-lg font-semibold theme-text-primary mb-3">Comandos Básicos</h4>
+                                <div class="space-y-3">
+                                    <div class="p-3 theme-bg-tertiary rounded-lg">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <code class="font-bold theme-text-primary">git init</code>
+                                            <span class="text-xs theme-text-secondary">Inicialización</span>
+                                        </div>
+                                        <p class="text-sm theme-text-secondary">Crea un nuevo repositorio local en la
+                                            carpeta actual.</p>
+                                    </div>
+                                    <div class="p-3 theme-bg-tertiary rounded-lg">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <code class="font-bold theme-text-primary">git clone [url]</code>
+                                            <span class="text-xs theme-text-secondary">Clonar</span>
+                                        </div>
+                                        <p class="text-sm theme-text-secondary">Descarga un repositorio existente desde
+                                            GitHub.</p>
+                                    </div>
+                                    <div class="p-3 theme-bg-tertiary rounded-lg">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <code class="font-bold theme-text-primary">git add .</code>
+                                            <span class="text-xs theme-text-secondary">Preparar</span>
+                                        </div>
+                                        <p class="text-sm theme-text-secondary">Añade todos los cambios al área de
+                                            preparación (staging).</p>
+                                    </div>
+                                    <div class="p-3 theme-bg-tertiary rounded-lg">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <code class="font-bold theme-text-primary">git commit -m "mensaje"</code>
+                                            <span class="text-xs theme-text-secondary">Confirmar</span>
+                                        </div>
+                                        <p class="text-sm theme-text-secondary">Guarda los cambios con un mensaje
+                                            descriptivo.</p>
+                                    </div>
+                                    <div class="p-3 theme-bg-tertiary rounded-lg">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <code class="font-bold theme-text-primary">git push origin main</code>
+                                            <span class="text-xs theme-text-secondary">Subir</span>
+                                        </div>
+                                        <p class="text-sm theme-text-secondary">Sube tus cambios al repositorio remoto
+                                            en GitHub.</p>
                                     </div>
                                 </div>
                             </div>
