@@ -1,0 +1,1964 @@
+% ============================================================
+% ResumenClaveDePython.tex
+% Basado en el Tutorial Oficial de Python (docs.python.org)
+% Academia Bio-Python - Febrero 2026
+% ============================================================
+\documentclass[11pt,a4paper]{article}
+
+% --- Paquetes ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{lastpage}
+\usepackage{tikz}
+
+% --- Geometria ---
+\geometry{
+    top=2cm,
+    bottom=2.5cm,
+    left=1.5cm,
+    right=1.5cm
+}
+
+% --- Colores ---
+\definecolor{azuloscuro}{HTML}{1E3A5F}
+\definecolor{azulmedio}{HTML}{2D6A9F}
+\definecolor{azulclaro}{HTML}{3498DB}
+\definecolor{grisoscuro}{HTML}{34495E}
+\definecolor{codefg}{HTML}{1A1A1A}
+\definecolor{codebg}{HTML}{F4F6F9}
+\definecolor{codeborder}{HTML}{DCE3EB}
+\definecolor{codeaccent}{HTML}{3498DB}
+\definecolor{inlinebg}{HTML}{EEF2F7}
+\definecolor{inlinefg}{HTML}{C0392B}
+\definecolor{tipgreen}{HTML}{27AE60}
+\definecolor{tipbg}{HTML}{E8F6E8}
+\definecolor{warnbg}{HTML}{FEF3E2}
+\definecolor{warnorange}{HTML}{F39C12}
+\definecolor{errorbg}{HTML}{FDE8E8}
+\definecolor{errorred}{HTML}{E74C3C}
+\definecolor{tablehead}{HTML}{2D6A9F}
+
+% --- Hyperref ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=azulmedio,
+    urlcolor=azulclaro,
+    pdftitle={Resumen Clave de Python},
+    pdfauthor={Academia Bio-Python}
+}
+
+% --- Listings (codigo Python) ---
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{codebg},
+    frame=none,
+    rulecolor=\color{codeborder},
+    keywordstyle=\bfseries\color{azuloscuro},
+    commentstyle=\color{gray},
+    stringstyle=\color{tipgreen},
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=false,
+    tabsize=4,
+    xleftmargin=4pt,
+    xrightmargin=4pt,
+    aboveskip=6pt,
+    belowskip=6pt,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+             {ñ}{{\~n}}1 {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1
+             {Ú}{{\'U}}1 {Ñ}{{\~N}}1,
+    morekeywords={match,case,nonlocal,as,with,yield,from,lambda,True,False,None},
+}
+\lstset{style=pythonstyle}
+
+% Estilo para comandos de terminal/bash
+\lstdefinestyle{bashstyle}{
+    language=bash,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{codebg},
+    frame=none,
+    keywordstyle=\bfseries\color{azuloscuro},
+    commentstyle=\color{gray},
+    showstringspaces=false,
+    breaklines=true,
+    xleftmargin=4pt,
+    xrightmargin=4pt,
+    aboveskip=6pt,
+    belowskip=6pt,
+}
+
+% --- tcolorbox estilos ---
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{codeblock}{
+    colback=codebg,
+    colframe=codeborder,
+    boxrule=0.5pt,
+    left=4pt,
+    right=4pt,
+    top=4pt,
+    bottom=4pt,
+    arc=3pt,
+    breakable,
+    borderline west={3pt}{0pt}{codeaccent}
+}
+
+\newtcolorbox{tipbox}{
+    colback=tipbg,
+    colframe=tipbg,
+    boxrule=0pt,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    arc=0pt,
+    breakable,
+    borderline west={4pt}{0pt}{tipgreen}
+}
+
+\newtcolorbox{warnbox}{
+    colback=warnbg,
+    colframe=warnbg,
+    boxrule=0pt,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    arc=0pt,
+    breakable,
+    borderline west={4pt}{0pt}{warnorange}
+}
+
+\newtcolorbox{errorbox}{
+    colback=errorbg,
+    colframe=errorbg,
+    boxrule=0pt,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    arc=0pt,
+    breakable,
+    borderline west={4pt}{0pt}{errorred}
+}
+
+% --- Encabezados y pie de pagina ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small\color{gray}Resumen Clave de Python - Pag. \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+% --- Formato de titulos ---
+\titleformat{\section}
+    {\LARGE\bfseries\color{azuloscuro}}
+    {\thesection.}{0.5em}{}
+    [\vspace{-4pt}{\color{azulclaro}\titlerule[3pt]}]
+
+\titleformat{\subsection}
+    {\large\bfseries\color{azulmedio}}
+    {\thesubsection}{0.5em}{}
+    [\vspace{-4pt}{\color{codeborder}\titlerule[0.5pt]}]
+
+\titleformat{\subsubsection}
+    {\normalsize\bfseries\color{grisoscuro}}
+    {\thesubsubsection}{0.5em}{}
+
+% --- Comando para codigo inline ---
+\newcommand{\py}[1]{\colorbox{inlinebg}{\texttt{\color{inlinefg}#1}}}
+
+% ============================================================
+\begin{document}
+
+% ============================================================
+% PORTADA
+% ============================================================
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay]
+    \fill[left color=azuloscuro, right color=azulclaro]
+        (current page.south west) rectangle (current page.north east);
+\end{tikzpicture}
+
+\vspace*{4cm}
+\begin{center}
+    {\fontsize{60}{70}\selectfont\textcolor{white}{$\boldsymbol{\sim}$\kern-1em\raisebox{2pt}{\scalebox{1.5}{\textbf{>}}}}}\\[12pt]
+    {\Huge\bfseries\textcolor{white}{Resumen Clave de Python}}\\[6pt]
+    {\color{white}\rule{12cm}{1.5pt}}\\[10pt]
+    {\Large\textcolor{white!80}{Basado en el Tutorial Oficial de Python (docs.python.org)}}\\[40pt]
+    {\large\textcolor{white!90}{Academia Bio-Python}}\\[8pt]
+    {\large\textcolor{white!80}{Guia completa de referencia para aprender a programar en Python}}\\[12pt]
+    {\large\textcolor{white!70}{Febrero 2026}}
+\end{center}
+\end{titlepage}
+
+% ============================================================
+% TABLA DE CONTENIDOS
+% ============================================================
+\tableofcontents
+\newpage
+
+% ============================================================
+% CAPITULO 1
+% ============================================================
+\section{Numeros, Texto y Listas}
+
+\subsection{Numeros}
+
+\subsubsection{Tipos numericos}
+
+\begin{tabular}{>{\ttfamily}l l >{\ttfamily}l}
+\toprule
+\textnormal{\textbf{Tipo}} & \textbf{Descripcion} & \textnormal{\textbf{Ejemplo}} \\
+\midrule
+int      & Numeros enteros             & 2, 42, -7 \\
+float    & Numeros con decimales       & 3.14, -0.5 \\
+complex  & Numeros complejos           & 3+5j \\
+Decimal  & Aritmetica decimal precisa  & Decimal('0.1') \\
+Fraction & Numeros racionales          & Fraction(1, 3) \\
+\bottomrule
+\end{tabular}
+
+\subsubsection{Operadores aritmeticos}
+
+\begin{lstlisting}
+2 + 3       # 5    Suma
+10 - 4      # 6    Resta
+3 * 7       # 21   Multiplicacion
+8 / 5       # 1.6  Division (siempre devuelve float)
+17 // 3     # 5    Division entera (descarta decimales)
+17 % 3      # 2    Modulo (resto de la division)
+5 ** 2      # 25   Potencia
+\end{lstlisting}
+
+\subsubsection{Asignacion de variables}
+
+\begin{lstlisting}
+width = 20
+height = 5 * 9
+area = width * height    # 900
+
+# Asignacion multiple
+a, b = 0, 1
+
+# Variable especial _ (ultimo resultado en modo interactivo)
+>>> 100.50 * 0.125
+12.5625
+>>> _ + 100
+112.5625
+\end{lstlisting}
+
+\subsection{Texto (Strings)}
+
+\subsubsection{Creacion de cadenas}
+
+\begin{lstlisting}
+# Comillas simples o dobles
+'hola mundo'
+"hola mundo"
+
+# Escapar comillas
+'doesn\'t'
+"doesn't"
+
+# Cadenas multilinea (triple comillas)
+texto = """Primera linea
+Segunda linea
+Tercera linea"""
+
+# Cadenas crudas (raw) - ignoran secuencias de escape
+print(r'C:\nueva\carpeta')   # C:\nueva\carpeta
+\end{lstlisting}
+
+\subsubsection{Indexacion y rebanado (slicing)}
+
+\begin{lstlisting}
+word = 'Python'
+#  P  y  t  h  o  n
+#  0  1  2  3  4  5   (indices positivos)
+# -6 -5 -4 -3 -2 -1   (indices negativos)
+
+word[0]      # 'P'    primer caracter
+word[-1]     # 'n'    ultimo caracter
+word[0:2]    # 'Py'   del 0 al 2 (excluido)
+word[2:]     # 'thon' del 2 al final
+word[:4]     # 'Pyth' del inicio al 4 (excluido)
+word[-2:]    # 'on'   ultimos 2 caracteres
+\end{lstlisting}
+
+\subsubsection{Operaciones con cadenas}
+
+\begin{lstlisting}
+# Concatenacion
+'Py' + 'thon'         # 'Python'
+3 * 'un' + 'ium'      # 'unununium'
+
+# Literales adyacentes se concatenan automaticamente
+'Py' 'thon'           # 'Python'
+
+# Las cadenas son INMUTABLES
+word[0] = 'J'   # ERROR: TypeError
+
+# Para modificar, crear nueva cadena
+'J' + word[1:]  # 'Jython'
+
+# Longitud
+len('Python')  # 6
+\end{lstlisting}
+
+\subsection{Listas}
+
+\subsubsection{Creacion y operaciones basicas}
+
+\begin{lstlisting}
+squares = [1, 4, 9, 16, 25]
+
+# Indexacion y slicing (igual que strings)
+squares[0]       # 1
+squares[-1]      # 25
+squares[1:3]     # [4, 9]
+
+# Las listas son MUTABLES
+squares[3] = 64  # [1, 4, 9, 64, 25]
+
+# Concatenacion
+squares + [36, 49]  # [1, 4, 9, 64, 25, 36, 49]
+
+# Agregar elementos
+squares.append(36)
+
+# Longitud
+len(squares)     # 6
+
+# Listas anidadas
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matrix[0][1]     # 2
+\end{lstlisting}
+
+\subsubsection{Asignacion por rebanado}
+
+\begin{lstlisting}
+letters = ['a', 'b', 'c', 'd', 'e']
+letters[2:5] = ['C', 'D', 'E']   # reemplazar
+letters[2:5] = []                  # eliminar
+letters[:] = []                    # limpiar toda la lista
+\end{lstlisting}
+
+\begin{warnbox}
+\textbf{Cuidado con referencias:} \py{rgba = rgb} NO copia la lista, ambas apuntan al mismo objeto.
+Para copiar: \py{copia = original[:]} o \py{copia = original.copy()}
+\end{warnbox}
+
+% ============================================================
+% CAPITULO 2
+% ============================================================
+\newpage
+\section{Control de Flujo}
+
+\subsection{Sentencia if / elif / else}
+
+\begin{lstlisting}
+x = int(input("Ingrese un numero: "))
+if x < 0:
+    print('Negativo')
+elif x == 0:
+    print('Cero')
+elif x == 1:
+    print('Uno')
+else:
+    print('Mayor que uno')
+\end{lstlisting}
+
+\begin{tipbox}
+\py{elif} es abreviatura de ``else if''. Puede haber cero o mas bloques \py{elif}. El bloque \py{else} es opcional.
+\end{tipbox}
+
+\subsection{Bucle while}
+
+\begin{lstlisting}
+a, b = 0, 1
+while a < 1000:
+    print(a, end=',')
+    a, b = b, a + b
+# Salida: 0,1,1,2,3,5,8,13,21,34,55,89,...
+\end{lstlisting}
+
+\subsection{Bucle for}
+
+\begin{lstlisting}
+# Iterar sobre una secuencia
+words = ['gato', 'ventana', 'defenestrar']
+for w in words:
+    print(w, len(w))
+
+# NUNCA modificar una coleccion mientras se itera
+# Solucion 1: iterar sobre una copia
+for user, status in users.copy().items():
+    if status == 'inactive':
+        del users[user]
+
+# Solucion 2: crear nueva coleccion
+active = {u: s for u, s in users.items() if s == 'active'}
+\end{lstlisting}
+
+\subsection{La funcion range()}
+
+\begin{lstlisting}
+range(5)            # 0, 1, 2, 3, 4
+range(5, 10)        # 5, 6, 7, 8, 9
+range(0, 10, 3)     # 0, 3, 6, 9
+range(-10, -100, -30)  # -10, -40, -70
+
+# Iterar sobre indices de una secuencia
+a = ['Mary', 'had', 'a', 'little', 'lamb']
+for i in range(len(a)):
+    print(i, a[i])
+
+# Mejor alternativa: enumerate()
+for i, item in enumerate(a):
+    print(i, item)
+
+# Convertir a lista
+list(range(5))  # [0, 1, 2, 3, 4]
+\end{lstlisting}
+
+\subsection{break, continue y else en bucles}
+
+\begin{lstlisting}
+# break: sale del bucle inmediatamente
+# continue: pasa a la siguiente iteracion
+# else en bucle: se ejecuta si NO se uso break
+
+for n in range(2, 10):
+    for x in range(2, n):
+        if n % x == 0:
+            print(f"{n} = {x} * {n//x}")
+            break
+    else:
+        # Se ejecuta si el for termina sin break
+        print(f"{n} es primo")
+\end{lstlisting}
+
+\subsection{Sentencia pass}
+
+\begin{lstlisting}
+# No hace nada, sirve como placeholder
+class MiClaseVacia:
+    pass
+
+def funcion_pendiente():
+    pass   # TODO: implementar
+\end{lstlisting}
+
+\subsection{Sentencia match (Python 3.10+)}
+
+\begin{lstlisting}
+def http_error(status):
+    match status:
+        case 400:
+            return "Bad request"
+        case 404:
+            return "Not found"
+        case 401 | 403:
+            return "Not allowed"
+        case _:             # _ es comodin
+            return "Error desconocido"
+
+# Con tuplas y variables
+match punto:
+    case (0, 0):
+        print("Origen")
+    case (0, y):
+        print(f"Y={y}")
+    case (x, 0):
+        print(f"X={x}")
+    case (x, y):
+        print(f"X={x}, Y={y}")
+
+# Con guardas (if)
+match punto:
+    case Point(x, y) if x == y:
+        print(f"En diagonal en {x}")
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 3
+% ============================================================
+\newpage
+\section{Funciones}
+
+\subsection{Definicion basica}
+
+\begin{lstlisting}
+def fibonacci(n):
+    """Imprime la serie de Fibonacci hasta n."""  # docstring
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a + b
+    print()
+
+fibonacci(2000)
+
+# Las funciones sin return devuelven None
+# Las funciones son objetos de primera clase
+f = fibonacci
+f(100)
+\end{lstlisting}
+
+\subsection{Funciones con retorno}
+
+\begin{lstlisting}
+def fib_lista(n):
+    """Retorna una lista con la serie Fibonacci hasta n."""
+    resultado = []
+    a, b = 0, 1
+    while a < n:
+        resultado.append(a)
+        a, b = b, a + b
+    return resultado
+
+nums = fib_lista(100)  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+\end{lstlisting}
+
+\subsection{Argumentos por defecto}
+
+\begin{lstlisting}
+def preguntar(prompt, reintentos=4, mensaje='Intente de nuevo'):
+    while True:
+        respuesta = input(prompt)
+        if respuesta in {'s', 'si'}:
+            return True
+        if respuesta in {'n', 'no'}:
+            return False
+        reintentos -= 1
+        if reintentos < 0:
+            raise ValueError('Respuesta invalida')
+        print(mensaje)
+\end{lstlisting}
+
+\begin{errorbox}
+\textbf{CUIDADO:} Los valores por defecto se evaluan UNA sola vez (al definir la funcion). Nunca usar mutables como valor por defecto:
+\begin{lstlisting}
+# MAL - la lista se comparte entre llamadas
+def f(a, L=[]):
+    L.append(a)
+    return L
+
+# BIEN - usar None como centinela
+def f(a, L=None):
+    if L is None:
+        L = []
+    L.append(a)
+    return L
+\end{lstlisting}
+\end{errorbox}
+
+\subsection{Argumentos por palabra clave}
+
+\begin{lstlisting}
+def describir(voltaje, estado='rigido', accion='voom'):
+    print(f"Voltaje: {voltaje}, Estado: {estado}, Accion: {accion}")
+
+# Llamadas validas
+describir(1000)
+describir(voltage=1000)
+describir(voltaje=1000, accion='BOOM')
+describir('un millon', estado='inerte')
+
+# Llamadas INVALIDAS
+describir()                      # falta argumento requerido
+describir(voltaje=5.0, 'muerto') # posicional despues de keyword
+describir(110, voltaje=220)      # duplicado
+\end{lstlisting}
+
+\subsection{Parametros especiales: /, *}
+
+\begin{lstlisting}
+def f(solo_pos, /, pos_o_kwd, *, solo_kwd):
+    pass
+#     ----------   ----------   ----------
+#     Solo          Posicional   Solo
+#     posicional    o keyword    keyword
+
+# Ejemplo
+def f(a, b, /, c, d, *, e, f):
+    print(a, b, c, d, e, f)
+
+f(1, 2, 3, d=4, e=5, f=6)       # OK
+f(1, 2, c=3, d=4, e=5, f=6)     # OK
+f(a=1, b=2, c=3, d=4, e=5, f=6) # ERROR: a,b son solo posicionales
+\end{lstlisting}
+
+\subsection{*args y **kwargs}
+
+\begin{lstlisting}
+# *args recoge argumentos posicionales extras en una tupla
+# **kwargs recoge argumentos keyword extras en un diccionario
+
+def funcion(*args, **kwargs):
+    print("Posicionales:", args)
+    print("Keywords:", kwargs)
+
+funcion(1, 2, 3, nombre="Ana", edad=25)
+# Posicionales: (1, 2, 3)
+# Keywords: {'nombre': 'Ana', 'edad': 25}
+
+# Desempaquetado
+args = [3, 6]
+list(range(*args))    # [3, 4, 5]
+
+d = {"voltaje": "1M", "estado": "muerto"}
+describir(**d)
+\end{lstlisting}
+
+\subsection{Expresiones lambda}
+
+\begin{lstlisting}
+# Funciones anonimas de una sola expresion
+cuadrado = lambda x: x ** 2
+suma = lambda a, b: a + b
+
+# Uso comun: como argumento de funciones
+pares = [(1, 'uno'), (2, 'dos'), (3, 'tres')]
+pares.sort(key=lambda par: par[1])  # ordena por segundo elemento
+
+# Como fabrica de funciones
+def incrementador(n):
+    return lambda x: x + n
+f = incrementador(42)
+f(1)  # 43
+\end{lstlisting}
+
+\subsection{Docstrings y anotaciones}
+
+\begin{lstlisting}
+def mi_funcion(nombre: str, edad: int = 0) -> str:
+    """Retorna un saludo personalizado.
+
+    Argumentos:
+        nombre: El nombre de la persona.
+        edad: La edad (opcional).
+    """
+    return f"Hola {nombre}, tienes {edad} anios"
+
+# Acceso al docstring
+print(mi_funcion.__doc__)
+
+# Acceso a las anotaciones
+print(mi_funcion.__annotations__)
+# {'nombre': str, 'edad': int, 'return': str}
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 4
+% ============================================================
+\newpage
+\section{Estructuras de Datos}
+
+\subsection{Metodos de listas}
+
+\begin{tabular}{>{\ttfamily}l l}
+\toprule
+\textnormal{\textbf{Metodo}} & \textbf{Descripcion} \\
+\midrule
+list.append(x)        & Agrega un elemento al final \\
+list.extend(iterable) & Extiende con elementos de un iterable \\
+list.insert(i, x)     & Inserta en la posicion \py{i} \\
+list.remove(x)        & Elimina primera ocurrencia de \py{x} \\
+list.pop([i])         & Elimina y retorna el elemento en \py{i} (ultimo si no se da \py{i}) \\
+list.clear()          & Elimina todos los elementos \\
+list.index(x)         & Indice de la primera ocurrencia de \py{x} \\
+list.count(x)         & Cuenta las ocurrencias de \py{x} \\
+list.sort()           & Ordena la lista in-place \\
+list.reverse()        & Invierte la lista in-place \\
+list.copy()           & Retorna una copia superficial \\
+\bottomrule
+\end{tabular}
+
+\subsubsection{Listas como pilas (LIFO)}
+
+\begin{lstlisting}
+pila = [3, 4, 5]
+pila.append(6)     # apilar
+pila.append(7)
+pila.pop()         # desapilar -> 7
+pila.pop()         # -> 6
+\end{lstlisting}
+
+\subsubsection{Listas como colas (FIFO) - usar deque}
+
+\begin{lstlisting}
+from collections import deque
+cola = deque(["Eric", "John", "Michael"])
+cola.append("Terry")       # llega Terry
+cola.popleft()              # sale Eric
+cola.popleft()              # sale John
+# deque(['Michael', 'Terry'])
+\end{lstlisting}
+
+\subsection{Comprension de listas}
+
+\begin{lstlisting}
+# Sintaxis: [expresion for item in iterable if condicion]
+
+cuadrados = [x**2 for x in range(10)]
+# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# Filtrar
+pares = [x for x in range(20) if x % 2 == 0]
+
+# Combinar dos secuencias
+combos = [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+
+# Aplicar funciones
+limpio = [s.strip() for s in ['  banana', ' fresa  ']]
+
+# Aplanar lista de listas
+flat = [n for fila in [[1,2],[3,4],[5,6]] for n in fila]
+# [1, 2, 3, 4, 5, 6]
+
+# Comprension anidada (transponer matriz)
+matrix = [[1,2,3], [4,5,6], [7,8,9]]
+transpuesta = [[fila[i] for fila in matrix] for i in range(3)]
+# Mejor alternativa: list(zip(*matrix))
+\end{lstlisting}
+
+\subsection{La sentencia del}
+
+\begin{lstlisting}
+a = [1, 2, 3, 4, 5]
+del a[0]        # elimina por indice
+del a[1:3]      # elimina rebanado
+del a[:]        # limpia la lista
+del a           # elimina la variable
+\end{lstlisting}
+
+\subsection{Tuplas}
+
+\begin{lstlisting}
+# Inmutables, pueden contener elementos heterogeneos
+t = 12345, 54321, 'hola'
+t[0]         # 12345
+# t[0] = 0  # ERROR: las tuplas son inmutables
+
+# Pero pueden contener objetos mutables
+v = ([1, 2], [3, 4])
+
+# Tupla vacia y de un elemento
+vacia = ()
+singleton = ('hola',)   # nota la coma final
+
+# Empaquetado y desempaquetado
+t = 1, 2, 3             # empaquetado
+x, y, z = t             # desempaquetado
+\end{lstlisting}
+
+\subsection{Conjuntos (Sets)}
+
+\begin{lstlisting}
+# Coleccion sin duplicados, no ordenada
+canasta = {'manzana', 'naranja', 'manzana', 'pera'}
+# {'manzana', 'naranja', 'pera'}
+
+# Conjunto vacio: set() (NO {}, eso es un dict vacio)
+vacio = set()
+
+# Pertenencia
+'naranja' in canasta    # True
+
+# Operaciones matematicas
+a = set('abracadabra')   # {'a', 'b', 'c', 'd', 'r'}
+b = set('alacazam')      # {'a', 'c', 'l', 'm', 'z'}
+
+a - b    # Diferencia:    {'b', 'd', 'r'}
+a | b    # Union:         {'a', 'b', 'c', 'd', 'l', 'm', 'r', 'z'}
+a & b    # Interseccion:  {'a', 'c'}
+a ^ b    # Diferencia simetrica: {'b', 'd', 'l', 'm', 'r', 'z'}
+
+# Comprension de conjuntos
+{x for x in 'abracadabra' if x not in 'abc'}  # {'d', 'r'}
+\end{lstlisting}
+
+\subsection{Diccionarios}
+
+\begin{lstlisting}
+# Pares clave:valor. Claves deben ser inmutables.
+tel = {'jack': 4098, 'sape': 4139}
+
+tel['guido'] = 4127       # agregar
+tel['jack']               # acceder -> 4098
+del tel['sape']           # eliminar
+list(tel)                 # lista de claves
+sorted(tel)               # claves ordenadas
+'guido' in tel            # True
+
+# Crear desde secuencia de pares
+dict([('a', 1), ('b', 2)])
+
+# Comprension de diccionarios
+{x: x**2 for x in (2, 4, 6)}  # {2: 4, 4: 16, 6: 36}
+
+# Con argumentos keyword
+dict(uno=1, dos=2, tres=3)
+\end{lstlisting}
+
+\subsection{Tecnicas de iteracion}
+
+\begin{lstlisting}
+# items() - clave y valor de diccionarios
+for k, v in diccionario.items():
+    print(k, v)
+
+# enumerate() - indice y valor
+for i, v in enumerate(['a', 'b', 'c']):
+    print(i, v)   # 0 a, 1 b, 2 c
+
+# zip() - emparejar secuencias
+preguntas = ['nombre', 'color']
+respuestas = ['Lancelot', 'azul']
+for p, r in zip(preguntas, respuestas):
+    print(f'{p}: {r}')
+
+# reversed() - iterar en reversa
+for i in reversed(range(1, 10, 2)):
+    print(i)   # 9, 7, 5, 3, 1
+
+# sorted() - iterar ordenado (no modifica original)
+for f in sorted(set(canasta)):
+    print(f)
+\end{lstlisting}
+
+\subsection{Operadores de comparacion y logicos}
+
+\begin{tabular}{>{\ttfamily}l l}
+\toprule
+\textnormal{\textbf{Operador}} & \textbf{Descripcion} \\
+\midrule
+in, not in   & Pertenencia en secuencias \\
+is, is not   & Identidad de objetos \\
+not, and, or & Operadores booleanos (prioridad: not > and > or) \\
+:=           & Operador morsa (asignacion en expresion, Python 3.8+) \\
+\bottomrule
+\end{tabular}
+
+\begin{lstlisting}
+# Comparaciones encadenadas
+a < b == c   # equivale a: (a < b) and (b == c)
+
+# Evaluacion de cortocircuito
+non_null = '' or 'Trondheim' or 'Hammer'  # 'Trondheim'
+
+# Operador morsa
+if (n := len(lista)) > 10:
+    print(f"Lista muy larga ({n} elementos)")
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 5
+% ============================================================
+\newpage
+\section{Modulos y Paquetes}
+
+\subsection{Modulos}
+
+\begin{lstlisting}
+# Un modulo es un archivo .py con definiciones
+
+# --- fibo.py ---
+def fib(n):
+    """Imprime serie Fibonacci hasta n."""
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a + b
+    print()
+
+def fib2(n):
+    """Retorna lista Fibonacci hasta n."""
+    resultado = []
+    a, b = 0, 1
+    while a < n:
+        resultado.append(a)
+        a, b = b, a + b
+    return resultado
+\end{lstlisting}
+
+\subsection{Formas de importar}
+
+\begin{lstlisting}
+# Importar modulo completo
+import fibo
+fibo.fib(1000)
+
+# Importar nombres especificos
+from fibo import fib, fib2
+fib(500)
+
+# Importar con alias
+import fibo as f
+f.fib(500)
+
+from fibo import fib as fibonacci
+fibonacci(500)
+
+# Importar todo (NO recomendado en produccion)
+from fibo import *
+\end{lstlisting}
+
+\subsection{Ejecutar modulos como scripts}
+
+\begin{lstlisting}
+# Patron comun para modulos ejecutables
+if __name__ == "__main__":
+    import sys
+    fib(int(sys.argv[1]))
+
+# Uso: python fibo.py 50
+# Al importar, este codigo NO se ejecuta
+\end{lstlisting}
+
+\subsection{Ruta de busqueda de modulos}
+
+\begin{lstlisting}
+import sys
+print(sys.path)
+# 1. Directorio del script actual
+# 2. PYTHONPATH (variable de entorno)
+# 3. Directorio de instalacion por defecto
+
+# Agregar rutas personalizadas
+sys.path.append('/ruta/a/mis/modulos')
+\end{lstlisting}
+
+\subsection{Paquetes}
+
+\begin{lstlisting}
+# Estructura de paquetes:
+# sonido/
+#     __init__.py            (inicializa el paquete)
+#     formatos/
+#         __init__.py
+#         wavread.py
+#         mp3read.py
+#     efectos/
+#         __init__.py
+#         eco.py
+#         reverb.py
+
+# Importar desde paquetes
+import sonido.efectos.eco
+sonido.efectos.eco.aplicar_eco(audio)
+
+from sonido.efectos import eco
+eco.aplicar_eco(audio)
+
+from sonido.efectos.eco import aplicar_eco
+aplicar_eco(audio)
+
+# Importaciones relativas
+from . import eco               # paquete actual
+from .. import formatos         # paquete padre
+from ..formatos import wavread  # desde paquete hermano
+\end{lstlisting}
+
+\subsection{La funcion dir()}
+
+\begin{lstlisting}
+import fibo
+dir(fibo)     # ['__name__', 'fib', 'fib2']
+
+# Sin argumentos: nombres definidos actualmente
+dir()         # ['__builtins__', '__name__', 'fibo', ...]
+
+# Ver funciones integradas
+import builtins
+dir(builtins)
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 6
+% ============================================================
+\newpage
+\section{Entrada y Salida}
+
+\subsection{F-strings (cadenas formateadas)}
+
+\begin{lstlisting}
+nombre = "Ana"
+edad = 25
+import math
+
+# Basico
+f'Hola {nombre}, tienes {edad} anos'
+
+# Con formato numerico
+f'Pi es aproximadamente {math.pi:.3f}'       # 3.142
+f'Pi es aproximadamente {math.pi:10.3f}'     # '     3.142'
+
+# Alineacion y ancho
+f'{"Nombre":10} {"Telefono":>10}'
+f'{"Ana":10} {4098:10d}'
+
+# Conversiones
+f'{animal!r}'     # repr()
+f'{animal!s}'     # str()
+f'{animal!a}'     # ascii()
+
+# Autodocumentacion (Python 3.8+)
+f'{nombre=} {edad=}'   # "nombre='Ana' edad=25"
+\end{lstlisting}
+
+\subsection{str.format()}
+
+\begin{lstlisting}
+# Posicional
+'{0} y {1}'.format('spam', 'huevos')
+
+# Por nombre
+'Esto es {comida}'.format(comida='spam')
+
+# Con diccionarios
+tabla = {'Ana': 4127, 'Juan': 4098}
+'Ana: {Ana:d}; Juan: {Juan:d}'.format(**tabla)
+
+# Tabla formateada
+for x in range(1, 11):
+    print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+\end{lstlisting}
+
+\subsection{Formateo manual}
+
+\begin{lstlisting}
+str.rjust(ancho)     # alinear a la derecha
+str.ljust(ancho)     # alinear a la izquierda
+str.center(ancho)    # centrar
+str.zfill(ancho)     # rellenar con ceros
+
+'12'.zfill(5)        # '00012'
+'-3.14'.zfill(7)     # '-003.14'
+\end{lstlisting}
+
+\subsection{Lectura y escritura de archivos}
+
+\begin{lstlisting}
+# SIEMPRE usar 'with' (cierra automaticamente el archivo)
+with open('archivo.txt', 'r', encoding='utf-8') as f:
+    contenido = f.read()
+
+# Modos de apertura
+'r'   # lectura (defecto)
+'w'   # escritura (sobreescribe)
+'a'   # agregar al final
+'r+'  # lectura y escritura
+'rb'  # lectura binaria
+'wb'  # escritura binaria
+\end{lstlisting}
+
+\subsubsection{Metodos de archivos}
+
+\begin{lstlisting}
+# Leer todo el contenido
+f.read()             # retorna string completo
+f.read(10)           # retorna 10 caracteres
+
+# Leer linea por linea
+f.readline()         # una linea (incluye \n)
+
+# Leer todas las lineas
+f.readlines()        # retorna lista de lineas
+
+# Iterar linea por linea (eficiente en memoria)
+for linea in f:
+    print(linea, end='')
+
+# Escribir
+f.write('Hola mundo\n')    # retorna num de caracteres escritos
+
+# Posicion en archivo
+f.tell()             # posicion actual
+f.seek(0)            # ir al inicio
+f.seek(5)            # ir al byte 5
+\end{lstlisting}
+
+\subsection{JSON}
+
+\begin{lstlisting}
+import json
+
+# Serializar a string JSON
+datos = [1, 'simple', 'lista']
+json_str = json.dumps(datos)   # '[1, "simple", "lista"]'
+
+# Deserializar desde string JSON
+obj = json.loads('{"clave": "valor"}')
+
+# Guardar en archivo
+with open('datos.json', 'w', encoding='utf-8') as f:
+    json.dump(datos, f)
+
+# Leer desde archivo
+with open('datos.json', 'r', encoding='utf-8') as f:
+    datos = json.load(f)
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 7
+% ============================================================
+\newpage
+\section{Errores y Excepciones}
+
+\subsection{Tipos de errores}
+
+\begin{tabular}{>{\ttfamily}l l}
+\toprule
+\textnormal{\textbf{Tipo}} & \textbf{Causa} \\
+\midrule
+SyntaxError        & Error de sintaxis (detectado al parsear) \\
+NameError          & Variable no definida \\
+TypeError          & Operacion con tipo incorrecto \\
+ValueError         & Valor inapropiado para el tipo \\
+ZeroDivisionError  & Division por cero \\
+IndexError         & Indice fuera de rango \\
+KeyError           & Clave no encontrada en diccionario \\
+FileNotFoundError  & Archivo no encontrado \\
+ImportError        & Error al importar modulo \\
+AttributeError     & Atributo no encontrado \\
+IOError / OSError  & Error de entrada/salida \\
+\bottomrule
+\end{tabular}
+
+\subsection{try / except / else / finally}
+
+\begin{lstlisting}
+try:
+    # Codigo que puede generar excepcion
+    x = int(input("Numero: "))
+    resultado = 10 / x
+except ValueError:
+    # Se ejecuta si hay ValueError
+    print("No es un numero valido")
+except ZeroDivisionError:
+    # Se ejecuta si hay ZeroDivisionError
+    print("No se puede dividir por cero")
+except (RuntimeError, TypeError) as e:
+    # Multiples excepciones + acceso al error
+    print(f"Error: {e}")
+else:
+    # Se ejecuta si NO hubo excepcion
+    print(f"Resultado: {resultado}")
+finally:
+    # Se ejecuta SIEMPRE (ideal para limpieza)
+    print("Operacion terminada")
+\end{lstlisting}
+
+\subsection{Lanzar excepciones}
+
+\begin{lstlisting}
+# raise lanza una excepcion
+raise ValueError("Valor invalido")
+
+# Re-lanzar la excepcion actual
+try:
+    algo()
+except Exception:
+    print("Ocurrio un error")
+    raise   # re-lanza la misma excepcion
+\end{lstlisting}
+
+\subsection{Encadenamiento de excepciones}
+
+\begin{lstlisting}
+# Encadenamiento explicito con 'from'
+try:
+    conectar()
+except ConnectionError as exc:
+    raise RuntimeError('Fallo la conexion') from exc
+
+# Desactivar encadenamiento automatico
+raise RuntimeError('Error') from None
+\end{lstlisting}
+
+\subsection{Excepciones personalizadas}
+
+\begin{lstlisting}
+class MiError(Exception):
+    """Excepcion personalizada para mi aplicacion."""
+    pass
+
+class ErrorDeValidacion(Exception):
+    def __init__(self, mensaje, campo):
+        self.mensaje = mensaje
+        self.campo = campo
+        super().__init__(self.mensaje)
+
+# Uso
+raise ErrorDeValidacion("Campo requerido", "nombre")
+\end{lstlisting}
+
+\subsection{Sentencia with (limpieza predefinida)}
+
+\begin{lstlisting}
+# Garantiza limpieza automatica de recursos
+with open("archivo.txt") as f:
+    for linea in f:
+        print(linea, end="")
+# El archivo se cierra automaticamente, incluso si hay error
+\end{lstlisting}
+
+\subsection{Grupos de excepciones (Python 3.11+)}
+
+\begin{lstlisting}
+# ExceptionGroup agrupa multiples excepciones
+def f():
+    raise ExceptionGroup('errores', [
+        OSError('error 1'),
+        SystemError('error 2')
+    ])
+
+# except* maneja tipos especificos dentro del grupo
+try:
+    f()
+except* OSError as e:
+    print("Errores de OS")
+except* SystemError as e:
+    print("Errores de sistema")
+
+# Agregar notas a excepciones
+try:
+    raise TypeError('tipo malo')
+except Exception as e:
+    e.add_note('Informacion adicional')
+    raise
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 8
+% ============================================================
+\newpage
+\section{Clases y POO}
+
+\subsection{Ambitos y espacios de nombres (LEGB)}
+
+\begin{lstlisting}
+# Python busca nombres en este orden:
+# L - Local (funcion actual)
+# E - Enclosing (funciones externas)
+# G - Global (modulo)
+# B - Built-in (funciones integradas)
+
+x = "global"
+
+def externa():
+    x = "enclosing"
+    def interna():
+        x = "local"
+        print(x)          # "local"
+    interna()
+
+# nonlocal modifica variable de funcion externa
+def externa():
+    x = "enclosing"
+    def interna():
+        nonlocal x
+        x = "modificado"
+    interna()
+    print(x)   # "modificado"
+
+# global modifica variable del modulo
+def funcion():
+    global x
+    x = "global modificado"
+\end{lstlisting}
+
+\subsection{Definicion de clases}
+
+\begin{lstlisting}
+class MiClase:
+    """Documentacion de la clase."""
+
+    # Variable de clase (compartida por todas las instancias)
+    contador = 0
+
+    def __init__(self, nombre, edad):
+        # Variables de instancia (unicas por instancia)
+        self.nombre = nombre
+        self.edad = edad
+        MiClase.contador += 1
+
+    def saludar(self):
+        return f"Hola, soy {self.nombre}"
+
+    def __str__(self):
+        return f"MiClase({self.nombre}, {self.edad})"
+
+# Crear instancias
+a = MiClase("Ana", 25)
+b = MiClase("Bob", 30)
+print(a.saludar())      # "Hola, soy Ana"
+print(MiClase.contador)  # 2
+\end{lstlisting}
+
+\begin{errorbox}
+\textbf{Error comun:} Variables de clase mutables se comparten entre instancias:
+\begin{lstlisting}
+# MAL - lista compartida
+class Perro:
+    trucos = []  # compartida!
+    def agregar(self, truco):
+        self.trucos.append(truco)
+
+# BIEN - lista por instancia
+class Perro:
+    def __init__(self, nombre):
+        self.trucos = []  # unica por instancia
+    def agregar(self, truco):
+        self.trucos.append(truco)
+\end{lstlisting}
+\end{errorbox}
+
+\subsection{Herencia}
+
+\begin{lstlisting}
+class Animal:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def hablar(self):
+        raise NotImplementedError
+
+class Perro(Animal):
+    def hablar(self):
+        return f"{self.nombre} dice Guau!"
+
+class Gato(Animal):
+    def hablar(self):
+        return f"{self.nombre} dice Miau!"
+
+# Polimorfismo
+animales = [Perro("Rex"), Gato("Misi")]
+for a in animales:
+    print(a.hablar())
+
+# Verificar tipos
+isinstance(rex, Perro)      # True
+isinstance(rex, Animal)     # True
+issubclass(Perro, Animal)   # True
+\end{lstlisting}
+
+\subsection{Herencia multiple}
+
+\begin{lstlisting}
+class Base1:
+    def metodo(self):
+        print("Base1")
+
+class Base2:
+    def metodo(self):
+        print("Base2")
+
+class Derivada(Base1, Base2):
+    pass
+
+d = Derivada()
+d.metodo()      # "Base1" (busqueda izquierda-derecha)
+
+# super() para herencia cooperativa
+class D(Base1, Base2):
+    def metodo(self):
+        super().metodo()  # sigue el MRO
+\end{lstlisting}
+
+\subsection{Variables privadas}
+
+\begin{lstlisting}
+# Convencion: _ indica "uso interno"
+class MiClase:
+    def __init__(self):
+        self._protegido = 1     # convencion, accesible
+        self.__privado = 2      # name mangling -> _MiClase__privado
+
+# __nombre se transforma a _Clase__nombre
+# Previene colisiones accidentales en subclases
+\end{lstlisting}
+
+\subsection{Iteradores}
+
+\begin{lstlisting}
+# Protocolo: __iter__() retorna objeto con __next__()
+
+class Reversa:
+    def __init__(self, datos):
+        self.datos = datos
+        self.indice = len(datos)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.indice == 0:
+            raise StopIteration
+        self.indice -= 1
+        return self.datos[self.indice]
+
+for c in Reversa('spam'):
+    print(c)   # m, a, p, s
+\end{lstlisting}
+
+\subsection{Generadores}
+
+\begin{lstlisting}
+# Funciones que usan yield (crean iteradores automaticamente)
+def reversa(datos):
+    for i in range(len(datos)-1, -1, -1):
+        yield datos[i]
+
+for c in reversa('golf'):
+    print(c)   # f, l, o, g
+
+# Expresiones generadoras (como list comprehension con parentesis)
+sum(i*i for i in range(10))        # 285
+max(student.gpa for student in graduates)
+\end{lstlisting}
+
+\subsection{Dataclasses}
+
+\begin{lstlisting}
+from dataclasses import dataclass
+
+@dataclass
+class Empleado:
+    nombre: str
+    departamento: str
+    salario: int
+
+juan = Empleado('Juan', 'TI', 50000)
+print(juan.nombre)       # 'Juan'
+print(juan.salario)      # 50000
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 9
+% ============================================================
+\newpage
+\section{Biblioteca Estandar -- Parte I}
+
+\subsection{os -- Interfaz del sistema operativo}
+
+\begin{lstlisting}
+import os
+os.getcwd()              # directorio actual
+os.chdir('/ruta')        # cambiar directorio
+os.system('mkdir nueva') # ejecutar comando del sistema
+
+import shutil
+shutil.copyfile('origen.txt', 'destino.txt')
+shutil.move('/origen', '/destino')
+\end{lstlisting}
+
+\subsection{glob -- Comodines de archivos}
+
+\begin{lstlisting}
+import glob
+glob.glob('*.py')        # ['main.py', 'utils.py', ...]
+glob.glob('**/*.py', recursive=True)  # busqueda recursiva
+\end{lstlisting}
+
+\subsection{sys -- Parametros del sistema}
+
+\begin{lstlisting}
+import sys
+sys.argv          # argumentos de linea de comandos
+sys.stdin         # entrada estandar
+sys.stdout        # salida estandar
+sys.stderr        # salida de errores
+sys.path          # ruta de busqueda de modulos
+sys.exit()        # terminar el programa
+\end{lstlisting}
+
+\subsection{argparse -- Procesamiento de argumentos}
+
+\begin{lstlisting}
+import argparse
+parser = argparse.ArgumentParser(description='Mi programa')
+parser.add_argument('archivo', help='Archivo de entrada')
+parser.add_argument('-n', '--lineas', type=int, default=10)
+args = parser.parse_args()
+print(args.archivo, args.lineas)
+\end{lstlisting}
+
+\subsection{re -- Expresiones regulares}
+
+\begin{lstlisting}
+import re
+re.findall(r'\bf[a-z]*', 'foot fell fastest')
+# ['foot', 'fell', 'fastest']
+
+re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
+# 'cat in the hat'
+
+# Para operaciones simples, preferir metodos de string
+'tea for too'.replace('too', 'two')
+\end{lstlisting}
+
+\subsection{math -- Funciones matematicas}
+
+\begin{lstlisting}
+import math
+math.pi              # 3.141592653589793
+math.e               # 2.718281828459045
+math.cos(math.pi/4)  # 0.7071067811865476
+math.log(1024, 2)    # 10.0
+math.sqrt(16)        # 4.0
+math.factorial(5)    # 120
+math.gcd(12, 8)      # 4
+\end{lstlisting}
+
+\subsection{random -- Numeros aleatorios}
+
+\begin{lstlisting}
+import random
+random.choice(['a', 'b', 'c'])       # elemento aleatorio
+random.sample(range(100), 10)         # 10 elementos sin repetir
+random.random()                       # float en [0.0, 1.0)
+random.randrange(6)                   # entero en range(6)
+random.shuffle(lista)                 # mezclar lista in-place
+random.randint(1, 100)               # entero entre 1 y 100
+\end{lstlisting}
+
+\subsection{statistics -- Estadisticas basicas}
+
+\begin{lstlisting}
+import statistics
+datos = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
+statistics.mean(datos)      # media: 1.607...
+statistics.median(datos)    # mediana: 1.25
+statistics.variance(datos)  # varianza: 1.372...
+statistics.stdev(datos)     # desviacion estandar
+\end{lstlisting}
+
+\subsection{datetime -- Fechas y tiempos}
+
+\begin{lstlisting}
+from datetime import date, datetime, timedelta
+
+hoy = date.today()
+hoy.strftime("%d/%m/%Y")    # '02/02/2026'
+
+nacimiento = date(1990, 5, 15)
+edad = hoy - nacimiento
+print(edad.days)              # dias vividos
+
+# Operaciones con tiempo
+manana = hoy + timedelta(days=1)
+\end{lstlisting}
+
+\subsection{zlib -- Compresion de datos}
+
+\begin{lstlisting}
+import zlib
+s = b'datos repetidos repetidos repetidos'
+comprimido = zlib.compress(s)
+len(s)           # 37
+len(comprimido)  # mas pequeno
+zlib.decompress(comprimido)  # datos originales
+\end{lstlisting}
+
+\subsection{timeit -- Medicion de rendimiento}
+
+\begin{lstlisting}
+from timeit import Timer
+Timer('a,b = b,a', 'a=1; b=2').timeit()
+# Mide tiempo de ejecucion
+\end{lstlisting}
+
+\subsection{doctest y unittest -- Control de calidad}
+
+\begin{lstlisting}
+# doctest - pruebas en docstrings
+def promedio(valores):
+    """Calcula el promedio.
+
+    >>> promedio([20, 30, 70])
+    40.0
+    """
+    return sum(valores) / len(valores)
+
+import doctest
+doctest.testmod()
+
+# unittest - suite de pruebas completa
+import unittest
+
+class TestPromedio(unittest.TestCase):
+    def test_basico(self):
+        self.assertEqual(promedio([20, 30, 70]), 40.0)
+
+    def test_division_cero(self):
+        with self.assertRaises(ZeroDivisionError):
+            promedio([])
+
+unittest.main()
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 10
+% ============================================================
+\newpage
+\section{Biblioteca Estandar -- Parte II}
+
+\subsection{Formato de salida avanzado}
+
+\begin{lstlisting}
+# reprlib - representaciones abreviadas
+import reprlib
+reprlib.repr(set('supercalifragilistic'))
+# "{'a', 'c', 'f', 'g', 'i', ...}"
+
+# pprint - impresion elegante
+import pprint
+pprint.pprint(datos_complejos, width=40)
+
+# textwrap - ajuste de texto
+import textwrap
+print(textwrap.fill(texto_largo, width=60))
+
+# locale - formato regional de numeros
+import locale
+locale.format_string("%d", 1234567, grouping=True)
+# '1,234,567'
+\end{lstlisting}
+
+\subsection{Plantillas de texto}
+
+\begin{lstlisting}
+from string import Template
+t = Template('$quien le envio $$10 a $destino')
+t.substitute(quien='Ana', destino='Juan')
+# 'Ana le envio $10 a Juan'
+
+# safe_substitute no lanza error si falta un valor
+t.safe_substitute(quien='Ana')
+# 'Ana le envio $10 a $destino'
+\end{lstlisting}
+
+\subsection{struct -- Datos binarios}
+
+\begin{lstlisting}
+import struct
+# pack/unpack para formatos binarios
+# '<' = little-endian, 'H' = unsigned short, 'I' = unsigned int
+campos = struct.unpack('<IIIHH', datos_binarios)
+\end{lstlisting}
+
+\subsection{threading -- Multi-hilos}
+
+\begin{lstlisting}
+import threading
+
+class MiHilo(threading.Thread):
+    def __init__(self, archivo):
+        threading.Thread.__init__(self)
+        self.archivo = archivo
+
+    def run(self):
+        # Tarea en segundo plano
+        procesar(self.archivo)
+
+hilo = MiHilo('datos.txt')
+hilo.start()          # iniciar hilo
+hilo.join()           # esperar a que termine
+\end{lstlisting}
+
+\begin{tipbox}
+\textbf{Recomendacion:} Usar el modulo \py{queue} para comunicacion entre hilos. Concentrar acceso a recursos en un solo hilo.
+\end{tipbox}
+
+\subsection{logging -- Registro de eventos}
+
+\begin{lstlisting}
+import logging
+
+# Niveles: DEBUG, INFO, WARNING, ERROR, CRITICAL
+logging.debug('Informacion de depuracion')
+logging.info('Mensaje informativo')
+logging.warning('Advertencia: %s no encontrado', 'config')
+logging.error('Error ocurrido')
+logging.critical('Error critico')
+# Por defecto solo se muestran WARNING y superiores
+\end{lstlisting}
+
+\subsection{Herramientas para listas}
+
+\begin{lstlisting}
+# array - listas homogeneas compactas
+from array import array
+a = array('H', [4000, 10, 700])   # unsigned short
+
+# collections.deque - cola de doble extremo
+from collections import deque
+d = deque(["t1", "t2", "t3"])
+d.append("t4")
+d.popleft()              # 't1'
+
+# bisect - busqueda binaria en listas ordenadas
+import bisect
+bisect.insort(lista_ordenada, nuevo_elemento)
+
+# heapq - heap (cola de prioridad)
+from heapq import heapify, heappush, heappop
+datos = [5, 3, 8, 1]
+heapify(datos)           # [1, 3, 8, 5]
+heappush(datos, 2)
+heappop(datos)           # 1 (siempre el menor)
+\end{lstlisting}
+
+\subsection{decimal -- Aritmetica decimal precisa}
+
+\begin{lstlisting}
+from decimal import Decimal, getcontext
+
+# Precision exacta para finanzas
+round(Decimal('0.70') * Decimal('1.05'), 2)  # Decimal('0.74')
+round(0.70 * 1.05, 2)                         # 0.73 (impreciso!)
+
+# Comparaciones exactas
+sum([Decimal('0.1')] * 10) == Decimal('1.0')  # True
+0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 == 1.0  # False
+
+# Precision arbitraria
+getcontext().prec = 36
+Decimal(1) / Decimal(7)
+# Decimal('0.142857142857142857142857142857142857')
+\end{lstlisting}
+
+% ============================================================
+% CAPITULO 11
+% ============================================================
+\newpage
+\section{Entornos Virtuales y Gestion de Paquetes}
+
+\subsection{Por que usar entornos virtuales}
+
+Los entornos virtuales resuelven conflictos de dependencias permitiendo que cada proyecto tenga sus propias versiones de paquetes aisladas del sistema global.
+
+\subsection{Crear y activar entornos virtuales}
+
+\begin{lstlisting}[style=bashstyle]
+# Crear entorno virtual
+python -m venv mi_entorno
+python -m venv .venv         # convencion: .venv
+
+# Activar
+# Linux/macOS:
+source mi_entorno/bin/activate
+
+# Windows:
+mi_entorno\Scripts\activate
+
+# El prompt cambia para indicar el entorno activo:
+# (mi_entorno) $
+
+# Desactivar
+deactivate
+\end{lstlisting}
+
+\subsection{Gestion de paquetes con pip}
+
+\begin{lstlisting}[style=bashstyle]
+# Instalar paquete (ultima version)
+pip install requests
+
+# Instalar version especifica
+pip install requests==2.28.0
+
+# Actualizar paquete
+pip install --upgrade requests
+
+# Desinstalar
+pip uninstall requests
+
+# Ver informacion de un paquete
+pip show requests
+
+# Listar paquetes instalados
+pip list
+
+# Exportar dependencias a archivo
+pip freeze > requirements.txt
+
+# Instalar desde archivo de dependencias
+pip install -r requirements.txt
+\end{lstlisting}
+
+\begin{tipbox}
+\textbf{Buena practica:} Incluir \py{requirements.txt} en el control de versiones para reproducir el entorno facilmente.
+\end{tipbox}
+
+% ============================================================
+% CAPITULO 12
+% ============================================================
+\newpage
+\section{Guia de Estilo PEP 8}
+
+\begin{tabular}{l l}
+\toprule
+\textbf{Regla} & \textbf{Ejemplo} \\
+\midrule
+Indentacion: 4 espacios & \texttt{if True: hacer\_algo()} \\
+Longitud maxima de linea: 79 caracteres & Usar parentesis para continuar lineas \\
+Lineas en blanco: separar funciones y clases & 2 lineas entre funciones de nivel superior \\
+Imports al inicio del archivo & Un import por linea \\
+Espacios alrededor de operadores & \texttt{a = f(1, 2) + g(3)} \\
+Clases: NotacionCamelCase & \texttt{class MiClase:} \\
+Funciones/variables: snake\_case & \texttt{def mi\_funcion():} \\
+Constantes: MAYUSCULAS & \texttt{MAX\_INTENTOS = 5} \\
+Primer argumento de metodo: self & \texttt{def metodo(self):} \\
+Codificacion: UTF-8 & Predeterminado en Python 3 \\
+Docstrings: usar siempre & \texttt{"""Descripcion breve."""} \\
+Comparar con None usando is & \texttt{if x is None:} \\
+\bottomrule
+\end{tabular}
+
+\subsubsection{Orden de imports}
+
+\begin{lstlisting}
+# 1. Modulos de la biblioteca estandar
+import os
+import sys
+
+# 2. Modulos de terceros
+import requests
+import numpy
+
+# 3. Modulos locales/del proyecto
+from mi_paquete import mi_modulo
+\end{lstlisting}
+
+% ============================================================
+% REFERENCIA RAPIDA
+% ============================================================
+\newpage
+\section*{Referencia Rapida -- Cheat Sheet}
+\addcontentsline{toc}{section}{Referencia Rapida -- Cheat Sheet}
+
+\subsection*{Tipos de datos fundamentales}
+
+\begin{tabular}{>{\ttfamily}l >{\ttfamily}l c c}
+\toprule
+\textnormal{\textbf{Tipo}} & \textnormal{\textbf{Ejemplo}} & \textbf{Mutable} & \textbf{Ordenado} \\
+\midrule
+int      & 42           & No & N/A \\
+float    & 3.14         & No & N/A \\
+str      & "hola"       & No & Si \\
+bool     & True, False  & No & N/A \\
+list     & [1, 2, 3]    & Si & Si \\
+tuple    & (1, 2, 3)    & No & Si \\
+set      & \{1, 2, 3\}  & Si & No \\
+dict     & \{"a": 1\}   & Si & Insercion \\
+NoneType & None         & No & N/A \\
+\bottomrule
+\end{tabular}
+
+\subsection*{Operadores}
+
+\begin{multicols}{2}
+\begin{tabular}{>{\ttfamily}l l}
+\toprule
+\multicolumn{2}{c}{\textbf{Aritmeticos}} \\
+\midrule
++, -, *, / & Basicos \\
+//         & Division entera \\
+\%         & Modulo \\
+**         & Potencia \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{>{\ttfamily}l l}
+\toprule
+\multicolumn{2}{c}{\textbf{Comparacion}} \\
+\midrule
+==, !=       & Igualdad \\
+<, >, <=, >= & Orden \\
+is, is not   & Identidad \\
+in, not in   & Pertenencia \\
+\bottomrule
+\end{tabular}
+\end{multicols}
+
+\subsection*{Funciones integradas mas usadas}
+
+\begin{tabular}{>{\ttfamily}l l}
+\toprule
+\textnormal{\textbf{Funcion}} & \textbf{Descripcion} \\
+\midrule
+print()                          & Imprimir en consola \\
+input()                          & Leer entrada del usuario \\
+len()                            & Longitud de secuencia \\
+type()                           & Tipo del objeto \\
+int(), float(), str()            & Conversion de tipos \\
+list(), tuple(), set(), dict()   & Crear colecciones \\
+range()                          & Generar secuencia numerica \\
+enumerate()                      & Indice + valor en iteracion \\
+zip()                            & Emparejar secuencias \\
+map(), filter()                  & Aplicar/filtrar con funcion \\
+sorted()                         & Retornar lista ordenada \\
+reversed()                       & Iterador invertido \\
+sum(), min(), max()              & Operaciones agregadas \\
+abs(), round()                   & Valor absoluto, redondeo \\
+isinstance()                     & Verificar tipo de instancia \\
+hasattr(), getattr()             & Verificar/obtener atributos \\
+open()                           & Abrir archivos \\
+help()                           & Ayuda interactiva \\
+dir()                            & Listar atributos de objeto \\
+\bottomrule
+\end{tabular}
+
+\subsection*{Patrones comunes}
+
+\begin{lstlisting}
+# Intercambio de variables
+a, b = b, a
+
+# Operador ternario
+x = "par" if n % 2 == 0 else "impar"
+
+# Comprension de listas con condicion
+pares = [x for x in range(20) if x % 2 == 0]
+
+# Comprension de diccionarios
+cuadrados = {x: x**2 for x in range(6)}
+
+# Abrir archivo con with
+with open('archivo.txt', 'r') as f:
+    contenido = f.read()
+
+# Main guard
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+% ============================================================
+% PIE
+% ============================================================
+\vfill
+\begin{center}
+\rule{8cm}{0.5pt}\\[6pt]
+{\small\textbf{Fuente:} Tutorial Oficial de Python -- \url{https://docs.python.org/es/3/tutorial/}}\\[4pt]
+{\small Generado para Academia Bio-Python -- Febrero 2026}
+\end{center}
+
+\end{document}

@@ -1,0 +1,100 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Numeros, Texto y Listas}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Numeros}{4}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Tipos numericos}{4}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Operadores aritmeticos}{4}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Asignacion de variables}{4}{subsubsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Texto (Strings)}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Creacion de cadenas}{4}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Indexacion y rebanado (slicing)}{5}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Operaciones con cadenas}{5}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Listas}{5}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Creacion y operaciones basicas}{5}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Asignacion por rebanado}{6}{subsubsection.1.3.2}%
+\contentsline {section}{\numberline {2}Control de Flujo}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Sentencia if / elif / else}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Bucle while}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Bucle for}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}La funcion range()}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}break, continue y else en bucles}{8}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Sentencia pass}{8}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Sentencia match (Python 3.10+)}{8}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Funciones}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Definicion basica}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Funciones con retorno}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Argumentos por defecto}{9}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Argumentos por palabra clave}{10}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Parametros especiales: /, *}{10}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}*args y **kwargs}{10}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Expresiones lambda}{11}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Docstrings y anotaciones}{11}{subsection.3.8}%
+\contentsline {section}{\numberline {4}Estructuras de Datos}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Metodos de listas}{12}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Listas como pilas (LIFO)}{12}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Listas como colas (FIFO) - usar deque}{12}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Comprension de listas}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}La sentencia del}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Tuplas}{13}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Conjuntos (Sets)}{13}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Diccionarios}{13}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Tecnicas de iteracion}{14}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Operadores de comparacion y logicos}{14}{subsection.4.8}%
+\contentsline {section}{\numberline {5}Modulos y Paquetes}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Modulos}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Formas de importar}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Ejecutar modulos como scripts}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Ruta de busqueda de modulos}{16}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Paquetes}{17}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}La funcion dir()}{17}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Entrada y Salida}{18}{section.6}%
+\contentsline {subsection}{\numberline {6.1}F-strings (cadenas formateadas)}{18}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}str.format()}{18}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Formateo manual}{18}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Lectura y escritura de archivos}{18}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Metodos de archivos}{19}{subsubsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.5}JSON}{19}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Errores y Excepciones}{20}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Tipos de errores}{20}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}try / except / else / finally}{20}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Lanzar excepciones}{20}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Encadenamiento de excepciones}{20}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Excepciones personalizadas}{21}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Sentencia with (limpieza predefinida)}{21}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Grupos de excepciones (Python 3.11+)}{21}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Clases y POO}{22}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Ambitos y espacios de nombres (LEGB)}{22}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Definicion de clases}{22}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Herencia}{23}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Herencia multiple}{23}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Variables privadas}{24}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Iteradores}{24}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Generadores}{24}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}Dataclasses}{24}{subsection.8.8}%
+\contentsline {section}{\numberline {9}Biblioteca Estandar -- Parte I}{26}{section.9}%
+\contentsline {subsection}{\numberline {9.1}os -- Interfaz del sistema operativo}{26}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}glob -- Comodines de archivos}{26}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}sys -- Parametros del sistema}{26}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}argparse -- Procesamiento de argumentos}{26}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}re -- Expresiones regulares}{26}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}math -- Funciones matematicas}{26}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}random -- Numeros aleatorios}{27}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}statistics -- Estadisticas basicas}{27}{subsection.9.8}%
+\contentsline {subsection}{\numberline {9.9}datetime -- Fechas y tiempos}{27}{subsection.9.9}%
+\contentsline {subsection}{\numberline {9.10}zlib -- Compresion de datos}{27}{subsection.9.10}%
+\contentsline {subsection}{\numberline {9.11}timeit -- Medicion de rendimiento}{27}{subsection.9.11}%
+\contentsline {subsection}{\numberline {9.12}doctest y unittest -- Control de calidad}{28}{subsection.9.12}%
+\contentsline {section}{\numberline {10}Biblioteca Estandar -- Parte II}{29}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Formato de salida avanzado}{29}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Plantillas de texto}{29}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}struct -- Datos binarios}{29}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}threading -- Multi-hilos}{29}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}logging -- Registro de eventos}{30}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Herramientas para listas}{30}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}decimal -- Aritmetica decimal precisa}{30}{subsection.10.7}%
+\contentsline {section}{\numberline {11}Entornos Virtuales y Gestion de Paquetes}{31}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Por que usar entornos virtuales}{31}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Crear y activar entornos virtuales}{31}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Gestion de paquetes con pip}{31}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Guia de Estilo PEP 8}{32}{section.12}%
+\contentsline {subsubsection}{\numberline {12.0.1}Orden de imports}{32}{subsubsection.12.0.1}%
+\contentsline {section}{Referencia Rapida -- Cheat Sheet}{33}{lstnumber.-81.10}%

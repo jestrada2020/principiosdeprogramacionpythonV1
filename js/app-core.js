@@ -384,12 +384,12 @@ function checkQuizAnswers(questions) {
 function updateTabVisibility(moduleId) {
     // Define which tabs should be visible for each module
     const moduleTabConfig = {
-        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex', 'github'],
-        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex', 'github'],
-        'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'tercerParcial', 'editorLatex', 'github'],
-        'io': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'cuartoQuiz', 'cuartoParcial', 'editorLatex', 'github'],
+        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
+        'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
+        'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'tercerParcial', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
+        'io': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'cuartoQuiz', 'cuartoParcial', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
         // All other modules only have the standard tabs (without primerParcialPython)
-        'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'editorLatex', 'github']
+        'default': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes']
     };
 
     // Get the tabs that should be visible for this module
