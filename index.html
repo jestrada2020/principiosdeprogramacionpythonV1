@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="CSS/main.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Protección: redirigir al login si no hay sesión activa
+        (function() {
+            const session = AUTH.getSession();
+            if (!session) { window.location.href = 'login.html'; }
+        })();
+    </script>
 </head>
 
 <body class="light theme-bg-primary theme-text-primary transition-all duration-300">
@@ -51,6 +59,42 @@
                     <i class="fas fa-moon text-lg"></i>
                 </button>
             </div>
+
+            <!-- Usuario activo + Cerrar sesión -->
+            <div id="userSessionBar" class="mb-5 p-3 rounded-xl theme-bg-tertiary flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div id="userAvatar"
+                         class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold">U</div>
+                    <div>
+                        <p id="userName" class="text-xs font-semibold theme-text-primary leading-tight">Usuario</p>
+                        <p id="userRol"  class="text-xs theme-text-secondary leading-tight">Estudiante</p>
+                    </div>
+                </div>
+                <button onclick="AUTH.logout()"
+                        title="Cerrar sesión"
+                        class="text-xs px-2 py-1 rounded-lg text-red-400 border border-red-500/30 hover:bg-red-500/10 transition-colors flex items-center gap-1">
+                    <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+            </div>
+            <script>
+                (function() {
+                    const s = AUTH.getSession();
+                    if (s) {
+                        document.getElementById('userName').textContent = s.nombre;
+                        document.getElementById('userRol').textContent  = s.rol === 'admin' ? 'Administrador' : 'Estudiante';
+                        document.getElementById('userAvatar').textContent = s.nombre.charAt(0).toUpperCase();
+                        if (s.rol === 'admin') {
+                            const bar = document.getElementById('userSessionBar');
+                            const adminLink = document.createElement('a');
+                            adminLink.href = 'admin.html';
+                            adminLink.className = 'text-xs px-2 py-1 rounded-lg text-yellow-400 border border-yellow-500/30 hover:bg-yellow-500/10 transition-colors flex items-center gap-1 ml-1';
+                            adminLink.innerHTML = '<i class="fas fa-cog"></i>';
+                            adminLink.title = 'Panel de administración';
+                            bar.appendChild(adminLink);
+                        }
+                    }
+                })();
+            </script>
 
             <!-- Progress Overview -->
             <div class="mb-8 p-4 rounded-xl theme-bg-tertiary">

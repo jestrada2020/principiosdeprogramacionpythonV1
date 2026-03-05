@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Academia Bio-Python</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --py-blue: #3776AB;
+            --py-yellow: #FFD43B;
+            --py-blue-dark: #2b5f8a;
+            --py-yellow-dark: #e6be2e;
+        }
+
+        * { font-family: 'Inter', sans-serif; }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+        }
+
+        /* Fondo animado de partículas */
+        .particles {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10%  { opacity: 0.08; }
+            90%  { opacity: 0.08; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Tarjeta principal */
+        .login-card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(55, 118, 171, 0.3);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,212,59,0.05);
+        }
+
+        /* Logo Python SVG */
+        .python-logo-wrap {
+            filter: drop-shadow(0 0 20px rgba(55,118,171,0.6));
+        }
+
+        /* Input styles */
+        .auth-input {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1.5px solid rgba(71, 85, 105, 0.6);
+            color: #f1f5f9;
+            transition: all 0.25s;
+        }
+        .auth-input:focus {
+            outline: none;
+            border-color: var(--py-blue);
+            box-shadow: 0 0 0 3px rgba(55,118,171,0.25);
+            background: rgba(15, 23, 42, 0.9);
+        }
+        .auth-input::placeholder { color: #64748b; }
+
+        /* Botón login */
+        .btn-login {
+            background: linear-gradient(135deg, var(--py-blue) 0%, #2563eb 100%);
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-login::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--py-yellow) 0%, #f59e0b 100%);
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+        .btn-login:hover::before { opacity: 0.15; }
+        .btn-login:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(55,118,171,0.5); }
+        .btn-login:active { transform: translateY(0); }
+
+        /* Shake animation */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%       { transform: translateX(-8px); }
+            40%       { transform: translateX(8px); }
+            60%       { transform: translateX(-6px); }
+            80%       { transform: translateX(6px); }
+        }
+        .shake { animation: shake 0.45s ease; }
+
+        /* Glow text */
+        .glow-text {
+            text-shadow: 0 0 20px rgba(55,118,171,0.5);
+        }
+
+        /* Badge rol */
+        .badge-admin  { background: rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.3); }
+        .badge-student{ background: rgba(55,118,171,0.15); color:#60a5fa; border:1px solid rgba(55,118,171,0.3); }
+
+        /* Tooltip credenciales */
+        .credentials-hint {
+            background: rgba(15,23,42,0.95);
+            border: 1px solid rgba(55,118,171,0.25);
+        }
+
+        /* Toggle password */
+        .toggle-pw {
+            color: #64748b;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .toggle-pw:hover { color: #94a3b8; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Contenedor principal -->
+    <div class="relative z-10 w-full max-w-md">
+
+        <!-- Logo + Título -->
+        <div class="text-center mb-8">
+            <div class="python-logo-wrap inline-block mb-4">
+                <!-- Logo oficial de Python (SVG) -->
+                <svg width="80" height="80" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Serpiente superior (azul) -->
+                    <path d="M54.9,5 C40.7,5 35.5,11.3 35.5,20.3 L35.5,30.5 L55.3,30.5 L55.3,33.5 L25.5,33.5 C16.3,33.5 10,40 10,54.9 C10,69.9 15.5,77.5 25.5,77.5 L32,77.5 L32,65.5 C32,55 38.5,48 49.5,48 L70.5,48 C80,48 85.5,42.5 85.5,33.5 L85.5,20.3 C85.5,11.3 79.8,5 65.5,5 L54.9,5 Z"
+                          fill="#3776AB"/>
+                    <!-- Serpiente inferior (amarilla) -->
+                    <path d="M55.1,105 C69.3,105 74.5,98.7 74.5,89.7 L74.5,79.5 L54.7,79.5 L54.7,76.5 L84.5,76.5 C93.7,76.5 100,70 100,55.1 C100,40.1 94.5,32.5 84.5,32.5 L78,32.5 L78,44.5 C78,55 71.5,62 60.5,62 L39.5,62 C30,62 24.5,67.5 24.5,76.5 L24.5,89.7 C24.5,98.7 30.2,105 44.5,105 L55.1,105 Z"
+                          fill="#FFD43B"/>
+                    <!-- Ojo azul -->
+                    <circle cx="46" cy="20" r="4" fill="white"/>
+                    <circle cx="46" cy="20" r="2" fill="#3776AB"/>
+                    <!-- Ojo amarillo -->
+                    <circle cx="64" cy="90" r="4" fill="white"/>
+                    <circle cx="64" cy="90" r="2" fill="#FFD43B"/>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-extrabold text-white glow-text tracking-tight">Academia Bio-Python</h1>
+            <p class="text-slate-400 mt-1 text-sm">Accede con tu ID de usuario o C.C.</p>
+        </div>
+
+        <!-- Tarjeta de login -->
+        <div class="login-card rounded-2xl p-8" id="loginCard">
+            <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <i class="fas fa-lock text-blue-400 text-lg"></i>
+                Iniciar Sesión
+            </h2>
+
+            <!-- Alerta de error -->
+            <div id="alertError"
+                 class="hidden mb-5 px-4 py-3 rounded-lg bg-red-900/30 border border-red-500/40 text-red-300 text-sm flex items-center gap-2">
+                <i class="fas fa-exclamation-circle text-red-400"></i>
+                <span id="alertMsg">Error</span>
+            </div>
+
+            <!-- Alerta de éxito -->
+            <div id="alertSuccess"
+                 class="hidden mb-5 px-4 py-3 rounded-lg bg-green-900/30 border border-green-500/40 text-green-300 text-sm flex items-center gap-2">
+                <i class="fas fa-check-circle text-green-400"></i>
+                <span id="alertSuccessMsg">Ingresando...</span>
+            </div>
+
+            <form id="loginForm" novalidate>
+                <!-- Campo ID / C.C. -->
+                <div class="mb-5">
+                    <label class="block text-sm font-medium text-slate-300 mb-2">
+                        <i class="fas fa-id-card mr-1 text-blue-400"></i> ID de Usuario o C.C.
+                    </label>
+                    <input type="text" id="inputId"
+                           class="auth-input w-full px-4 py-3 rounded-xl text-sm"
+                           placeholder="Ej: estudiante01 o 1234567890"
+                           autocomplete="username" required>
+                </div>
+
+                <!-- Campo Contraseña -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-slate-300 mb-2">
+                        <i class="fas fa-key mr-1 text-yellow-400"></i> Contraseña
+                    </label>
+                    <div class="relative">
+                        <input type="password" id="inputPassword"
+                               class="auth-input w-full px-4 py-3 pr-12 rounded-xl text-sm"
+                               placeholder="Ingresa tu contraseña"
+                               autocomplete="current-password" required>
+                        <button type="button" class="toggle-pw absolute right-3 top-1/2 -translate-y-1/2 text-lg"
+                                onclick="togglePassword()">
+                            <i id="eyeIcon" class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit" id="btnLogin"
+                        class="btn-login w-full py-3 rounded-xl text-white font-semibold text-sm tracking-wide shadow-lg">
+                    <span id="btnText">
+                        <i class="fas fa-sign-in-alt mr-2"></i> Ingresar a la Academia
+                    </span>
+                    <span id="btnLoader" class="hidden">
+                        <i class="fas fa-circle-notch fa-spin mr-2"></i> Verificando...
+                    </span>
+                </button>
+            </form>
+
+            <!-- Credenciales por defecto (ayuda) -->
+            <div class="mt-6 credentials-hint rounded-xl p-4">
+                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-2">
+                    <i class="fas fa-info-circle mr-1 text-blue-400"></i> Acceso inicial por defecto
+                </p>
+                <div class="flex flex-col gap-1 text-xs text-slate-400">
+                    <span><span class="text-slate-300 font-medium">ID Admin:</span> admin</span>
+                    <span><span class="text-slate-300 font-medium">Contraseña:</span> Admin2024!</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-2">El administrador puede crear nuevos usuarios desde el panel.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <p class="text-center text-slate-600 text-xs mt-6">
+            &copy; 2026 Academia Bio-Python &mdash; Todos los derechos reservados
+        </p>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Redirigir si ya hay sesión activa
+        (function() {
+            const session = AUTH.getSession();
+            if (session) {
+                window.location.href = session.rol === 'admin' ? 'admin.html' : 'index.html';
+            }
+        })();
+
+        // Generar partículas de fondo
+        (function() {
+            const container = document.getElementById('particles');
+            const colors = ['#3776AB', '#FFD43B', '#2563eb', '#f59e0b'];
+            for (let i = 0; i < 25; i++) {
+                const el = document.createElement('div');
+                el.className = 'particle';
+                const size = Math.random() * 40 + 10;
+                el.style.cssText = `
+                    width:${size}px; height:${size}px;
+                    left:${Math.random()*100}%;
+                    background:${colors[Math.floor(Math.random()*colors.length)]};
+                    animation-duration:${Math.random()*20+15}s;
+                    animation-delay:-${Math.random()*30}s;
+                `;
+                container.appendChild(el);
+            }
+        })();
+
+        // Toggle mostrar/ocultar contraseña
+        function togglePassword() {
+            const input = document.getElementById('inputPassword');
+            const icon  = document.getElementById('eyeIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                input.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        }
+
+        // Mostrar error
+        function showError(msg) {
+            const el = document.getElementById('alertError');
+            document.getElementById('alertMsg').textContent = msg;
+            el.classList.remove('hidden');
+            document.getElementById('alertSuccess').classList.add('hidden');
+            document.getElementById('loginCard').classList.add('shake');
+            setTimeout(() => document.getElementById('loginCard').classList.remove('shake'), 500);
+        }
+
+        // Formulario login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id  = document.getElementById('inputId').value.trim();
+            const pwd = document.getElementById('inputPassword').value;
+
+            if (!id || !pwd) {
+                showError('Por favor completa todos los campos.');
+                return;
+            }
+
+            // Mostrar loader
+            document.getElementById('btnText').classList.add('hidden');
+            document.getElementById('btnLoader').classList.remove('hidden');
+            document.getElementById('btnLogin').disabled = true;
+            document.getElementById('alertError').classList.add('hidden');
+
+            setTimeout(() => {
+                const result = AUTH.login(id, pwd);
+                document.getElementById('btnText').classList.remove('hidden');
+                document.getElementById('btnLoader').classList.add('hidden');
+                document.getElementById('btnLogin').disabled = false;
+
+                if (result.success) {
+                    const el = document.getElementById('alertSuccess');
+                    document.getElementById('alertSuccessMsg').textContent =
+                        `Bienvenido/a, ${result.user.nombre}. Redirigiendo...`;
+                    el.classList.remove('hidden');
+                    setTimeout(() => {
+                        window.location.href = result.user.rol === 'admin' ? 'admin.html' : 'index.html';
+                    }, 1200);
+                } else {
+                    showError(result.message);
+                }
+            }, 600);
+        });
+    </script>
+</body>
+</html>
