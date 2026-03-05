@@ -667,9 +667,10 @@
 
         const result = AUTH.addUser({ id, cc, nombre, password: pwd, rol });
         if (result.success) {
-            showAddAlert(`Usuario "${nombre}" registrado correctamente.`, 'success');
+            showAddAlert(`Usuario "${nombre}" registrado. Enviando al formulario Google...`, 'success');
+            enviarAGoogleForms(nombre, cc);
             this.reset();
-            setTimeout(() => showSection('usuarios'), 1500);
+            setTimeout(() => showSection('usuarios'), 2000);
         } else {
             showAddAlert(result.message, 'error');
         }
@@ -710,6 +711,29 @@
                 </div>
             </div>
         `).join('');
+    }
+
+    // ========================
+    // Integración Google Forms
+    // ========================
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSebBJGo5-3CzmTPXygS7F_oYU3Ul1BfUyqZrTx6msv2AmxI2A/formResponse';
+
+    function enviarAGoogleForms(nombre, cc) {
+        const body = new FormData();
+        body.append('entry.962796981',  nombre);   // Apellidos completos y nombres
+        body.append('entry.2143759247', cc);        // Cedula o TID
+
+        fetch(GOOGLE_FORM_URL, {
+            method: 'POST',
+            mode: 'no-cors',   // Google Forms no permite CORS; la respuesta es opaca pero el envío sí llega
+            body: body
+        })
+        .then(() => {
+            showToast('Datos enviados al formulario Google Forms.', 'success');
+        })
+        .catch(() => {
+            showToast('No se pudo conectar con Google Forms. Verifica tu conexión.', 'error');
+        });
     }
 
     // Inicializar
