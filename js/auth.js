@@ -20,9 +20,10 @@ const _CURRENT_VER = '4';
 // generar este bloque automáticamente.
 // ============================================================
 const _PRESET_USERS = [
-    // Ejemplo (puedes borrarlo):
-    // { id: 'estudiante01', cc: '1234567890', nombre: 'Juan Pérez', password: 'clave123', rol: 'estudiante' }
-];
+      // Ejemplo (puedes borrarlo):
+      // { id: 'estudiante01', cc: '1234567890', nombre: 'Juan Pérez', password:
+   'clave123', rol: 'estudiante' }
+  ];
 
 // Codifica contraseña de forma segura para cualquier carácter (ñ, á, é, etc.)
 function _encode(pwd) {
