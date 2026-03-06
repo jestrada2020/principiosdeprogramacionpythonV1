@@ -20,7 +20,8 @@ const _CURRENT_VER = '4';
 // generar este bloque automáticamente.
 // ============================================================
 const _PRESET_USERS = [
-    { id: 'todos', cc: '111111', nombre: 'todos', password: 'todos123', rol: 'estudiante' }
+    { id: 'todos', cc: '111111', nombre: 'todos', password: 'todos123', rol: 'estudiante' },
+    { id: 'pangui', cc: '222222', nombre: 'Juan Pablo Lopera Velez', password: 'pangua123', rol: 'estudiante' }
 ];
 
 // Codifica contraseña de forma segura para cualquier carácter (ñ, á, é, etc.)
