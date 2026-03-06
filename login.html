@@ -297,10 +297,17 @@
             document.getElementById('alertError').classList.add('hidden');
 
             setTimeout(() => {
-                const result = AUTH.login(id, pwd);
                 document.getElementById('btnText').classList.remove('hidden');
                 document.getElementById('btnLoader').classList.add('hidden');
                 document.getElementById('btnLogin').disabled = false;
+
+                let result;
+                try {
+                    result = AUTH.login(id, pwd);
+                } catch (e) {
+                    showError('Error inesperado. Recarga la página e intenta de nuevo.');
+                    return;
+                }
 
                 if (result.success) {
                     const el = document.getElementById('alertSuccess');
