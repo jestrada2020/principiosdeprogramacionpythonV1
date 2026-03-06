@@ -20,10 +20,8 @@ const _CURRENT_VER = '4';
 // generar este bloque automáticamente.
 // ============================================================
 const _PRESET_USERS = [
-      // Ejemplo (puedes borrarlo):
-      // { id: 'estudiante01', cc: '1234567890', nombre: 'Juan Pérez', password:
-   'clave123', rol: 'estudiante' }
-  ];
+    { id: 'todos', cc: '111111', nombre: 'todos', password: 'todos123', rol: 'estudiante' }
+];
 
 // Codifica contraseña de forma segura para cualquier carácter (ñ, á, é, etc.)
 function _encode(pwd) {
@@ -157,7 +155,7 @@ const AUTH = {
     requireAdmin() {
         const session = this.requireAuth();
         if (session && session.rol !== 'admin') {
-            window.location.href = 'index.html'; return null;
+            window.location.href = 'app.html'; return null;
         }
         return session;
     },

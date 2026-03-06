@@ -233,7 +233,7 @@
         (function() {
             const session = AUTH.getSession();
             if (session) {
-                window.location.href = session.rol === 'admin' ? 'admin.html' : 'index.html';
+                window.location.href = session.rol === 'admin' ? 'admin.html' : 'app.html';
             }
         })();
 
@@ -315,7 +315,7 @@
                         `Bienvenido/a, ${result.user.nombre}. Redirigiendo...`;
                     el.classList.remove('hidden');
                     setTimeout(() => {
-                        window.location.href = result.user.rol === 'admin' ? 'admin.html' : 'index.html';
+                        window.location.href = result.user.rol === 'admin' ? 'admin.html' : 'app.html';
                     }, 1200);
                 } else {
                     showError(result.message);
