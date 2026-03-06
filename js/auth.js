@@ -12,6 +12,18 @@ const _SESSION_KEY = 'biopython_session';
 const _VERSION_KEY = 'biopython_version';
 const _CURRENT_VER = '4';
 
+// ============================================================
+// USUARIOS PRE-CARGADOS
+// Agrega aquí los estudiantes para que funcionen en CUALQUIER
+// navegador sin necesidad de crearlos manualmente.
+// Usa el botón "Exportar Usuarios" del panel admin para
+// generar este bloque automáticamente.
+// ============================================================
+const _PRESET_USERS = [
+    // Ejemplo (puedes borrarlo):
+    // { id: 'estudiante01', cc: '1234567890', nombre: 'Juan Pérez', password: 'clave123', rol: 'estudiante' }
+];
+
 // Codifica contraseña de forma segura para cualquier carácter (ñ, á, é, etc.)
 function _encode(pwd) {
     return encodeURIComponent(pwd);
@@ -29,19 +41,41 @@ function _encode(pwd) {
 const AUTH = {
 
     init() {
-        if (!localStorage.getItem(_DB_KEY)) {
-            localStorage.setItem(_DB_KEY, JSON.stringify([
-                {
-                    id: 'admin',
-                    cc: '0000000000',
-                    nombre: 'Administrador',
-                    password: _encode('admin123'),
-                    rol: 'admin',
+        let users = this.getUsers();
+        let changed = false;
+
+        // Sembrar admin si no existe
+        if (!users.find(u => u.id === 'admin')) {
+            users.unshift({
+                id: 'admin',
+                cc: '0000000000',
+                nombre: 'Administrador',
+                password: _encode('admin123'),
+                rol: 'admin',
+                activo: true,
+                fechaCreacion: new Date().toISOString()
+            });
+            changed = true;
+        }
+
+        // Sembrar usuarios pre-cargados (_PRESET_USERS) si no existen aún
+        _PRESET_USERS.forEach(u => {
+            const idNorm = u.id.trim().toLowerCase();
+            if (!users.find(x => x.id === idNorm || x.cc === u.cc.trim())) {
+                users.push({
+                    id: idNorm,
+                    cc: u.cc.trim(),
+                    nombre: u.nombre.trim(),
+                    password: _encode(u.password),
+                    rol: u.rol || 'estudiante',
                     activo: true,
                     fechaCreacion: new Date().toISOString()
-                }
-            ]));
-        }
+                });
+                changed = true;
+            }
+        });
+
+        if (changed) localStorage.setItem(_DB_KEY, JSON.stringify(users));
     },
 
     // Recuperar acceso desde consola: AUTH.resetAdmin()
