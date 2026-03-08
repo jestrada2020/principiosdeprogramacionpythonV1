@@ -20,7 +20,7 @@ const _CURRENT_VER = '4';
 // generar este bloque automáticamente.
 // ============================================================
 const _PRESET_USERS = [
-    { id: 'todos', cc: '1111111', nombre: 'todos', password: 'todos123', rol: 'estudiante' },
+    { id: 'jestrada', cc: '71668550', nombre: 'John Jairo Estrada Alvarez', password: 'graciela123', rol: 'estudiante' },
     { id: 'pangui', cc: '222222', nombre: 'Juan Pablo Lopera Velez', password: 'pangua123', rol: 'estudiante' },
     { id: '1001236049', cc: '1001236049', nombre: 'Betancur Avendaño Santiago', password: '1001236049', rol: 'estudiante' },
     { id: '1091357120', cc: '1091357120', nombre: 'Chinome Anteliz Alejandro', password: '1091357120', rol: 'estudiante' },
@@ -34,7 +34,8 @@ const _PRESET_USERS = [
     { id: '1022003039', cc: '1022003039', nombre: 'Páez Pérez Haider Felipe', password: '1022003039', rol: 'estudiante' },
     { id: '1040570943', cc: '1040570943', nombre: 'Ramírez Echavarria Karen Dayana', password: '1040570943', rol: 'estudiante' },
     { id: '1000557084', cc: '1000557084', nombre: 'Ríos Acuña Salomé', password: '1000557084', rol: 'estudiante' },
-    { id: '1007507963', cc: '1007507963', nombre: 'Vargas Ramirez Yojan Camilo', password: '1007507963', rol: 'estudiante' }
+    { id: '1007507963', cc: '1007507963', nombre: 'Vargas Ramirez Yojan Camilo', password: '1007507963', rol: 'estudiante' },
+    { id: '111111', cc: '111111', nombre: 'todos', password: 'todosces123', rol: 'estudiante' }
 ];
 
 // Codifica contraseña de forma segura para cualquier carácter (ñ, á, é, etc.)
