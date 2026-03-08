@@ -35,7 +35,7 @@ const _PRESET_USERS = [
     { id: '1040570943', cc: '1040570943', nombre: 'Ramírez Echavarria Karen Dayana', password: '1040570943', rol: 'estudiante' },
     { id: '1000557084', cc: '1000557084', nombre: 'Ríos Acuña Salomé', password: '1000557084', rol: 'estudiante' },
     { id: '1007507963', cc: '1007507963', nombre: 'Vargas Ramirez Yojan Camilo', password: '1007507963', rol: 'estudiante' },
-    { id: '111111', cc: '111111', nombre: 'todos', password: 'todosces123', rol: 'estudiante' }
+    { id: '111111', cc: '111111', nombre: 'todos', password: 'todosces321', rol: 'estudiante' }
 ];
 
 // Codifica contraseña de forma segura para cualquier carácter (ñ, á, é, etc.)
