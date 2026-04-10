@@ -1103,6 +1103,73 @@ print(f"Primeros 10 números de Fibonacci: {fibonacci(10)}")</code>
         ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Estructuras de Datos</h2>
+
+            <!-- Grid 2x2 de videos de pandas/dataframes -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+
+              <div>
+                <div style="color:#93c5fd;font-weight:bold;font-size:0.85rem;margin-bottom:0.4rem;text-align:center;">Dataframes y pandas</div>
+                <a href="https://www.youtube.com/watch?v=U_Yp9cA7hH4" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;margin-bottom:0;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/U_Yp9cA7hH4/hqdefault.jpg" alt="Dataframes y pandas"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+              <div>
+                <div style="color:#93c5fd;font-weight:bold;font-size:0.85rem;margin-bottom:0.4rem;text-align:center;">Operaciones entre filas o columnas</div>
+                <a href="https://www.youtube.com/watch?v=A9X0-QJSV2Q" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;margin-bottom:0;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/A9X0-QJSV2Q/hqdefault.jpg" alt="Operaciones entre filas o columnas"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+              <div>
+                <div style="color:#93c5fd;font-weight:bold;font-size:0.85rem;margin-bottom:0.4rem;text-align:center;">Filtros lógicos para búsquedas en dataframes</div>
+                <a href="https://www.youtube.com/watch?v=eT1nRAJGDNg" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;margin-bottom:0;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/eT1nRAJGDNg/hqdefault.jpg" alt="Filtros lógicos para búsquedas en dataframes"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+              <div>
+                <div style="color:#93c5fd;font-weight:bold;font-size:0.85rem;margin-bottom:0.4rem;text-align:center;">Filtrado con desigualdades en dataframes</div>
+                <a href="https://www.youtube.com/watch?v=gzN7VTDyWPw" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;margin-bottom:0;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/gzN7VTDyWPw/hqdefault.jpg" alt="Filtrado con desigualdades en dataframes"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+            <!-- Fin grid de videos -->
+
             <p class="theme-text-secondary mb-4">Python incluye varias estructuras de datos built-in muy útiles: listas, tuplas, diccionarios y conjuntos.</p>
             
             <h3 class="text-xl font-semibold theme-text-primary mb-3">Listas</h3>
