@@ -1,5 +1,72 @@
 // Consolidated modules data
 const modules = {
+    'actividades-extras': {
+        title: "Actividades Extras",
+        description: "Videos complementarios del futuro de la tecnología",
+        video: "",
+        additionalVideos: [],
+        content: `
+            <h2 class="text-2xl font-bold theme-text-primary mb-2">Actividades Extras</h2>
+            <p class="theme-text-secondary mb-6">Videos esenciales sobre el futuro de la programación y la biología computacional según Jensen Huang (NVIDIA).</p>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:2rem;">
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        La biología es el nuevo código
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=dfnJFwcKiuI" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/dfnJFwcKiuI/hqdefault.jpg" alt="La biología es el nuevo código"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        No Aprendas a Programar — Jensen Huang
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=gKjG5JAWd9c" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/gKjG5JAWd9c/hqdefault.jpg" alt="No Aprendas a Programar"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        ¿Por qué tu hijo no debe aprender a programar?
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=PKc1T-t3574" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/PKc1T-t3574/hqdefault.jpg" alt="Por qué tu hijo no debe aprender a programar"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        `,
+        exercises: [],
+        quiz: []
+    },
     intro: {
         title: "1. Introducción a Python",
         description: "Abriendo el apetito",
