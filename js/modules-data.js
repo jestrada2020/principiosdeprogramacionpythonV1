@@ -2007,7 +2007,96 @@ resultado = numero1 + numero2<br>
         ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Entrada y Salida</h2>
-            
+
+            <!-- Videos Google Colab — tabla 2 filas × 3 columnas -->
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+
+              <!-- Video 1 -->
+              <div>
+                <div class="theme-text-primary" style="font-weight:bold;font-size:0.82rem;margin-bottom:0.4rem;text-align:center;">Cargar datos CSV a Google Colab</div>
+                <a href="https://www.youtube.com/watch?v=lm7MwqMPNJM" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/lm7MwqMPNJM/hqdefault.jpg" alt="Cargar datos CSV a Google Colab"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Video 2 -->
+              <div>
+                <div class="theme-text-primary" style="font-weight:bold;font-size:0.82rem;margin-bottom:0.4rem;text-align:center;">Excel a CSV y subir a Colab</div>
+                <a href="https://www.youtube.com/watch?v=A4FUP3M9ZDk" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/A4FUP3M9ZDk/hqdefault.jpg" alt="Excel a CSV y subir a Colab"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Video 3 -->
+              <div>
+                <div class="theme-text-primary" style="font-weight:bold;font-size:0.82rem;margin-bottom:0.4rem;text-align:center;">Personalización de Google Colab</div>
+                <a href="https://www.youtube.com/watch?v=5-Ded09PCKI" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/5-Ded09PCKI/hqdefault.jpg" alt="Personalización de Google Colab"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Video 4 -->
+              <div>
+                <div class="theme-text-primary" style="font-weight:bold;font-size:0.82rem;margin-bottom:0.4rem;text-align:center;">Configuración Grupos de Trabajo (Parte 1)</div>
+                <a href="https://www.youtube.com/watch?v=tw9FqCLlLqo" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/tw9FqCLlLqo/hqdefault.jpg" alt="Configuración Grupos de Trabajo"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Video 5 -->
+              <div>
+                <div class="theme-text-primary" style="font-weight:bold;font-size:0.82rem;margin-bottom:0.4rem;text-align:center;">Manejo de Datos Colaborativos en Colab</div>
+                <a href="https://www.youtube.com/watch?v=Ba7vJ1XW7M4" target="_blank" rel="noopener noreferrer"
+                   style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                  <img src="https://img.youtube.com/vi/Ba7vJ1XW7M4/hqdefault.jpg" alt="Manejo de Datos Colaborativos en Colab"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                  <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:rgba(0,0,0,0.25);">
+                    <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.6);">
+                      <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:22px solid white;margin-left:5px;"></div>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Celda vacía (fila 2, columna 3) -->
+              <div></div>
+
+            </div>
+            <!-- Fin videos -->
+
             <h3 class="text-xl font-semibold theme-text-primary mb-3">Formateo de cadenas</h3>
             <div class="p-4 theme-bg-tertiary rounded-lg mb-4">
                 <code class="text-sm">
