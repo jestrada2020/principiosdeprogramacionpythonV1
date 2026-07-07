@@ -15,9 +15,9 @@ const modules = {
                     <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
                         La biología es el nuevo código
                     </div>
-                    <a href="https://www.youtube.com/watch?v=dfnJFwcKiuI" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.youtube.com/watch?v=Mhx9jLqFqHg" target="_blank" rel="noopener noreferrer"
                        style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
-                        <img src="https://img.youtube.com/vi/dfnJFwcKiuI/hqdefault.jpg" alt="La biología es el nuevo código"
+                        <img src="https://img.youtube.com/vi/Mhx9jLqFqHg/hqdefault.jpg" alt="La biología es el nuevo código"
                              style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
                         <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
                             <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
@@ -32,9 +32,9 @@ const modules = {
                     <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
                         No Aprendas a Programar — Jensen Huang
                     </div>
-                    <a href="https://www.youtube.com/watch?v=gKjG5JAWd9c" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.youtube.com/watch?v=Hub1M5Uw6tY" target="_blank" rel="noopener noreferrer"
                        style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
-                        <img src="https://img.youtube.com/vi/gKjG5JAWd9c/hqdefault.jpg" alt="No Aprendas a Programar"
+                        <img src="https://img.youtube.com/vi/Hub1M5Uw6tY/hqdefault.jpg" alt="No Aprendas a Programar"
                              style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
                         <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
                             <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
@@ -52,6 +52,74 @@ const modules = {
                     <a href="https://www.youtube.com/watch?v=PKc1T-t3574" target="_blank" rel="noopener noreferrer"
                        style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
                         <img src="https://img.youtube.com/vi/PKc1T-t3574/hqdefault.jpg" alt="Por qué tu hijo no debe aprender a programar"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        IA: cómo entenderla sin miedo — José Ignacio Latorre
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=mm4W5Y-TNH0&t=3101s" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/mm4W5Y-TNH0/hqdefault.jpg" alt="Inteligencia artificial: cómo entenderla sin miedo"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        Pensamiento Crítico en la Sociedad Actual — Aniceto Masferrer
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=WRj1mQElBfM&t=1065s" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/WRj1mQElBfM/hqdefault.jpg" alt="La Importancia del Pensamiento Crítico en la Sociedad Actual"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        El arte de pensar — José Carlos Ruiz
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=0R3MeOj49xI&t=2003s" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/0R3MeOj49xI/hqdefault.jpg" alt="El arte de pensar: filosofía para el siglo XXI"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        Raj Reddy: The Future of AI — Doomers vs. Abundance
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=ydnOSMbyyQo" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/ydnOSMbyyQo/hqdefault.jpg" alt="Raj Reddy: The Future of AI: Doomers vs. Abundance"
                              style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
                         <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
                             <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
