@@ -23,7 +23,13 @@ const _PRESET_USERS = [
     { id: 'todos', cc: '1111111', nombre: 'todos', password: 'todos321', rol: 'estudiante' },
     { id: 'pangui', cc: '222222', nombre: 'Juan Pablo Lopera Velez', password: 'pangua123', rol: 'estudiante' },
     { id: 'jestrada', cc: '71668550', nombre: 'John Jairo Estrada Alvarez', password: 'graciela123', rol: 'estudiante' },
-    { id: '111111', cc: '111111', nombre: 'todos321', password: 'todos321', rol: 'estudiante' }
+    { id: '111111', cc: '111111', nombre: 'todos321', password: 'todos321', rol: 'estudiante' },
+    { id: '1017926430', cc: '1017926430', nombre: 'Andrea Hincapie Gonzalez', password: '1017926430', rol: 'estudiante' },
+    { id: '1034988185', cc: '1034988185', nombre: 'Sofia Cuervo Henao', password: '1034988185', rol: 'estudiante' },
+    { id: '1025760349', cc: '1025760349', nombre: 'Brahian Marín Giraldo', password: '1025760349', rol: 'estudiante' },
+    { id: '1037663395', cc: '1037663395', nombre: 'Luisa Fernanda Muñoz Calle', password: '1037663395', rol: 'estudiante' },
+    { id: '1034987447', cc: '1034987447', nombre: 'Andrés Ramírez Saumet', password: '1034987447', rol: 'estudiante' },
+    { id: '1020108089', cc: '1020108089', nombre: 'María José Restrepo T.', password: '1020108089', rol: 'estudiante' },
 ];
 
 // Codifica contraseña de forma segura para cualquier carácter (ñ, á, é, etc.)
