@@ -174,6 +174,9 @@ function loadModule(moduleId) {
     // Load content
     document.getElementById('moduleTextContent').innerHTML = module.content;
 
+    // Load practice guide content (module-specific, shown above the code editor)
+    loadPracticeContent(module.practiceContent);
+
     // Load Google Colab content
     loadColabContent(module.colabContent);
 
@@ -228,6 +231,12 @@ function loadAdditionalVideos(videos) {
 
         container.appendChild(videoEl);
     });
+}
+
+function loadPracticeContent(practiceContent) {
+    const container = document.getElementById('practiceContent');
+    if (!container) return;
+    container.innerHTML = practiceContent || '';
 }
 
 function loadColabContent(colabContent) {

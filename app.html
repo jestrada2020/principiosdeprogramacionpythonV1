@@ -594,6 +594,9 @@
 
                     <!-- Practice Tab -->
                     <div id="practiceTab" class="tab-pane hidden">
+                        <div id="practiceContent">
+                            <!-- Module-specific practice guide will be loaded here -->
+                        </div>
                         <div class="theme-bg-secondary rounded-2xl p-6">
                             <h3 class="text-xl font-semibold theme-text-primary mb-4">Editor de Código Python</h3>
                             <div class="grid lg:grid-cols-2 gap-6">
@@ -4818,9 +4821,15 @@ git config --list</code></pre>
 
                 <div id="pdfCursoCompletoCesTab" class="tab-pane hidden">
                     <div class="theme-bg-secondary rounded-2xl p-6">
-                        <h3 class="text-xl font-semibold theme-text-primary mb-6">
-                            <i class="fas fa-file-pdf mr-2"></i>PDF del Curso Completo - Principios de Programación Python
-                        </h3>
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                            <h3 class="text-xl font-semibold theme-text-primary">
+                                <i class="fas fa-file-pdf mr-2"></i>PDF del Curso Completo - Principios de Programación Python
+                            </h3>
+                            <button onclick="window.open('principalCusoPython14Feb2024Mod1.pdf', '_blank', 'noopener,noreferrer')"
+                                class="px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 whitespace-nowrap">
+                                <i class="fas fa-external-link-alt mr-2"></i>Ver PDF en ventana externa
+                            </button>
+                        </div>
                         <div style="width: 100%; height: 80vh;">
                             <iframe src="principalCusoPython14Feb2024Mod1.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0"
                                 style="width: 100%; height: 100%; border: none; border-radius: 12px;"
