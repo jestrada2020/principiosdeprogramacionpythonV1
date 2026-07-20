@@ -393,7 +393,7 @@ function checkQuizAnswers(questions) {
 function updateTabVisibility(moduleId) {
     // Define which tabs should be visible for each module
     const moduleTabConfig = {
-        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
+        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes', 'htmlEntregas'],
         'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
         'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'tercerParcial', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
         'io': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'cuartoQuiz', 'cuartoParcial', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],

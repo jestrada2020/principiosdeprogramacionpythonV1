@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entregas Programación - Bio-Python</title>
+<style>
+:root {
+  --bg: #0f1115;
+  --sidebar-bg: #161923;
+  --sidebar-border: #262b3a;
+  --accent: #6c8cff;
+  --accent-soft: rgba(108, 140, 255, 0.15);
+  --text: #e6e8ef;
+  --text-dim: #8b90a3;
+  --card-bg: #1b1f2b;
+  --card-border: #2a2f40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  font-size: 1.05rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--text);
+  padding: 24px 20px 16px;
+  margin: 0;
+  border-bottom: 1px solid var(--sidebar-border);
+}
+
+.sidebar-title span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 2px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+.tab-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.tab-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.tab-btn.active .tab-num {
+  background: var(--accent);
+  color: #0f1115;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 40px;
+}
+
+.panel {
+  display: none;
+  height: 100%;
+  flex-direction: column;
+}
+
+.panel.active {
+  display: flex;
+}
+
+.panel-header {
+  margin-bottom: 20px;
+}
+
+.panel-header h2 {
+  margin: 0 0 6px;
+  font-size: 1.4rem;
+}
+
+.panel-header p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.pdf-wrapper {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  background: #20232e;
+  min-height: 0;
+}
+
+.pdf-wrapper embed,
+.pdf-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.pdf-fallback {
+  padding: 20px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.pdf-fallback a {
+  color: var(--accent);
+}
+
+.empty-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--card-border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 40px;
+}
+</style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1 class="sidebar-title">Entregas Programación<br><span>Bio-Python</span></h1>
+      <nav class="tabs" id="tabs"></nav>
+    </aside>
+
+    <main class="content" id="content"></main>
+  </div>
+
+  <script>
+    const TOTAL_ENTREGAS = 17;
+
+    const tabsEl = document.getElementById("tabs");
+    const contentEl = document.getElementById("content");
+
+    function buildTabs() {
+      for (let i = 1; i <= TOTAL_ENTREGAS; i++) {
+        const btn = document.createElement("button");
+        btn.className = "tab-btn";
+        btn.dataset.tab = i;
+        btn.innerHTML = `<span class="tab-num">${i}</span> Entrega ${i}`;
+        btn.addEventListener("click", () => activateTab(i));
+        tabsEl.appendChild(btn);
+      }
+    }
+
+    function buildPanels() {
+      for (let i = 1; i <= TOTAL_ENTREGAS; i++) {
+        const panel = document.createElement("section");
+        panel.className = "panel";
+        panel.id = `panel-${i}`;
+
+        if (i === 1) {
+          panel.innerHTML = `
+            <div class="panel-header">
+              <h2>Entrega 1</h2>
+              <p>Visualización embebida: EntregaSemana3.pdf</p>
+            </div>
+            <div class="pdf-wrapper">
+              <embed src="EntregaSemana3.pdf" type="application/pdf" />
+            </div>
+            <div class="pdf-fallback">
+              Si el PDF no se visualiza correctamente, puedes <a href="EntregaSemana3.pdf" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.
+            </div>
+          `;
+        } else {
+          panel.innerHTML = `
+            <div class="panel-header">
+              <h2>Entrega ${i}</h2>
+              <p>Contenido pendiente por agregar</p>
+            </div>
+            <div class="empty-card">Aún no se ha añadido contenido para esta entrega.</div>
+          `;
+        }
+
+        contentEl.appendChild(panel);
+      }
+    }
+
+    function activateTab(n) {
+      document.querySelectorAll(".tab-btn").forEach((btn) => {
+        btn.classList.toggle("active", Number(btn.dataset.tab) === n);
+      });
+      document.querySelectorAll(".panel").forEach((panel) => {
+        panel.classList.toggle("active", panel.id === `panel-${n}`);
+      });
+      window.location.hash = `entrega-${n}`;
+    }
+
+    function init() {
+      buildTabs();
+      buildPanels();
+
+      const hashMatch = window.location.hash.match(/entrega-(\d+)/);
+      const initial = hashMatch && Number(hashMatch[1]) >= 1 && Number(hashMatch[1]) <= TOTAL_ENTREGAS
+        ? Number(hashMatch[1])
+        : 1;
+
+      activateTab(initial);
+    }
+
+    init();
+  </script>
+</body>
+</html>
