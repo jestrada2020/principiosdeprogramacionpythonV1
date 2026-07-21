@@ -174,6 +174,9 @@ function loadModule(moduleId) {
     // Load content
     document.getElementById('moduleTextContent').innerHTML = module.content;
 
+    // Load practice guide content (module-specific, shown above the code editor)
+    loadPracticeContent(module.practiceContent);
+
     // Load Google Colab content
     loadColabContent(module.colabContent);
 
@@ -228,6 +231,12 @@ function loadAdditionalVideos(videos) {
 
         container.appendChild(videoEl);
     });
+}
+
+function loadPracticeContent(practiceContent) {
+    const container = document.getElementById('practiceContent');
+    if (!container) return;
+    container.innerHTML = practiceContent || '';
 }
 
 function loadColabContent(colabContent) {
@@ -384,7 +393,7 @@ function checkQuizAnswers(questions) {
 function updateTabVisibility(moduleId) {
     // Define which tabs should be visible for each module
     const moduleTabConfig = {
-        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
+        'intro': ['content', 'recommended', 'practice', 'colab', 'shiny', 'shinyConceptos', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'primerParcialPython', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes', 'htmlEntregas'],
         'interpreter': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'evaluacionQuizDos', 'parcialDos', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
         'control-flow': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'tercerQuiz', 'tercerParcial', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
         'io': ['content', 'practice', 'colab', 'shiny', 'exercises', 'quiz', 'evaluacionPrimerQuiz', 'cuartoQuiz', 'cuartoParcial', 'editorLatex', 'github', 'resumenClaveCursoCes', 'pdfCursoCompletoCes'],
