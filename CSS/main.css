@@ -146,41 +146,8 @@
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
     }
-
+    
     .sidebar-mobile.open {
         transform: translateX(0);
     }
-}
-
-.code-viewer {
-    counter-reset: code-line;
-    background: #1e1e2e;
-    color: #d4d4d4;
-    font-family: "Fira Code", "Courier New", monospace;
-    font-size: 0.82rem;
-    line-height: 1.55;
-    overflow: auto;
-    max-height: 80vh;
-    padding: 16px 0;
-}
-
-.code-viewer .code-line {
-    counter-increment: code-line;
-    white-space: pre;
-    padding: 0 16px 0 0;
-}
-
-.code-viewer .code-line::before {
-    content: counter(code-line);
-    display: inline-block;
-    width: 3.2em;
-    margin-right: 1em;
-    padding-right: 0.5em;
-    text-align: right;
-    color: #6b7280;
-    user-select: none;
-}
-
-.code-viewer .code-line:hover {
-    background: rgba(255, 255, 255, 0.05);
 }
