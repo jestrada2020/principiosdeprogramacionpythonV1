@@ -4872,10 +4872,10 @@ git config --list</code></pre>
                         </div>
                         <p class="text-sm theme-text-secondary mb-4">Código fuente completo de <code>html-entregas.html</code> (275 líneas):</p>
                         <div class="code-viewer rounded-xl"><div class="code-line">&lt;!DOCTYPE html&gt;</div>
-                            <div class="code-line">&lt;html lang="es"&gt;</div>
+                            <div class="code-line">&lt;html lang=&quot;es&quot;&gt;</div>
                             <div class="code-line">&lt;head&gt;</div>
-                            <div class="code-line">&lt;meta charset="UTF-8"&gt;</div>
-                            <div class="code-line">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+                            <div class="code-line">&lt;meta charset=&quot;UTF-8&quot;&gt;</div>
+                            <div class="code-line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</div>
                             <div class="code-line">&lt;title&gt;Entregas Programación - Bio-Python&lt;/title&gt;</div>
                             <div class="code-line">&lt;style&gt;</div>
                             <div class="code-line">:root {</div>
@@ -4901,7 +4901,7 @@ git config --list</code></pre>
                             <div class="code-line">}</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">body {</div>
-                            <div class="code-line">  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;</div>
+                            <div class="code-line">  font-family: &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;</div>
                             <div class="code-line">  background: var(--bg);</div>
                             <div class="code-line">  color: var(--text);</div>
                             <div class="code-line">}</div>
@@ -5061,58 +5061,58 @@ git config --list</code></pre>
                             <div class="code-line">&lt;/style&gt;</div>
                             <div class="code-line">&lt;/head&gt;</div>
                             <div class="code-line">&lt;body&gt;</div>
-                            <div class="code-line">  &lt;div class="app"&gt;</div>
-                            <div class="code-line">    &lt;aside class="sidebar"&gt;</div>
-                            <div class="code-line">      &lt;h1 class="sidebar-title"&gt;Entregas Programación&lt;br&gt;&lt;span&gt;Bio-Python&lt;/span&gt;&lt;/h1&gt;</div>
-                            <div class="code-line">      &lt;nav class="tabs" id="tabs"&gt;&lt;/nav&gt;</div>
+                            <div class="code-line">  &lt;div class=&quot;app&quot;&gt;</div>
+                            <div class="code-line">    &lt;aside class=&quot;sidebar&quot;&gt;</div>
+                            <div class="code-line">      &lt;h1 class=&quot;sidebar-title&quot;&gt;Entregas Programación&lt;br&gt;&lt;span&gt;Bio-Python&lt;/span&gt;&lt;/h1&gt;</div>
+                            <div class="code-line">      &lt;nav class=&quot;tabs&quot; id=&quot;tabs&quot;&gt;&lt;/nav&gt;</div>
                             <div class="code-line">    &lt;/aside&gt;</div>
                             <div class="code-line">&nbsp;</div>
-                            <div class="code-line">    &lt;main class="content" id="content"&gt;&lt;/main&gt;</div>
+                            <div class="code-line">    &lt;main class=&quot;content&quot; id=&quot;content&quot;&gt;&lt;/main&gt;</div>
                             <div class="code-line">  &lt;/div&gt;</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">  &lt;script&gt;</div>
                             <div class="code-line">    const TOTAL_ENTREGAS = 17;</div>
                             <div class="code-line">&nbsp;</div>
-                            <div class="code-line">    const tabsEl = document.getElementById("tabs");</div>
-                            <div class="code-line">    const contentEl = document.getElementById("content");</div>
+                            <div class="code-line">    const tabsEl = document.getElementById(&quot;tabs&quot;);</div>
+                            <div class="code-line">    const contentEl = document.getElementById(&quot;content&quot;);</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">    function buildTabs() {</div>
                             <div class="code-line">      for (let i = 1; i &lt;= TOTAL_ENTREGAS; i++) {</div>
-                            <div class="code-line">        const btn = document.createElement("button");</div>
-                            <div class="code-line">        btn.className = "tab-btn";</div>
+                            <div class="code-line">        const btn = document.createElement(&quot;button&quot;);</div>
+                            <div class="code-line">        btn.className = &quot;tab-btn&quot;;</div>
                             <div class="code-line">        btn.dataset.tab = i;</div>
-                            <div class="code-line">        btn.innerHTML = `&lt;span class="tab-num"&gt;${i}&lt;/span&gt; Entrega ${i}`;</div>
-                            <div class="code-line">        btn.addEventListener("click", () =&gt; activateTab(i));</div>
+                            <div class="code-line">        btn.innerHTML = `&lt;span class=&quot;tab-num&quot;&gt;${i}&lt;/span&gt; Entrega ${i}`;</div>
+                            <div class="code-line">        btn.addEventListener(&quot;click&quot;, () =&gt; activateTab(i));</div>
                             <div class="code-line">        tabsEl.appendChild(btn);</div>
                             <div class="code-line">      }</div>
                             <div class="code-line">    }</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">    function buildPanels() {</div>
                             <div class="code-line">      for (let i = 1; i &lt;= TOTAL_ENTREGAS; i++) {</div>
-                            <div class="code-line">        const panel = document.createElement("section");</div>
-                            <div class="code-line">        panel.className = "panel";</div>
+                            <div class="code-line">        const panel = document.createElement(&quot;section&quot;);</div>
+                            <div class="code-line">        panel.className = &quot;panel&quot;;</div>
                             <div class="code-line">        panel.id = `panel-${i}`;</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">        if (i === 1) {</div>
                             <div class="code-line">          panel.innerHTML = `</div>
-                            <div class="code-line">            &lt;div class="panel-header"&gt;</div>
+                            <div class="code-line">            &lt;div class=&quot;panel-header&quot;&gt;</div>
                             <div class="code-line">              &lt;h2&gt;Entrega 1&lt;/h2&gt;</div>
                             <div class="code-line">              &lt;p&gt;Visualización embebida: EntregaSemana3.pdf&lt;/p&gt;</div>
                             <div class="code-line">            &lt;/div&gt;</div>
-                            <div class="code-line">            &lt;div class="pdf-wrapper"&gt;</div>
-                            <div class="code-line">              &lt;embed src="EntregaSemana3.pdf" type="application/pdf" /&gt;</div>
+                            <div class="code-line">            &lt;div class=&quot;pdf-wrapper&quot;&gt;</div>
+                            <div class="code-line">              &lt;embed src=&quot;EntregaSemana3.pdf&quot; type=&quot;application/pdf&quot; /&gt;</div>
                             <div class="code-line">            &lt;/div&gt;</div>
-                            <div class="code-line">            &lt;div class="pdf-fallback"&gt;</div>
-                            <div class="code-line">              Si el PDF no se visualiza correctamente, puedes &lt;a href="EntregaSemana3.pdf" target="_blank" rel="noopener"&gt;abrirlo en una nueva pestaña&lt;/a&gt;.</div>
+                            <div class="code-line">            &lt;div class=&quot;pdf-fallback&quot;&gt;</div>
+                            <div class="code-line">              Si el PDF no se visualiza correctamente, puedes &lt;a href=&quot;EntregaSemana3.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;abrirlo en una nueva pestaña&lt;/a&gt;.</div>
                             <div class="code-line">            &lt;/div&gt;</div>
                             <div class="code-line">          `;</div>
                             <div class="code-line">        } else {</div>
                             <div class="code-line">          panel.innerHTML = `</div>
-                            <div class="code-line">            &lt;div class="panel-header"&gt;</div>
+                            <div class="code-line">            &lt;div class=&quot;panel-header&quot;&gt;</div>
                             <div class="code-line">              &lt;h2&gt;Entrega ${i}&lt;/h2&gt;</div>
                             <div class="code-line">              &lt;p&gt;Contenido pendiente por agregar&lt;/p&gt;</div>
                             <div class="code-line">            &lt;/div&gt;</div>
-                            <div class="code-line">            &lt;div class="empty-card"&gt;Aún no se ha añadido contenido para esta entrega.&lt;/div&gt;</div>
+                            <div class="code-line">            &lt;div class=&quot;empty-card&quot;&gt;Aún no se ha añadido contenido para esta entrega.&lt;/div&gt;</div>
                             <div class="code-line">          `;</div>
                             <div class="code-line">        }</div>
                             <div class="code-line">&nbsp;</div>
@@ -5121,11 +5121,11 @@ git config --list</code></pre>
                             <div class="code-line">    }</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">    function activateTab(n) {</div>
-                            <div class="code-line">      document.querySelectorAll(".tab-btn").forEach((btn) =&gt; {</div>
-                            <div class="code-line">        btn.classList.toggle("active", Number(btn.dataset.tab) === n);</div>
+                            <div class="code-line">      document.querySelectorAll(&quot;.tab-btn&quot;).forEach((btn) =&gt; {</div>
+                            <div class="code-line">        btn.classList.toggle(&quot;active&quot;, Number(btn.dataset.tab) === n);</div>
                             <div class="code-line">      });</div>
-                            <div class="code-line">      document.querySelectorAll(".panel").forEach((panel) =&gt; {</div>
-                            <div class="code-line">        panel.classList.toggle("active", panel.id === `panel-${n}`);</div>
+                            <div class="code-line">      document.querySelectorAll(&quot;.panel&quot;).forEach((panel) =&gt; {</div>
+                            <div class="code-line">        panel.classList.toggle(&quot;active&quot;, panel.id === `panel-${n}`);</div>
                             <div class="code-line">      });</div>
                             <div class="code-line">      window.location.hash = `entrega-${n}`;</div>
                             <div class="code-line">    }</div>
