@@ -4870,8 +4870,8 @@ git config --list</code></pre>
                                 </button>
                             </div>
                         </div>
-                        <p class="text-sm theme-text-secondary mb-4">Código fuente completo de <code>html-entregas.html</code> (275 líneas):</p>
-                        <div class="code-viewer rounded-xl"><div class="code-line">&lt;!DOCTYPE html&gt;</div>
+                        <p class="text-sm theme-text-secondary mb-4">Código fuente completo de <code>html-entregas.html</code> (328 líneas):</p>
+                                                <div class="code-viewer rounded-xl"><div class="code-line">&lt;!DOCTYPE html&gt;</div>
                             <div class="code-line">&lt;html lang=&quot;es&quot;&gt;</div>
                             <div class="code-line">&lt;head&gt;</div>
                             <div class="code-line">&lt;meta charset=&quot;UTF-8&quot;&gt;</div>
@@ -4970,6 +4970,16 @@ git config --list</code></pre>
                             <div class="code-line">  font-weight: 600;</div>
                             <div class="code-line">}</div>
                             <div class="code-line">&nbsp;</div>
+                            <div class="code-line">.tab-btn:disabled {</div>
+                            <div class="code-line">  opacity: 0.4;</div>
+                            <div class="code-line">  cursor: not-allowed;</div>
+                            <div class="code-line">}</div>
+                            <div class="code-line">&nbsp;</div>
+                            <div class="code-line">.tab-btn:disabled:hover {</div>
+                            <div class="code-line">  background: transparent;</div>
+                            <div class="code-line">  color: var(--text-dim);</div>
+                            <div class="code-line">}</div>
+                            <div class="code-line">&nbsp;</div>
                             <div class="code-line">.tab-num {</div>
                             <div class="code-line">  display: inline-flex;</div>
                             <div class="code-line">  align-items: center;</div>
@@ -5028,7 +5038,8 @@ git config --list</code></pre>
                             <div class="code-line">}</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">.pdf-wrapper embed,</div>
-                            <div class="code-line">.pdf-wrapper iframe {</div>
+                            <div class="code-line">.pdf-wrapper iframe,</div>
+                            <div class="code-line">.pdf-wrapper object {</div>
                             <div class="code-line">  width: 100%;</div>
                             <div class="code-line">  height: 100%;</div>
                             <div class="code-line">  border: none;</div>
@@ -5076,12 +5087,15 @@ git config --list</code></pre>
                             <div class="code-line">    const tabsEl = document.getElementById(&quot;tabs&quot;);</div>
                             <div class="code-line">    const contentEl = document.getElementById(&quot;content&quot;);</div>
                             <div class="code-line">&nbsp;</div>
+                            <div class="code-line">    const pdfName = (n) =&gt; `EntregaSemana_${n}.pdf`;</div>
+                            <div class="code-line">&nbsp;</div>
                             <div class="code-line">    function buildTabs() {</div>
                             <div class="code-line">      for (let i = 1; i &lt;= TOTAL_ENTREGAS; i++) {</div>
                             <div class="code-line">        const btn = document.createElement(&quot;button&quot;);</div>
                             <div class="code-line">        btn.className = &quot;tab-btn&quot;;</div>
                             <div class="code-line">        btn.dataset.tab = i;</div>
-                            <div class="code-line">        btn.innerHTML = `&lt;span class=&quot;tab-num&quot;&gt;${i}&lt;/span&gt; Entrega ${i}`;</div>
+                            <div class="code-line">        btn.disabled = true; // se habilita solo si existe su PDF</div>
+                            <div class="code-line">        btn.innerHTML = `&lt;span class=&quot;tab-num&quot;&gt;${i}&lt;/span&gt; Semana ${i}`;</div>
                             <div class="code-line">        btn.addEventListener(&quot;click&quot;, () =&gt; activateTab(i));</div>
                             <div class="code-line">        tabsEl.appendChild(btn);</div>
                             <div class="code-line">      }</div>
@@ -5092,32 +5106,64 @@ git config --list</code></pre>
                             <div class="code-line">        const panel = document.createElement(&quot;section&quot;);</div>
                             <div class="code-line">        panel.className = &quot;panel&quot;;</div>
                             <div class="code-line">        panel.id = `panel-${i}`;</div>
-                            <div class="code-line">&nbsp;</div>
-                            <div class="code-line">        if (i === 1) {</div>
-                            <div class="code-line">          panel.innerHTML = `</div>
-                            <div class="code-line">            &lt;div class=&quot;panel-header&quot;&gt;</div>
-                            <div class="code-line">              &lt;h2&gt;Entrega 1&lt;/h2&gt;</div>
-                            <div class="code-line">              &lt;p&gt;Visualización embebida: EntregaSemana3.pdf&lt;/p&gt;</div>
-                            <div class="code-line">            &lt;/div&gt;</div>
-                            <div class="code-line">            &lt;div class=&quot;pdf-wrapper&quot;&gt;</div>
-                            <div class="code-line">              &lt;embed src=&quot;EntregaSemana3.pdf&quot; type=&quot;application/pdf&quot; /&gt;</div>
-                            <div class="code-line">            &lt;/div&gt;</div>
-                            <div class="code-line">            &lt;div class=&quot;pdf-fallback&quot;&gt;</div>
-                            <div class="code-line">              Si el PDF no se visualiza correctamente, puedes &lt;a href=&quot;EntregaSemana3.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;abrirlo en una nueva pestaña&lt;/a&gt;.</div>
-                            <div class="code-line">            &lt;/div&gt;</div>
-                            <div class="code-line">          `;</div>
-                            <div class="code-line">        } else {</div>
-                            <div class="code-line">          panel.innerHTML = `</div>
-                            <div class="code-line">            &lt;div class=&quot;panel-header&quot;&gt;</div>
-                            <div class="code-line">              &lt;h2&gt;Entrega ${i}&lt;/h2&gt;</div>
-                            <div class="code-line">              &lt;p&gt;Contenido pendiente por agregar&lt;/p&gt;</div>
-                            <div class="code-line">            &lt;/div&gt;</div>
-                            <div class="code-line">            &lt;div class=&quot;empty-card&quot;&gt;Aún no se ha añadido contenido para esta entrega.&lt;/div&gt;</div>
-                            <div class="code-line">          `;</div>
-                            <div class="code-line">        }</div>
-                            <div class="code-line">&nbsp;</div>
+                            <div class="code-line">        panel.innerHTML = `</div>
+                            <div class="code-line">          &lt;div class=&quot;panel-header&quot;&gt;</div>
+                            <div class="code-line">            &lt;h2&gt;Semana ${i}&lt;/h2&gt;</div>
+                            <div class="code-line">            &lt;p&gt;Contenido pendiente por agregar&lt;/p&gt;</div>
+                            <div class="code-line">          &lt;/div&gt;</div>
+                            <div class="code-line">          &lt;div class=&quot;empty-card&quot;&gt;Aún no se ha añadido el archivo &quot;${pdfName(i)}&quot; para esta semana.&lt;/div&gt;</div>
+                            <div class="code-line">        `;</div>
                             <div class="code-line">        contentEl.appendChild(panel);</div>
                             <div class="code-line">      }</div>
+                            <div class="code-line">    }</div>
+                            <div class="code-line">&nbsp;</div>
+                            <div class="code-line">    function renderPdf(n) {</div>
+                            <div class="code-line">      const name = pdfName(n);</div>
+                            <div class="code-line">      const panel = document.getElementById(`panel-${n}`);</div>
+                            <div class="code-line">      panel.innerHTML = `</div>
+                            <div class="code-line">        &lt;div class=&quot;panel-header&quot;&gt;</div>
+                            <div class="code-line">          &lt;h2&gt;Semana ${n}&lt;/h2&gt;</div>
+                            <div class="code-line">          &lt;p&gt;Visualización embebida: ${name}&lt;/p&gt;</div>
+                            <div class="code-line">        &lt;/div&gt;</div>
+                            <div class="code-line">        &lt;div class=&quot;pdf-wrapper&quot;&gt;</div>
+                            <div class="code-line">          &lt;embed src=&quot;${name}&quot; type=&quot;application/pdf&quot; /&gt;</div>
+                            <div class="code-line">        &lt;/div&gt;</div>
+                            <div class="code-line">        &lt;div class=&quot;pdf-fallback&quot;&gt;</div>
+                            <div class="code-line">          Si el PDF no se visualiza correctamente, puedes &lt;a href=&quot;${name}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;abrirlo en una nueva pestaña&lt;/a&gt;.</div>
+                            <div class="code-line">        &lt;/div&gt;</div>
+                            <div class="code-line">      `;</div>
+                            <div class="code-line">    }</div>
+                            <div class="code-line">&nbsp;</div>
+                            <div class="code-line">    function enableTab(n) {</div>
+                            <div class="code-line">      const btn = tabsEl.querySelector(`.tab-btn[data-tab=&quot;${n}&quot;]`);</div>
+                            <div class="code-line">      if (btn) btn.disabled = false;</div>
+                            <div class="code-line">    }</div>
+                            <div class="code-line">&nbsp;</div>
+                            <div class="code-line">    // Detecta si el archivo existe (funciona también abriendo el HTML con file://)</div>
+                            <div class="code-line">    function fileExists(url) {</div>
+                            <div class="code-line">      return new Promise((resolve) =&gt; {</div>
+                            <div class="code-line">        const link = document.createElement(&quot;link&quot;);</div>
+                            <div class="code-line">        link.rel = &quot;stylesheet&quot;;</div>
+                            <div class="code-line">        link.href = url;</div>
+                            <div class="code-line">        link.onload = () =&gt; { link.remove(); resolve(true); };</div>
+                            <div class="code-line">        link.onerror = () =&gt; { link.remove(); resolve(false); };</div>
+                            <div class="code-line">        document.head.appendChild(link);</div>
+                            <div class="code-line">      });</div>
+                            <div class="code-line">    }</div>
+                            <div class="code-line">&nbsp;</div>
+                            <div class="code-line">    async function detectPdfs() {</div>
+                            <div class="code-line">      const found = [];</div>
+                            <div class="code-line">      await Promise.all(</div>
+                            <div class="code-line">        Array.from({ length: TOTAL_ENTREGAS }, async (_, idx) =&gt; {</div>
+                            <div class="code-line">          const n = idx + 1;</div>
+                            <div class="code-line">          if (await fileExists(pdfName(n))) {</div>
+                            <div class="code-line">            renderPdf(n);</div>
+                            <div class="code-line">            enableTab(n);</div>
+                            <div class="code-line">            found.push(n);</div>
+                            <div class="code-line">          }</div>
+                            <div class="code-line">        })</div>
+                            <div class="code-line">      );</div>
+                            <div class="code-line">      return found.sort((a, b) =&gt; a - b);</div>
                             <div class="code-line">    }</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">    function activateTab(n) {</div>
@@ -5127,19 +5173,26 @@ git config --list</code></pre>
                             <div class="code-line">      document.querySelectorAll(&quot;.panel&quot;).forEach((panel) =&gt; {</div>
                             <div class="code-line">        panel.classList.toggle(&quot;active&quot;, panel.id === `panel-${n}`);</div>
                             <div class="code-line">      });</div>
-                            <div class="code-line">      window.location.hash = `entrega-${n}`;</div>
+                            <div class="code-line">      window.location.hash = `semana-${n}`;</div>
                             <div class="code-line">    }</div>
                             <div class="code-line">&nbsp;</div>
-                            <div class="code-line">    function init() {</div>
+                            <div class="code-line">    async function init() {</div>
                             <div class="code-line">      buildTabs();</div>
                             <div class="code-line">      buildPanels();</div>
                             <div class="code-line">&nbsp;</div>
-                            <div class="code-line">      const hashMatch = window.location.hash.match(/entrega-(\d+)/);</div>
-                            <div class="code-line">      const initial = hashMatch &amp;&amp; Number(hashMatch[1]) &gt;= 1 &amp;&amp; Number(hashMatch[1]) &lt;= TOTAL_ENTREGAS</div>
-                            <div class="code-line">        ? Number(hashMatch[1])</div>
-                            <div class="code-line">        : 1;</div>
+                            <div class="code-line">      const found = await detectPdfs();</div>
                             <div class="code-line">&nbsp;</div>
-                            <div class="code-line">      activateTab(initial);</div>
+                            <div class="code-line">      const hashMatch = window.location.hash.match(/semana-(\d+)/);</div>
+                            <div class="code-line">      const fromHash = hashMatch ? Number(hashMatch[1]) : 0;</div>
+                            <div class="code-line">&nbsp;</div>
+                            <div class="code-line">      // Activa la semana del hash si su PDF existe; si no, la primera encontrada</div>
+                            <div class="code-line">      const initial = found.includes(fromHash) ? fromHash : found[0];</div>
+                            <div class="code-line">&nbsp;</div>
+                            <div class="code-line">      if (initial) {</div>
+                            <div class="code-line">        activateTab(initial); // activa inmediatamente la pestaña de la semana con PDF</div>
+                            <div class="code-line">      } else {</div>
+                            <div class="code-line">        document.getElementById(&quot;panel-1&quot;).classList.add(&quot;active&quot;);</div>
+                            <div class="code-line">      }</div>
                             <div class="code-line">    }</div>
                             <div class="code-line">&nbsp;</div>
                             <div class="code-line">    init();</div>
