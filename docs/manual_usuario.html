@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual de usuario · Academia Bio-Python</title>
+    <link rel="stylesheet" href="estilo_manual.css">
+</head>
+<body>
+
+<section class="portada">
+    <div class="franja">
+        <h1>Academia Bio-Python</h1>
+        <p>Principios de programación con Python · Curso CES</p>
+    </div>
+    <div class="subtitulo">Manual de usuario</div>
+    <img src="img/interfaz.jpg" alt="Pantalla de inicio de Academia Bio-Python">
+    <div class="datos">Versión 5 · octubre de 2026</div>
+</section>
+
+<section class="indice">
+    <h2>Contenido</h2>
+    <ol>
+        <li><a href="#presentacion">1. Presentación</a></li>
+        <li><a href="#requisitos">2. Requisitos y cómo entrar</a></li>
+        <li><a href="#interfaz">3. La interfaz</a></li>
+        <li><a href="#inicio">4. El inicio y el mapa de la aventura</a></li>
+        <li><a href="#modulo">5. Un módulo paso a paso</a>
+            <ol>
+                <li><a href="#leccion">5.1 Lección</a></li>
+                <li><a href="#laboratorio">5.2 Laboratorio</a></li>
+                <li><a href="#retos">5.3 Retos</a></li>
+                <li><a href="#quiz">5.4 Quiz</a></li>
+            </ol>
+        </li>
+        <li><a href="#puntos">6. Puntos, niveles, medallas y diploma</a></li>
+        <li><a href="#libre">7. Laboratorio libre</a></li>
+        <li><a href="#pandas">8. Bases de datos con pandas</a></li>
+        <li><a href="#videos">9. Aprendo con videos</a></li>
+        <li><a href="#evaluaciones">10. Evaluaciones y recursos del curso</a></li>
+        <li><a href="#buscador">11. Buscador y notas</a></li>
+        <li><a href="#errores">12. Guía rápida de errores de Python</a></li>
+        <li><a href="#manual">13. La sección «Manual de usuario»</a></li>
+        <li><a href="#problemas">14. Solución de problemas</a></li>
+        <li><a href="#profesor">15. Para el profesor</a></li>
+    </ol>
+</section>
+
+<h2 id="presentacion">1. Presentación</h2>
+<p><strong>Academia Bio-Python</strong> es una aplicación web para aprender Python desde cero. Reúne en un
+solo lugar los videos, las lecturas, la práctica de código, los retos y las evaluaciones del curso
+<em>Principios de programación con Python</em>.</p>
+<p>Está pensada para que aprender se sienta como un juego: cada módulo es una <strong>misión</strong> de cuatro
+pasos y cada avance da <strong>puntos de experiencia (XP)</strong>, sube de <strong>nivel</strong> y desbloquea
+<strong>medallas</strong>. Todo el código se ejecuta con Python real dentro del navegador, sin instalar nada.</p>
+<div class="consejo">
+    <p><strong>Idea de uso.</strong> Dedica un rato cada día: mira la lección, prueba los ejemplos en el
+    laboratorio, supera los retos y termina con el quiz. Una lección y un reto bastan para cumplir la
+    meta diaria y mantener viva tu racha.</p>
+</div>
+<table>
+    <tr><th>Lo que encontrarás</th><th>Para qué sirve</th></tr>
+    <tr><td>19 módulos en 5 unidades + 3 opcionales</td><td>Desde la instalación de Python hasta clases, biblioteca estándar y herramientas de IA; como bonus, Actividades Extras, Bases de datos con pandas y el Libro del curso (PDF).</td></tr>
+    <tr><td>Laboratorio de código</td><td>Escribir y ejecutar Python, con errores explicados en español.</td></tr>
+    <tr><td>Retos con verificación automática</td><td>Saber al instante si tu programa produce los resultados correctos.</td></tr>
+    <tr><td>Quizzes interactivos</td><td>Repasar la teoría con respuesta inmediata.</td></tr>
+    <tr><td>Evaluaciones y recursos</td><td>Quizzes y parciales oficiales, libro del curso, guías y más.</td></tr>
+</table>
+
+<h2 id="requisitos">2. Requisitos y cómo entrar</h2>
+<ul>
+    <li>Un navegador actualizado: Chrome, Edge o Firefox (en computador o celular).</li>
+    <li><strong>Conexión a internet.</strong> La primera vez que ejecutas código se descarga el intérprete de
+    Python (unos segundos). Los videos y algunos estilos también vienen de internet.</li>
+</ul>
+<h4>Pasos para entrar</h4>
+<ol class="pasos">
+    <li>Abre la dirección de la aplicación que te dio el profesor (o el archivo <code>index.html</code> de la carpeta).</li>
+    <li>En la pantalla de inicio de sesión escribe tu <strong>usuario o cédula</strong> y tu <strong>contraseña</strong>.</li>
+    <li>Pulsa <strong>Ingresar</strong>. Verás el inicio con tu nombre.</li>
+    <li>Para salir, usa el botón <strong>Salir</strong> al final de la barra lateral.</li>
+</ol>
+<div class="atencion">
+    <p><strong>Tu progreso se guarda en el navegador que usas.</strong> Si cambias de computador, de navegador
+    o borras los datos de navegación, la aplicación empieza de cero. Usa siempre el mismo equipo y navegador si
+    quieres conservar tus puntos y medallas. Cada estudiante tiene su propio progreso aunque compartan computador.</p>
+</div>
+
+<h2 id="interfaz">3. La interfaz</h2>
+<figure>
+    <img src="img/interfaz.jpg" alt="Interfaz completa">
+    <figcaption>Figura 1. Barra lateral a la izquierda, barra superior y área de trabajo con el inicio.</figcaption>
+</figure>
+<table>
+    <tr><th>Zona</th><th>Qué contiene</th></tr>
+    <tr><td>Tarjeta del jugador</td><td>Tu nombre, nivel, barra de XP (cuánto falta para subir), racha 🔥, XP de hoy ⚡ y medallas.</td></tr>
+    <tr><td>Secciones</td><td>Inicio · Mapa, Laboratorio libre, Mis logros, Evaluaciones, Recursos del curso, Bases de datos (pandas), Aprendo con videos y Manual de usuario.</td></tr>
+    <tr><td>Módulos</td><td>Las 5 unidades (se despliegan con un clic) y los módulos opcionales (bonus) «Actividades Extras», «Bases de datos con pandas» y «Libro del curso (PDF)», marcados con ★. El círculo de cada módulo
+        muestra su número, amarillo si está en curso y verde con ✓ si está completado.</td></tr>
+    <tr><td>Barra superior</td><td>Dónde estás, el <strong>buscador</strong> (Ctrl+K), el estado de Python
+        (amarillo: cargando; verde: «Python listo»), tus <strong>notas</strong>, el tema claro/oscuro y la pantalla completa.</td></tr>
+    <tr><td>Avisos</td><td>Aparecen abajo a la derecha: XP ganados, archivos descargados, etc.</td></tr>
+</table>
+<div class="lado">
+    <div>
+        <h4>En el celular</h4>
+        <p>La barra lateral se oculta. Ábrela con el botón ☰ arriba a la izquierda y ciérrala tocando fuera de ella.
+        El laboratorio y el quiz se acomodan en una sola columna.</p>
+        <p>El botón de la luna o el sol cambia entre tema claro y oscuro; la aplicación recuerda tu elección.</p>
+    </div>
+    <figure>
+        <img src="img/celular.jpg" alt="Vista en celular">
+        <figcaption>Figura 2. En el celular: inicio y menú lateral abierto.</figcaption>
+    </figure>
+</div>
+
+<h2 id="inicio">4. El inicio y el mapa de la aventura</h2>
+<p>El inicio te recibe con un saludo y resume tu avance:</p>
+<ul>
+    <li><strong>Continuar / ¡Empezar ahora!</strong>: abre tu siguiente misión (el módulo en el que vas).</li>
+    <li><strong>Estadísticas</strong>: XP totales, racha de días, módulos completados y medallas.</li>
+    <li><strong>Tu siguiente misión</strong>: el módulo recomendado con sus cuatro barras de pasos (lección, laboratorio, retos, quiz).</li>
+    <li><strong>Reto del día</strong>: un reto distinto cada día que vale <strong>doble XP</strong>.</li>
+    <li><strong>Meta diaria</strong>: el anillo se llena hasta 60 XP en el día.</li>
+    <li><strong>¿Sabías que…?</strong>: un dato curioso de Python que cambia cada día.</li>
+</ul>
+<figure>
+    <img src="img/mapa.jpg" alt="Mapa de la aventura">
+    <figcaption>Figura 3. Mapa de la aventura: dos módulos de la Unidad 1 completados (✓) y la etiqueta «SIGUIENTE» en el tercero.</figcaption>
+</figure>
+<p>Más abajo está el <strong>mapa de la aventura</strong>: cada unidad muestra cuántos módulos completaste y cada
+tarjeta tiene cuatro barras que se vuelven verdes a medida que haces sus pasos. Puedes abrir cualquier módulo en
+cualquier orden, pero la etiqueta <strong>SIGUIENTE</strong> te indica el recomendado.</p>
+
+<h2 id="modulo">5. Un módulo paso a paso</h2>
+<p>Al abrir un módulo verás su encabezado (unidad, título y flechas ← → para ir al módulo anterior o siguiente) y
+la fila de <strong>pasos</strong>. El paso actual se resalta en azul y los terminados muestran el número en verde.
+Algunos módulos tienen pasos extra, como <strong>Colab</strong> o <strong>Shiny</strong>, con material adicional.</p>
+
+<h3 id="leccion">5.1 Lección</h3>
+<figure>
+    <img src="img/leccion.jpg" alt="Paso Lección">
+    <figcaption>Figura 4. Lección de «4. Control de Flujo»: video principal, lista de videos y el texto debajo.</figcaption>
+</figure>
+<ol class="pasos">
+    <li>Pulsa el botón rojo ▶ para reproducir el video. La lista de la derecha tiene videos complementarios; al elegir uno se reproduce en el recuadro grande.</li>
+    <li>Lee el contenido. Los ejemplos de código tienen un botón <strong>▶ Probar</strong> que copia el ejemplo al laboratorio y lo ejecuta (Figura 5).</li>
+    <li>Si el módulo tiene una <strong>Guía práctica</strong>, ábrela al final de la lección.</li>
+    <li>Al terminar pulsa <strong>¡Lo entendí!</strong>: ganas 15 XP y pasas al laboratorio.</li>
+</ol>
+<figure>
+    <img src="img/probar.jpg" alt="Botones Probar">
+    <figcaption>Figura 5. Ejemplos de la lección con el botón «▶ Probar».</figcaption>
+</figure>
+
+<h3 id="laboratorio" class="nueva-pagina">5.2 Laboratorio</h3>
+<p>El laboratorio es tu espacio para experimentar. A la izquierda está el <strong>editor</strong> y a la derecha la
+<strong>consola</strong>, donde aparece lo que imprime tu programa.</p>
+<figure>
+    <img src="img/laboratorio.jpg" alt="Laboratorio">
+    <figcaption>Figura 6. Programa que calcula el contenido GC de «ATGCGCTA» (escrito en Entradas): GC = 50.0 %.</figcaption>
+</figure>
+<ol class="pasos">
+    <li>Escribe o modifica el código. El editor colorea el código, numera las líneas y sangra automáticamente.</li>
+    <li>Si tu programa usa <code>input()</code>, escribe los datos en <strong>Entradas para input()</strong>, uno por línea. Si faltan datos, el navegador te los preguntará en una ventanita.</li>
+    <li>Pulsa <strong>▶ Ejecutar</strong> o <kbd>Ctrl</kbd>+<kbd>Enter</kbd>. La primera vez Python tarda unos segundos en cargar.</li>
+    <li>Mira el resultado en la consola. Los datos que entraron por <code>input()</code> aparecen en verde.</li>
+</ol>
+<table>
+    <tr><th>Botón o tecla</th><th>Qué hace</th></tr>
+    <tr><td>▶ Ejecutar · <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>Ejecuta el programa.</td></tr>
+    <tr><td>Borrador</td><td>Deja el editor vacío.</td></tr>
+    <tr><td>Descargar</td><td>Guarda el código como archivo <code>.py</code> para usarlo en Colab, Cursor o tu computador.</td></tr>
+    <tr><td><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd></td><td>Aumenta o reduce la sangría (4 espacios).</td></tr>
+    <tr><td><kbd>Ctrl</kbd>+<kbd>/</kbd></td><td>Convierte en comentario (o descomenta) las líneas seleccionadas.</td></tr>
+</table>
+<div class="nota"><p>Tu código se guarda solo: si cierras la aplicación y vuelves, lo encontrarás donde lo dejaste.
+Puedes usar <code>numpy</code>, <code>matplotlib</code> o <code>pandas</code>; se descargan al importarlos y los gráficos aparecen en la consola.</p></div>
+
+<h4>Cuando hay un error: Profe Pitón</h4>
+<p>Si el programa falla, debajo de la consola aparece <strong>Profe Pitón</strong>: dice en qué línea está el problema,
+lo explica en español y sugiere cómo arreglarlo. Abajo, en letra pequeña, queda el mensaje original de Python.</p>
+<figure>
+    <img src="img/error.jpg" alt="Error explicado">
+    <figcaption>Figura 7. <code>"El próximo año tendrás " + edad + 1</code> mezcla texto y número: Profe Pitón sugiere usar <code>int()</code> o un f-string.</figcaption>
+</figure>
+<div class="consejo"><p>Equivocarse es parte de aprender: si corriges un error y vuelves a ejecutar con éxito, ganas la medalla <strong>Cazabugs</strong>.
+Si el programa entra en un bucle infinito, la aplicación lo detiene sola y te avisa.</p></div>
+
+<h3 id="retos" class="nueva-pagina">5.3 Retos</h3>
+<p>Cada reto propone un programa para escribir. Pulsa el título para abrirlo: verás el enunciado, un editor con la
+<strong>plantilla</strong> (los comentarios dicen qué completar), la caja de entradas y la consola.</p>
+<ol class="pasos">
+    <li>Completa la plantilla y pruébala con <strong>▶ Ejecutar</strong> cuantas veces quieras.</li>
+    <li>Pulsa <strong>Verificar</strong>. La aplicación ejecuta tu programa y la solución oficial con las mismas entradas y compara los resultados.</li>
+    <li>Si coinciden: <strong>¡Reto superado!</strong> (25 XP). El número del reto se vuelve verde ✓.</li>
+    <li>Si falta algo: <strong>¡Casi!</strong> te dice qué valores no aparecen en tu salida y puedes ver la salida esperada.</li>
+</ol>
+<figure>
+    <img src="img/reto_superado.jpg" alt="Reto superado">
+    <figcaption>Figura 8. «Número par o impar» con la entrada 3: el programa imprime «3 es impar» y el reto queda superado.</figcaption>
+</figure>
+<figure>
+    <img src="img/reto_casi.jpg" alt="Reto casi">
+    <figcaption>Figura 9. «Tabla de multiplicar» con <code>range(1, 10)</code>: falta la línea 5 x 10 = 50, por eso la verificación pide el valor 50.</figcaption>
+</figure>
+<table>
+    <tr><th>Botón</th><th>Qué hace</th></tr>
+    <tr><td>Verificar</td><td>Compara tu salida con la de la solución. No exige las mismas palabras: exige los mismos <strong>números</strong> (con los decimales pedidos) y las palabras clave (por ejemplo «par» o «impar»).</td></tr>
+    <tr><td>Pista</td><td>Da ideas sin revelar la solución (funciones que hay que definir, fórmulas, cuántos <code>print()</code> usa).</td></tr>
+    <tr><td>Ver solución</td><td>Pide confirmación y carga la solución. El reto valdrá 8 XP en lugar de 25.</td></tr>
+    <tr><td>↺</td><td>Vuelve a la plantilla original.</td></tr>
+</table>
+<div class="nota"><p>Algunos retos se practican fuera del navegador (por ejemplo los de Flask o Cursor). En ellos verás
+<strong>«Ya lo hice»</strong> para marcarlos cuando los completes en Colab o en tu computador.</p></div>
+
+<h3 id="quiz" class="nueva-pagina">5.4 Quiz</h3>
+<div class="lado">
+    <div>
+        <ol class="pasos">
+            <li>Pulsa <strong>Empezar quiz</strong>.</li>
+            <li>Elige una opción: se pinta de verde si acertaste; si no, se pinta de rojo y se marca en verde la correcta.</li>
+            <li>Pulsa <strong>Siguiente</strong>. Varias respuestas correctas seguidas forman un <strong>combo 🔥</strong>.</li>
+            <li>Al final verás el porcentaje. Con <strong>70 % o más</strong> el módulo queda completado y ganas 100 XP.</li>
+        </ol>
+        <p>Puedes repetir el quiz: las preguntas cambian de orden y se guarda tu mejor resultado. Solo dan XP las respuestas correctas que superen tu mejor intento anterior.</p>
+    </div>
+    <figure>
+        <img src="img/quiz_inicio.jpg" alt="Inicio del quiz">
+        <figcaption>Figura 10. Portada del quiz.</figcaption>
+    </figure>
+</div>
+<figure>
+    <img src="img/quiz.jpg" alt="Pregunta del quiz">
+    <figcaption>Figura 11. Pregunta 1 de 10 respondida correctamente: «range()» en verde.</figcaption>
+</figure>
+<figure>
+    <img src="img/quiz_resultado.jpg" alt="Resultado del quiz">
+    <figcaption>Figura 12. Resultado: 9 de 10 correctas (90 %), módulo completado; el botón lleva al siguiente módulo.</figcaption>
+</figure>
+
+<h2 id="puntos">6. Puntos, niveles, medallas y diploma</h2>
+<table>
+    <tr><th>Acción</th><th class="c">XP</th></tr>
+    <tr><td>Marcar la lección como leída («¡Lo entendí!»)</td><td class="c">15</td></tr>
+    <tr><td>Primer programa que se ejecuta sin errores en el laboratorio del módulo</td><td class="c">10</td></tr>
+    <tr><td>Reto superado sin ver la solución / con la solución</td><td class="c">25 / 8</td></tr>
+    <tr><td>Reto del día</td><td class="c">doble</td></tr>
+    <tr><td>Cada respuesta correcta nueva en un quiz</td><td class="c">8</td></tr>
+    <tr><td>Módulo completado (quiz con 70 % o más)</td><td class="c">100</td></tr>
+</table>
+<p>Hay <strong>11 niveles</strong>, desde «Huevo de pitón» (0 XP) hasta «Gran Maestro Pythonista» (4200 XP), y
+<strong>22 medallas</strong> (primer programa, Cazabugs, Quiz perfecto, Combo x5, racha de 3 y 7 días, Graficador…).
+La <strong>racha</strong> cuenta los días seguidos en que ganas XP: si un día no estudias, vuelve a empezar.
+Cuando subes de nivel, ganas una medalla o completas un módulo, aparece una celebración.</p>
+<div class="lado">
+    <div>
+        <p>En <strong>Mis logros</strong> ves tus estadísticas (programas ejecutados, retos, errores corregidos, mejor racha),
+        todas las medallas (las grises aún están bloqueadas), la lista de niveles y la tabla de XP.</p>
+        <p>Al completar los 19 módulos del curso (los opcionales no son necesarios) se activa el botón <strong>Diploma</strong>, que abre un diploma con tu nombre, nivel,
+        XP y medallas, listo para imprimir o guardar en PDF.</p>
+    </div>
+    <figure>
+        <img src="img/celebracion.jpg" alt="Celebración">
+        <figcaption>Figura 13. Celebración al completar un módulo.</figcaption>
+    </figure>
+</div>
+<figure>
+    <img src="img/logros.jpg" alt="Mis logros">
+    <figcaption>Figura 14. Mis logros: nivel 4 «Domador de variables», estadísticas, medallas y niveles.</figcaption>
+</figure>
+
+<h2 id="libre">7. Laboratorio libre</h2>
+<p>Es un laboratorio que no pertenece a ningún módulo, ideal para tus propios programas. Arriba tiene
+<strong>experimentos de Bio-Python</strong> listos para ejecutar: complemento de ADN, transcribir a ARN, IMC con
+funciones, gráfico de población, temperaturas y «Adivina el número». Al pulsar uno se carga y se ejecuta.</p>
+<figure>
+    <img src="img/libre.jpg" alt="Laboratorio libre">
+    <figcaption>Figura 15. Experimento «Gráfico de población»: matplotlib dibuja conejos que se duplican cada año.</figcaption>
+</figure>
+
+<h2 id="pandas">8. Bases de datos con pandas</h2>
+<p>El módulo opcional <strong>Bases de datos con pandas</strong> (en el bonus del mapa y en la barra lateral como
+<strong>Bases de datos (pandas)</strong>) enseña a manejar tablas de datos de cualquier disciplina con la librería <strong>pandas</strong>,
+tanto en la plataforma como en Google Colab. Tiene los mismos pasos que los demás módulos: Lección, Laboratorio, 10 retos, un quiz de
+12 preguntas y el paso extra <strong>Colab</strong>. Como todo el bonus, da XP y medallas pero no cuenta para el progreso del curso ni para el diploma.</p>
+<h4>La lección</h4>
+<p>Tiene 16 temas con un índice de botones para saltar a cada uno: qué es un DataFrame, plataforma o Colab, crear DataFrames, cargar
+datos del PC, explorar, seleccionar, filtrar, ordenar, crear columnas, limpiar datos, agrupar y resumir, combinar tablas, fechas y texto,
+gráficos, exportar y un resumen rápido. Cada ejemplo tiene <strong>▶ Probar</strong>.</p>
+<figure>
+    <img src="img/pandas_leccion.jpg" alt="Lección de pandas">
+    <figcaption>Figura 16. Lección de pandas: índice de temas y el primer tema, «¿Qué es pandas y qué es un DataFrame?».</figcaption>
+</figure>
+<h4>Datos de práctica</h4>
+<p>Seis archivos ya están cargados en el Python de la plataforma, así que se leen directamente con <code>pd.read_csv("ventas.csv")</code>.
+En la lección (tema 4) cada uno tiene un botón para descargarlo y usarlo en Colab o en Excel.</p>
+<table>
+    <tr><th>Archivo</th><th>Disciplina</th><th>Contenido</th></tr>
+    <tr><td><code>ventas.csv</code></td><td>Comercio</td><td>120 ventas por fecha, región y producto</td></tr>
+    <tr><td><code>productos.csv</code></td><td>Comercio</td><td>Categoría y precio de 8 productos (para unir con ventas)</td></tr>
+    <tr><td><code>estudiantes.csv</code></td><td>Educación</td><td>Notas y asistencia de 40 estudiantes de 5 programas</td></tr>
+    <tr><td><code>clima.csv</code></td><td>Meteorología</td><td>Temperaturas y lluvia diaria de Medellín, Bogotá y Cali en marzo</td></tr>
+    <tr><td><code>pacientes.csv</code></td><td>Salud</td><td>Edad, peso, altura y presión de 50 pacientes, con faltantes y duplicados para practicar limpieza</td></tr>
+    <tr><td><code>plantas.csv</code></td><td>Biología</td><td>Medidas de sépalos y pétalos de 45 flores de 3 especies</td></tr>
+</table>
+<h4>Cargar tus datos desde el PC en la plataforma</h4>
+<ol class="pasos">
+    <li>Abre el paso <strong>Laboratorio</strong> del módulo (o el Laboratorio libre, o un reto).</li>
+    <li>Pulsa <strong>Subir</strong> y elige uno o varios archivos <code>.csv</code>, <code>.xlsx</code>, <code>.json</code> o <code>.txt</code>.</li>
+    <li>La consola muestra la línea para leerlo; <strong>Usar en mi código</strong> la escribe en el editor, justo después de <code>import pandas as pd</code>.</li>
+    <li>Ejecuta. <code>mostrar(df)</code> dibuja la tabla con sus filas y columnas.</li>
+</ol>
+<figure>
+    <img src="img/pandas_subir.jpg" alt="Archivo subido">
+    <figcaption>Figura 17. Después de subir «municipios.csv», la consola indica cómo leerlo y ofrece «Usar en mi código».</figcaption>
+</figure>
+<figure>
+    <img src="img/pandas_lab.jpg" alt="Tabla en la consola">
+    <figcaption>Figura 18. CSV de Excel en español (<code>sep=";"</code>, <code>decimal=","</code>): se calcula la densidad, <code>mostrar(m)</code> dibuja la tabla y se guarda «densidad.csv».</figcaption>
+</figure>
+<p>El botón con el ícono de <strong>carpeta</strong> (junto a Subir) abre <strong>Archivos de Python</strong>: la lista de archivos que tu código
+puede leer (los tuyos, los creados con <code>to_csv</code> o <code>to_excel</code> y los de práctica), con <strong>Usar</strong> y
+<strong>Descargar</strong>.</p>
+<figure>
+    <img src="img/pandas_archivos.jpg" alt="Archivos de Python">
+    <figcaption>Figura 19. Archivos de Python: «densidad.csv» (creado por el programa) y «municipios.csv» (subido) listos para descargar o usar.</figcaption>
+</figure>
+<div class="atencion"><p>Los archivos subidos viven en la memoria del navegador: se borran al recargar la página. Tus datos no salen de tu computador.</p></div>
+<h4>El paso Colab</h4>
+<p>Es una guía para hacer lo mismo en Google Colab: crear el notebook, las cinco formas de cargar datos desde el PC (panel de archivos,
+<code>files.upload()</code>, Google Drive, una URL y Google Sheets), leer Excel, y guardar y descargar resultados con
+<code>files.download()</code>.</p>
+<figure>
+    <img src="img/pandas_colab.jpg" alt="Guía de Colab">
+    <figcaption>Figura 20. Paso Colab: formas de cargar datos desde el PC a Google Colab.</figcaption>
+</figure>
+<h4>Retos</h4>
+<p>Los 10 retos usan los datos de práctica: crear un DataFrame, total vendido, estudiantes aprobados, temperatura por ciudad, limpiar datos de
+pacientes, índice de masa corporal por sexo, los 3 productos más vendidos, ventas por categoría (uniendo dos tablas), medidas por especie y
+ventas por mes. La verificación compara los números de tu salida con los de la solución, así que puedes imprimirlos a tu manera.</p>
+
+<h2 id="videos">9. Aprendo con videos</h2>
+<p>En la barra lateral, <strong>Aprendo con videos</strong> reúne los videos del canal de YouTube del profesor John Jairo Estrada
+relacionados con el curso, organizados por tema. Pulsa un video para verlo en el reproductor de arriba; a la derecha verás su
+tema, botones para ir a las partes de la aplicación relacionadas y <strong>Abrir en YouTube</strong>. El botón
+<strong>Ver el canal completo</strong> abre el canal.</p>
+<div class="nota"><p>Los videos necesitan internet. Si abres la aplicación como archivo de tu computador (no desde su página web),
+YouTube puede mostrar «Error 153»: usa <strong>Abrir en YouTube</strong> o entra por la dirección publicada de la aplicación.</p></div>
+<figure>
+    <img src="img/videos.jpg" alt="Aprendo con videos">
+    <figcaption>Figura 21. «Dataframes y pandas en Python» reproduciéndose; a la derecha, los botones a Estructuras de Datos y Google Colab.</figcaption>
+</figure>
+<table>
+    <tr><th>Tema</th><th class="c">Videos</th><th>Partes de la aplicación relacionadas</th></tr>
+    <tr><td>Importar módulos</td><td class="c">1</td><td>6. Módulos</td></tr>
+    <tr><td>Dataframes con pandas</td><td class="c">4</td><td>5. Estructuras de Datos · 15. Google Colab</td></tr>
+    <tr><td>De la unidad de observación al dataframe (apoyo)</td><td class="c">4</td><td>5. Estructuras de Datos</td></tr>
+    <tr><td>Google Colab</td><td class="c">3</td><td>15. Google Colab</td></tr>
+    <tr><td>Cargar datos CSV en Colab</td><td class="c">2</td><td>15. Google Colab · 7. Entrada y Salida</td></tr>
+    <tr><td>Shiny for Python</td><td class="c">2</td><td>Recursos: Shiny for Python · Conceptos clave de Shiny</td></tr>
+    <tr><td>Modelos y simulaciones en biología (apoyo)</td><td class="c">6</td><td>Laboratorio libre</td></tr>
+</table>
+<p>Los videos del canal también aparecen en la lista de videos de la <strong>lección</strong> de cada módulo relacionado,
+marcados con <strong>Canal del profe</strong>. Al final de la sección se listan los módulos que aún no tienen videos del canal.</p>
+
+<h2 id="evaluaciones">10. Evaluaciones y recursos del curso</h2>
+<p><strong>Evaluaciones</strong> reúne los 4 quizzes y 4 parciales oficiales. Cada tarjeta abre una página con el botón
+para iniciar la evaluación (en una ventana nueva), el <strong>código QR</strong> para abrirla desde el celular y el
+enlace directo (al pulsarlo se copia).</p>
+<figure>
+    <img src="img/evaluaciones.jpg" alt="Evaluaciones">
+    <figcaption>Figura 22. Sección Evaluaciones.</figcaption>
+</figure>
+<figure>
+    <img src="img/evaluacion_qr.jpg" alt="Evaluación con QR">
+    <figcaption>Figura 23. Primer quiz: botón «Iniciar Evaluación», código QR y enlace directo.</figcaption>
+</figure>
+<h4>Libro del curso (PDF)</h4>
+<p>El módulo opcional <strong>Libro del curso (PDF)</strong> (en el bonus del mapa y al final de la lista de módulos) muestra el libro
+<em>Curso de programación: Python, R con RStudio y automatización con n8n</em> (98 páginas) dentro de la academia. El botón
+<strong>Ver en ventana emergente</strong> lo abre en una ventana aparte (si el navegador la bloquea, la aplicación avisa) y
+<strong>Descargar PDF</strong> lo guarda en tu computador. Como no tiene quiz, se completa con <strong>Marcar como completado</strong>.</p>
+<figure>
+    <img src="img/libro_curso.jpg" alt="Libro del curso">
+    <figcaption>Figura 24. Módulo «Libro del curso (PDF)»: visor del libro y botones «Ver en ventana emergente» y «Descargar PDF».</figcaption>
+</figure>
+<p><strong>Recursos del curso</strong> contiene el libro del curso en PDF, el resumen clave de Python, páginas
+recomendadas, Shiny for Python y sus conceptos clave, el editor de LaTeX (Overleaf), la guía de GitHub, el HTML de
+entregas y este manual. El botón <strong>← Recursos del curso</strong> regresa a las tarjetas.</p>
+<figure>
+    <img src="img/recursos.jpg" alt="Recursos">
+    <figcaption>Figura 25. Sección Recursos del curso.</figcaption>
+</figure>
+
+<h2 id="buscador">11. Buscador y notas</h2>
+<p>Pulsa <strong>Buscar temas, retos…</strong> o <kbd>Ctrl</kbd>+<kbd>K</kbd> y escribe una palabra: aparecen módulos,
+retos, quizzes, evaluaciones y recursos relacionados (también busca dentro del texto de las lecciones). Muévete con las
+flechas y abre con <kbd>Enter</kbd>.</p>
+<figure>
+    <img src="img/buscador.jpg" alt="Buscador">
+    <figcaption>Figura 26. Buscando «bucle»: el buscador propone el módulo «4. Control de Flujo».</figcaption>
+</figure>
+<p>El botón de <strong>notas</strong> (arriba a la derecha) abre un cuaderno para el módulo en el que estás (o notas
+generales en el inicio). <strong>Guardar</strong> las conserva en el navegador y <strong>Descargar todas</strong> crea un
+archivo <code>mis_notas_biopython.md</code> con las notas de todos los módulos.</p>
+<figure>
+    <img src="img/notas.jpg" alt="Notas">
+    <figcaption>Figura 27. Notas del módulo «3. Introducción Informal a Python».</figcaption>
+</figure>
+
+<h2 id="errores">12. Guía rápida de errores de Python</h2>
+<p>Estos son los errores más comunes al empezar y cómo los explica Profe Pitón.</p>
+<table>
+    <tr><th>Error de Python</th><th>Qué significa</th><th>Cómo se arregla</th></tr>
+    <tr><td><code>SyntaxError</code></td><td>Una línea está mal escrita.</td><td>Revisa los dos puntos <code>:</code> después de <code>if</code>, <code>for</code>, <code>def</code>…, comillas y paréntesis cerrados.</td></tr>
+    <tr><td><code>IndentationError</code></td><td>La sangría no es correcta.</td><td>El bloque después de <code>:</code> va 4 espacios a la derecha; las líneas del mismo bloque, alineadas.</td></tr>
+    <tr><td><code>NameError</code></td><td>Python no conoce ese nombre.</td><td>Revisa mayúsculas y ortografía; crea la variable antes de usarla; pon los textos entre comillas.</td></tr>
+    <tr><td><code>TypeError</code></td><td>Tipos que no encajan (por ejemplo texto + número).</td><td>Convierte con <code>int()</code>, <code>float()</code> o <code>str()</code>, o usa f-strings.</td></tr>
+    <tr><td><code>ValueError</code></td><td>Un texto no se puede convertir a número.</td><td>Revisa las entradas; usa punto decimal (<code>3.5</code>), no coma.</td></tr>
+    <tr><td><code>ZeroDivisionError</code></td><td>División entre cero.</td><td>Comprueba con <code>if</code> que el divisor no sea 0.</td></tr>
+    <tr><td><code>IndexError</code></td><td>Posición que no existe en la lista.</td><td>Las posiciones empiezan en 0; usa <code>len()</code>.</td></tr>
+    <tr><td><code>KeyError</code></td><td>Clave que no está en el diccionario.</td><td>Usa <code>dic.get(clave)</code> o <code>if clave in dic</code>.</td></tr>
+    <tr><td><code>AttributeError</code></td><td>Ese dato no tiene ese método.</td><td>Por ejemplo, en listas se usa <code>.append()</code>, no <code>.push()</code>.</td></tr>
+    <tr><td><code>EOFError</code></td><td>Faltan datos para <code>input()</code>.</td><td>Escribe un dato por línea en «Entradas para input()».</td></tr>
+    <tr><td>¿Bucle infinito?</td><td>El programa no terminaba y se detuvo.</td><td>Asegúrate de que la condición del <code>while</code> llegue a ser falsa.</td></tr>
+</table>
+
+<h2 id="manual">13. La sección «Manual de usuario»</h2>
+<p>Este manual está dentro de la aplicación: en la barra lateral pulsa <strong>Manual de usuario</strong> (también está en
+Recursos del curso). Se muestra en un visor y tiene dos botones:</p>
+<ul>
+    <li><strong>Ver en ventana emergente</strong>: lo abre en una ventana aparte. Si el navegador bloquea las ventanas emergentes, la aplicación te avisa.</li>
+    <li><strong>Descargar PDF</strong>: guarda el archivo <code>manual_usuario.pdf</code>.</li>
+</ul>
+<figure>
+    <img src="img/pestana_manual.jpg" alt="Sección del manual">
+    <figcaption>Figura 28. La sección «Manual de usuario» con sus botones (el visor muestra el PDF en el navegador).</figcaption>
+</figure>
+
+<h2 id="problemas">14. Solución de problemas</h2>
+<table>
+    <tr><th>Situación</th><th>Causa y solución</th></tr>
+    <tr><td>El indicador dice «Preparando Python…» mucho tiempo</td><td>La primera descarga de Python tarda según la conexión. Espera; si dice «Python sin conexión», revisa internet y recarga la página.</td></tr>
+    <tr><td>Desaparecieron mis puntos y medallas</td><td>El progreso se guarda en el navegador. Abre la aplicación en el mismo computador y navegador de siempre, sin modo incógnito.</td></tr>
+    <tr><td>«ID/C.C. o contraseña incorrectos»</td><td>Revisa mayúsculas y espacios. Si el problema sigue, pide al profesor que confirme tu usuario.</td></tr>
+    <tr><td>El programa pide datos en una ventanita</td><td>Tu programa usa <code>input()</code> y no había datos en «Entradas». Escríbelos ahí, uno por línea, para no tener que teclearlos cada vez.</td></tr>
+    <tr><td>La verificación dice «¡Casi!» aunque mi programa funciona</td><td>Faltan resultados que pide el enunciado (por ejemplo los decimales o una línea). Abre «Ver la salida esperada» y compárala con la tuya.</td></tr>
+    <tr><td>«Este reto se practica fuera del navegador»</td><td>Usa librerías que no funcionan en el navegador (Flask) o no es código Python. Hazlo en Colab o en tu computador y pulsa «Ya lo hice».</td></tr>
+    <tr><td><code>ModuleNotFoundError</code></td><td>El módulo no existe o no funciona en el navegador (por ejemplo, un módulo propio en otro archivo). Pruébalo en Colab o en tu computador.</td></tr>
+    <tr><td>El video muestra «Error 153» o no se reproduce</td><td>YouTube no reproduce videos incrustados cuando la aplicación se abre como archivo local, y todos necesitan internet. Usa «Abrir en YouTube» (en la lista de videos de la lección o en Aprendo con videos) o entra por la dirección publicada.</td></tr>
+    <tr><td>No se abre una evaluación o el manual en ventana nueva</td><td>El navegador bloqueó la ventana emergente. Permite las ventanas emergentes para este sitio, o usa el enlace directo / «Descargar PDF».</td></tr>
+    <tr><td>Subí un archivo y ya no aparece</td><td>Los archivos subidos se borran al recargar la página. Súbelo otra vez con «Subir».</td></tr>
+    <tr><td>El CSV se lee en una sola columna o con números raros</td><td>Probablemente usa punto y coma y coma decimal (Excel en español): <code>pd.read_csv("a.csv", sep=";", decimal=",")</code>. Si las tildes se ven mal, agrega <code>encoding="latin-1"</code>.</td></tr>
+    <tr><td>En «Mis logros» aparece «Registro para tu profesor»</td><td>Tu profesor activó el registro: la academia le envía tus horas de ingreso y salida y tus actividades (lecciones, retos, notas de los quizzes).</td></tr>
+    <tr><td>En el celular no veo el menú</td><td>Toca el botón ☰ arriba a la izquierda.</td></tr>
+</table>
+
+<h2 id="profesor">15. Para el profesor</h2>
+<ul>
+    <li><strong>Agregar estudiantes:</strong> entre con el usuario administrador, use el panel de administración y luego
+    «Exportar usuarios» para pegar la lista en <code>js/auth.js</code>. El procedimiento detallado está en
+    <code>_seguridadBasica.md</code>.</li>
+    <li><strong>Cambiar el contenido:</strong> los videos, textos, retos y preguntas de cada módulo están en
+    <code>js/modules-data.js</code>. Un reto es <code>{ title, description, template, solution }</code>; una pregunta es
+    <code>{ question, options, correct }</code>. El archivo <code>README.md</code> explica cómo agregar módulos, evaluaciones y recursos.</li>
+    <li><strong>Datos de pandas:</strong> los archivos de práctica están en <code>data/</code> y, para el navegador, en
+    <code>js/datos-pandas.js</code>; el módulo está en <code>js/modulo-pandas.js</code>.</li>
+    <li><strong>Registro en Google Forms:</strong> ejecute <code>docs/crear_formularios.gs</code> en
+    <code>script.google.com</code> (función <code>crearFormularios</code>) y copie el bloque <code>REGISTRO_CONFIG</code> que imprime en
+    <code>js/registro-config.js</code>. Desde ese momento la academia envía sola la hora de ingreso, la de salida y la duración de cada
+    sesión, y las lecciones, retos, notas de los quizzes (0 a 5) y módulos completados a la hoja «Academia Bio-Python · Registros».</li>
+    <li><strong>Verificación de retos:</strong> se ejecuta la solución con las mismas entradas que el estudiante; por eso la
+    solución debe imprimir los resultados que se quieren exigir.</li>
+    <li><strong>Actualizar este manual:</strong> edite <code>docs/manual_usuario.html</code> y genere el PDF con Chrome:
+    <code>google-chrome --headless --no-pdf-header-footer --print-to-pdf=manual_usuario.pdf manual_usuario.html</code>
+    (desde la carpeta <code>docs</code>).</li>
+</ul>
+<div class="atencion"><p>Los usuarios y contraseñas de <code>js/auth.js</code> son visibles para quien abra el código de la
+página publicada. No use contraseñas personales de los estudiantes.</p></div>
+
+</body>
+</html>
