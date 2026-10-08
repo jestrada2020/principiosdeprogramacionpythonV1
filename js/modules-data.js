@@ -7,9 +7,9 @@ const modules = {
         additionalVideos: [],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-2">Actividades Extras</h2>
-            <p class="theme-text-secondary mb-6">Videos esenciales sobre el futuro de la programación y la biología computacional según Jensen Huang (NVIDIA).</p>
+            <p class="theme-text-secondary mb-6">Videos esenciales sobre el futuro de la programación, la biología computacional, el pensamiento crítico y la inteligencia artificial: su historia, su evolución hasta los agentes y cómo funcionan por dentro.</p>
 
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:2rem;">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem;margin-bottom:2rem;">
 
                 <div>
                     <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
@@ -120,6 +120,57 @@ const modules = {
                     <a href="https://www.youtube.com/watch?v=ydnOSMbyyQo" target="_blank" rel="noopener noreferrer"
                        style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
                         <img src="https://img.youtube.com/vi/ydnOSMbyyQo/hqdefault.jpg" alt="Raj Reddy: The Future of AI: Doomers vs. Abundance"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        Historia de la inteligencia artificial — Tecnología 4.0
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=mykrieNb9p0&t=57s" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/mykrieNb9p0/hqdefault.jpg" alt="Historia de la inteligencia artificial: evolución de la IA"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        Historia y evolución de la IA: de reglas a agentes — Latin AI Coder
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=zuSS7EbGRro&t=80s" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/zuSS7EbGRro/hqdefault.jpg" alt="Historia y evolución de la IA: de reglas a agentes"
+                             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
+                            <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+                                <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid white;margin-left:5px;"></div>
+                            </div>
+                            <div style="background:rgba(0,0,0,0.65);color:white;font-size:0.75rem;font-weight:bold;padding:4px 12px;border-radius:999px;">▶ Ver en YouTube</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div style="color:inherit;font-weight:bold;font-size:0.85rem;margin-bottom:0.5rem;text-align:center;opacity:0.9;">
+                        ¿Cómo funciona por dentro un agente de IA? — Oliver Nabani
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=RduS9sfQZ6A" target="_blank" rel="noopener noreferrer"
+                       style="display:block;position:relative;padding-top:56.25%;width:100%;border-radius:0.75rem;overflow:hidden;background:#000;cursor:pointer;text-decoration:none;">
+                        <img src="https://img.youtube.com/vi/RduS9sfQZ6A/hqdefault.jpg" alt="¿Cómo funciona por dentro un agente de IA?"
                              style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
                         <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;background:rgba(0,0,0,0.25);">
                             <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
@@ -1126,8 +1177,8 @@ print(f"Tiempo empleado para ingresar datos: {tiempo_total:.2f} segundos")</code
             {
                 title: "Separadores en print()",
                 description: "Practica con diferentes separadores en la función print().",
-                template: "print(\"=== SEPARADORES EN PRINT() ===\")\n    \n    nombre = \"Juan\"\n    \n    # Separador por defecto (espacio)\n    print(\"Separador por defecto:\")\n    print(\"Hola\", nombre, \"!\")\n    print(\"Por defecto, print() usa un espacio como separador\")\n    \n    print(\"\n\" + \"-\" * 40)\n    \n    # Sin separador (cadena vacía)\n    print(\"Sin separador (sep=''):\")\n    print(\"Hola\", nombre, \"!\", sep=\"\")\n    print(\"Al usar sep='', las palabras se pegan sin espacio\")\n    \n    print(\"\n\" + \"-\" * 40)\n    \n    # Separador personalizado con asteriscos\n    print(\"Separador personalizado (sep='***'):\")\n    print(\"Hola\", nombre, \"!\", sep=\"***\")\n    print(\"Podemos usar cualquier cadena como separador\")\n    \n    print(\"\n\" + \"-\" * 40)\n    \n    # Más ejemplos de separadores creativos\n    print(\"Otros separadores creativos:\")\n    print(\"Python\", \"es\", \"genial\", sep=\" -> \" )\n    print(\"A\", \"B\", \"C\", sep=\" | \" )\n    print(\"1\", \"2\", \"3\", sep=\"-\")\n    print(\"Palabra1\", \"Palabra2\", \"Palabra3\", sep=\"___\")",
-                solution: "print(\"=== SEPARADORES EN PRINT() ===\")\n    \n    nombre = \"Juan\"\n    \n    # Separador por defecto (espacio)\n    print(\"Separador por defecto:\")\n    print(\"Hola\", nombre, \"!\")\n    print(\"Por defecto, print() usa un espacio como separador\")\n    \n    print(\"\n\" + \"-\" * 40)\n    \n    # Sin separador (cadena vacía)\n    print(\"Sin separador (sep=''):\")\n    print(\"Hola\", nombre, \"!\", sep=\"\")\n    print(\"Al usar sep='', las palabras se pegan sin espacio\")\n    \n    print(\"\n\" + \"-\" * 40)\n    \n    # Separador personalizado con asteriscos\n    print(\"Separador personalizado (sep='***'):\")\n    print(\"Hola\", nombre, \"!\", sep=\"***\")\n    print(\"Podemos usar cualquier cadena como separador\")\n    \n    print(\"\n\" + \"-\" * 40)\n    \n    # Más ejemplos de separadores creativos\n    print(\"Otros separadores creativos:\")\n    print(\"Python\", \"es\", \"genial\", sep=\" -> \" )\n    print(\"A\", \"B\", \"C\", sep=\" | \" )\n    print(\"1\", \"2\", \"3\", sep=\"-\")\n    print(\"Palabra1\", \"Palabra2\", \"Palabra3\", sep=\"___\")"
+                template: "print(\"=== SEPARADORES EN PRINT() ===\")\n\nnombre = \"Juan\"\n\n# Separador por defecto (espacio)\nprint(\"Separador por defecto:\")\nprint(\"Hola\", nombre, \"!\")\n\nprint(\"\\n\" + \"-\" * 40)\n\n# 1. Imprime \"Hola\", nombre y \"!\" SIN separador (usa sep=\"\")\n\n# 2. Imprime lo mismo separado por \"***\"\n\n# 3. Imprime \"Python\", \"es\", \"genial\" separados por \" -> \"\n#    \"A\", \"B\", \"C\" separados por \" | \"  y  \"1\", \"2\", \"3\" separados por \"-\"\n",
+                solution: "print(\"=== SEPARADORES EN PRINT() ===\")\n\nnombre = \"Juan\"\n\n# Separador por defecto (espacio)\nprint(\"Separador por defecto:\")\nprint(\"Hola\", nombre, \"!\")\n\nprint(\"\\n\" + \"-\" * 40)\n\n# Sin separador (cadena vacía)\nprint(\"Sin separador (sep=''):\")\nprint(\"Hola\", nombre, \"!\", sep=\"\")\n\nprint(\"\\n\" + \"-\" * 40)\n\n# Separador personalizado con asteriscos\nprint(\"Separador personalizado (sep='***'):\")\nprint(\"Hola\", nombre, \"!\", sep=\"***\")\n\nprint(\"\\n\" + \"-\" * 40)\n\n# Más separadores creativos\nprint(\"Python\", \"es\", \"genial\", sep=\" -> \")\nprint(\"A\", \"B\", \"C\", sep=\" | \")\nprint(\"1\", \"2\", \"3\", sep=\"-\")"
             },
             {
                 title: "Reto: Volumen de una esfera",
@@ -1211,7 +1262,7 @@ print(f"Tiempo empleado para ingresar datos: {tiempo_total:.2f} segundos")</code
             },
             {
                 question: "¿Cuál de estos NO es un tipo de dato básico en Python?",
-                options: ["int", "float", "string", "char"],
+                options: ["int", "float", "str", "char"],
                 correct: 3
             },
             {
@@ -1657,7 +1708,7 @@ print(f"Primeros 10 números de Fibonacci: {fibonacci(10)}")</code>
                 correct: 2
             },
             {
-                question: "¿Cuál es la sintaxis correcta para un if anidado?",
+                question: "¿Cuál es la estructura correcta de una condición con varias alternativas?",
                 options: ["if-then-else", "if: elif: else:", "if-elseif-else", "Todas son correctas"],
                 correct: 1
             },
@@ -2053,7 +2104,7 @@ datos_ventas = {<br>
             },
             {
                 question: "¿Cómo accedes al valor de una clave en un diccionario?",
-                options: ["dict.get(key)", "dict[key]", "dict(key)", "Todas son correctas"],
+                options: ["dict.get(key)", "dict[key]", "dict(key)", "Opciones A y B son correctas"],
                 correct: 3
             },
             {
@@ -2974,7 +3025,7 @@ resultado = numero1 + numero2<br>
                 correct: 1
             },
             {
-                question: "¿Cuál es el método especial que se ejecuta al crear un objeto?",
+                question: "¿Qué método especial inicializa los atributos de un objeto recién creado?",
                 options: ["__init__", "__new__", "__create__", "__start__"],
                 correct: 0
             },
@@ -3791,7 +3842,7 @@ resultado = numero1 + numero2<br>
                 correct: 1
             },
             {
-                question: "¿Cómo ejecutas una celda de código en Google Colab?",
+                question: "¿Qué atajo ejecuta una celda en Google Colab y pasa a la siguiente?",
                 options: ["Ctrl+Enter", "Shift+Enter", "Alt+Enter", "F5"],
                 correct: 1
             },
@@ -4310,7 +4361,7 @@ resultado = numero1 + numero2<br>
         ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Antigravity Google - Asistente de Codificación Superior</h2>
-            <p class="theme-text-secondary mb-6">Antigravity es la última innovación de Google para desarrolladores. Combina el poder de Gemini Ultra con herramientas agenticas avanzadas para escribir, depurar y desplegar código de manera autónoma y eficiente.</p>
+            <p class="theme-text-secondary mb-6">Antigravity es la última innovación de Google para desarrolladores. Combina el poder de Gemini 3 con herramientas agenticas avanzadas para escribir, depurar y desplegar código de manera autónoma y eficiente.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -4325,7 +4376,7 @@ resultado = numero1 + numero2<br>
                     <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fab fa-google text-white text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Gemini Ultra</h3>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Gemini 3</h3>
                     <p class="text-sm theme-text-secondary text-center">Impulsado por el modelo más capaz de Google para razonamiento y codificación</p>
                 </div>
             </div>
@@ -4413,7 +4464,7 @@ resultado = numero1 + numero2<br>
             },
             {
                 question: "¿Qué modelo impulsa a Antigravity?",
-                options: ["GPT-4", "Llama 3", "Gemini Ultra", "Claude 3"],
+                options: ["GPT-4", "Llama 3", "Gemini 3", "Claude 3"],
                 correct: 2
             },
             {
