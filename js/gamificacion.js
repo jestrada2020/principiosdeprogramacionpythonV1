@@ -65,7 +65,8 @@ const GAME = (() => {
             medallas: {},     // id → fecha
             stats: { ejecuciones: 0, errores: 0, retos: 0, quizzes: 0 },
             ultimoModulo: null,
-            retosDiarios: {}
+            retosDiarios: {},
+            historial: []     // [{ f: fecha y hora, m: módulo, t: actividad, d: detalle, r: resultado, n: nota }] para el reporte PDF
         };
     }
 
@@ -184,6 +185,11 @@ const GAME = (() => {
     function ejecucion(id, ok, salida, huboGrafico) {
         const s = estado.stats;
         s.ejecuciones++;
+        if (id) {   // conteo por módulo para el informe de la unidad
+            const mm = mod(id);
+            mm.ejec = (mm.ejec || 0) + 1;
+            if (!ok) mm.err = (mm.err || 0) + 1;
+        }
         if (!ok) { s.errores++; estado._ultimoError = true; guardar(); return; }
         otorgar('primer-programa');
         if (/hola/i.test(salida || '')) otorgar('hola-mundo');
@@ -224,6 +230,8 @@ const GAME = (() => {
         const primeraVez = m.quizMejor === null;
         const mejora = primeraVez || pct > m.quizMejor;
         estado.stats.quizzes++;
+        m.quizN = (m.quizN || 0) + 1;
+        m.quizUlt = pct;
         if (mejora) {
             // Solo se premian las respuestas nuevas: no se gana XP repitiendo el mismo resultado
             const antes = primeraVez ? 0 : Math.round(m.quizMejor * total / 100);
@@ -252,6 +260,15 @@ const GAME = (() => {
     }
 
     function notasGuardadas() { otorgar('apuntes'); }
+
+    // Historial con fecha de las actividades (lección, retos, quizzes, módulos) para el reporte en PDF del docente
+    function anotar(modulo, tipo, detalle, resultado, nota) {
+        if (!Array.isArray(estado.historial)) estado.historial = [];
+        const d = new Date(), dos = n => String(n).padStart(2, '0');
+        estado.historial.push({ f: `${hoy()} ${dos(d.getHours())}:${dos(d.getMinutes())}`, m: modulo, t: tipo, d: detalle || '', r: resultado || '', n: nota || '' });
+        if (estado.historial.length > 400) estado.historial.splice(0, estado.historial.length - 400);
+        guardar();
+    }
 
     // ---------- Confeti (sin dependencias) ----------
     function confeti(cantidad = 160) {
@@ -289,7 +306,7 @@ const GAME = (() => {
         NIVELES, MEDALLAS, META_DIARIA,
         cargar, guardar, mod, nivelDe, hoy,
         get estado() { return estado; },
-        sumarXP, otorgar, visitar, leccionLeida, ejecucion, retoSuperado, quizTerminado, completarModulo, notasGuardadas,
+        sumarXP, otorgar, visitar, leccionLeida, ejecucion, retoSuperado, quizTerminado, completarModulo, notasGuardadas, anotar,
         confeti
     };
 })();

@@ -9,13 +9,13 @@
 const UNIDADES = [
     { n: 1, titulo: 'Primeros pasos',         desc: 'Instala, ejecuta y juega con números y textos', color: '#22c55e', modulos: ['intro', 'interpreter', 'basics'] },
     { n: 2, titulo: 'Lógica y datos',          desc: 'Decisiones, bucles, funciones y colecciones',  color: '#3b82f6', modulos: ['control-flow', 'data-structures', 'modules'] },
-    { n: 3, titulo: 'Programas de verdad',     desc: 'Archivos, errores y objetos',                  color: '#a855f7', modulos: ['io', 'errors', 'classes'] },
+    { n: 3, titulo: 'Programas de verdad',     desc: 'Archivos, errores, objetos y memoria',        color: '#a855f7', modulos: ['io', 'errors', 'classes', 'memoria'] },
     { n: 4, titulo: 'Biblioteca y entorno',    desc: 'Las pilas incluidas de Python',                color: '#f59e0b', modulos: ['stdlib', 'stdlib2', 'venv'] },
-    { n: 5, titulo: 'Herramientas e IA',       desc: 'Programa con asistentes y en la nube',         color: '#ef4444', modulos: ['deepseek', 'chatgptea', 'google-colab', 'cursor', 'zai', 'antigravity', 'vm'] }
+    { n: 5, titulo: 'Herramientas e IA',       desc: 'Programa con asistentes y en la nube',         color: '#ef4444', modulos: ['deepseek', 'chatgptea', 'google-colab', 'cursor', 'zai', 'antigravity', 'vm', 'nod'] }
 ];
 // Módulos opcionales (Bonus): dan XP y medallas, pero no cuentan para el progreso del curso ni para el diploma
-const EXTRAS = ['actividades-extras', 'pandas', 'libro-curso'];
-const COLOR_EXTRA = { 'actividades-extras': '#f59e0b', pandas: '#0ea5e9', 'libro-curso': '#ef4444' };
+const EXTRAS = ['actividades-extras', 'pandas', 'r-rstudio', 'libro-curso'];
+const COLOR_EXTRA = { 'actividades-extras': '#f59e0b', pandas: '#0ea5e9', 'r-rstudio': '#2563eb', 'libro-curso': '#ef4444' };
 const NUCLEO = UNIDADES.flatMap(u => u.modulos);
 
 const ICONOS = {
@@ -23,7 +23,8 @@ const ICONOS = {
     'control-flow': 'fa-code-branch', 'data-structures': 'fa-layer-group', modules: 'fa-cubes', io: 'fa-file-lines',
     errors: 'fa-bug', classes: 'fa-shapes', stdlib: 'fa-book', stdlib2: 'fa-book-open', venv: 'fa-box-open',
     deepseek: 'fa-robot', chatgptea: 'fa-brain', 'google-colab': 'fa-cloud', cursor: 'fa-i-cursor', zai: 'fa-wand-magic-sparkles',
-    antigravity: 'fa-rocket', vm: 'fa-desktop', pandas: 'fa-table', 'libro-curso': 'fa-file-pdf'
+    antigravity: 'fa-rocket', vm: 'fa-desktop', pandas: 'fa-table', 'libro-curso': 'fa-file-pdf',
+    memoria: 'fa-memory', nod: 'fa-user-shield', 'r-rstudio': 'fa-chart-line'
 };
 const SUBTITULOS = {
     'actividades-extras': 'Videos del futuro de la tecnología', intro: 'Abriendo el apetito', interpreter: 'Instalación y configuración',
@@ -31,8 +32,10 @@ const SUBTITULOS = {
     modules: 'Importar y crear módulos', io: 'Archivos y formateo', errors: 'Manejo de errores', classes: 'Programación orientada a objetos',
     stdlib: 'Módulos más importantes', stdlib2: 'Temas avanzados', venv: 'Gestión de paquetes', deepseek: 'Asistente IA gratuito',
     chatgptea: 'IA norteamericana avanzada', 'google-colab': 'Notebook en la nube', cursor: 'Editor con IA integrada',
-    zai: 'IA china avanzada', antigravity: 'Asistente de Google', vm: 'Virtualización de sistemas',
+    zai: 'Chat y agentes con modelos GLM', antigravity: 'Asistente de Google', vm: 'Virtualización de sistemas',
     pandas: 'DataFrames, carga de datos y análisis',
+    memoria: 'Referencias y recolección de basura', nod: 'Agente local de n8n con humano en el bucle',
+    'r-rstudio': 'Otro lenguaje para datos, traducido a Python',
     'libro-curso': 'Libro completo del curso en PDF'
 };
 
@@ -48,6 +51,9 @@ const INICIOS = {
     errors: 'datos = ["12", "7", "abc", "0"]\nfor d in datos:\n    try:\n        print(100 / int(d))\n    except ValueError:\n        print(f"«{d}» no es un número")\n    except ZeroDivisionError:\n        print("No se puede dividir entre cero")',
     classes: 'class Celula:\n    def __init__(self, tipo, tamaño_um):\n        self.tipo = tipo\n        self.tamaño_um = tamaño_um\n\n    def dividir(self):\n        return [Celula(self.tipo, self.tamaño_um / 2) for _ in range(2)]\n\nmadre = Celula("eucariota", 20)\nhijas = madre.dividir()\nprint(len(hijas), "células de", hijas[0].tamaño_um, "µm")',
     stdlib: 'from collections import Counter\nfrom datetime import date\nadn = "ATGCGATACGCTTGAGC"\nprint(Counter(adn).most_common())\nprint("Hoy es", date.today())',
+    memoria: '# Dos nombres, un mismo objeto\nmuestras = ["E. coli", "S. aureus"]\notra = muestras\notra.append("B. subtilis")\nprint(muestras)\nprint("¿Mismo objeto?", otra is muestras)\nprint("Copia nueva:", muestras.copy() is muestras)',
+    nod: '# Revisión de confianza: ¿el pedido cubre la acción?\npedido = {"enviar correo": {"lena@empresa.com"}}\nfor accion, objetivo in [("enviar correo", "lena@empresa.com"), ("enviar correo", "bob@empresa.com")]:\n    decision = "EJECUTA" if objetivo in pedido.get(accion, set()) else "ESPERA"\n    print(decision, accion, "->", objetivo)',
+    'r-rstudio': '# En R: rend <- kg / area ; round(rend, 1)\nkg = [2150, 1320, 2890, 1610, 1180]\narea = [1.2, 0.8, 1.5, 1.0, 0.6]\nrend = [round(k / a, 1) for k, a in zip(kg, area)]\nprint(rend)\nprint("which.max en R:", rend.index(max(rend)) + 1)',
     stdlib2: 'import statistics as st\nalturas = [1.62, 1.75, 1.58, 1.80, 1.69]\nprint("Media:", round(st.mean(alturas), 3))\nprint("Desviación:", round(st.stdev(alturas), 3))',
     pandas: '# Datos de práctica ya cargados: ventas, estudiantes, clima, pacientes, plantas, productos\nimport pandas as pd\n\ndf = pd.read_csv("estudiantes.csv")\nmostrar(df.head())\nprint("Filas y columnas:", df.shape)\nprint(df.groupby("programa")["nota1"].mean().round(2))\n\n# Sube tu propio archivo con el botón «Subir» y léelo igual',
     'google-colab': 'import numpy as np\nimport matplotlib.pyplot as plt\n\n# Crecimiento bacteriano exponencial\nt = np.linspace(0, 10, 50)\nN = 100 * np.exp(0.4 * t)\nplt.plot(t, N, color="#3776ab", linewidth=3)\nplt.title("Crecimiento bacteriano")\nplt.xlabel("Horas"); plt.ylabel("Bacterias")\nplt.show()'
@@ -150,6 +156,13 @@ const APP = (() => {
         LAB.cargar().catch(() => UI.aviso('No se pudo cargar Python. Revisa tu conexión a internet.', 'error'));
         REGISTRO.iniciar();
         window.addEventListener('hashchange', enrutar);
+        // Botones «Informe PDF de la unidad» (módulos, mapa, barra lateral y logros)
+        document.addEventListener('click', ev => {
+            const b = ev.target.closest('[data-informe]');
+            if (!b) return;
+            ev.preventDefault(); ev.stopPropagation();
+            REPORTE.descargarUnidad(b.dataset.informe);
+        }, true);
         enrutar();
         setTimeout(() => $('#cargando').classList.add('fuera'), 250);
     }
@@ -215,15 +228,20 @@ const APP = (() => {
             const hechos = u.modulos.filter(id => estadoModulo(id) === 'hecho').length;
             return `<details class="nav-unidad" data-unidad="${u.n}">
                 <summary><i class="fas fa-chevron-right"></i><span>Unidad ${u.n} · ${u.titulo}</span><span class="mini">${hechos}/${u.modulos.length}</span></summary>
-                <div class="nav-lista">${u.modulos.map(id => itemModulo(id)).join('')}</div>
+                <div class="nav-lista">${u.modulos.map(id => itemModulo(id)).join('')}${botonInformeNav(u.n)}</div>
             </details>`;
-        }).join('') + `<div class="nav-lista" style="margin-top:6px">${EXTRAS.map(id => itemModulo(id, true)).join('')}</div>`;
+        }).join('') + `<div class="nav-lista" style="margin-top:6px">${EXTRAS.map(id => itemModulo(id, true)).join('')}${botonInformeNav('bonus')}</div>`;
         $$('[data-ir]', $('#lateral')).forEach(b => b.onclick = () => { location.hash = b.dataset.ir; });
         // Abrir la unidad del módulo siguiente
         const sig = siguienteModulo();
         const u = UNIDADES.find(x => x.modulos.includes(moduloActual || sig));
         $$('.nav-unidad').forEach(d => { d.open = u ? +d.dataset.unidad === u.n : +d.dataset.unidad === 1; });
         marcarNavActivo();
+    }
+
+    function botonInformeNav(n) {
+        return `<button class="nav-item nav-informe" data-informe="${n}" title="Descarga un PDF con las lecciones, el laboratorio, los retos y el quiz de ${n === 'bonus' ? 'los módulos opcionales' : 'la Unidad ' + n} para tu docente">
+            <span class="estado"><i class="fas fa-file-pdf"></i></span><span class="nav-texto">Informe PDF de ${n === 'bonus' ? 'los opcionales' : 'la unidad'}</span></button>`;
     }
 
     function itemModulo(id, extra) {
@@ -280,6 +298,8 @@ const APP = (() => {
         if (vista === 'modulo' && modules[a]) mostrarModulo(a, b || 'leccion');
         else if (vista === 'laboratorio') mostrarLaboratorioLibre();
         else if (vista === 'logros') mostrarLogros();
+        else if (vista === 'informe') { history.replaceState(null, '', '#/inicio'); mostrarInicio(); REPORTE.descargarUnidad(a); }
+        else if (vista === 'reporte') { history.replaceState(null, '', '#/logros'); mostrarLogros(); REPORTE.descargar(); }
         else if (vista === 'evaluaciones') mostrarColeccion('evaluaciones', a);
         else if (vista === 'recursos') mostrarColeccion('recursos', a);
         else if (vista === 'videos') mostrarVideos();
@@ -389,12 +409,13 @@ const APP = (() => {
                     <div class="unidad-num" style="background:${u.color}">${u.n}</div>
                     <div><h3>Unidad ${u.n} · ${u.titulo}</h3><p>${u.desc}</p></div>
                     <div class="progreso-unidad">${hechosU}/${u.modulos.length} completados<div class="barra-xp"><i style="width:${hechosU / u.modulos.length * 100}%"></i></div></div>
+                    <button class="boton peq btn-informe" data-informe="${u.n}" title="Informe PDF de la Unidad ${u.n} para el docente"><i class="fas fa-file-pdf"></i><span>Informe PDF</span></button>
                 </div>
                 <div class="nodos">${u.modulos.map(id => nodo(id, u.color, id === sig)).join('')}</div>
             </div>`;
             }).join('')}
             <div class="unidad">
-                <div class="unidad-cab"><div class="unidad-num" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"><i class="fas fa-star"></i></div><div><h3>Bonus · opcional</h3><p>Material extra: da XP y medallas, pero no cuenta para el diploma</p></div></div>
+                <div class="unidad-cab"><div class="unidad-num" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"><i class="fas fa-star"></i></div><div><h3>Bonus · opcional</h3><p>Material extra: da XP y medallas, pero no cuenta para el diploma</p></div><button class="boton peq btn-informe" style="margin-left:auto" data-informe="bonus" title="Informe PDF de los módulos opcionales para el docente"><i class="fas fa-file-pdf"></i><span>Informe PDF</span></button></div>
                 <div class="nodos">${EXTRAS.map(id => nodo(id, COLOR_EXTRA[id], false)).join('')}</div>
             </div>
         </div>`;
@@ -480,6 +501,7 @@ const APP = (() => {
                     <p>${esc(SUBTITULOS[id] || datos.description || '')}</p>
                 </div>
                 <div class="der">
+                    <button class="boton peq primario btn-informe" data-informe="${unidad ? unidad.n : 'bonus'}" title="Descarga un PDF con las lecciones, el laboratorio, los retos y el quiz de ${unidad ? 'la Unidad ' + unidad.n : 'los módulos opcionales'} para enviarlo a tu docente"><i class="fas fa-file-pdf"></i><span>Informe PDF de la unidad</span></button>
                     ${ant ? `<a class="boton peq" href="#/modulo/${ant}" title="Módulo anterior"><i class="fas fa-arrow-left"></i></a>` : ''}
                     <span id="selloModulo"></span>
                     ${sig ? `<a class="boton peq" href="#/modulo/${sig}" title="Módulo siguiente"><i class="fas fa-arrow-right"></i></a>` : ''}
@@ -632,7 +654,7 @@ const APP = (() => {
     function prepararCodigoProbable(raiz) {
         const bloques = $$('pre', raiz).concat($$('code', raiz).filter(c => !c.closest('pre') && c.innerText.trim().includes('\n')));
         bloques.forEach(el => {
-            if (el.closest('.CodeMirror, .consola, .lab, .reto, .profe')) return;
+            if (el.closest('.CodeMirror, .consola, .lab, .reto, .profe, .no-probar')) return;
             const caja = el.tagName === 'CODE' ? el.parentElement : el;
             if (caja.dataset.probable) return;
             const codigo = codigoEjecutable(el.innerText);
@@ -1065,13 +1087,18 @@ const APP = (() => {
         <div class="mod-cab"><div class="mod-ico" style="background:linear-gradient(135deg,#ffd43b,#f59e0b);color:#2a1d00">${nv.actual.emoji}</div>
             <div style="flex:1"><h1>${esc(sesion.nombre)}</h1><p>Nivel ${nv.indice + 1} · ${nv.actual.nombre} · ${e.xp} XP</p>
             <div class="barra-xp" style="max-width:420px"><i style="width:${nv.pct * 100}%"></i></div></div>
-            <div class="der"><button class="boton ${hechos === NUCLEO.length ? 'dorado' : ''}" id="btnDiploma" ${hechos === NUCLEO.length ? '' : 'disabled title="Completa todos los módulos para obtenerlo"'}><i class="fas fa-award"></i>Diploma ${hechos}/${NUCLEO.length}</button></div>
+            <div class="der" style="display:flex;flex-wrap:wrap;gap:8px"><button class="boton primario" id="btnReporte" title="Descarga un PDF con tus actividades para enviarlo a tu docente"><i class="fas fa-file-pdf"></i>Reporte para el docente (PDF)</button><button class="boton ${hechos === NUCLEO.length ? 'dorado' : ''}" id="btnDiploma" ${hechos === NUCLEO.length ? '' : 'disabled title="Completa todos los módulos para obtenerlo"'}><i class="fas fa-award"></i>Diploma ${hechos}/${NUCLEO.length}</button></div>
         </div>
         <div class="rejilla-stats" style="margin-top:0;margin-bottom:18px">
             <div class="stat"><div class="ico" style="background:rgba(75,139,212,.15);color:var(--azul)"><i class="fas fa-play"></i></div><div><b>${e.stats.ejecuciones}</b><span>Programas ejecutados</span></div></div>
             <div class="stat"><div class="ico" style="background:rgba(52,211,153,.15);color:var(--verde)"><i class="fas fa-bullseye"></i></div><div><b>${e.stats.retos}</b><span>Retos superados</span></div></div>
             <div class="stat"><div class="ico" style="background:rgba(248,113,113,.15);color:var(--rojo)"><i class="fas fa-bug"></i></div><div><b>${e.stats.errores}</b><span>Errores (¡así se aprende!)</span></div></div>
             <div class="stat"><div class="ico" style="background:rgba(251,146,60,.15);color:var(--naranja)"><i class="fas fa-fire"></i></div><div><b>${e.racha.mejor}</b><span>Mejor racha (días)</span></div></div>
+        </div>
+        <div class="tarjeta" style="margin-bottom:18px;padding:14px 16px">
+            <h3 style="font-size:1rem;font-weight:800;margin-bottom:4px"><i class="fas fa-file-pdf" style="color:var(--rojo)"></i> Informes por unidad para el docente</h3>
+            <p style="color:var(--texto-2);font-size:.84rem;margin-bottom:10px">Cada informe trae, módulo por módulo, los temas de la lección, el uso del laboratorio, cada reto y el quiz, con un espacio para las observaciones del docente.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">${UNIDADES.map(u => `<button class="boton peq" data-informe="${u.n}" style="border-left:4px solid ${u.color}"><i class="fas fa-file-pdf"></i>Unidad ${u.n} · ${esc(u.titulo)}</button>`).join('')}<button class="boton peq" data-informe="bonus" style="border-left:4px solid #f59e0b"><i class="fas fa-star"></i>Bonus (opcionales)</button></div>
         </div>
         ${REGISTRO.activo() ? '<div class="profe info" style="margin-bottom:18px"><div class="cara">📋</div><div><b>Registro para tu profesor</b>La academia envía a tu profesor la hora de ingreso y de salida, el tiempo que pasas en la plataforma y las actividades que cumples (lecciones, retos, notas de los quizzes y módulos completados).</div></div>' : ''}
         <div class="dos-col" style="grid-template-columns:2fr 1fr;margin-top:0">
@@ -1091,6 +1118,7 @@ const APP = (() => {
         v.classList.add('visible');
         const bd = $('#btnDiploma');
         if (bd && !bd.disabled) bd.onclick = diploma;
+        $('#btnReporte').onclick = () => REPORTE.descargar();
     }
 
     function diploma() {
@@ -1158,6 +1186,9 @@ const APP = (() => {
             { t: 'Inicio', s: 'Mapa de la aventura', ir: '#/inicio', ico: 'fa-house' },
             { t: 'Laboratorio libre', s: 'Escribe y ejecuta Python', ir: '#/laboratorio', ico: 'fa-flask' },
             { t: 'Mis logros', s: 'Medallas, niveles y diploma', ir: '#/logros', ico: 'fa-medal' },
+            { t: 'Reporte para el docente (PDF)', s: 'Descarga tus resultados para enviarlos', ir: '#/reporte', ico: 'fa-file-pdf', extra: 'reporte pdf notas resultados descargar enviar profesor docente' },
+            ...UNIDADES.map(u => ({ t: `Informe PDF de la Unidad ${u.n}`, s: `${u.titulo}: lecciones, laboratorio, retos y quiz`, ir: `#/informe/${u.n}`, ico: 'fa-file-pdf', extra: 'informe unidad pdf docente profesor reporte ' + u.modulos.map(id => modules[id] ? modules[id].title : '').join(' ').toLowerCase() })),
+            { t: 'Informe PDF de los módulos opcionales', s: 'Bonus: lecciones, laboratorio, retos y quiz', ir: '#/informe/bonus', ico: 'fa-file-pdf', extra: 'informe bonus opcional pdf docente profesor' },
             { t: 'Evaluaciones', s: 'Quizzes y parciales', ir: '#/evaluaciones', ico: 'fa-clipboard-check' },
             { t: 'Recursos', s: 'PDF, guías, LaTeX, GitHub', ir: '#/recursos', ico: 'fa-toolbox' },
             { t: 'Aprendo con videos', s: 'Videos del canal del profesor', ir: '#/videos', ico: 'fa-youtube', fab: true }

@@ -183,8 +183,72 @@ const modules = {
 
             </div>
         `,
-        exercises: [],
-        quiz: []
+        exercises: [
+            {
+                title: "Línea de tiempo de la IA",
+                description: "Ordena los hitos de la historia de la inteligencia artificial por año (de los videos «Historia de la IA») e imprime cuántos años pasaron entre el primero y el último.",
+                template: "hitos = {\n    2017: \"Transformer, la base de los modelos de lenguaje\",\n    1956: \"Conferencia de Dartmouth: nace el término IA\",\n    2022: \"Lanzamiento de ChatGPT\",\n    1997: \"Deep Blue vence a Kasparov en ajedrez\",\n    2012: \"AlexNet y el auge del aprendizaje profundo\"\n}\n\n# 1. Recorre los años en orden (pista: sorted)\n# 2. Imprime: 1956 - Conferencia de Dartmouth...\n# 3. Imprime cuántos años hay entre el primer y el último hito\n",
+                solution: "hitos = {\n    2017: \"Transformer, la base de los modelos de lenguaje\",\n    1956: \"Conferencia de Dartmouth: nace el término IA\",\n    2022: \"Lanzamiento de ChatGPT\",\n    1997: \"Deep Blue vence a Kasparov en ajedrez\",\n    2012: \"AlexNet y el auge del aprendizaje profundo\"\n}\n\nfor anio in sorted(hitos):\n    print(anio, \"-\", hitos[anio])\nprint(\"Años entre el primer y el último hito:\", max(hitos) - min(hitos))"
+            },
+            {
+                title: "La biología es código: traduce ADN",
+                description: "Como en el video «La biología es el nuevo código», lee el ADN de 3 en 3 bases (codones), tradúcelo a aminoácidos y detente en el codón STOP. Imprime la proteína y cuántos aminoácidos tiene.",
+                template: "codones = {\"ATG\": \"Met\", \"TTT\": \"Phe\", \"GGC\": \"Gly\", \"AAA\": \"Lys\", \"TGG\": \"Trp\", \"TAA\": \"STOP\"}\nadn = \"ATGTTTGGCAAATGGTAAGGC\"\n\n# Recorre adn de 3 en 3: range(0, len(adn), 3)\n# Si el codón es STOP, termina el ciclo (break)\n# Imprime la proteína unida con guiones y su número de aminoácidos\n",
+                solution: "codones = {\"ATG\": \"Met\", \"TTT\": \"Phe\", \"GGC\": \"Gly\", \"AAA\": \"Lys\", \"TGG\": \"Trp\", \"TAA\": \"STOP\"}\nadn = \"ATGTTTGGCAAATGGTAAGGC\"\n\nproteina = []\nfor i in range(0, len(adn), 3):\n    aa = codones[adn[i:i + 3]]\n    if aa == \"STOP\":\n        break\n    proteina.append(aa)\nprint(\"Proteína:\", \"-\".join(proteina))\nprint(\"Aminoácidos:\", len(proteina))"
+            }
+        ],
+        quiz: [
+            {
+                question: "¿Qué es un agente de inteligencia artificial?",
+                options: ["Un modelo de lenguaje que, con herramientas, planea, actúa y revisa el resultado para cumplir una meta", "Un antivirus que vigila el computador", "Una página web con preguntas frecuentes", "Un robot físico que siempre tiene brazos"],
+                correct: 0
+            },
+            {
+                question: "¿Cuál es el orden correcto en la evolución de la IA?",
+                options: ["Agentes → reglas → modelos de lenguaje → aprendizaje automático", "Sistemas de reglas → aprendizaje automático → modelos de lenguaje → agentes", "Modelos de lenguaje → reglas → agentes → aprendizaje automático", "Aprendizaje automático → agentes → reglas → modelos de lenguaje"],
+                correct: 1
+            },
+            {
+                question: "¿En qué año se acuñó el término «inteligencia artificial», en la conferencia de Dartmouth?",
+                options: ["1936", "1956", "1984", "2001"],
+                correct: 1
+            },
+            {
+                question: "¿Qué computadora de IBM venció al campeón mundial de ajedrez Garry Kasparov en 1997?",
+                options: ["Watson", "Deep Blue", "AlphaGo", "ENIAC"],
+                correct: 1
+            },
+            {
+                question: "¿Qué arquitectura, publicada en 2017, es la base de los modelos de lenguaje actuales?",
+                options: ["El perceptrón", "Los árboles de decisión", "El Transformer", "Los sistemas expertos"],
+                correct: 2
+            },
+            {
+                question: "Jensen Huang, protagonista del video «No aprendas a programar», es el director de qué empresa?",
+                options: ["Google", "NVIDIA", "Microsoft", "OpenAI"],
+                correct: 1
+            },
+            {
+                question: "¿Qué idea resume «La biología es el nuevo código»?",
+                options: ["Que los biólogos ya no necesitan computadores", "Que el ADN es información que se puede leer, analizar y diseñar con ayuda de la computación", "Que Python fue creado por biólogos", "Que el código genético y Python usan las mismas letras"],
+                correct: 1
+            },
+            {
+                question: "Una IA te da una respuesta muy segura sobre un tema de biología. Con pensamiento crítico, ¿qué haces?",
+                options: ["La copio tal cual, porque las IA no se equivocan", "La contrasto con fuentes confiables y la verifico antes de usarla", "La descarto siempre, porque las IA siempre mienten", "Le pregunto lo mismo hasta que me guste la respuesta"],
+                correct: 1
+            },
+            {
+                question: "Si la IA ya escribe código, ¿por qué sigue siendo útil aprender a programar?",
+                options: ["No es útil: basta con copiar lo que escribe la IA", "Para entender, probar y dirigir lo que produce la IA y detectar sus errores", "Solo para aprobar el curso", "Porque la IA no sabe Python"],
+                correct: 1
+            },
+            {
+                question: "¿Qué herramienta, lanzada en noviembre de 2022, popularizó los chatbots de IA en todo el mundo?",
+                options: ["ChatGPT", "Deep Blue", "Google Colab", "VirtualBox"],
+                correct: 0
+            }
+        ]
     },
     intro: {
         title: "1. Introducción a Python",
@@ -1165,7 +1229,7 @@ print(f"Tiempo empleado para ingresar datos: {tiempo_total:.2f} segundos")</code
             {
                 title: "Tu primer programa",
                 description: "Escribe un programa que imprima 'Hola, mundo!'",
-                template: "# Escribe tu código aquí\nprint('Hola, mundo!')",
+                template: "# Escribe tu código aquí\n# Usa print() para mostrar el mensaje: Hola, mundo!\n",
                 solution: "print('Hola, mundo!')"
             },
             {
@@ -1295,20 +1359,48 @@ print(f"Tiempo empleado para ingresar datos: {tiempo_total:.2f} segundos")</code
             <h2 class="text-2xl font-bold theme-text-primary mb-4">El Intérprete de Python</h2>
             <p class="theme-text-secondary mb-4">El intérprete de Python es el programa que ejecuta tu código Python línea por línea. Funciona de dos modos: interactivo y de script.</p>
             
-            <h3 class="text-xl font-semibold theme-text-primary mb-3">Instalación</h3>
-            <div class="space-y-4 mb-6">
-                <div class="p-4 theme-bg-tertiary rounded-lg">
-                    <h4 class="font-semibold theme-text-primary mb-2">Windows</h4>
-                    <p class="text-sm theme-text-secondary">Descarga desde python.org e instala. Asegúrate de marcar "Add Python to PATH"</p>
+            <h3 class="text-xl font-semibold theme-text-primary mb-3">🛠️ Instalación</h3>
+            <p class="text-sm theme-text-secondary mb-4">Descarga Python solo desde la página oficial <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 underline">python.org</a> o desde Microsoft Store. La versión estable más reciente es Python 3.15 (noviembre de 2026).</p>
+            <div class="theme-bg-tertiary rounded-xl p-6 mb-6">
+                <!-- Windows (laptop) -->
+                <div class="p-5 bg-white dark:bg-gray-800 rounded-lg shadow-sm mb-6" style="border-left:5px solid #0078d4">
+                    <div class="flex items-center mb-3">
+                        <i class="fab fa-windows text-blue-500 text-2xl mr-2"></i>
+                        <h4 class="font-bold theme-text-primary">Windows · instalación en tu laptop paso a paso</h4>
+                    </div>
+                    <p class="text-sm theme-text-secondary mb-3">Hoy Python se instala en Windows con el <b>Python install manager</b> (administrador de instalación de Python). Sirve igual para laptops x64 (Intel o AMD) y ARM (Snapdragon): no tienes que elegir.</p>
+                    <ol class="text-sm theme-text-secondary space-y-3 list-decimal list-inside">
+                        <li><b>Revisa tu laptop:</b> necesitas Windows 10 u 11.</li>
+                        <li><b>Instala el Python install manager</b> con una de estas opciones:
+                            <ul class="ml-6 mt-1 space-y-1">
+                                <li>• <b>Recomendada:</b> abre <a href="https://apps.microsoft.com/detail/9NQ7512CXL7T" target="_blank" rel="noopener" class="text-blue-600 underline">Python install manager en Microsoft Store</a> y pulsa <b>Instalar</b>.</li>
+                                <li>• Desde PowerShell: <code>winget install 9NQ7512CXL7T</code></li>
+                                <li>• Sin la Store: descarga el archivo <code>.msix</code> en <a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener" class="text-blue-600 underline">python.org/downloads/windows</a> y haz doble clic → <b>Install</b>.</li>
+                            </ul>
+                        </li>
+                        <li><b>Abre una terminal</b> (menú Inicio → <i>Terminal</i> o <i>PowerShell</i>) y escribe <code>python</code>. La primera vez se ejecuta un asistente de configuración: si te propone agregar una carpeta al PATH, puedes aceptarlo.</li>
+                        <li><b>Comprueba:</b> verás el indicador <code>&gt;&gt;&gt;</code>. Escribe <code>print("Hola")</code>, y luego <code>exit()</code> para salir. Con <code>py list</code> ves las versiones instaladas.</li>
+                        <li><b>Instala paquetes</b> con <code>python -m pip install numpy</code>. Si un paquete trae comandos nuevos, ejecuta después <code>py install --refresh</code>.</li>
+                    </ol>
+                    <div class="mt-4 p-3 rounded-lg text-sm theme-text-secondary" style="background:rgba(245,158,11,.12)">
+                        <b>Si <code>python</code> no funciona o abre Microsoft Store:</b> en Inicio busca <i>Administrar alias de ejecución de aplicaciones</i> y activa los de «Python (default)». Si tenías un Python antiguo con el lanzador <code>py</code>, desinstala ese lanzador desde <i>Aplicaciones instaladas</i>.
+                        <br><b>¿Y la casilla «Add Python to PATH»?</b> Era del instalador <code>.exe</code> clásico, que está en desuso desde Python 3.14 y deja de publicarse con Python 3.16.
+                    </div>
                 </div>
-                <div class="p-4 theme-bg-tertiary rounded-lg">
-                    <h4 class="font-semibold theme-text-primary mb-2">macOS</h4>
-                    <p class="text-sm theme-text-secondary">Usa Homebrew: brew install python3</p>
+
+                <!-- Linux -->
+                <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-3">
+                        <i class="fab fa-linux text-yellow-500 text-2xl mr-2"></i>
+                        <h4 class="font-bold theme-text-primary">Linux</h4>
+                    </div>
+                    <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                        <li>Python viene preinstalado en la mayoría de distribuciones. Compruébalo en la terminal: <code>python3 --version</code></li>
+                        <li>Ubuntu/Debian: instala lo necesario para el curso (entornos virtuales y pip): <code>sudo apt update</code> y <code>sudo apt install python3 python3-venv python3-pip</code></li>
+                        <li>En Linux el comando es <code>python3</code> (no <code>python</code>): por ejemplo <code>python3 mi_programa.py</code>.</li>
+                    </ol>
                 </div>
-                <div class="p-4 theme-bg-tertiary rounded-lg">
-                    <h4 class="font-semibold theme-text-primary mb-2">Linux</h4>
-                    <p class="text-sm theme-text-secondary">Usa el gestor de paquetes: sudo apt install python3</p>
-                </div>
+                <p class="text-xs theme-text-secondary mt-4">Instrucciones tomadas de python.org y de la documentación oficial «Using Python on Windows» y «Using Python on Unix platforms» (noviembre de 2026).</p>
             </div>
             
             <h3 class="text-xl font-semibold theme-text-primary mb-3">Modo Interactivo</h3>
@@ -1398,9 +1490,21 @@ print(f"Tamaño máximo de int: {sys.maxsize}")</code>
         exercises: [
             {
                 title: "Verificar versión",
-                description: "Usa el comando para verificar la versión de Python",
-                template: "# Ejecuta este código para ver la versión de Python\nimport sys\nprint(sys.version)",
-                solution: "import sys\nprint(sys.version)"
+                description: "Con el módulo sys, imprime la versión de Python en el formato «Python 3.11» (solo la versión mayor y la menor). Pista: sys.version_info.major y sys.version_info.minor",
+                template: "import sys\n\n# Imprime: Python <mayor>.<menor>\n",
+                solution: "import sys\nprint(f\"Python {sys.version_info.major}.{sys.version_info.minor}\")"
+            },
+            {
+                title: "El intérprete como calculadora",
+                description: "Usa Python como calculadora: una colonia de 100 bacterias se duplica 5 veces; calcula también 7 / 2, 7 // 2, 7 % 2 y 10 / 3 redondeado a 2 decimales. Imprime cada resultado con su etiqueta.",
+                template: "# Imprime cada operación con una etiqueta, por ejemplo:\n# print(\"Bacterias:\", ...)\n",
+                solution: "print(\"Bacterias tras 5 duplicaciones:\", 100 * 2 ** 5)\nprint(\"7 / 2 =\", 7 / 2)\nprint(\"7 // 2 =\", 7 // 2)\nprint(\"7 % 2 =\", 7 % 2)\nprint(\"10 / 3 redondeado =\", round(10 / 3, 2))"
+            },
+            {
+                title: "Mi primer script con input()",
+                description: "Escribe un script que pida una temperatura en grados Celsius y muestre su equivalente en Fahrenheit (F = C × 9/5 + 32) con un decimal.",
+                template: "# Pide la temperatura con input() y conviértela a float\n# Calcula Fahrenheit e imprímela con un decimal\n",
+                solution: "celsius = float(input(\"Temperatura en °C: \"))\nfahrenheit = celsius * 9 / 5 + 32\nprint(f\"{celsius} °C equivalen a {fahrenheit:.1f} °F\")"
             }
         ],
         quiz: [
@@ -3073,7 +3177,7 @@ resultado = numero1 + numero2<br>
     },
 
     stdlib: {
-        title: "10. Biblioteca Estándar",
+        title: "11. Biblioteca Estándar",
         description: "Módulos más importantes",
         video: "https://www.youtube.com/embed/ekzgmwbads0",
         additionalVideos: [
@@ -3213,7 +3317,7 @@ resultado = numero1 + numero2<br>
     },
 
     stdlib2: {
-        title: "11. Biblioteca Estándar II",
+        title: "12. Biblioteca Estándar II",
         description: "Temas avanzados",
         video: "https://www.youtube.com/embed/ekzgmwbads0",
         additionalVideos: [],
@@ -3273,6 +3377,18 @@ resultado = numero1 + numero2<br>
                 description: "Configura y usa logging en tu código",
                 template: "import logging\n\n# Configura logging\n# Registra mensajes de diferentes niveles\n",
                 solution: "import logging\n\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')\n\nlogging.info('Programa iniciado')\nlogging.warning('Esto es una advertencia')\nlogging.error('Esto es un error')\nlogging.info('Programa terminado')"
+            },
+            {
+                title: "Dosis exactas con Decimal",
+                description: "Un laboratorio suma tres dosis de 0.1 mg. Muestra el resultado con float y con Decimal, y comprueba cuál es igual a 0.3.",
+                template: "from decimal import Decimal\n\n# 1. Suma 0.1 tres veces con float e imprímelo\n# 2. Suma Decimal('0.1') tres veces e imprímelo\n# 3. Imprime si cada resultado es igual a 0.3 (== 0.3 y == Decimal('0.3'))\n",
+                solution: "from decimal import Decimal\n\nsuma_float = 0.1 + 0.1 + 0.1\nsuma_decimal = Decimal('0.1') + Decimal('0.1') + Decimal('0.1')\nprint(\"Con float:\", suma_float)\nprint(\"Con Decimal:\", suma_decimal)\nprint(\"¿float igual a 0.3?\", suma_float == 0.3)\nprint(\"¿Decimal igual a 0.3?\", suma_decimal == Decimal('0.3'))"
+            },
+            {
+                title: "Niveles de logging",
+                description: "Configura logging con nivel WARNING y formato «NIVEL: mensaje». Registra un mensaje de cada nivel (debug, info, warning, error, critical) sobre un experimento: solo deben verse los tres últimos.",
+                template: "import logging\n\n# Configura: logging.basicConfig(level=..., format='%(levelname)s: %(message)s', force=True)\n# Registra un mensaje de cada nivel sobre la temperatura de un cultivo\n",
+                solution: "import logging\n\nlogging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s', force=True)\nlogging.debug('Leyendo el sensor del cultivo')\nlogging.info('Temperatura normal: 37 grados')\nlogging.warning('Temperatura alta: 39 grados')\nlogging.error('El sensor no responde')\nlogging.critical('Cultivo perdido: 45 grados')"
             }
         ],
         quiz: [
@@ -3330,7 +3446,7 @@ resultado = numero1 + numero2<br>
     },
 
     venv: {
-        title: "12. Entornos Virtuales",
+        title: "13. Entornos Virtuales",
         description: "Gestión de paquetes",
         video: "https://www.youtube.com/embed/TNtrAvNNxTY",
         additionalVideos: [],
@@ -3347,7 +3463,7 @@ resultado = numero1 + numero2<br>
                     python -m venv mi_entorno<br><br>
                     # Activar (Windows)<br>
                     mi_entorno\\Scripts\\activate<br><br>
-                    # Activar (macOS/Linux)<br>
+                    # Activar (Linux)<br>
                     source mi_entorno/bin/activate<br><br>
                     # Desactivar<br>
                     deactivate
@@ -3391,7 +3507,19 @@ resultado = numero1 + numero2<br>
                 title: "Simulación de pip",
                 description: "Simula el uso de pip para instalar paquetes",
                 template: "# Simula los comandos que usarías para:\n# 1. Crear un entorno virtual\n# 2. Activarlo\n# 3. Instalar requests\n# 4. Guardar dependencias\n\nprint('Comandos para gestionar entornos virtuales:')",
-                solution: "print('Comandos para gestionar entornos virtuales:')\nprint('1. python -m venv mi_proyecto')\nprint('2. source mi_proyecto/bin/activate (Linux/Mac)')\nprint('   mi_proyecto\\\\Scripts\\\\activate (Windows)')\nprint('3. pip install requests')\nprint('4. pip freeze > requirements.txt')\nprint('5. deactivate')"
+                solution: "print('Comandos para gestionar entornos virtuales:')\nprint('1. python -m venv mi_proyecto')\nprint('2. source mi_proyecto/bin/activate (Linux)')\nprint('   mi_proyecto\\\\Scripts\\\\activate (Windows)')\nprint('3. pip install requests')\nprint('4. pip freeze > requirements.txt')\nprint('5. deactivate')"
+            },
+            {
+                title: "Lee un requirements.txt",
+                description: "El archivo requirements.txt guarda los paquetes de un entorno virtual con el formato paquete==versión. Recorre el texto, imprime cada paquete con su versión y el total de paquetes.",
+                template: "requirements = \"\"\"numpy==1.26.4\npandas==2.1.4\nmatplotlib==3.8.2\nbiopython==1.83\"\"\"\n\n# Separa las líneas con splitlines() y cada línea con split(\"==\")\n# Imprime: numpy -> versión 1.26.4\n# Al final imprime el número de paquetes\n",
+                solution: "requirements = \"\"\"numpy==1.26.4\npandas==2.1.4\nmatplotlib==3.8.2\nbiopython==1.83\"\"\"\n\nlineas = requirements.splitlines()\nfor linea in lineas:\n    paquete, version = linea.split(\"==\")\n    print(f\"{paquete} -> versión {version}\")\nprint(\"Total de paquetes:\", len(lineas))"
+            },
+            {
+                title: "¿Qué paquetes debo actualizar?",
+                description: "Compara las versiones instaladas con las mínimas que pide un proyecto. Convierte cada versión en una tupla de números para compararlas y muestra cuáles hay que actualizar con pip install --upgrade.",
+                template: "instalados = {\"numpy\": \"1.24.0\", \"pandas\": \"2.1.4\", \"matplotlib\": \"3.5.1\"}\nminimos = {\"numpy\": \"1.26.0\", \"pandas\": \"2.0.0\", \"matplotlib\": \"3.8.0\"}\n\n# Pista: tuple(int(x) for x in \"1.24.0\".split(\".\")) da (1, 24, 0)\n# Imprime 'pip install --upgrade numpy' para los que estén por debajo del mínimo\n# Al final imprime cuántos hay que actualizar\n",
+                solution: "instalados = {\"numpy\": \"1.24.0\", \"pandas\": \"2.1.4\", \"matplotlib\": \"3.5.1\"}\nminimos = {\"numpy\": \"1.26.0\", \"pandas\": \"2.0.0\", \"matplotlib\": \"3.8.0\"}\n\ndef a_tupla(version):\n    return tuple(int(x) for x in version.split(\".\"))\n\npor_actualizar = 0\nfor paquete, version in instalados.items():\n    if a_tupla(version) < a_tupla(minimos[paquete]):\n        print(f\"pip install --upgrade {paquete}  (tienes {version}, se necesita {minimos[paquete]})\")\n        por_actualizar += 1\n    else:\n        print(f\"{paquete} está al día ({version})\")\nprint(\"Paquetes por actualizar:\", por_actualizar)"
             }
         ],
         quiz: [
@@ -3406,7 +3534,7 @@ resultado = numero1 + numero2<br>
                 correct: 0
             },
             {
-                question: "¿Cómo se activa un entorno virtual en Linux/Mac?",
+                question: "¿Cómo se activa un entorno virtual en Linux?",
                 options: ["activate nombre", "source nombre/bin/activate", "nombre/activate", "./nombre/activate"],
                 correct: 1
             },
@@ -3449,13 +3577,13 @@ resultado = numero1 + numero2<br>
     },
 
     deepseek: {
-        title: "13. DeepSeek IA",
+        title: "14. DeepSeek IA",
         description: "Asistente IA gratuito",
         video: "https://www.youtube.com/embed/Fuzzpcog7tQ",
         additionalVideos: [],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">DeepSeek IA - Tu Asistente de Programación</h2>
-            <p class="theme-text-secondary mb-6">DeepSeek es un asistente de inteligencia artificial gratuito que puede ayudarte con programación en Python, resolver dudas, explicar código y mucho más.</p>
+            <p class="theme-text-secondary mb-6">DeepSeek es un asistente de inteligencia artificial de la empresa china Hangzhou DeepSeek Artificial Intelligence. Su chat se puede usar gratis y te ayuda con programación en Python: resolver dudas, explicar código y mucho más. Tiene botones como <b>DeepThink</b> (piensa más antes de responder) y <b>Search</b> (busca en la web). Lo que se paga es su API para desarrolladores.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -3514,11 +3642,31 @@ resultado = numero1 + numero2<br>
                 </div>
             </div>
             
+            <div class="mb-6 theme-bg-tertiary rounded-xl p-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">🚀 Cómo empezar en tu laptop (Windows o Linux)</h3>
+                <p class="text-sm theme-text-secondary mb-3">DeepSeek se usa desde el navegador: <b>no necesitas instalar nada</b>.</p>
+                <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                    <li>Abre tu navegador (Edge o Chrome en Windows; Firefox o Chrome en Linux) y entra a <a href="https://chat.deepseek.com/" target="_blank" rel="noopener" class="underline" style="color:#2563eb">chat.deepseek.com</a>, o usa el botón «Abrir» de arriba.</li>
+                    <li>Crea tu cuenta con tu correo electrónico o con una cuenta externa (por ejemplo Google), según lo que muestre la página.</li>
+                    <li>Escribe tu pregunta en el cuadro del chat. Para preguntas de código, pega solo el fragmento necesario.</li>
+                    <li>Prueba en el laboratorio de la academia el código que te sugiera antes de usarlo en tus tareas.</li>
+                </ol>
+            </div>
+            <div class="mb-6 p-4 rounded-lg text-sm theme-text-secondary" style="background:rgba(245,158,11,.12)">
+                <h4 class="font-semibold theme-text-primary mb-2">🔒 Antes de usarla: cuida tus datos</h4>
+                <ul class="space-y-1 ml-4">
+                    <li>• DeepSeek guarda y procesa los datos personales <b>en China</b>, según su política de privacidad.</li>
+                    <li>• Puede usar tus conversaciones para mejorar sus modelos. Puedes desactivarlo en la configuración con la opción <i>«Improve the model for everyone»</i>.</li>
+                    <li>• <b>No compartas</b> datos personales, contraseñas, datos de pacientes ni información confidencial de tu laboratorio o tus prácticas.</li>
+                    <li>• El servicio está pensado para adultos: si eres menor de 18 años, úsalo con permiso de tus padres o tutores.</li>
+                    <li>• La IA se equivoca: verifica sus respuestas y cita su uso cuando lo pida el docente.</li>
+                </ul>
+            </div>
             <div class="p-4 theme-bg-tertiary rounded-lg">
                 <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar DeepSeek:</h4>
                 <ul class="text-sm theme-text-secondary space-y-1 ml-4">
                     <li>• Sé específico en tus preguntas sobre Python</li>
-                    <li>• Comparte tu código para obtener ayuda personalizada</li>
+                    <li>• Comparte tu código (sin datos personales) para obtener ayuda personalizada</li>
                     <li>• Pregunta sobre mejores prácticas y optimizaciones</li>
                     <li>• Solicita explicaciones paso a paso de algoritmos</li>
                     <li>• Pide ideas para proyectos de práctica</li>
@@ -3531,6 +3679,18 @@ resultado = numero1 + numero2<br>
                 description: "Usa DeepSeek para obtener ayuda con un concepto de Python que no entiendas",
                 template: "# Ejemplo de pregunta para DeepSeek:\n# '¿Puedes explicarme cómo funcionan las list comprehensions en Python con ejemplos?'\n\n# Tu código de práctica aquí",
                 solution: "# Ejemplo de respuesta que podrías obtener:\n# List comprehensions son una forma concisa de crear listas\nlist_comp = [x**2 for x in range(10) if x % 2 == 0]\nprint(list_comp)  # [0, 4, 16, 36, 64]"
+            },
+            {
+                title: "Prueba la list comprehension de la IA",
+                description: "Pide a DeepSeek una list comprehension que convierta a Fahrenheit solo las temperaturas con fiebre (38 °C o más). Pruébala aquí: imprime la lista resultante y cuántos pacientes tienen fiebre.",
+                template: "temperaturas = [36.5, 38.2, 37.0, 39.1, 38.0, 36.8]\n\n# Pregunta a DeepSeek: «¿Cómo convierto a Fahrenheit solo los valores >= 38 con una list comprehension?»\n# Prueba su respuesta aquí\n",
+                solution: "temperaturas = [36.5, 38.2, 37.0, 39.1, 38.0, 36.8]\n\nfiebre_f = [round(t * 9 / 5 + 32, 1) for t in temperaturas if t >= 38]\nprint(\"Fiebre en °F:\", fiebre_f)\nprint(\"Pacientes con fiebre:\", len(fiebre_f))"
+            },
+            {
+                title: "Mejora el código con ayuda de la IA",
+                description: "Este código cuenta las bases de una secuencia con cuatro variables y muchos if. Pide a DeepSeek una versión más corta (por ejemplo con un diccionario o str.count) y comprueba que da los mismos conteos.",
+                template: "adn = \"ATGCGATACGCTTGAGCAAT\"\na = c = g = t = 0\nfor base in adn:\n    if base == \"A\":\n        a += 1\n    if base == \"C\":\n        c += 1\n    if base == \"G\":\n        g += 1\n    if base == \"T\":\n        t += 1\nprint(\"A:\", a)\n\n# Reemplaza este código por una versión más corta que imprima A, C, G y T\n",
+                solution: "adn = \"ATGCGATACGCTTGAGCAAT\"\nconteo = {base: adn.count(base) for base in \"ACGT\"}\nfor base, n in conteo.items():\n    print(f\"{base}: {n}\")"
             }
         ],
         quiz: [
@@ -3540,8 +3700,8 @@ resultado = numero1 + numero2<br>
                 correct: 2
             },
             {
-                question: "¿Cuál es la principal ventaja de DeepSeek IA para estudiantes?",
-                options: ["Es muy caro", "Es completamente gratuito", "Solo funciona en inglés", "Requiere instalación"],
+                question: "¿Cuál es una ventaja de DeepSeek IA para estudiantes?",
+                options: ["Es muy caro", "Su chat se puede usar gratis desde el navegador", "Solo funciona en inglés", "Requiere instalar un programa"],
                 correct: 1
             },
             {
@@ -3588,137 +3748,145 @@ resultado = numero1 + numero2<br>
     },
 
     chatgptea: {
-        title: "14. ChatGPT IA",
-        description: "IA norteamericana avanzada",
-        video: "",
+        title: "15. ChatGPT IA",
+        description: "Asistente IA Norteamericano",
+        video: "https://www.youtube.com/embed/dKKe1PL2Stk",
         additionalVideos: [],
         content: `
-            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT IA - Asistente IA Norteamericano</h2>
-            <p class="theme-text-secondary mb-6">ChatGPT IA es un asistente de inteligencia artificial norteamericano desarrollado por OpenAI que puede ayudarte con programación en Python, resolver dudas, explicar código y mucho más.</p>
+            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT IA - Tu Asistente de Programación Avanzado</h2>
+            <p class="theme-text-secondary mb-6">ChatGPT IA es un asistente de inteligencia artificial norteamericano que puede ayudarte con programación en Python, resolver dudas complejas, explicar código, generar aplicaciones y mucho más.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
                     <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-code text-white text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Programación Avanzada</h3>
-                    <p class="text-sm theme-text-secondary text-center">Ayuda experta en Python, debugging y arquitectura de software</p>
+                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Programación Avanzada</h3>
+                    <p class="text-sm theme-text-secondary text-center">Asistencia completa en desarrollo Python</p>
                 </div>
-                
-                <div class="p-6 theme-bg-tertiary rounded-xl">
-                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-brain text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">IA Conversacional</h3>
-                    <p class="text-sm theme-text-secondary text-center">Conversaciones naturales y explicaciones detalladas</p>
-                </div>
-                
                 <div class="p-6 theme-bg-tertiary rounded-xl">
                     <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">IA Conversacional</h3>
+                    <p class="text-sm theme-text-secondary text-center">Explicaciones detalladas y personalizadas</p>
+                </div>
+                <div class="p-6 theme-bg-tertiary rounded-xl">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-project-diagram text-white text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Proyectos Complejos</h3>
-                    <p class="text-sm theme-text-secondary text-center">Asistencia en proyectos de gran escala y arquitectura</p>
+                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Proyectos Completos</h3>
+                    <p class="text-sm theme-text-secondary text-center">Desarrollo de aplicaciones desde cero</p>
                 </div>
-                
                 <div class="p-6 theme-bg-tertiary rounded-xl">
-                    <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-graduation-cap text-white text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Aprendizaje Personalizado</h3>
-                    <p class="text-sm theme-text-secondary text-center">Adaptado a tu nivel y estilo de aprendizaje</p>
+                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Aprendizaje Guiado</h3>
+                    <p class="text-sm theme-text-secondary text-center">Aprende nuevos conceptos paso a paso</p>
                 </div>
             </div>
             
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold theme-text-primary mb-4">ChatGPT IA - Acceso Directo</h3>
-                <div class="theme-bg-tertiary rounded-xl p-8 text-center">
-                    <div class="mb-6">
-                        <i class="fas fa-brain text-6xl text-green-500 mb-4"></i>
-                        <h4 class="text-2xl font-bold theme-text-primary mb-2">Accede a ChatGPT IA</h4>
-                        <p class="theme-text-secondary max-w-lg mx-auto">
-                            Para una mejor experiencia, usa ChatGPT directamente en su plataforma oficial. 
-                            Obtendrás respuestas más rápidas, historial de chats y acceso a todas sus funciones.
-                        </p>
-                    </div>
-                    
-                    <button onclick="window.open('https://chatgpt.com/', '_blank')" class="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                        <i class="fas fa-external-link-alt mr-2"></i>Abrir ChatGPT
-                    </button>
-                    
-                    <p class="text-sm theme-text-secondary mt-4">
-                        <i class="fas fa-info-circle mr-1"></i>
-                        Se abrirá en una nueva pestaña del navegador
-                    </p>
-                </div>
-            </div>
+
             
             <div class="mb-6">
-                <h3 class="text-xl font-semibold theme-text-primary mb-4">🚀 Acceso Rápido a ChatGPT</h3>
-                <div class="space-y-4">
-                    <div class="p-6 theme-bg-tertiary rounded-xl border-2 border-green-500">
-                        <div class="text-center">
-                            <h4 class="text-lg font-semibold theme-text-primary mb-3">¡Accede a ChatGPT ahora!</h4>
-                            <p class="theme-text-secondary mb-4">Haz clic para abrir ChatGPT en una nueva pestaña y comenzar a programar con IA.</p>
-                            <button onclick="window.open('https://chatgpt.com/', '_blank')" class="px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                                <i class="fas fa-external-link-alt mr-2"></i>Abrir ChatGPT
-                            </button>
-                        </div>
-                    </div>
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">Enlace Directo a la Aplicación</h3>
+                <div class="p-4 theme-bg-tertiary rounded-lg text-center">
+                    <a href="https://chatgpt.com/" target="_blank" class="inline-flex items-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        Abrir ChatGPT IA en Nueva Pestaña
+                    </a>
                 </div>
             </div>
             
             <div class="p-4 theme-bg-tertiary rounded-lg">
                 <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar ChatGPT IA:</h4>
                 <ul class="text-sm theme-text-secondary space-y-1 ml-4">
-                    <li>• Formula preguntas específicas sobre Python y programación</li>
-                    <li>• Comparte tu código completo para obtener ayuda contextual</li>
-                    <li>• Pregunta sobre patrones de diseño y mejores prácticas</li>
-                    <li>• Solicita revisión de código y sugerencias de optimización</li>
-                    <li>• Pide explicaciones paso a paso de algoritmos complejos</li>
-                    <li>• Explora ideas para proyectos y aplicaciones</li>
+                    <li>• Describe detalladamente lo que quieres lograr en Python</li>
+                    <li>• Comparte tu código para obtener mejoras específicas</li>
+                    <li>• Solicita explicaciones paso a paso de algoritmos complejos</li>
+                    <li>• Pide ayuda con proyectos completos y arquitectura de aplicaciones</li>
+                    <li>• Aprovecha su capacidad para generar código desde descripciones</li>
+                    <li>• Pregunta sobre mejores prácticas y patrones de diseño</li>
                 </ul>
             </div>
         `,
         exercises: [
             {
-                title: "Consulta con ChatGPT IA",
-                description: "Usa ChatGPT IA para obtener ayuda con un problema de programación avanzado",
-                template: "# Ejemplo de consulta para ChatGPT IA:\n# 'Ayúdame a optimizar este algoritmo de ordenamiento y explica la complejidad temporal'\n\n# Tu código para revisar aquí",
-                solution: "# ChatGPT IA puede ayudarte a:\n# - Analizar complejidad algorítmica\n# - Sugerir optimizaciones\n# - Explicar patrones de diseño\n# - Revisar arquitectura de código"
+                title: "Consulta Avanzada a la IA",
+                description: "Usa ChatGPT IA para obtener ayuda con un proyecto completo de Python",
+                template: "# Ejemplo de consulta avanzada para ChatGPT IA:\n# 'Ayúdame a crear una aplicación web en Python con Flask que maneje un CRUD de usuarios'\n\n# Tu código de proyecto aquí",
+                solution: "# Ejemplo de respuesta que podrías obtener:\nfrom flask import Flask, request, jsonify\nfrom flask_sqlalchemy import SQLAlchemy\n\napp = Flask(__name__)\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'\ndb = SQLAlchemy(app)\n\nclass User(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(100), nullable=False)\n    email = db.Column(db.String(100), unique=True, nullable=False)\n\n# Rutas CRUD aquí..."
+            },
+            {
+                title: "Un CRUD sin servidor",
+                description: "Pide a ChatGPT las cuatro operaciones CRUD (crear, leer, actualizar, borrar) sobre un diccionario de muestras de laboratorio, sin Flask. Pruébalas: crea 3 muestras, actualiza una, borra otra e imprime el resultado final.",
+                template: "muestras = {}\n\n# Crear: muestras[\"M1\"] = {\"especie\": \"E. coli\", \"colonias\": 20}\n# Leer: imprime una muestra\n# Actualizar: cambia las colonias de una muestra\n# Borrar: del muestras[...]\n# Imprime cuántas muestras quedan y cada una con sus colonias\n",
+                solution: "muestras = {}\n\n# Crear\nmuestras[\"M1\"] = {\"especie\": \"E. coli\", \"colonias\": 20}\nmuestras[\"M2\"] = {\"especie\": \"S. aureus\", \"colonias\": 35}\nmuestras[\"M3\"] = {\"especie\": \"B. subtilis\", \"colonias\": 12}\n# Leer\nprint(\"M2:\", muestras[\"M2\"][\"especie\"], muestras[\"M2\"][\"colonias\"])\n# Actualizar\nmuestras[\"M1\"][\"colonias\"] = 48\n# Borrar\ndel muestras[\"M3\"]\n\nprint(\"Muestras guardadas:\", len(muestras))\nfor codigo, datos in muestras.items():\n    print(codigo, datos[\"especie\"], datos[\"colonias\"], \"colonias\")"
+            },
+            {
+                title: "Pide pruebas a la IA",
+                description: "Pide a ChatGPT una función imc(peso, altura) y tres pruebas con assert. Ejecútalas: si todas pasan, imprime cuántas pruebas se superaron y el IMC de una persona de 70 kg y 1.75 m con un decimal.",
+                template: "def imc(peso, altura):\n    # escribe aquí la fórmula: peso / altura ** 2\n    pass\n\n# Escribe tres assert, por ejemplo: assert round(imc(80, 2), 1) == 20.0\n# Imprime cuántas pruebas pasaron y el IMC de 70 kg y 1.75 m\n",
+                solution: "def imc(peso, altura):\n    return peso / altura ** 2\n\npruebas = 0\nassert round(imc(80, 2), 1) == 20.0\npruebas += 1\nassert round(imc(45, 1.5), 1) == 20.0\npruebas += 1\nassert imc(90, 1.8) > 25\npruebas += 1\nprint(\"Pruebas superadas:\", pruebas)\nprint(f\"IMC de 70 kg y 1.75 m: {imc(70, 1.75):.1f}\")"
             }
         ],
         quiz: [
             {
-                question: "¿Cuál es la principal característica de ChatGPT IA?",
-                options: ["Solo genera código", "IA conversacional avanzada para programación", "Solo corrige errores", "Solo traduce lenguajes"],
+                question: "¿Cuál es la principal fortaleza de ChatGPT IA para programadores Python?",
+                options: ["Solo corrección de sintaxis", "Asistencia completa en desarrollo avanzado", "Solo documentación básica", "Solo ejemplos simples"],
                 correct: 1
             },
             {
-                question: "¿ChatGPT EA puede ayudar con proyectos complejos?",
-                options: ["No, solo código básico", "Sí, incluyendo arquitectura y diseño", "Solo sintaxis", "Solo documentación"],
+                question: "¿ChatGPT IA puede ayudar con arquitectura de aplicaciones Python?",
+                options: ["No, solo código simple", "Sí, puede ayudar con diseño completo", "Solo con funciones básicas", "Solo con variables"],
                 correct: 1
             },
             {
-                question: "¿Qué tipo de asistencia proporciona ChatGPT EA en Python?",
-                options: ["Solo corrección de errores", "Programación, debugging, optimización y diseño", "Solo explicaciones básicas", "Solo instalación"],
+                question: "¿Qué tipo de proyectos puede ayudar a desarrollar ChatGPT IA?",
+                options: ["Solo scripts básicos", "Aplicaciones web, APIs, automatización y más", "Solo calculadoras", "Solo juegos simples"],
                 correct: 1
             },
             {
-                question: "¿ChatGPT EA puede adaptarse a diferentes niveles de programación?",
-                options: ["No, solo para expertos", "Sí, desde principiante hasta avanzado", "Solo nivel intermedio", "Solo profesionales"],
+                question: "¿ChatGPT IA puede explicar patrones de diseño en Python?",
+                options: ["No conoce patrones", "Sí, explica patrones con ejemplos prácticos", "Solo teoría básica", "Solo nombres de patrones"],
                 correct: 1
             },
             {
-                question: "¿Qué ventaja tiene usar ChatGPT EA para aprender Python?",
-                options: ["Es más lento que otros métodos", "Proporciona explicaciones personalizadas e interactivas", "Solo funciona en inglés", "Requiere pago obligatorio"],
+                question: "¿Cómo puede ChatGPT IA ayudar con el aprendizaje de Python?",
+                options: ["Solo respuestas cortas", "Explicaciones detalladas y ejercicios personalizados", "Solo enlaces externos", "Solo definiciones"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT IA puede ayudar con debugging avanzado?",
+                options: ["Solo errores de sintaxis", "Sí, análisis completo y soluciones", "Solo mensajes de error", "Solo sugerencias básicas"],
+                correct: 1
+            },
+            {
+                question: "¿Qué ventaja tiene ChatGPT IA para proyectos profesionales?",
+                options: ["Es gratuito siempre", "Conocimiento actualizado y mejores prácticas", "Solo para estudiantes", "Solo código básico"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT IA puede generar código Python desde descripciones en español?",
+                options: ["Solo entiende inglés", "Sí, multiidioma incluido español", "Solo código simple", "Solo comentarios"],
+                correct: 1
+            },
+            {
+                question: "¿Cómo puede ChatGPT IA mejorar tu código Python existente?",
+                options: ["No puede mejorar código", "Optimización, refactoring y mejores prácticas", "Solo formato", "Solo comentarios"],
+                correct: 1
+            },
+            {
+                question: "¿ChatGPT IA puede ayudar con librerías específicas de Python como Django o Pandas?",
+                options: ["Solo librerías básicas", "Sí, conoce amplia gama de librerías", "Solo sintaxis básica", "Solo instalación"],
                 correct: 1
             }
         ]
     },
 
     "google-colab": {
-        title: "15. Google Colab",
+        title: "16. Google Colab",
         description: "Notebook en la nube",
         video: "https://www.youtube.com/embed/Iq6k1hlz4NQ",
         additionalVideos: [
@@ -3824,8 +3992,8 @@ resultado = numero1 + numero2<br>
         exercises: [
             {
                 title: "Tu primer notebook",
-                description: "Abre Google Colab y crea tu primer programa",
-                template: "# En Google Colab, escribe este código:\nprint('¡Hola desde Google Colab!')\n\n# Luego presiona Shift+Enter para ejecutar",
+                description: "Escribe un programa que salude con el mensaje «¡Hola desde Google Colab!». Pruébalo aquí y luego en colab.research.google.com, ejecutando la celda con Shift+Enter.",
+                template: "# Escribe aquí un print con el saludo: ¡Hola desde Google Colab!\n\n# En Colab, ejecuta la celda con Shift+Enter\n",
                 solution: "print('¡Hola desde Google Colab!')\n# ¡Así de fácil! Colab ejecuta el código en la nube"
             },
             {
@@ -3890,7 +4058,7 @@ resultado = numero1 + numero2<br>
     },
 
     cursor: {
-        title: "16. Cursor IDE",
+        title: "17. Cursor IDE",
         description: "Editor con IA integrada",
         video: "https://www.youtube.com/embed/9ofd5bgtGHw",
         additionalVideos: [
@@ -3900,7 +4068,7 @@ resultado = numero1 + numero2<br>
         ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Cursor IDE - Editor de Código con IA</h2>
-            <p class="theme-text-secondary mb-6">Cursor es un editor de código revolucionario que integra inteligencia artificial directamente en tu flujo de trabajo de programación. Basado en VS Code pero potenciado con IA.</p>
+            <p class="theme-text-secondary mb-6">Cursor es un editor de código con inteligencia artificial integrada: un agente de IA que puede leer tu proyecto, escribir y corregir código. Su interfaz y sus atajos básicos son los de VS Code, más atajos propios para la IA.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -3915,8 +4083,8 @@ resultado = numero1 + numero2<br>
                     <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-code text-white text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Compatible con VS Code</h3>
-                    <p class="text-sm theme-text-secondary text-center">Todas tus extensiones y configuraciones funcionan</p>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Atajos de VS Code</h3>
+                    <p class="text-sm theme-text-secondary text-center">Usa los mismos atajos de teclado básicos de VS Code, más atajos para la IA</p>
                 </div>
                 
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -3937,95 +4105,72 @@ resultado = numero1 + numero2<br>
             </div>
             
             <div class="mb-8">
-                <h3 class="text-xl font-semibold theme-text-primary mb-4">🚀 Abrir Cursor IDE</h3>
-                <div class="space-y-4">
-                    <div class="p-6 theme-bg-tertiary rounded-xl border-2 border-purple-500">
-                        <div class="text-center">
-                            <h4 class="text-lg font-semibold theme-text-primary mb-3">¡Lanza Cursor desde tu sistema!</h4>
-                            <p class="theme-text-secondary mb-4">Detectaremos tu sistema operativo y ejecutaremos el comando apropiado para abrir Cursor IDE.</p>
-                            <button id="launchCursorBtn" class="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                                <i class="fas fa-terminal mr-2"></i>Ejecutar Cursor
-                            </button>
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">🛠️ Guía de Instalación</h3>
+                <p class="text-sm theme-text-secondary mb-4">Descarga siempre desde la página oficial <a href="https://cursor.com/download" target="_blank" rel="noopener" class="text-blue-600 underline">cursor.com/download</a>. Cursor tiene una versión gratuita con uso limitado de la IA.</p>
+                <div class="theme-bg-tertiary rounded-xl p-6">
+                    <!-- Windows (laptop) -->
+                    <div class="p-5 bg-white dark:bg-gray-800 rounded-lg shadow-sm mb-6" style="border-left:5px solid #0078d4">
+                        <div class="flex items-center mb-3">
+                            <i class="fab fa-windows text-blue-500 text-2xl mr-2"></i>
+                            <h4 class="font-bold theme-text-primary">Windows · instalación en tu laptop paso a paso</h4>
+                        </div>
+                        <ol class="text-sm theme-text-secondary space-y-3 list-decimal list-inside">
+                            <li><b>Revisa tu laptop.</b> Cursor funciona en Windows 10 o posterior. En <b>Configuración → Sistema → Información</b>, «Tipo de sistema» te dice si el procesador es <b>x64</b> (Intel o AMD, la mayoría) o <b>ARM</b> (Snapdragon).</li>
+                            <li><b>Descarga el instalador</b> en <a href="https://cursor.com/download" target="_blank" rel="noopener" class="text-blue-600 underline">cursor.com/download</a>: elige <b>Windows (x64) (User)</b>, o <b>Windows (ARM64) (User)</b> si tu laptop es ARM. La versión «User» se instala para tu usuario de Windows; la «System», para todo el equipo.</li>
+                            <li><b>Instala:</b> abre el <code>.exe</code> desde la carpeta <i>Descargas</i> y sigue el asistente.</li>
+                            <li><b>Abre Cursor e inicia sesión</b> (puedes crear la cuenta en ese momento).</li>
+                            <li><b>Elige una carpeta</b> para tu proyecto y empieza con una tarea pequeña: abre el agente con <b>Ctrl+I</b> y escríbele lo que necesitas.</li>
+                        </ol>
+                    </div>
+                    <div class="grid md:grid-cols-1 gap-6">
+                        <!-- Linux -->
+                        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <i class="fab fa-linux text-yellow-500 text-2xl mr-2"></i>
+                                <h4 class="font-bold theme-text-primary">Linux</h4>
+                            </div>
+                            <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                                <li>Ubuntu/Debian: descarga el <code>.deb</code> (x64 o ARM64).</li>
+                                <li>Fedora/RHEL: descarga el <code>.rpm</code>.</li>
+                                <li>Cualquier distribución: usa el <code>AppImage</code>.</li>
+                            </ol>
                         </div>
                     </div>
+                    <div class="mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                        <h4 class="font-bold theme-text-primary mb-2"><i class="fas fa-terminal mr-2"></i>Opcional: Cursor CLI (agente en la terminal)</h4>
+                        <ul class="text-sm theme-text-secondary space-y-1 ml-4">
+                            <li>• Windows (PowerShell): <code>irm 'https://cursor.com/install?win32=true' | iex</code></li>
+                            <li>• Linux y WSL: <code>curl https://cursor.com/install -fsS | bash</code></li>
+                            <li>• Ábrelo con el comando <code>agent</code>.</li>
+                        </ul>
+                    </div>
+                    <p class="text-xs theme-text-secondary mt-4">Instrucciones tomadas de cursor.com (noviembre de 2026). Los nombres de las descargas cambian con frecuencia: si algo no coincide, sigue lo que diga la página oficial.</p>
                 </div>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-4 mb-8">
-                <div class="p-4 theme-bg-tertiary rounded-lg">
-                    <h4 class="font-semibold theme-text-primary mb-2">🖥️ Windows</h4>
-                    <code class="text-xs theme-text-secondary">cursor</code>
-                    <p class="text-xs theme-text-secondary mt-1">Comando desde PowerShell/CMD</p>
-                </div>
-                
-                <div class="p-4 theme-bg-tertiary rounded-lg">
-                    <h4 class="font-semibold theme-text-primary mb-2">🍎 macOS</h4>
-                    <code class="text-xs theme-text-secondary">cursor</code>
-                    <p class="text-xs theme-text-secondary mt-1">Comando desde Terminal</p>
-                </div>
-                
-                <div class="p-4 theme-bg-tertiary rounded-lg">
-                    <h4 class="font-semibold theme-text-primary mb-2">🐧 Linux</h4>
-                    <code class="text-xs theme-text-secondary">cursor</code>
-                    <p class="text-xs theme-text-secondary mt-1">Comando desde Terminal</p>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-                <div class="p-6 theme-bg-tertiary rounded-xl">
-                    <h4 class="text-lg font-semibold theme-text-primary mb-3">⚡ Características IA</h4>
-                    <ul class="text-sm theme-text-secondary space-y-2">
-                        <li>• Tab para autocompletado inteligente</li>
-                        <li>• Cmd+K para editar con IA</li>
-                        <li>• Cmd+L para chat con IA</li>
-                        <li>• Generación de código completo</li>
-                        <li>• Explicación de errores automática</li>
-                    </ul>
-                </div>
-                
-                <div class="p-6 theme-bg-tertiary rounded-xl">
-                    <h4 class="text-lg font-semibold theme-text-primary mb-3">🔧 Instalación</h4>
-                    <ul class="text-sm theme-text-secondary space-y-2">
-                        <li>• Descargar desde cursor.com</li>
-                        <li>• Instalar como aplicación normal</li>
-                        <li>• Configurar comando en terminal</li>
-                        <li>• Importar configuración de VS Code</li>
-                        <li>• ¡Listo para programar con IA!</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="p-4 theme-bg-tertiary rounded-lg mb-6">
-                <h4 class="font-semibold theme-text-primary mb-3">🎯 Cómo usar Cursor:</h4>
-                <ol class="text-sm theme-text-secondary space-y-2 ml-4">
-                    <li>1. Descarga e instala Cursor desde cursor.com</li>
-                    <li>2. Configura el comando en terminal (Ver → Command Palette → "Install cursor command")</li>
-                    <li>3. Abre un proyecto: <code>cursor .</code> en tu directorio</li>
-                    <li>4. Usa Tab para autocompletado IA</li>
-                    <li>5. Usa Cmd+L para chatear con la IA sobre tu código</li>
-                </ol>
-            </div>
-            
-            <div class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-700">
-                <h4 class="font-semibold text-purple-800 dark:text-purple-200 mb-2">⚠️ Nota importante:</h4>
-                <p class="text-sm text-purple-700 dark:text-purple-300">
-                    Para que el botón funcione, necesitas tener Cursor IDE instalado y configurado en tu sistema. 
-                    Si no lo tienes, el botón te mostrará instrucciones de instalación.
-                </p>
+
+            <div class="p-6 theme-bg-tertiary rounded-xl mb-8">
+                <h4 class="text-lg font-semibold theme-text-primary mb-3">⌨️ Atajos de la IA</h4>
+                <ul class="text-sm theme-text-secondary space-y-2">
+                    <li>• <b>Tab</b>: acepta la sugerencia de autocompletado</li>
+                    <li>• <b>Ctrl+I</b> (también Ctrl+L o Ctrl+K): abre o cierra el panel del agente</li>
+                    <li>• <b>Shift+Tab</b>: cambia entre los modos del agente</li>
+                    <li>• <b>Ctrl+/</b>: cambia de modelo de IA</li>
+                    <li>• Revisa siempre lo que el agente cambia antes de aceptarlo</li>
+                </ul>
             </div>
         `,
         exercises: [
             {
                 title: "Instala Cursor",
                 description: "Descarga e instala Cursor IDE en tu sistema",
-                template: "# Pasos para instalar Cursor:\n# 1. Ir a cursor.com\n# 2. Descargar para tu OS\n# 3. Instalar normalmente\n# 4. Configurar comando terminal\n\n# Una vez instalado, puedes usar:\n# cursor . (para abrir directorio actual)",
-                solution: "# Cursor instalado correctamente!\n# Ahora puedes usar:\ncursor .  # Abre directorio actual\ncursor archivo.py  # Abre archivo específico\n# ¡Disfruta programando con IA!"
+                template: "# Pasos para instalar Cursor (sigue la guía de la lección):\n# 1. Ir a cursor.com/download\n# 2. Descargar el instalador de tu sistema (Windows x64 User en la mayoría de laptops)\n# 3. Instalar y abrir Cursor\n# 4. Iniciar sesión y elegir una carpeta\n# 5. Abrir el agente con Ctrl+I y pedirle una tarea pequeña\n\n# Cuando lo hayas hecho en tu computador, pulsa Verificar y luego «Ya lo hice»",
+                solution: "# Cursor instalado correctamente!\nAbrir Cursor -> Iniciar sesión -> Elegir carpeta -> Ctrl+I para hablar con el agente"
             },
             {
                 title: "Primeros pasos con IA",
-                description: "Experimenta con las funciones de IA de Cursor",
-                template: "# En Cursor, prueba estos comandos:\n# 1. Tab - Autocompletado IA\n# 2. Cmd+K (Ctrl+K) - Editar con IA\n# 3. Cmd+L (Ctrl+L) - Chat con IA\n\n# Escribe un comentario describiendo qué quieres hacer\n# y presiona Tab para ver la magia",
-                solution: "# Ejemplo de uso:\n# Escribes: \"función que calcule factorial\"\n# Presionas Tab y Cursor genera:\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)"
+                description: "Abre el agente de Cursor (Ctrl+I) y pídele una función factorial(n); pruébala aquí: imprime el factorial de 5 y el de 10.",
+                template: "# En Cursor, prueba estos atajos:\n# 1. Tab - Acepta la sugerencia de autocompletado\n# 2. Ctrl+I - Abre el panel del agente\n# 3. Shift+Tab - Cambia el modo del agente\n\n# Pide al agente: «Escribe una función factorial(n) en Python»\n# y copia aquí su respuesta para probarla\n\n# def factorial(n):\n#     ...\n# print(\"5! =\", factorial(5))\n",
+                solution: "# Ejemplo de uso:\n# Escribes: \"función que calcule factorial\"\n# Presionas Tab y Cursor genera:\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nprint(\"5! =\", factorial(5))\nprint(\"10! =\", factorial(10))"
             }
         ],
         quiz: [
@@ -4035,8 +4180,8 @@ resultado = numero1 + numero2<br>
                 correct: 1
             },
             {
-                question: "¿Qué comando usas para abrir el directorio actual en Cursor?",
-                options: ["cursor .", "cursor open", "cursor start", "cursor run"],
+                question: "En Windows, ¿qué atajo abre el panel del agente de IA en Cursor?",
+                options: ["Ctrl+I", "Ctrl+P", "Alt+F4", "Ctrl+Z"],
                 correct: 0
             },
             {
@@ -4045,18 +4190,18 @@ resultado = numero1 + numero2<br>
                 correct: 1
             },
             {
-                question: "¿Qué combinación de teclas abre el chat IA en Cursor?",
-                options: ["Ctrl+C", "Cmd+L (Ctrl+L)", "Alt+A", "Shift+I"],
+                question: "Además de Ctrl+I, ¿qué combinación abre el panel de IA en Cursor?",
+                options: ["Ctrl+C", "Ctrl+L", "Alt+A", "Shift+I"],
                 correct: 1
             },
             {
-                question: "¿Cursor está basado en qué editor?",
+                question: "¿Con qué editor comparte Cursor su interfaz y sus atajos de teclado básicos?",
                 options: ["Atom", "VS Code", "Sublime Text", "IntelliJ"],
                 correct: 1
             },
             {
-                question: "¿Qué comando usas para editar código con IA en Cursor?",
-                options: ["Cmd+E", "Cmd+K (Ctrl+K)", "Cmd+I", "Cmd+A"],
+                question: "¿Qué atajo cambia entre los modos del agente de Cursor?",
+                options: ["Alt+Tab", "Shift+Tab", "Ctrl+S", "F5"],
                 correct: 1
             },
             {
@@ -4083,7 +4228,7 @@ resultado = numero1 + numero2<br>
     },
 
     zai: {
-        title: "17. Z IA",
+        title: "18. Z IA",
         description: "IA China Avanzada",
         video: "https://www.youtube.com/embed/7qyoYDiP-8A",
         additionalVideos: [
@@ -4093,7 +4238,7 @@ resultado = numero1 + numero2<br>
         ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Z IA - Asistente de Inteligencia Artificial Avanzada</h2>
-            <p class="theme-text-secondary mb-6">Z IA es una plataforma de inteligencia artificial china de última generación que ofrece capacidades avanzadas de conversación, programación y análisis. Ideal para estudiantes y desarrolladores que buscan asistencia inteligente en sus proyectos.</p>
+            <p class="theme-text-secondary mb-6">Z IA (su nombre oficial es <b>Z.ai</b>) es una plataforma de chat y agentes de inteligencia artificial que funciona con los modelos <b>GLM</b> (por ejemplo GLM-5.3). La opera la empresa Jingsheng Hengxing Technology, con sede registrada en Singapur. Te ayuda a programar, explicar código y analizar información.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -4124,15 +4269,15 @@ resultado = numero1 + numero2<br>
                     <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-language text-white text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Multiidioma</h3>
-                    <p class="text-sm theme-text-secondary text-center">Soporte para múltiples idiomas incluyendo español</p>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Modelos GLM</h3>
+                    <p class="text-sm theme-text-secondary text-center">Usa la familia de modelos GLM, con razonamiento profundo y búsqueda web</p>
                 </div>
             </div>
             
 
             
             <div class="mb-6">
-                <h3 class="text-xl font-semibold theme-text-primary mb-4">Z IA - Acceso Directo</h3>
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">Z.ai - Acceso Directo</h3>
                 <div class="theme-bg-tertiary rounded-xl p-8 text-center">
                     <div class="mb-6">
                         <i class="fas fa-brain text-6xl text-purple-600 mb-4"></i>
@@ -4153,11 +4298,31 @@ resultado = numero1 + numero2<br>
                 </div>
             </div>
 
+            <div class="mb-6 theme-bg-tertiary rounded-xl p-6">
+                <h3 class="text-xl font-semibold theme-text-primary mb-4">🚀 Cómo empezar en tu laptop (Windows o Linux)</h3>
+                <p class="text-sm theme-text-secondary mb-3">Z.ai se usa desde el navegador: <b>no necesitas instalar nada</b>.</p>
+                <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
+                    <li>Abre tu navegador (Edge o Chrome en Windows; Firefox o Chrome en Linux) y entra a <a href="https://chat.z.ai/" target="_blank" rel="noopener" class="underline" style="color:#9333ea">chat.z.ai</a>, o usa el botón «Abrir» de arriba.</li>
+                    <li>Si te pide una cuenta, regístrate con una de las opciones que muestre la página (por ejemplo Google o GitHub). Algunas funciones se pueden probar sin registrarte.</li>
+                    <li>Escribe tu pregunta en el cuadro del chat. Para preguntas de código, pega solo el fragmento necesario.</li>
+                    <li>Prueba en el laboratorio de la academia el código que te sugiera antes de usarlo en tus tareas.</li>
+                </ol>
+            </div>
+            <div class="mb-6 p-4 rounded-lg text-sm theme-text-secondary" style="background:rgba(245,158,11,.12)">
+                <h4 class="font-semibold theme-text-primary mb-2">🔒 Antes de usarla: cuida tus datos</h4>
+                <ul class="space-y-1 ml-4">
+                    <li>• Z.ai procesa los datos personales principalmente <b>en Singapur</b>, y pueden transferirse a otros países, según su política de privacidad.</li>
+                    <li>• Según sus términos, puede usar el contenido que escribes para mejorar sus servicios y desarrollar sus modelos.</li>
+                    <li>• <b>No compartas</b> datos personales, contraseñas, datos de pacientes ni información confidencial de tu laboratorio o tus prácticas.</li>
+                    <li>• No está dirigida a menores de 18 años: si lo eres, necesitas permiso de tus padres o tutores.</li>
+                    <li>• La IA se equivoca: verifica sus respuestas y cita su uso cuando lo pida el docente.</li>
+                </ul>
+            </div>
             <div class="p-4 theme-bg-tertiary rounded-lg">
                 <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar Z IA:</h4>
                 <ul class="text-sm theme-text-secondary space-y-1 ml-4">
                     <li>• Sé específico en tus preguntas sobre programación en Python</li>
-                    <li>• Comparte el código completo para obtener mejores sugerencias</li>
+                    <li>• Comparte el código necesario (sin datos personales) para obtener mejores sugerencias</li>
                     <li>• Pregunta sobre mejores prácticas y optimización de código</li>
                     <li>• Solicita explicaciones paso a paso de algoritmos complejos</li>
                     <li>• Pide ejemplos prácticos y casos de uso reales</li>
@@ -4165,11 +4330,20 @@ resultado = numero1 + numero2<br>
                 </ul>
             </div>
         `,
-        practice: {
-            description: "Usa Z IA para obtener ayuda con un concepto de Python que no entiendas",
-            template: "# Ejemplo de pregunta para Z IA:\\n# '¿Puedes explicarme cómo funcionan los decoradores en Python con ejemplos prácticos?'\\n\\n# Tu código de práctica aquí",
-            solution: "# Z IA puede ayudarte con:\\n# - Explicaciones detalladas de conceptos\\n# - Ejemplos de código prácticos\\n# - Depuración y optimización\\n# - Mejores prácticas de programación"
-        },
+        exercises: [
+            {
+                title: "Un decorador explicado por la IA",
+                description: "Pide a Z IA que te explique los decoradores con un ejemplo. Escribe un decorador anunciar que imprima el nombre de la función antes de llamarla y su resultado después, y úsalo con una función que calcule el contenido GC (%) de una secuencia.",
+                template: "# Pregunta a Z IA: «¿Cómo funcionan los decoradores en Python? Dame un ejemplo sencillo»\n\ndef anunciar(funcion):\n    # define aquí la función envoltura\n    pass\n\n# @anunciar\ndef contenido_gc(adn):\n    gc = adn.count(\"G\") + adn.count(\"C\")\n    return round(gc / len(adn) * 100, 1)\n\n# Llama a contenido_gc(\"ATGCGC\") y a contenido_gc(\"ATATGC\")\n",
+                solution: "def anunciar(funcion):\n    def envoltura(*args):\n        print(\"Llamando a\", funcion.__name__)\n        resultado = funcion(*args)\n        print(\"Resultado:\", resultado)\n        return resultado\n    return envoltura\n\n@anunciar\ndef contenido_gc(adn):\n    gc = adn.count(\"G\") + adn.count(\"C\")\n    return round(gc / len(adn) * 100, 1)\n\ncontenido_gc(\"ATGCGC\")\ncontenido_gc(\"ATATGC\")"
+            },
+            {
+                title: "Depura con la IA",
+                description: "Este código debería calcular el promedio de cuatro temperaturas, pero da un resultado absurdo. Pégalo en Z IA, pide que te explique los dos errores, corrígelo e imprime el promedio con dos decimales.",
+                template: "temperaturas = [36.5, 37.2, 38.9, 35.8]\nsuma = 0\nfor t in temperaturas:\n    suma = t\npromedio = suma / len(temperaturas) - 1\nprint(\"Promedio:\", promedio)\n",
+                solution: "temperaturas = [36.5, 37.2, 38.9, 35.8]\nsuma = 0\nfor t in temperaturas:\n    suma += t\npromedio = suma / len(temperaturas)\nprint(f\"Promedio: {promedio:.2f}\")"
+            }
+        ],
         quiz: [
             {
                 question: "¿Para qué puedes usar Z IA en tu aprendizaje de Python?",
@@ -4197,8 +4371,8 @@ resultado = numero1 + numero2<br>
                 correct: 1
             },
             {
-                question: "¿Qué idiomas soporta Z IA?",
-                options: ["Solo chino", "Múltiples idiomas incluyendo español", "Solo inglés", "Solo idiomas asiáticos"],
+                question: "¿Con qué familia de modelos de IA funciona Z.ai (Z IA)?",
+                options: ["GPT", "GLM", "Llama", "Gemini"],
                 correct: 1
             },
             {
@@ -4224,134 +4398,8 @@ resultado = numero1 + numero2<br>
         ]
     },
 
-    chatgptea: {
-        title: "14. ChatGPT IA",
-        description: "Asistente IA Norteamericano",
-        video: "https://www.youtube.com/embed/dKKe1PL2Stk",
-        additionalVideos: [],
-        content: `
-            <h2 class="text-2xl font-bold theme-text-primary mb-4">ChatGPT IA - Tu Asistente de Programación Avanzado</h2>
-            <p class="theme-text-secondary mb-6">ChatGPT IA es un asistente de inteligencia artificial norteamericano que puede ayudarte con programación en Python, resolver dudas complejas, explicar código, generar aplicaciones y mucho más.</p>
-            
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-                <div class="p-6 theme-bg-tertiary rounded-xl">
-                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-code text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Programación Avanzada</h3>
-                    <p class="text-sm theme-text-secondary text-center">Asistencia completa en desarrollo Python</p>
-                </div>
-                <div class="p-6 theme-bg-tertiary rounded-xl">
-                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-robot text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">IA Conversacional</h3>
-                    <p class="text-sm theme-text-secondary text-center">Explicaciones detalladas y personalizadas</p>
-                </div>
-                <div class="p-6 theme-bg-tertiary rounded-xl">
-                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-project-diagram text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Proyectos Completos</h3>
-                    <p class="text-sm theme-text-secondary text-center">Desarrollo de aplicaciones desde cero</p>
-                </div>
-                <div class="p-6 theme-bg-tertiary rounded-xl">
-                    <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-graduation-cap text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold theme-text-primary text-center mb-2">Aprendizaje Guiado</h3>
-                    <p class="text-sm theme-text-secondary text-center">Aprende nuevos conceptos paso a paso</p>
-                </div>
-            </div>
-            
-
-            
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold theme-text-primary mb-4">Enlace Directo a la Aplicación</h3>
-                <div class="p-4 theme-bg-tertiary rounded-lg text-center">
-                    <a href="https://chatgpt.com/" target="_blank" class="inline-flex items-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
-                        <i class="fas fa-external-link-alt mr-2"></i>
-                        Abrir ChatGPT IA en Nueva Pestaña
-                    </a>
-                </div>
-            </div>
-            
-            <div class="p-4 theme-bg-tertiary rounded-lg">
-                <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar ChatGPT IA:</h4>
-                <ul class="text-sm theme-text-secondary space-y-1 ml-4">
-                    <li>• Describe detalladamente lo que quieres lograr en Python</li>
-                    <li>• Comparte tu código para obtener mejoras específicas</li>
-                    <li>• Solicita explicaciones paso a paso de algoritmos complejos</li>
-                    <li>• Pide ayuda con proyectos completos y arquitectura de aplicaciones</li>
-                    <li>• Aprovecha su capacidad para generar código desde descripciones</li>
-                    <li>• Pregunta sobre mejores prácticas y patrones de diseño</li>
-                </ul>
-            </div>
-        `,
-        exercises: [
-            {
-                title: "Consulta Avanzada a la IA",
-                description: "Usa ChatGPT IA para obtener ayuda con un proyecto completo de Python",
-                template: "# Ejemplo de consulta avanzada para ChatGPT IA:\n# 'Ayúdame a crear una aplicación web en Python con Flask que maneje un CRUD de usuarios'\n\n# Tu código de proyecto aquí",
-                solution: "# Ejemplo de respuesta que podrías obtener:\nfrom flask import Flask, request, jsonify\nfrom flask_sqlalchemy import SQLAlchemy\n\napp = Flask(__name__)\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'\ndb = SQLAlchemy(app)\n\nclass User(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(100), nullable=False)\n    email = db.Column(db.String(100), unique=True, nullable=False)\n\n# Rutas CRUD aquí..."
-            }
-        ],
-        quiz: [
-            {
-                question: "¿Cuál es la principal fortaleza de ChatGPT IA para programadores Python?",
-                options: ["Solo corrección de sintaxis", "Asistencia completa en desarrollo avanzado", "Solo documentación básica", "Solo ejemplos simples"],
-                correct: 1
-            },
-            {
-                question: "¿ChatGPT IA puede ayudar con arquitectura de aplicaciones Python?",
-                options: ["No, solo código simple", "Sí, puede ayudar con diseño completo", "Solo con funciones básicas", "Solo con variables"],
-                correct: 1
-            },
-            {
-                question: "¿Qué tipo de proyectos puede ayudar a desarrollar ChatGPT IA?",
-                options: ["Solo scripts básicos", "Aplicaciones web, APIs, automatización y más", "Solo calculadoras", "Solo juegos simples"],
-                correct: 1
-            },
-            {
-                question: "¿ChatGPT IA puede explicar patrones de diseño en Python?",
-                options: ["No conoce patrones", "Sí, explica patrones con ejemplos prácticos", "Solo teoría básica", "Solo nombres de patrones"],
-                correct: 1
-            },
-            {
-                question: "¿Cómo puede ChatGPT IA ayudar con el aprendizaje de Python?",
-                options: ["Solo respuestas cortas", "Explicaciones detalladas y ejercicios personalizados", "Solo enlaces externos", "Solo definiciones"],
-                correct: 1
-            },
-            {
-                question: "¿ChatGPT IA puede ayudar con debugging avanzado?",
-                options: ["Solo errores de sintaxis", "Sí, análisis completo y soluciones", "Solo mensajes de error", "Solo sugerencias básicas"],
-                correct: 1
-            },
-            {
-                question: "¿Qué ventaja tiene ChatGPT IA para proyectos profesionales?",
-                options: ["Es gratuito siempre", "Conocimiento actualizado y mejores prácticas", "Solo para estudiantes", "Solo código básico"],
-                correct: 1
-            },
-            {
-                question: "¿ChatGPT IA puede generar código Python desde descripciones en español?",
-                options: ["Solo entiende inglés", "Sí, multiidioma incluido español", "Solo código simple", "Solo comentarios"],
-                correct: 1
-            },
-            {
-                question: "¿Cómo puede ChatGPT IA mejorar tu código Python existente?",
-                options: ["No puede mejorar código", "Optimización, refactoring y mejores prácticas", "Solo formato", "Solo comentarios"],
-                correct: 1
-            },
-            {
-                question: "¿ChatGPT IA puede ayudar con librerías específicas de Python como Django o Pandas?",
-                options: ["Solo librerías básicas", "Sí, conoce amplia gama de librerías", "Solo sintaxis básica", "Solo instalación"],
-                correct: 1
-            }
-        ]
-    },
-
     antigravity: {
-        title: "18. Antigravity Google",
+        title: "19. Antigravity Google",
         description: "Asistente de codificación avanzado de Google",
         video: "https://www.youtube.com/embed/p36n_wHEShs",
         additionalVideos: [
@@ -4361,7 +4409,7 @@ resultado = numero1 + numero2<br>
         ],
         content: `
             <h2 class="text-2xl font-bold theme-text-primary mb-4">Antigravity Google - Asistente de Codificación Superior</h2>
-            <p class="theme-text-secondary mb-6">Antigravity es la última innovación de Google para desarrolladores. Combina el poder de Gemini 3 con herramientas agenticas avanzadas para escribir, depurar y desplegar código de manera autónoma y eficiente.</p>
+            <p class="theme-text-secondary mb-6">Antigravity es la plataforma de Google para programar con agentes de IA. Se presentó en noviembre de 2025 junto con el modelo Gemini 3 Pro y hoy permite elegir entre varios modelos: versiones más recientes de Gemini (como Gemini 4) y también Claude. Los agentes planean, escriben, ejecutan y prueban código, y te muestran su plan y sus resultados para que los revises.</p>
             
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="p-6 theme-bg-tertiary rounded-xl">
@@ -4376,43 +4424,36 @@ resultado = numero1 + numero2<br>
                     <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fab fa-google text-white text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Gemini 3</h3>
-                    <p class="text-sm theme-text-secondary text-center">Impulsado por el modelo más capaz de Google para razonamiento y codificación</p>
+                    <h3 class="text-lg font-semibold theme-text-primary mb-2 text-center">Modelos Gemini (y otros)</h3>
+                    <p class="text-sm theme-text-secondary text-center">Funciona con los modelos Gemini de Google; en el selector de modelos también puedes elegir otros, como Claude</p>
                 </div>
             </div>
             
             <div class="mb-8">
                 <h3 class="text-xl font-semibold theme-text-primary mb-4">🛠️ Guía de Instalación</h3>
+                <p class="text-sm theme-text-secondary mb-4">Descarga siempre desde la página oficial <a href="https://antigravity.google/download" target="_blank" rel="noopener" class="text-blue-600 underline">antigravity.google/download</a>. Elige la versión de tu procesador: x64 para la mayoría de los computadores, ARM64 para equipos con procesador ARM.</p>
                 <div class="theme-bg-tertiary rounded-xl p-6">
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <!-- Windows -->
-                        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                            <div class="flex items-center mb-3">
-                                <i class="fab fa-windows text-blue-500 text-2xl mr-2"></i>
-                                <h4 class="font-bold theme-text-primary">Windows</h4>
-                            </div>
-                            <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
-                                <li>Descarga el instalador desde el sitio oficial.</li>
-                                <li>Ejecuta <code>antigravity_setup.exe</code>.</li>
-                                <li>Sigue las instrucciones en pantalla.</li>
-                                <li>Abre tu terminal y escribe <code>antigravity login</code>.</li>
-                            </ol>
+                    <!-- Windows (laptop) -->
+                    <div class="p-5 bg-white dark:bg-gray-800 rounded-lg shadow-sm mb-6" style="border-left:5px solid #0078d4">
+                        <div class="flex items-center mb-3">
+                            <i class="fab fa-windows text-blue-500 text-2xl mr-2"></i>
+                            <h4 class="font-bold theme-text-primary">Windows · instalación en tu laptop paso a paso</h4>
                         </div>
-                        
-                        <!-- Mac -->
-                        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                            <div class="flex items-center mb-3">
-                                <i class="fab fa-apple text-gray-500 text-2xl mr-2"></i>
-                                <h4 class="font-bold theme-text-primary">macOS</h4>
-                            </div>
-                            <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
-                                <li>Abre tu terminal.</li>
-                                <li>Ejecuta: <code>brew install google-antigravity</code></li>
-                                <li>O descarga el .dmg oficial.</li>
-                                <li>Autentícate con <code>antigravity login</code>.</li>
-                            </ol>
-                        </div>
-                        
+                        <ol class="text-sm theme-text-secondary space-y-3 list-decimal list-inside">
+                            <li><b>Revisa tu laptop.</b> Necesitas Windows 10 u 11 de 64 bits. Abre <b>Configuración → Sistema → Información</b> y mira «Tipo de sistema»:
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>• «Sistema operativo de 64 bits, procesador basado en <b>x64</b>» → la mayoría de laptops (Intel o AMD): usa el instalador <b>x64</b>.</li>
+                                    <li>• «… procesador basado en <b>ARM</b>» → laptops con Snapdragon: usa el instalador <b>ARM64</b>.</li>
+                                </ul>
+                            </li>
+                            <li><b>Descarga el instalador</b> desde <a href="https://antigravity.google/download" target="_blank" rel="noopener" class="text-blue-600 underline">antigravity.google/download</a>, sección Windows: «Download for x64» (<code>Antigravity-x64.exe</code>) o «Download for ARM64» (<code>Antigravity-arm64.exe</code>).</li>
+                            <li><b>Instala:</b> abre el archivo desde la carpeta <i>Descargas</i> y sigue el asistente de instalación. Mantén la laptop conectada al cargador y a internet.</li>
+                            <li><b>Abre Antigravity</b> desde el menú Inicio y pulsa <b>Sign in</b>: se abre el navegador para iniciar sesión con Google y luego vuelve a la aplicación.</li>
+                            <li><b>Usa una cuenta personal de Google</b> (por ejemplo @gmail.com). Las cuentas de Google Workspace, como muchos correos institucionales, no incluyen planes de Antigravity.</li>
+                            <li><b>Elige tu perfil</b> cuando pregunte «What best describes your work?» (por ejemplo <i>Science</i> o <i>Software Engineering</i>), o pulsa <i>Skip</i>. Se puede cambiar después en <i>Settings → General</i>.</li>
+                        </ol>
+                    </div>
+                    <div class="grid md:grid-cols-1 gap-6">
                         <!-- Linux -->
                         <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
                             <div class="flex items-center mb-3">
@@ -4420,15 +4461,27 @@ resultado = numero1 + numero2<br>
                                 <h4 class="font-bold theme-text-primary">Linux</h4>
                             </div>
                             <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
-                                <li>Usa curl: <code>curl -sL https://antigravity.google/install | bash</code></li>
-                                <li>O usa apt: <code>sudo apt install antigravity</code></li>
-                                <li>Verifica con <code>antigravity --version</code>.</li>
+                                <li>Requisito: Ubuntu 20+, Debian 10+, Fedora 36+ o RHEL 8+ (glibc 2.28 o más).</li>
+                                <li>Descarga <code>Antigravity.tar.gz</code> (x64 o ARM64).</li>
+                                <li>Descomprímelo: <code>tar -xzf Antigravity.tar.gz</code></li>
+                                <li>Ábrelo desde la carpeta descomprimida con <code>./Antigravity</code> e inicia sesión con tu cuenta de Google.</li>
                             </ol>
                         </div>
                     </div>
+                    <div class="mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                        <h4 class="font-bold theme-text-primary mb-2"><i class="fas fa-terminal mr-2"></i>Opcional: Antigravity CLI (en la terminal)</h4>
+                        <p class="text-sm theme-text-secondary mb-2">Además de la aplicación, Google ofrece una versión para la terminal. Su comando se llama <code>agy</code> (no <code>antigravity</code>).</p>
+                        <ul class="text-sm theme-text-secondary space-y-1 ml-4">
+                            <li>• Windows (PowerShell): <code>irm https://antigravity.google/cli/install.ps1 | iex</code></li>
+                            <li>• Linux: <code>curl -fsSL https://antigravity.google/cli/install.sh | bash</code></li>
+                            <li>• Comprueba la instalación: <code>agy --version</code></li>
+                            <li>• Ábrelo con <code>agy</code>; la primera vez abre el navegador para iniciar sesión con Google.</li>
+                        </ul>
+                    </div>
+                    <p class="text-xs theme-text-secondary mt-4">Instrucciones tomadas de antigravity.google (noviembre de 2026). Los nombres de los archivos y las versiones cambian con frecuencia: si algo no coincide, sigue lo que diga la página oficial.</p>
                 </div>
             </div>
-            
+
             <div class="mb-6">
                 <h3 class="text-xl font-semibold theme-text-primary mb-4">Antigravity - Acceso Directo</h3>
                 <div class="theme-bg-tertiary rounded-xl p-8 text-center">
@@ -4440,7 +4493,7 @@ resultado = numero1 + numero2<br>
                         </p>
                     </div>
                     
-                    <button onclick="window.open('https://gemini.google.com/', '_blank')" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                    <button onclick="window.open('https://antigravity.google/', '_blank')" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
                         <i class="fas fa-external-link-alt mr-2"></i>Abrir Antigravity
                     </button>
                 </div>
@@ -4449,13 +4502,27 @@ resultado = numero1 + numero2<br>
             <div class="p-4 theme-bg-tertiary rounded-lg">
                 <h4 class="font-semibold theme-text-primary mb-2">💡 Consejos para usar Antigravity:</h4>
                 <ul class="text-sm theme-text-secondary space-y-1 ml-4">
-                    <li>• Usa el modo "Agentic" para tareas de múltiples pasos</li>
-                    <li>• Conecta Antigravity a tu repositorio para contexto completo</li>
+                    <li>• Dale tareas concretas, con datos de ejemplo y una forma clara de comprobar el resultado</li>
+                    <li>• Abre la carpeta de tu proyecto para que el agente tenga el contexto completo</li>
                     <li>• Pide explicaciones de arquitectura, no solo de código</li>
-                    <li>• Utiliza los comandos de voz si están disponibles en tu versión</li>
+                    <li>• Revisa y prueba siempre lo que el agente cambie antes de aceptarlo</li>
                 </ul>
             </div>
         `,
+        exercises: [
+            {
+                title: "El plan de un agente",
+                description: "Un asistente agéntico como Antigravity divide una tarea grande en pasos. Recorre el plan, imprime cada paso numerado con sus minutos y, al final, el tiempo total estimado.",
+                template: "plan = [\n    (\"Leer el archivo de datos\", 2),\n    (\"Limpiar valores vacíos\", 5),\n    (\"Calcular promedios por especie\", 3),\n    (\"Dibujar el gráfico\", 4)\n]\n\n# Usa enumerate(plan, start=1) para numerar los pasos\n# Imprime: Paso 1: Leer el archivo de datos (2 min)\n# Al final imprime el tiempo total\n",
+                solution: "plan = [\n    (\"Leer el archivo de datos\", 2),\n    (\"Limpiar valores vacíos\", 5),\n    (\"Calcular promedios por especie\", 3),\n    (\"Dibujar el gráfico\", 4)\n]\n\ntotal = 0\nfor i, (paso, minutos) in enumerate(plan, start=1):\n    print(f\"Paso {i}: {paso} ({minutos} min)\")\n    total += minutos\nprint(\"Tiempo total estimado:\", total, \"min\")"
+            },
+            {
+                title: "Revisa el código del agente",
+                description: "Un agente escribió esta función para obtener la cadena complementaria del ADN, pero tiene un error. Nunca aceptes código sin probarlo: encuentra el error, corrígelo y comprueba que el complemento de ATGCCGTA es TACGGCAT.",
+                template: "def complemento(adn):\n    pares = {\"A\": \"T\", \"T\": \"A\", \"G\": \"G\", \"C\": \"C\"}\n    return \"\".join(pares[base] for base in adn)\n\nprint(complemento(\"ATGCCGTA\"))\nprint(complemento(\"GGCATT\"))\n",
+                solution: "def complemento(adn):\n    pares = {\"A\": \"T\", \"T\": \"A\", \"G\": \"C\", \"C\": \"G\"}\n    return \"\".join(pares[base] for base in adn)\n\nprint(complemento(\"ATGCCGTA\"))\nprint(complemento(\"GGCATT\"))"
+            }
+        ],
         quiz: [
             {
                 question: "¿Qué es Antigravity Google?",
@@ -4464,12 +4531,12 @@ resultado = numero1 + numero2<br>
             },
             {
                 question: "¿Qué modelo impulsa a Antigravity?",
-                options: ["GPT-4", "Llama 3", "Gemini 3", "Claude 3"],
+                options: ["GPT-4", "Llama 3", "Gemini (modelos de Google)", "Claude 3"],
                 correct: 2
             },
             {
-                question: "¿Cómo se instala Antigravity en macOS?",
-                options: ["Solo compilando desde fuente", "Brew install o .dmg", "No está disponible en Mac", "Solo vía App Store"],
+                question: "¿Cómo se instala Antigravity en Linux?",
+                options: ["Solo compilando desde fuente", "Descargando el Antigravity.tar.gz oficial, descomprimiéndolo y abriendo ./Antigravity", "No está disponible en Linux", "Solo con una máquina virtual"],
                 correct: 1
             },
             {
@@ -4478,15 +4545,40 @@ resultado = numero1 + numero2<br>
                 correct: 0
             },
             {
-                question: "¿Cómo verificas la instalación en Linux?",
-                options: ["linux check", "antigravity --version", "google status", "ver install"],
+                question: "¿Qué comando comprueba que Antigravity CLI quedó instalado en la terminal?",
+                options: ["linux check", "agy --version", "google status", "antigravity login"],
+                correct: 1
+            },
+            {
+                question: "¿Qué significa que un asistente de programación sea «agéntico»?",
+                options: ["Que solo autocompleta una palabra", "Que puede planear y ejecutar varios pasos (editar archivos, correr comandos, probar) para cumplir una tarea", "Que funciona sin internet", "Que solo responde preguntas de historia"],
+                correct: 1
+            },
+            {
+                question: "Antes de aceptar el código que escribió un agente, ¿qué debes hacer?",
+                options: ["Nada: el código de la IA siempre es correcto", "Leerlo, ejecutarlo y probarlo con casos conocidos", "Borrarlo y escribirlo de nuevo", "Publicarlo de inmediato"],
+                correct: 1
+            },
+            {
+                question: "¿Por qué conviene conectar el asistente a tu repositorio?",
+                options: ["Para que tenga el contexto completo del proyecto", "Para que el computador vaya más rápido", "Para no tener que guardar archivos", "No sirve para nada"],
+                correct: 0
+            },
+            {
+                question: "El agente propone ejecutar un comando que borra archivos. ¿Qué conviene hacer?",
+                options: ["Aprobarlo sin leerlo", "Revisarlo y aprobar solo lo que entiendes; si dudas, pedir que lo explique", "Apagar el computador", "Desinstalar Python"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de encargo suele dar mejores resultados con un agente de programación?",
+                options: ["«Hazme un programa»", "Una tarea concreta, con datos de ejemplo y una forma clara de comprobar que quedó bien", "Una pregunta de una sola palabra", "Pedirle que adivine lo que quieres"],
                 correct: 1
             }
         ]
     },
 
     vm: {
-        title: "19. Maquinas Virtuales",
+        title: "20. Maquinas Virtuales",
         description: "Aprende a virtualizar sistemas operativos",
         video: "https://www.youtube.com/embed/mzo2OjcSxag",
         additionalVideos: [
@@ -4505,36 +4597,33 @@ resultado = numero1 + numero2<br>
                 <h3 class="text-xl font-semibold theme-text-primary mb-4">🚀 Instalación de VirtualBox</h3>
                 <p class="theme-text-secondary mb-4">Usaremos VirtualBox, una herramienta gratuita y potente para virtualización.</p>
                 
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Windows -->
-                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                <div class="grid md:grid-cols-1 gap-6">
+                    <!-- Windows (laptop) -->
+                    <div class="p-5 bg-white dark:bg-gray-800 rounded-lg shadow-sm" style="border-left:5px solid #0078d4">
                         <div class="flex items-center mb-3">
                             <i class="fab fa-windows text-blue-500 text-2xl mr-2"></i>
-                            <h4 class="font-bold theme-text-primary">Windows</h4>
+                            <h4 class="font-bold theme-text-primary">Windows · instalación en tu laptop paso a paso</h4>
                         </div>
-                        <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
-                            <li>Ve a <a href="https://www.virtualbox.org/" target="_blank" class="text-blue-500 underline">virtualbox.org</a>.</li>
-                            <li>Descarga "Windows hosts".</li>
-                            <li>Ejecuta el instalador <code>.exe</code>.</li>
-                            <li>Acepta todas las opciones por defecto (instalará drivers de red).</li>
-                            <li>Reinicia si es necesario.</li>
+                        <ol class="text-sm theme-text-secondary space-y-3 list-decimal list-inside">
+                            <li><b>Revisa tu laptop.</b> VirtualBox funciona en Windows 10 y 11 de 64 bits con procesador Intel o AMD. En <b>Configuración → Sistema → Información</b>, «Tipo de sistema» debe decir «procesador basado en <b>x64</b>». En laptops con procesador <b>ARM</b> (Snapdragon) VirtualBox es experimental y solo ejecuta sistemas ARM: para este curso no se recomienda.</li>
+                            <li><b>Descarga</b> en <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener" class="text-blue-500 underline">virtualbox.org/wiki/Downloads</a> el enlace <b>«Windows hosts»</b> (archivo <code>VirtualBox-7.2.xx-…-Win.exe</code>).</li>
+                            <li><b>Instala:</b> haz doble clic en el <code>.exe</code> y deja los componentes por defecto (USB y redes). El componente «Python support» solo sirve si ya tienes Python 3 instalado en Windows.</li>
+                            <li>Si Windows pregunta por la instalación de <b>controladores</b> (drivers), pulsa <b>Instalar / Continuar</b>: son los de USB y red de VirtualBox.</li>
+                            <li>Al terminar, abre <b>Oracle VirtualBox</b> desde el menú Inicio y sigue la «Configuración básica» de abajo.</li>
                         </ol>
-                    </div>
-                    
-                    <!-- Mac -->
-                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                        <div class="flex items-center mb-3">
-                            <i class="fab fa-apple text-gray-500 text-2xl mr-2"></i>
-                            <h4 class="font-bold theme-text-primary">macOS</h4>
+                        <div class="mt-4 p-4 rounded-lg text-sm theme-text-secondary" style="background:rgba(245,158,11,.12)">
+                            <b>⚠️ Si la máquina virtual no arranca y el mensaje menciona VT-x o AMD-V</b>, la virtualización del procesador está desactivada en la UEFI (BIOS) de tu laptop. Muchos equipos ya la traen activa; si no, actívala así:
+                            <ol class="list-decimal list-inside space-y-1 mt-2">
+                                <li>Guarda tu trabajo. En Windows abre <b>Configuración → Sistema → Recuperación</b> y, junto a <b>Inicio avanzado</b>, pulsa <b>Reiniciar ahora</b>.</li>
+                                <li>En la pantalla azul elige <b>Solucionar problemas → Opciones avanzadas → Configuración de UEFI → Reiniciar</b>.</li>
+                                <li>En la UEFI busca la opción de virtualización (el nombre cambia según el fabricante): <b>Intel Virtualization Technology (VT-x)</b>, <b>Intel (VMX) Virtualization Technology</b>, <b>AMD Virtualization (AMD-V)</b> o, en muchas laptops con procesador AMD, <b>SVM Mode</b> (Secure Virtual Machine). Ponla en <i>Enabled</i>, guarda los cambios y sal.</li>
+                            </ol>
+                            <p class="mt-2">Cambia <b>solo</b> esa opción: modificar otros ajustes de la UEFI puede impedir que Windows arranque. Si no la encuentras, consulta la página de soporte del fabricante de tu laptop o pide ayuda al docente.</p>
+                            <p class="mt-2"><b>🐢 ¿Ves una tortuga verde</b> en la barra inferior de la ventana de la VM? Significa que Windows está usando otro hipervisor (Hyper-V) y la máquina virtual irá lenta. El manual de VirtualBox recomienda no usar otro hipervisor al mismo tiempo; desactivarlo cambia funciones de Windows (y puede afectar a WSL o a la seguridad del equipo), así que hazlo solo con ayuda del docente.</p>
                         </div>
-                        <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
-                            <li>Ve a <a href="https://www.virtualbox.org/" target="_blank" class="text-blue-500 underline">virtualbox.org</a>.</li>
-                            <li>Descarga "OS X hosts".</li>
-                            <li>Abre el <code>.dmg</code> y ejecuta <code>VirtualBox.pkg</code>.</li>
-                            <li>Permite la extensión del sistema en "Seguridad y Privacidad".</li>
-                        </ol>
                     </div>
-                    
+                </div>
+                <div class="grid md:grid-cols-1 gap-6 mt-6">
                     <!-- Linux -->
                     <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
                         <div class="flex items-center mb-3">
@@ -4542,13 +4631,15 @@ resultado = numero1 + numero2<br>
                             <h4 class="font-bold theme-text-primary">Linux</h4>
                         </div>
                         <ol class="text-sm theme-text-secondary space-y-2 list-decimal list-inside">
-                            <li>Abre la terminal.</li>
-                            <li>Ubuntu/Debian: <code>sudo apt install virtualbox</code></li>
-                            <li>Fedora: <code>sudo dnf install virtualbox</code></li>
-                            <li>Agrega tu usuario al grupo vboxusers: <code>sudo usermod -aG vboxusers $USER</code></li>
+                            <li>En <a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="noopener" class="text-blue-500 underline">Linux_Downloads</a> descarga el paquete de tu distribución y versión (Ubuntu, Debian, Fedora…).</li>
+                            <li>Ubuntu/Debian: <code>sudo apt install ./VirtualBox-7.2*.deb</code></li>
+                            <li>Fedora: <code>sudo dnf install ./VirtualBox-7.2*.rpm</code></li>
+                            <li>Necesitas <code>gcc</code>, <code>make</code> y los encabezados del kernel; con Secure Boot puede que debas firmar los módulos.</li>
+                            <li>Para usar USB en las VM: <code>sudo usermod -a -G vboxusers $USER</code> y vuelve a iniciar sesión.</li>
                         </ol>
                     </div>
                 </div>
+                <p class="text-xs theme-text-secondary mt-4">Instrucciones tomadas de virtualbox.org, del manual de VirtualBox 7.2 y de la ayuda de Microsoft «Habilitar la virtualización en Windows» (noviembre de 2026). El «Extension Pack» es opcional y gratuito solo para uso personal y educativo.</p>
             </div>
 
             <div class="mb-8">
@@ -4591,6 +4682,20 @@ resultado = numero1 + numero2<br>
                 </ul>
             </div>
         `,
+        exercises: [
+            {
+                title: "¿Cuánta RAM le doy a mi VM?",
+                description: "Pide la RAM de tu computador en GB. Aplica la regla del módulo: nunca más del 50 %; si el equipo tiene 8 GB o más, asigna 4 GB; si no, asigna la mitad. Imprime el máximo, lo asignado y lo que le queda al anfitrión.",
+                template: "# ram_total = float(input(\"RAM de tu computador (GB): \"))\n# maximo = ...  (50 %)\n# Si ram_total >= 8 asigna 4, si no, asigna el máximo\n# Imprime el máximo, la RAM asignada y la que queda al anfitrión\n",
+                solution: "ram_total = float(input(\"RAM de tu computador (GB): \"))\nmaximo = ram_total / 2\nif ram_total >= 8:\n    asignada = 4\nelse:\n    asignada = maximo\nprint(f\"Máximo permitido: {maximo} GB\")\nprint(f\"RAM para la VM: {asignada} GB\")\nprint(f\"Le queda al anfitrión: {ram_total - asignada} GB\")"
+            },
+            {
+                title: "¿Caben mis máquinas virtuales?",
+                description: "Tienes 100 GB libres y quieres crear tres VM. Suma el disco que necesita cada una, imprime el total y di si caben (cuánto sobra) o no (cuánto falta).",
+                template: "discos = {\"Ubuntu\": 25, \"Fedora\": 30, \"Windows\": 64}\nlibre = 100\n\n# Imprime cada VM con sus GB, el total necesario\n# y si caben (sobran X GB) o no (faltan X GB)\n",
+                solution: "discos = {\"Ubuntu\": 25, \"Fedora\": 30, \"Windows\": 64}\nlibre = 100\n\ntotal = sum(discos.values())\nfor nombre, gb in discos.items():\n    print(f\"{nombre}: {gb} GB\")\nprint(\"Total necesario:\", total, \"GB\")\nif total <= libre:\n    print(\"Sí caben. Sobran\", libre - total, \"GB\")\nelse:\n    print(\"No caben. Faltan\", total - libre, \"GB\")"
+            }
+        ],
         quiz: [
             {
                 question: "¿Qué es una Máquina Virtual?",
@@ -4616,6 +4721,31 @@ resultado = numero1 + numero2<br>
                 question: "¿Para qué sirven los Snapshots?",
                 options: ["Para sacar fotos", "Para guardar el estado de la VM y restaurarlo", "Para imprimir", "Para acelerar internet"],
                 correct: 1
+            },
+            {
+                question: "En virtualización, ¿cómo se llama tu computador real, donde está instalado VirtualBox?",
+                options: ["Invitado (guest)", "Anfitrión (host)", "Servidor ISO", "Snapshot"],
+                correct: 1
+            },
+            {
+                question: "¿Qué tipo de disco virtual ahorra espacio porque crece a medida que se usa?",
+                options: ["Tamaño fijo", "Reservado dinámicamente", "Disco de solo lectura", "Disco en la nube"],
+                correct: 1
+            },
+            {
+                question: "¿Para qué sirven las «Guest Additions»?",
+                options: ["Para pantalla completa y compartir el portapapeles con el anfitrión", "Para descargar la ISO", "Para borrar la máquina virtual", "Para pagar la licencia"],
+                correct: 0
+            },
+            {
+                question: "Si tu computador tiene 16 GB de RAM, ¿cuál es el máximo que deberías asignar a la VM según la regla del módulo?",
+                options: ["16 GB", "12 GB", "8 GB", "1 GB"],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es una ventaja de usar una máquina virtual para aprender Linux?",
+                options: ["Probarlo sin borrar ni dañar tu sistema operativo principal", "Que el computador queda sin Windows", "Que no necesita memoria RAM", "Que hace más rápido el internet"],
+                correct: 0
             }
         ]
     }

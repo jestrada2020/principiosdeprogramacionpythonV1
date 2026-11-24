@@ -610,3 +610,9 @@ ul.pd-pasos { list-style: disc; }
 pre button, pre button span, code button, .consola button { font-family: 'Inter', system-ui, sans-serif !important; }
 pre .fas, pre .fa-solid, code .fas, .consola .fas { font-family: 'Font Awesome 6 Free' !important; font-weight: 900; }
 pre .fab, code .fab, .consola .fab { font-family: 'Font Awesome 6 Brands' !important; }
+
+/* Botón «Informe PDF de la unidad» */
+.nav-item.nav-informe { color: var(--texto-3); font-size: .8rem; }
+.nav-item.nav-informe .estado { color: var(--rojo); }
+.nav-item.nav-informe:hover { color: var(--texto); }
+@media (max-width: 640px) { .btn-informe span { display: none; } }

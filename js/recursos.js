@@ -75,35 +75,6 @@ function copyToClipboard(texto)      { copiarTexto(texto, '¡Comando copiado!');
 // Botones que aparecen dentro del contenido de algunos módulos
 function openNewColabNotebook() { window.open('https://colab.research.google.com/', '_blank', 'noopener'); showNotification('Abriendo Google Colab…'); }
 function openOverleafEditor()   { window.open('https://www.overleaf.com/', '_blank', 'noopener'); showNotification('Abriendo Overleaf…'); }
-function openZAI()              { window.open('https://chat.z.ai/', '_blank', 'noopener'); showNotification('Abriendo Z AI…'); }
-function handleZAIIframeLoad() {}
-function handleZAIIframeError() { showZAIFallback(); }
-function showZAIFallback() {
-    const marco = document.getElementById('zai-iframe-container');
-    const respaldo = document.getElementById('zai-fallback');
-    if (marco && respaldo) { marco.style.display = 'none'; respaldo.classList.remove('hidden'); respaldo.style.display = 'flex'; }
-}
-
-// Cursor no se puede abrir desde una página web: se muestran instrucciones claras
-function launchCursorIDE() {
-    const ua = navigator.userAgent.toLowerCase();
-    const so = ua.includes('win') ? 'Windows' : ua.includes('mac') ? 'macOS' : ua.includes('linux') ? 'Linux' : 'tu sistema';
-    const terminal = so === 'Windows' ? 'PowerShell' : 'la Terminal';
-    UI.modal('Abrir Cursor IDE', `
-        <p style="color:var(--texto-2)">Sistema detectado: <b>${so}</b>. Por seguridad, el navegador no puede abrir programas de tu computador; hazlo así:</p>
-        <ol style="margin:12px 0 14px 18px;list-style:decimal;color:var(--texto-2);line-height:1.8">
-            <li>Abre ${terminal}.</li>
-            <li>Escribe <code class="mono">cursor .</code> y presiona Enter (abre Cursor en la carpeta actual).</li>
-            <li>Si dice «comando no encontrado», instala Cursor desde su página.</li>
-        </ol>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="boton primario" onclick="copyToClipboard('cursor .')"><i class="fas fa-copy"></i>Copiar comando</button>
-            <a class="boton" href="https://cursor.com" target="_blank" rel="noopener"><i class="fas fa-download"></i>Descargar Cursor</a>
-        </div>`);
-}
-function openCursorWebsite() { window.open('https://cursor.com', '_blank', 'noopener'); }
-function closeCursorModal() { UI.cerrarModal(); }
-
 // Manual de usuario en una ventana aparte (si el navegador la bloquea, se avisa en la página)
 function abrirManual() {
     const w = window.open('docs/manual_usuario.pdf', '_blank');

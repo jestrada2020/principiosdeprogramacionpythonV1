@@ -17,13 +17,19 @@ Cada módulo es una **misión de cuatro pasos**:
 
 Además: **reto del día** (XP doble), **meta diaria** de 60 XP, **racha** de días seguidos,
 22 **medallas**, 11 **niveles** (de «Huevo de pitón» a «Gran Maestro Pythonista») y un **diploma**
-imprimible al completar los 19 módulos.
+imprimible al completar los 21 módulos.
 
 ## Secciones
 
 - **Inicio · Mapa**: saludo, siguiente misión, reto del día, meta diaria, dato curioso y el mapa de 5 unidades.
 - **Laboratorio libre**: editor con ejemplos de biología (ADN, ARN, IMC, gráficos de población…).
 - **Mis logros**: estadísticas, medallas, niveles y diploma.
+- **Reporte PDF para el docente** (barra lateral, «Mis logros» o Ctrl+K): descarga un PDF con el resumen, el progreso por módulo
+  (retos, mejor quiz y nota de 0 a 5), las medallas y el historial de actividades con fecha, listo para enviarlo al docente.
+- **Informe PDF de cada unidad** (botón en el encabezado de cada módulo, en cada unidad del mapa y de la barra lateral, en
+  «Mis logros» y en Ctrl+K): por cada módulo de la unidad, los temas de la lección, la lección, el laboratorio (programas
+  ejecutados), cada reto por su nombre y el quiz (intentos, último y mejor resultado, nota), más el historial de la unidad y un
+  recuadro para las observaciones y la nota del docente.
 - **Evaluaciones**: los 4 quizzes y 4 parciales externos, con enlace directo y código QR.
 - **Recursos del curso**: libro del curso (PDF), resumen clave, páginas recomendadas, Shiny for Python,
   conceptos de Shiny, Overleaf/LaTeX, guía de GitHub y HTML de entregas.
@@ -70,7 +76,8 @@ app.html              Aplicación (barra lateral, vistas y paneles de recursos/e
 html-entregas.html    Página de entregas semanales
 css/academia.css      Sistema visual (temas claro y oscuro, adaptación a celular)
 js/auth.js            Usuarios y sesión
-js/modules-data.js    CONTENIDO de los 20 módulos: videos, texto, guías, retos y quizzes
+js/modules-data.js    CONTENIDO de los módulos: videos, texto, guías, retos y quizzes
+js/modulos-libro-temas.js  Temas del libro: «Gestión de Memoria», «Agentes de IA con Nod» y «R con RStudio» (opcional)
 js/gamificacion.js    XP, niveles, racha, meta diaria, medallas y confeti
 js/laboratorio.js     Ejecución de Python, explicación de errores y verificación de retos
 js/recursos.js        Catálogo de evaluaciones (con QR) y recursos
@@ -80,11 +87,12 @@ js/datos-pandas.js    Datos de práctica para pandas, copiados al Python del nav
 data/                 Los mismos datos de práctica en CSV (para Colab o Excel)
 js/registro.js        Envío automático de ingresos, salidas y actividades a Google Forms
 js/registro-config.js Direcciones de los formularios (las genera docs/crear_formularios.gs)
+js/reporte.js         Reporte general y por unidad en PDF para el docente (jsPDF, cargado al pulsar el botón)
 js/videos.js          «Aprendo con videos»: temas, videos verificados del canal y módulos sin videos
 js/app-core.js        Navegación, mapa, módulos por pasos, quiz, logros, buscador y notas
 *.pdf                 Libro del curso y resumen clave
 docs/manual_usuario.html  Fuente del manual de usuario (estilo en docs/estilo_manual.css)
-docs/manual_usuario.pdf   Manual de usuario (34 páginas)
+docs/manual_usuario.pdf   Manual de usuario (38 páginas)
 docs/img/                 Capturas usadas en el manual
 docs/historial/           Archivos de versiones anteriores que la aplicación ya no usa
 ```

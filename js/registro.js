@@ -84,6 +84,7 @@ const REGISTRO = (() => {
 
     /** actividad: 'Lección' | 'Reto' | 'Quiz' | 'Módulo completado' */
     function actividad(modulo, tipoActividad, detalle, resultado, nota) {
+        if (typeof GAME !== 'undefined' && GAME.anotar) GAME.anotar(modulo, tipoActividad, detalle, resultado, nota);
         const s = sesion();
         if (!registrable(s) || !activo('notas')) return;
         const e = GAME.estado, nv = GAME.nivelDe(e.xp);

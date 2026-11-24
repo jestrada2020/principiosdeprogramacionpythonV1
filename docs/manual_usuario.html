@@ -14,7 +14,7 @@
     </div>
     <div class="subtitulo">Manual de usuario</div>
     <img src="img/interfaz.jpg" alt="Pantalla de inicio de Academia Bio-Python">
-    <div class="datos">Versión 5 · octubre de 2026</div>
+    <div class="datos">Versión 5.6 · noviembre de 2026</div>
 </section>
 
 <section class="indice">
@@ -32,7 +32,12 @@
                 <li><a href="#quiz">5.4 Quiz</a></li>
             </ol>
         </li>
-        <li><a href="#puntos">6. Puntos, niveles, medallas y diploma</a></li>
+        <li><a href="#puntos">6. Puntos, niveles, medallas y diploma</a>
+            <ol>
+                <li><a href="#reporte">6.1 Reporte PDF para el docente</a></li>
+                <li><a href="#informe-unidad">6.2 Informe PDF de cada unidad</a></li>
+            </ol>
+        </li>
         <li><a href="#libre">7. Laboratorio libre</a></li>
         <li><a href="#pandas">8. Bases de datos con pandas</a></li>
         <li><a href="#videos">9. Aprendo con videos</a></li>
@@ -59,7 +64,7 @@ pasos y cada avance da <strong>puntos de experiencia (XP)</strong>, sube de <str
 </div>
 <table>
     <tr><th>Lo que encontrarás</th><th>Para qué sirve</th></tr>
-    <tr><td>19 módulos en 5 unidades + 3 opcionales</td><td>Desde la instalación de Python hasta clases, biblioteca estándar y herramientas de IA; como bonus, Actividades Extras, Bases de datos con pandas y el Libro del curso (PDF).</td></tr>
+    <tr><td>21 módulos en 5 unidades + 4 opcionales</td><td>Desde la instalación de Python hasta clases, gestión de memoria, biblioteca estándar y herramientas de IA (incluido el agente Nod de n8n); como bonus, Actividades Extras, Bases de datos con pandas, R con RStudio y el Libro del curso (PDF).</td></tr>
     <tr><td>Laboratorio de código</td><td>Escribir y ejecutar Python, con errores explicados en español.</td></tr>
     <tr><td>Retos con verificación automática</td><td>Saber al instante si tu programa produce los resultados correctos.</td></tr>
     <tr><td>Quizzes interactivos</td><td>Repasar la teoría con respuesta inmediata.</td></tr>
@@ -93,8 +98,8 @@ pasos y cada avance da <strong>puntos de experiencia (XP)</strong>, sube de <str
 <table>
     <tr><th>Zona</th><th>Qué contiene</th></tr>
     <tr><td>Tarjeta del jugador</td><td>Tu nombre, nivel, barra de XP (cuánto falta para subir), racha 🔥, XP de hoy ⚡ y medallas.</td></tr>
-    <tr><td>Secciones</td><td>Inicio · Mapa, Laboratorio libre, Mis logros, Evaluaciones, Recursos del curso, Bases de datos (pandas), Aprendo con videos y Manual de usuario.</td></tr>
-    <tr><td>Módulos</td><td>Las 5 unidades (se despliegan con un clic) y los módulos opcionales (bonus) «Actividades Extras», «Bases de datos con pandas» y «Libro del curso (PDF)», marcados con ★. El círculo de cada módulo
+    <tr><td>Secciones</td><td>Inicio · Mapa, Laboratorio libre, Mis logros, Reporte PDF para el docente, Evaluaciones, Recursos del curso, Bases de datos (pandas), Aprendo con videos y Manual de usuario.</td></tr>
+    <tr><td>Módulos</td><td>Las 5 unidades (se despliegan con un clic) y los módulos opcionales (bonus) «Actividades Extras», «Bases de datos con pandas», «R con RStudio» y «Libro del curso (PDF)», marcados con ★. El círculo de cada módulo
         muestra su número, amarillo si está en curso y verde con ✓ si está completado.</td></tr>
     <tr><td>Barra superior</td><td>Dónde estás, el <strong>buscador</strong> (Ctrl+K), el estado de Python
         (amarillo: cargando; verde: «Python listo»), tus <strong>notas</strong>, el tema claro/oscuro y la pantalla completa.</td></tr>
@@ -256,7 +261,7 @@ Cuando subes de nivel, ganas una medalla o completas un módulo, aparece una cel
     <div>
         <p>En <strong>Mis logros</strong> ves tus estadísticas (programas ejecutados, retos, errores corregidos, mejor racha),
         todas las medallas (las grises aún están bloqueadas), la lista de niveles y la tabla de XP.</p>
-        <p>Al completar los 19 módulos del curso (los opcionales no son necesarios) se activa el botón <strong>Diploma</strong>, que abre un diploma con tu nombre, nivel,
+        <p>Al completar los 21 módulos del curso (los opcionales no son necesarios) se activa el botón <strong>Diploma</strong>, que abre un diploma con tu nombre, nivel,
         XP y medallas, listo para imprimir o guardar en PDF.</p>
     </div>
     <figure>
@@ -266,8 +271,80 @@ Cuando subes de nivel, ganas una medalla o completas un módulo, aparece una cel
 </div>
 <figure>
     <img src="img/logros.jpg" alt="Mis logros">
-    <figcaption>Figura 14. Mis logros: nivel 4 «Domador de variables», estadísticas, medallas y niveles.</figcaption>
+    <figcaption>Figura 14. Mis logros: nivel 4 «Domador de variables», botones del reporte PDF y del diploma, estadísticas, medallas y niveles.</figcaption>
 </figure>
+
+<h3 id="reporte" class="nueva-pagina">6.1 Reporte PDF para el docente</h3>
+<p>Con un solo clic descargas un PDF con los resultados de tus actividades, listo para enviarlo a tu docente
+(por correo, por la plataforma del curso o por WhatsApp). Puedes generarlo desde tres lugares:</p>
+<ul>
+    <li>El botón <strong>Reporte PDF para el docente</strong> de la barra lateral, debajo de «Mis logros».</li>
+    <li>El botón <strong>Reporte para el docente (PDF)</strong> en la parte superior de «Mis logros».</li>
+    <li>El buscador (Ctrl+K): escribe <em>reporte</em> y elige «Reporte para el docente (PDF)».</li>
+</ul>
+<figure>
+    <img src="img/reporte_boton.jpg" alt="Botones del reporte PDF">
+    <figcaption>Figura 15. Los dos botones del reporte (en rojo): en la barra lateral y en «Mis logros».</figcaption>
+</figure>
+<p>El archivo se guarda en la carpeta de descargas con el nombre <code>Reporte_BioPython_&lt;usuario&gt;_&lt;fecha&gt;.pdf</code>,
+por ejemplo <code>Reporte_BioPython_1017926430_2026-11-23.pdf</code>. Contiene:</p>
+<table>
+    <tr><th>Parte</th><th>Qué muestra</th></tr>
+    <tr><td>Encabezado</td><td>Tu nombre, usuario, nivel, XP y la fecha y hora en que se generó el reporte.</td></tr>
+    <tr><td>Resumen</td><td>Módulos del curso completados (de 21), retos superados (y cuántos con ayuda de la solución), quizzes
+        presentados y el <strong>promedio de notas de 0 a 5</strong>. También la racha, las medallas y los programas ejecutados.</td></tr>
+    <tr><td>Progreso por módulo</td><td>Para cada módulo, agrupado por unidad, y para los opcionales: lección leída, laboratorio,
+        retos superados de cuántos hay, mejor resultado del quiz, nota (porcentaje ÷ 20) y estado
+        (<em>Completado</em>, <em>En curso</em> o <em>Sin iniciar</em>).</td></tr>
+    <tr><td>Medallas obtenidas</td><td>Cada medalla con la fecha en que la ganaste.</td></tr>
+    <tr><td>Historial de actividades</td><td>Lecciones, retos, intentos de quiz y módulos completados, con fecha y hora, del más reciente al más antiguo.</td></tr>
+</table>
+<figure>
+    <img src="img/reporte_pdf.jpg" alt="Primera página del reporte PDF">
+    <figcaption>Figura 16. Primera página de un reporte: encabezado, resumen y progreso por módulo.</figcaption>
+</figure>
+<div class="nota">
+    <p><strong>Ten en cuenta:</strong> el reporte se arma con el progreso guardado en <em>este</em> navegador. Genéralo en el
+    computador y el navegador donde estudias. El historial con fechas empezó a registrarse en la versión 5.5 (noviembre de 2026);
+    lo que hiciste antes aparece en la tabla por módulo, pero no en el historial.</p>
+</div>
+
+<h3 id="informe-unidad" class="nueva-pagina">6.2 Informe PDF de cada unidad</h3>
+<p>Además del reporte general, cada unidad tiene su propio <strong>informe PDF para el docente</strong>, con el detalle de las
+lecciones, el laboratorio, los retos y el quiz de sus módulos. Sirve para entregar una unidad apenas la terminas. Lo generas desde:</p>
+<ul>
+    <li>El botón azul <strong>Informe PDF de la unidad</strong> en el encabezado de cada módulo: se ve en todas sus pestañas
+    (Lección, Laboratorio, Retos y Quiz) y descarga el informe de la unidad a la que pertenece ese módulo.</li>
+    <li>El botón <strong>Informe PDF</strong> junto a cada unidad del mapa de la aventura (también en «Bonus · opcional»).</li>
+    <li>La opción <strong>Informe PDF de la unidad</strong> al final de cada unidad en la barra lateral.</li>
+    <li>La tarjeta <strong>Informes por unidad para el docente</strong> de «Mis logros», con un botón por unidad.</li>
+    <li>El buscador (Ctrl+K): escribe <em>informe</em> y elige la unidad.</li>
+</ul>
+<figure>
+    <img src="img/informe_boton.jpg" alt="Botón Informe PDF de la unidad">
+    <figcaption>Figura 17. Botón «Informe PDF de la unidad» en el encabezado de un módulo de la Unidad 2.</figcaption>
+</figure>
+<p>El archivo se llama <code>Informe_Unidad&lt;n&gt;_BioPython_&lt;usuario&gt;_&lt;fecha&gt;.pdf</code> (para los opcionales,
+<code>Informe_Bonus_…</code>) y contiene:</p>
+<table>
+    <tr><th>Parte</th><th>Qué muestra</th></tr>
+    <tr><td>Resumen de la unidad</td><td>Módulos completados, lecciones leídas, laboratorio usado (y cuántos programas ejecutaste),
+        retos superados, quizzes presentados y el <strong>promedio de la unidad de 0 a 5</strong>.</td></tr>
+    <tr><td>Un bloque por módulo</td><td>Los <strong>temas de la lección</strong>; la lección (leída o pendiente); el laboratorio
+        (programas ejecutados y cuántos con error); <strong>cada reto por su nombre</strong> (superado, superado con la solución o
+        pendiente); el quiz (número de preguntas, intentos, último resultado, mejor resultado y nota) y el estado del módulo.</td></tr>
+    <tr><td>Historial de la unidad</td><td>Las actividades de esos módulos con fecha y hora.</td></tr>
+    <tr><td>Para el docente</td><td>Un recuadro para las observaciones, la nota asignada y la firma.</td></tr>
+</table>
+<figure>
+    <img src="img/informe_unidad.jpg" alt="Primera página del informe de la Unidad 2">
+    <figcaption>Figura 18. Primera página del informe de la Unidad 2: resumen y un bloque por módulo con temas, laboratorio, retos y quiz.</figcaption>
+</figure>
+<div class="nota">
+    <p><strong>Ten en cuenta:</strong> el conteo de programas ejecutados y de intentos de quiz por módulo empezó en la versión 5.6
+    (noviembre de 2026); antes de esa versión el informe muestra solo si usaste el laboratorio y tu mejor resultado del quiz.
+    Sin internet se abre una versión imprimible: elige «Guardar como PDF».</p>
+</div>
 
 <h2 id="libre">7. Laboratorio libre</h2>
 <p>Es un laboratorio que no pertenece a ningún módulo, ideal para tus propios programas. Arriba tiene
@@ -275,7 +352,7 @@ Cuando subes de nivel, ganas una medalla o completas un módulo, aparece una cel
 funciones, gráfico de población, temperaturas y «Adivina el número». Al pulsar uno se carga y se ejecuta.</p>
 <figure>
     <img src="img/libre.jpg" alt="Laboratorio libre">
-    <figcaption>Figura 15. Experimento «Gráfico de población»: matplotlib dibuja conejos que se duplican cada año.</figcaption>
+    <figcaption>Figura 19. Experimento «Gráfico de población»: matplotlib dibuja conejos que se duplican cada año.</figcaption>
 </figure>
 
 <h2 id="pandas">8. Bases de datos con pandas</h2>
@@ -289,7 +366,7 @@ datos del PC, explorar, seleccionar, filtrar, ordenar, crear columnas, limpiar d
 gráficos, exportar y un resumen rápido. Cada ejemplo tiene <strong>▶ Probar</strong>.</p>
 <figure>
     <img src="img/pandas_leccion.jpg" alt="Lección de pandas">
-    <figcaption>Figura 16. Lección de pandas: índice de temas y el primer tema, «¿Qué es pandas y qué es un DataFrame?».</figcaption>
+    <figcaption>Figura 20. Lección de pandas: índice de temas y el primer tema, «¿Qué es pandas y qué es un DataFrame?».</figcaption>
 </figure>
 <h4>Datos de práctica</h4>
 <p>Seis archivos ya están cargados en el Python de la plataforma, así que se leen directamente con <code>pd.read_csv("ventas.csv")</code>.
@@ -312,18 +389,18 @@ En la lección (tema 4) cada uno tiene un botón para descargarlo y usarlo en Co
 </ol>
 <figure>
     <img src="img/pandas_subir.jpg" alt="Archivo subido">
-    <figcaption>Figura 17. Después de subir «municipios.csv», la consola indica cómo leerlo y ofrece «Usar en mi código».</figcaption>
+    <figcaption>Figura 21. Después de subir «municipios.csv», la consola indica cómo leerlo y ofrece «Usar en mi código».</figcaption>
 </figure>
 <figure>
     <img src="img/pandas_lab.jpg" alt="Tabla en la consola">
-    <figcaption>Figura 18. CSV de Excel en español (<code>sep=";"</code>, <code>decimal=","</code>): se calcula la densidad, <code>mostrar(m)</code> dibuja la tabla y se guarda «densidad.csv».</figcaption>
+    <figcaption>Figura 22. CSV de Excel en español (<code>sep=";"</code>, <code>decimal=","</code>): se calcula la densidad, <code>mostrar(m)</code> dibuja la tabla y se guarda «densidad.csv».</figcaption>
 </figure>
 <p>El botón con el ícono de <strong>carpeta</strong> (junto a Subir) abre <strong>Archivos de Python</strong>: la lista de archivos que tu código
 puede leer (los tuyos, los creados con <code>to_csv</code> o <code>to_excel</code> y los de práctica), con <strong>Usar</strong> y
 <strong>Descargar</strong>.</p>
 <figure>
     <img src="img/pandas_archivos.jpg" alt="Archivos de Python">
-    <figcaption>Figura 19. Archivos de Python: «densidad.csv» (creado por el programa) y «municipios.csv» (subido) listos para descargar o usar.</figcaption>
+    <figcaption>Figura 23. Archivos de Python: «densidad.csv» (creado por el programa) y «municipios.csv» (subido) listos para descargar o usar.</figcaption>
 </figure>
 <div class="atencion"><p>Los archivos subidos viven en la memoria del navegador: se borran al recargar la página. Tus datos no salen de tu computador.</p></div>
 <h4>El paso Colab</h4>
@@ -332,7 +409,7 @@ puede leer (los tuyos, los creados con <code>to_csv</code> o <code>to_excel</cod
 <code>files.download()</code>.</p>
 <figure>
     <img src="img/pandas_colab.jpg" alt="Guía de Colab">
-    <figcaption>Figura 20. Paso Colab: formas de cargar datos desde el PC a Google Colab.</figcaption>
+    <figcaption>Figura 24. Paso Colab: formas de cargar datos desde el PC a Google Colab.</figcaption>
 </figure>
 <h4>Retos</h4>
 <p>Los 10 retos usan los datos de práctica: crear un DataFrame, total vendido, estudiantes aprobados, temperatura por ciudad, limpiar datos de
@@ -348,7 +425,7 @@ tema, botones para ir a las partes de la aplicación relacionadas y <strong>Abri
 YouTube puede mostrar «Error 153»: usa <strong>Abrir en YouTube</strong> o entra por la dirección publicada de la aplicación.</p></div>
 <figure>
     <img src="img/videos.jpg" alt="Aprendo con videos">
-    <figcaption>Figura 21. «Dataframes y pandas en Python» reproduciéndose; a la derecha, los botones a Estructuras de Datos y Google Colab.</figcaption>
+    <figcaption>Figura 25. «Dataframes y pandas en Python» reproduciéndose; a la derecha, los botones a Estructuras de Datos y Google Colab.</figcaption>
 </figure>
 <table>
     <tr><th>Tema</th><th class="c">Videos</th><th>Partes de la aplicación relacionadas</th></tr>
@@ -369,11 +446,11 @@ para iniciar la evaluación (en una ventana nueva), el <strong>código QR</stron
 enlace directo (al pulsarlo se copia).</p>
 <figure>
     <img src="img/evaluaciones.jpg" alt="Evaluaciones">
-    <figcaption>Figura 22. Sección Evaluaciones.</figcaption>
+    <figcaption>Figura 26. Sección Evaluaciones.</figcaption>
 </figure>
 <figure>
     <img src="img/evaluacion_qr.jpg" alt="Evaluación con QR">
-    <figcaption>Figura 23. Primer quiz: botón «Iniciar Evaluación», código QR y enlace directo.</figcaption>
+    <figcaption>Figura 27. Primer quiz: botón «Iniciar Evaluación», código QR y enlace directo.</figcaption>
 </figure>
 <h4>Libro del curso (PDF)</h4>
 <p>El módulo opcional <strong>Libro del curso (PDF)</strong> (en el bonus del mapa y al final de la lista de módulos) muestra el libro
@@ -382,14 +459,14 @@ enlace directo (al pulsarlo se copia).</p>
 <strong>Descargar PDF</strong> lo guarda en tu computador. Como no tiene quiz, se completa con <strong>Marcar como completado</strong>.</p>
 <figure>
     <img src="img/libro_curso.jpg" alt="Libro del curso">
-    <figcaption>Figura 24. Módulo «Libro del curso (PDF)»: visor del libro y botones «Ver en ventana emergente» y «Descargar PDF».</figcaption>
+    <figcaption>Figura 28. Módulo «Libro del curso (PDF)»: visor del libro y botones «Ver en ventana emergente» y «Descargar PDF».</figcaption>
 </figure>
 <p><strong>Recursos del curso</strong> contiene el libro del curso en PDF, el resumen clave de Python, páginas
 recomendadas, Shiny for Python y sus conceptos clave, el editor de LaTeX (Overleaf), la guía de GitHub, el HTML de
 entregas y este manual. El botón <strong>← Recursos del curso</strong> regresa a las tarjetas.</p>
 <figure>
     <img src="img/recursos.jpg" alt="Recursos">
-    <figcaption>Figura 25. Sección Recursos del curso.</figcaption>
+    <figcaption>Figura 29. Sección Recursos del curso.</figcaption>
 </figure>
 
 <h2 id="buscador">11. Buscador y notas</h2>
@@ -398,14 +475,14 @@ retos, quizzes, evaluaciones y recursos relacionados (también busca dentro del 
 flechas y abre con <kbd>Enter</kbd>.</p>
 <figure>
     <img src="img/buscador.jpg" alt="Buscador">
-    <figcaption>Figura 26. Buscando «bucle»: el buscador propone el módulo «4. Control de Flujo».</figcaption>
+    <figcaption>Figura 30. Buscando «bucle»: el buscador propone el módulo «4. Control de Flujo».</figcaption>
 </figure>
 <p>El botón de <strong>notas</strong> (arriba a la derecha) abre un cuaderno para el módulo en el que estás (o notas
 generales en el inicio). <strong>Guardar</strong> las conserva en el navegador y <strong>Descargar todas</strong> crea un
 archivo <code>mis_notas_biopython.md</code> con las notas de todos los módulos.</p>
 <figure>
     <img src="img/notas.jpg" alt="Notas">
-    <figcaption>Figura 27. Notas del módulo «3. Introducción Informal a Python».</figcaption>
+    <figcaption>Figura 31. Notas del módulo «3. Introducción Informal a Python».</figcaption>
 </figure>
 
 <h2 id="errores">12. Guía rápida de errores de Python</h2>
@@ -434,7 +511,7 @@ Recursos del curso). Se muestra en un visor y tiene dos botones:</p>
 </ul>
 <figure>
     <img src="img/pestana_manual.jpg" alt="Sección del manual">
-    <figcaption>Figura 28. La sección «Manual de usuario» con sus botones (el visor muestra el PDF en el navegador).</figcaption>
+    <figcaption>Figura 32. La sección «Manual de usuario» con sus botones (el visor muestra el PDF en el navegador).</figcaption>
 </figure>
 
 <h2 id="problemas">14. Solución de problemas</h2>
@@ -452,6 +529,8 @@ Recursos del curso). Se muestra en un visor y tiene dos botones:</p>
     <tr><td>Subí un archivo y ya no aparece</td><td>Los archivos subidos se borran al recargar la página. Súbelo otra vez con «Subir».</td></tr>
     <tr><td>El CSV se lee en una sola columna o con números raros</td><td>Probablemente usa punto y coma y coma decimal (Excel en español): <code>pd.read_csv("a.csv", sep=";", decimal=",")</code>. Si las tildes se ven mal, agrega <code>encoding="latin-1"</code>.</td></tr>
     <tr><td>En «Mis logros» aparece «Registro para tu profesor»</td><td>Tu profesor activó el registro: la academia le envía tus horas de ingreso y salida y tus actividades (lecciones, retos, notas de los quizzes).</td></tr>
+    <tr><td>El reporte PDF no se descarga</td><td>Necesita internet la primera vez que se genera. Sin conexión se abre una versión
+        para imprimir: elige «Guardar como PDF» como impresora. Si no se abre, permite las ventanas emergentes para este sitio.</td></tr>
     <tr><td>En el celular no veo el menú</td><td>Toca el botón ☰ arriba a la izquierda.</td></tr>
 </table>
 
@@ -469,6 +548,14 @@ Recursos del curso). Se muestra en un visor y tiene dos botones:</p>
     <code>script.google.com</code> (función <code>crearFormularios</code>) y copie el bloque <code>REGISTRO_CONFIG</code> que imprime en
     <code>js/registro-config.js</code>. Desde ese momento la academia envía sola la hora de ingreso, la de salida y la duración de cada
     sesión, y las lecciones, retos, notas de los quizzes (0 a 5) y módulos completados a la hoja «Academia Bio-Python · Registros».</li>
+    <li><strong>Reporte PDF de los estudiantes:</strong> cada estudiante descarga su reporte desde la barra lateral o desde
+    «Mis logros» y se lo envía. Lo genera <code>js/reporte.js</code> con jsPDF, que se descarga de cdnjs al pulsar el botón. Como sale
+    del progreso guardado en el navegador del estudiante, sirve como evidencia de trabajo; para notas oficiales, compárelo con
+    la hoja de Google Forms, que la academia llena automáticamente. El <strong>informe por unidad</strong>
+    (botón «Informe PDF de la unidad» de cada módulo) trae el detalle reto por reto y un recuadro para sus observaciones y la nota.</li>
+    <li><strong>Temas del libro del curso:</strong> los módulos «Gestión de Memoria» (Unidad 3), «Agentes de IA con Nod» (Unidad 5)
+    y «R con RStudio» (opcional) están en <code>js/modulos-libro-temas.js</code>. Los retos de R piden traducir cada idea a Python,
+    porque el laboratorio del navegador ejecuta Python.</li>
     <li><strong>Verificación de retos:</strong> se ejecuta la solución con las mismas entradas que el estudiante; por eso la
     solución debe imprimir los resultados que se quieren exigir.</li>
     <li><strong>Actualizar este manual:</strong> edite <code>docs/manual_usuario.html</code> y genere el PDF con Chrome:
